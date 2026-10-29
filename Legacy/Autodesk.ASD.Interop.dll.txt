@@ -1,0 +1,3782 @@
+Assembly : Autodesk.ASD.Interop, Version=2015.0.0.0, Culture=neutral, PublicKeyToken=1370ea39b9eb42e4
+Runtime  : v2.0.50727
+Types    : 229
+
+=================== ENUMS ===================
+
+enum RBCTCOMSERVERLib.ERbcrEditorType
+    ET_DEFAULT = 0
+    ET_VAR_LIN = 1
+    ET_WITHOUT_ENTITY = 2
+    ET_MULTI_TAB = 3
+    ET_MAX = 4
+
+enum RBCTCOMSERVERLib.ERbcrElEditorType
+    EET_DEFAULT = 0
+    EET_MAX = 1
+
+enum RBCTCOMSERVERLib.ERbcrElEntityType
+    EENT_NULL = 0
+    EENT_SOLID = 1
+    EENT_VIEW = 2
+    EENT_SECTION = 3
+    EENT_SECTION_MARK = 4
+    EENT_MAX = 5
+
+enum RBCTCOMSERVERLib.ERbcrElPlane
+    EP_XY = 0
+    EP_XZ = 1
+    EP_YZ = 2
+    EP_MAX = 3
+
+enum RBCTCOMSERVERLib.ERbcrObjectType
+    OT_NULL = 0
+    OT_BAR_OLD = 1
+    OT_STIRRUP_OLD = 2
+    OT_BAR = 3
+    OT_BAR_LAP = 4
+    OT_POINT = 5
+    OT_DISTR_LINE_VAR_ZONE = 6
+    OT_DISTR_LINE_CONST_ZONE = 7
+    OT_DISTR_LINE_VAR_MODULE = 8
+    OT_DISTR_LINE_CONST_MODULE = 9
+    OT_DISTR_LINE_VAR_CAQUOT = 10
+    OT_DISTR_LINE_CONST_CAQUOT = 11
+    OT_DISTR_LINE_VAR_ZONE_MULT = 12
+    OT_DISTR_LINE_CONST_ZONE_MULT = 13
+    OT_DISTR_LINE_VAR_MODULE_MULT = 14
+    OT_DISTR_LINE_CONST_MODULE_MULT = 15
+    OT_DISTR_LINE_VAR_CAQUOT_MULT = 16
+    OT_DISTR_LINE_CONST_CAQUOT_MULT = 17
+    OT_DISTR_POINT_REGULAR = 18
+    OT_DISTR_POINT_FREE = 19
+    OT_DISTR_POINT_COMPLEX = 20
+    OT_SHAPE_DESCR = 21
+    OT_DISTR_DESCR = 22
+    OT_DISTR_ARC_DESCR = 23
+    OT_DISTR_BARPROJ_DESCR = 24
+    OT_BAR_SYMBOL = 25
+    OT_BAR_TABLE = 26
+    OT_STEEL_TABLE = 27
+    OT_DETA_TABLE = 28
+    OT_MAIN_TABLE = 29
+    OT_SUM_TABLE = 30
+    OT_BAR_ELEMENT_TABLE = 31
+    OT_STEEL_ELEMENT_TABLE = 32
+    OT_COLUMN_TABLE = 33
+    OT_BEAM_TABLE = 34
+    OT_AS_BAR_NUMBER = 35
+    OT_AS_BAR_TABLE = 36
+    OT_AS_SURFACE_NUMBER = 37
+    OT_AS_SURFACE_TABLE = 38
+    OT_AS_ABSTRACT_NUMBER = 39
+    OT_AS_ABSTRACT_TABLE = 40
+    OT_AS_NET_NUMBER = 41
+    OT_AS_NET_TABLE = 42
+    OT_SLAB = 43
+    OT_SUPPORT_INTERMEDIATE = 44
+    OT_SUPPORT_TERMINAL = 45
+    OT_NET = 46
+    OT_NET_DISTRIBUTION = 47
+    OT_SURFACE = 48
+    OT_SURFACE_FAN = 49
+    OT_SURFACE_DESCRIPTION = 50
+    OT_SURFACE_SYMBOL = 51
+    OT_RING = 52
+    OT_RING_SECTION = 53
+    OT_SUPPORT_CIRCLE = 54
+    OT_SUPPORT_CIRCLE_SECTION = 55
+    OT_RADIAL_SURFACE_RADIAL = 56
+    OT_RADIAL_SURFACE_CIRCLE = 57
+    OT_RADIAL_CIRCLE_DESC = 58
+    OT_RADIAL_RADIAL_DESC = 59
+    OT_NETSIDE = 60
+    OT_NETSIDE_DESC = 61
+    OT_NETSIDE_DISTR_LINE_VAR = 62
+    OT_NETSIDE_DISTR_LINE_CONST = 63
+    OT_NETSIDE_SYMBOL = 64
+    OT_DMULTI = 65
+    OT_DMULTI_DESC = 66
+    OT_OBJECT = 67
+    OT_BAR_SPRING_TOP = 68
+    OT_BAR_SPRING_SIDE = 69
+    OT_SHAPE_TEMPLATE = 70
+    OT_MAX = 71
+
+enum RBCTCOMSERVERLib.ERbcrSteelEntityType
+    SENT_NULL = 0
+    SENT_SOLID = 1
+    SENT_VIEW = 2
+    SENT_SECTION = 3
+    SENT_SECTION_MARK = 4
+    SENT_VIEW_DESC = 5
+    SENT_SECTION_DESC = 6
+    SENT_MAX = 7
+
+enum RBCTCOMSERVERLib.ERbctAcActiveSpace
+    rbct_acModelSpace = 1
+    rbct_acPaperSpace = 0
+
+enum RBCTCOMSERVERLib.ERbctAcAlignment
+    rbct_acAlignmentAligned = 3
+    rbct_acAlignmentBottomCenter = 13
+    rbct_acAlignmentBottomLeft = 12
+    rbct_acAlignmentBottomRight = 14
+    rbct_acAlignmentCenter = 1
+    rbct_acAlignmentFit = 5
+    rbct_acAlignmentLeft = 0
+    rbct_acAlignmentMiddle = 4
+    rbct_acAlignmentMiddleCenter = 10
+    rbct_acAlignmentMiddleLeft = 9
+    rbct_acAlignmentMiddleRight = 11
+    rbct_acAlignmentRight = 2
+    rbct_acAlignmentTopCenter = 7
+    rbct_acAlignmentTopLeft = 6
+    rbct_acAlignmentTopRight = 8
+
+enum RBCTCOMSERVERLib.ERbctAcAngleUnits
+    rbct_acDegreeMinuteSeconds = 1
+    rbct_acDegrees = 0
+    rbct_acGrads = 2
+    rbct_acRadians = 3
+
+enum RBCTCOMSERVERLib.ERbctAcBooleanType
+    rbct_acUnion = 0
+    rbct_acIntersection = 1
+    rbct_acSubtraction = 2
+
+enum RBCTCOMSERVERLib.ERbctAcColorMethod
+    rbct_acColorMethodByLayer = 192
+    rbct_acColorMethodByBlock = 193
+    rbct_acColorMethodByRGB = 194
+    rbct_acColorMethodByACI = 195
+    rbct_acColorMethodForeground = 197
+
+enum RBCTCOMSERVERLib.ERbctAcCoordinateSystem
+    rbct_acDisplayDCS = 2
+    rbct_acOCS = 4
+    rbct_acPaperSpaceDCS = 3
+    rbct_acUCS = 1
+    rbct_acWorld = 0
+
+enum RBCTCOMSERVERLib.ERbctAcDimTextMovement
+    rbct_acDimLineWithText = 0
+    rbct_acMoveTextAddLeader = 1
+    rbct_acMoveTextNoLeader = 2
+
+enum RBCTCOMSERVERLib.ERbctAcExtendOption
+    rbct_acExtendBoth = 3
+    rbct_acExtendNone = 0
+    rbct_acExtendOtherEntity = 2
+    rbct_acExtendThisEntity = 1
+
+enum RBCTCOMSERVERLib.ERbctAcKeyboardPriority
+    rbct_acKeyboardEntry = 1
+    rbct_acKeyboardEntryExceptScripts = 2
+    rbct_acKeyboardRunningObjSnap = 0
+
+enum RBCTCOMSERVERLib.ERbctAcPlotPaperUnits
+    rbct_acInches = 0
+    rbct_acMillimeters = 1
+    rbct_acPixels = 2
+
+enum RBCTCOMSERVERLib.ERbctAcPlotRotation
+    rbct_ac0degrees = 0
+    rbct_ac90degrees = 1
+    rbct_ac180degrees = 2
+    rbct_ac270degrees = 3
+
+enum RBCTCOMSERVERLib.ERbctAcPlotScale
+    rbct_acScaleToFit = 0
+    rbct_ac1_128in_1ft = 1
+    rbct_ac1_64in_1ft = 2
+    rbct_ac1_32in_1ft = 3
+    rbct_ac1_16in_1ft = 4
+    rbct_ac3_32in_1ft = 5
+    rbct_ac1_8in_1ft = 6
+    rbct_ac3_16in_1ft = 7
+    rbct_ac1_4in_1ft = 8
+    rbct_ac3_8in_1ft = 9
+    rbct_ac1_2in_1ft = 10
+    rbct_ac3_4in_1ft = 11
+    rbct_ac1in_1ft = 12
+    rbct_ac3in_1ft = 13
+    rbct_ac6in_1ft = 14
+    rbct_ac1ft_1ft = 15
+    rbct_ac1_1 = 16
+    rbct_ac1_2 = 17
+    rbct_ac1_4 = 18
+    rbct_ac1_8 = 19
+    rbct_ac1_10 = 20
+    rbct_ac1_16 = 21
+    rbct_ac1_20 = 22
+    rbct_ac1_30 = 23
+    rbct_ac1_40 = 24
+    rbct_ac1_50 = 25
+    rbct_ac1_100 = 26
+    rbct_ac2_1 = 27
+    rbct_ac4_1 = 28
+    rbct_ac8_1 = 29
+    rbct_ac10_1 = 30
+    rbct_ac100_1 = 31
+
+enum RBCTCOMSERVERLib.ERbctAcRegenType
+    rbct_acActiveViewport = 0
+    rbct_acAllViewports = 1
+
+enum RBCTCOMSERVERLib.ERbctAcSelect
+    rbct_acSelectionSetAll = 5
+    rbct_acSelectionSetCrossing = 1
+    rbct_acSelectionSetCrossingPolygon = 7
+    rbct_acSelectionSetFence = 2
+    rbct_acSelectionSetLast = 4
+    rbct_acSelectionSetPrevious = 3
+    rbct_acSelectionSetWindow = 0
+    rbct_acSelectionSetWindowPolygon = 6
+
+enum RBCTCOMSERVERLib.ERbctAcadColor
+    rbct_acByBlock = 0
+    rbct_acRed = 1
+    rbct_acYellow = 2
+    rbct_acGreen = 3
+    rbct_acCyan = 4
+    rbct_acBlue = 5
+    rbct_acMagenta = 6
+    rbct_acWhite = 7
+    rbct_acByLayer = 256
+
+enum RBCTCOMSERVERLib.ERbctAppplication
+    RBCT_A_RBCT = 0
+    RBCT_A_RBCR = 1
+    RBCT_A_RBCS = 2
+    RBCT_A_RBCX = 3
+    RBCT_A_DRAW = 4
+    RBCT_A_MAX = 5
+
+enum RBCTCOMSERVERLib.ERbctDocumentType
+    RBCT_DT_RBCR_DEFAULT = 0
+    RBCT_DT_MAX = 1
+
+enum RBCTCOMSERVERLib.ERbctEditorType
+    TET_DEFAULT = 0
+    TET_MAX = 1
+
+enum RBCTCOMSERVERLib.ERbctElementCategory
+    eCategoryUndefined = 0
+    eLevel = 1
+    eLastCategory = 2
+
+enum RBCTCOMSERVERLib.ERbctFootHold
+    F_LEFT_TOP = 0
+    F_CENTER_TOP = 1
+    F_RIGHT_TOP = 2
+    F_LEFT_CENTER = 3
+    F_CENTER_CENTER = 4
+    F_RIGHT_CENTER = 5
+    F_LEFT_BOTTOM = 6
+    F_CENTER_BOTTOM = 7
+    F_RIGHT_BOTTOM = 8
+    F_MAX = 9
+
+enum RBCTCOMSERVERLib.ERbctMeasurementValue
+    English = 0
+    Metric = 1
+
+enum RBCTCOMSERVERLib.ERbctObjectType
+    TOT_NULL = 0
+    TOT_SYMBOL_AXIS = 1
+    TOT_SYMBOL_SECTION_DESC = 2
+    TOT_SYMBOL_SECTION_MARK = 3
+    TOT_SYMBOL_COTE = 4
+    TOT_MAX = 5
+
+enum RBCTCOMSERVERLib.ERbctRCADLayerType
+    RLT_FORMWORK = 0
+    RLT_DIMENSIONS = 1
+    RLT_SYMBOLS = 2
+    RLT_MAX = 3
+
+enum RBCTCOMSERVERLib.ERbctUnitsType
+    UT_NONE = 0
+    UT_LENGTH = 1
+    UT_DIAM = 2
+    UT_CROSSDIM = 2
+    UT_COVER = 3
+    UT_HOLEDIM = 3
+    UT_SANGLE = 3
+    UT_ANGLE = 4
+    UT_VOLUME = 4
+    UT_SURF = 5
+    UT_SPACE = 6
+    UT_XMASS = 6
+    UT_MASS = 7
+    UT_XANGLE = 7
+    UT_LENFIX = 8
+    UT_USERDEF = 9
+
+enum RBCTCOMSERVERLib.ERbctVBAEditorType
+    VET_DEFAULT = 0
+    VET_MAX = 1
+
+enum RBCTCOMSERVERLib.ERbctViewportType
+    RBCT_VT_RBCR_DEFAULT = 0
+    RBCT_VT_MAX = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0001
+    RBCT_A_RBCT = 0
+    RBCT_A_RBCR = 1
+    RBCT_A_RBCS = 2
+    RBCT_A_RBCX = 3
+    RBCT_A_DRAW = 4
+    RBCT_A_MAX = 5
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0002
+    RBCT_VT_RBCR_DEFAULT = 0
+    RBCT_VT_MAX = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0003
+    RBCT_DT_RBCR_DEFAULT = 0
+    RBCT_DT_MAX = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0004
+    VET_DEFAULT = 0
+    VET_MAX = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0005
+    TET_DEFAULT = 0
+    TET_MAX = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0006
+    TOT_NULL = 0
+    TOT_SYMBOL_AXIS = 1
+    TOT_SYMBOL_SECTION_DESC = 2
+    TOT_SYMBOL_SECTION_MARK = 3
+    TOT_SYMBOL_COTE = 4
+    TOT_MAX = 5
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0007
+    RLT_FORMWORK = 0
+    RLT_DIMENSIONS = 1
+    RLT_SYMBOLS = 2
+    RLT_MAX = 3
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0008
+    F_LEFT_TOP = 0
+    F_CENTER_TOP = 1
+    F_RIGHT_TOP = 2
+    F_LEFT_CENTER = 3
+    F_CENTER_CENTER = 4
+    F_RIGHT_CENTER = 5
+    F_LEFT_BOTTOM = 6
+    F_CENTER_BOTTOM = 7
+    F_RIGHT_BOTTOM = 8
+    F_MAX = 9
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0009
+    rbct_acModelSpace = 1
+    rbct_acPaperSpace = 0
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0010
+    rbct_acByBlock = 0
+    rbct_acRed = 1
+    rbct_acYellow = 2
+    rbct_acGreen = 3
+    rbct_acCyan = 4
+    rbct_acBlue = 5
+    rbct_acMagenta = 6
+    rbct_acWhite = 7
+    rbct_acByLayer = 256
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0011
+    rbct_acScaleToFit = 0
+    rbct_ac1_128in_1ft = 1
+    rbct_ac1_64in_1ft = 2
+    rbct_ac1_32in_1ft = 3
+    rbct_ac1_16in_1ft = 4
+    rbct_ac3_32in_1ft = 5
+    rbct_ac1_8in_1ft = 6
+    rbct_ac3_16in_1ft = 7
+    rbct_ac1_4in_1ft = 8
+    rbct_ac3_8in_1ft = 9
+    rbct_ac1_2in_1ft = 10
+    rbct_ac3_4in_1ft = 11
+    rbct_ac1in_1ft = 12
+    rbct_ac3in_1ft = 13
+    rbct_ac6in_1ft = 14
+    rbct_ac1ft_1ft = 15
+    rbct_ac1_1 = 16
+    rbct_ac1_2 = 17
+    rbct_ac1_4 = 18
+    rbct_ac1_8 = 19
+    rbct_ac1_10 = 20
+    rbct_ac1_16 = 21
+    rbct_ac1_20 = 22
+    rbct_ac1_30 = 23
+    rbct_ac1_40 = 24
+    rbct_ac1_50 = 25
+    rbct_ac1_100 = 26
+    rbct_ac2_1 = 27
+    rbct_ac4_1 = 28
+    rbct_ac8_1 = 29
+    rbct_ac10_1 = 30
+    rbct_ac100_1 = 31
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0012
+    rbct_acAlignmentAligned = 3
+    rbct_acAlignmentBottomCenter = 13
+    rbct_acAlignmentBottomLeft = 12
+    rbct_acAlignmentBottomRight = 14
+    rbct_acAlignmentCenter = 1
+    rbct_acAlignmentFit = 5
+    rbct_acAlignmentLeft = 0
+    rbct_acAlignmentMiddle = 4
+    rbct_acAlignmentMiddleCenter = 10
+    rbct_acAlignmentMiddleLeft = 9
+    rbct_acAlignmentMiddleRight = 11
+    rbct_acAlignmentRight = 2
+    rbct_acAlignmentTopCenter = 7
+    rbct_acAlignmentTopLeft = 6
+    rbct_acAlignmentTopRight = 8
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0013
+    rbct_acDegreeMinuteSeconds = 1
+    rbct_acDegrees = 0
+    rbct_acGrads = 2
+    rbct_acRadians = 3
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0014
+    rbct_acDisplayDCS = 2
+    rbct_acOCS = 4
+    rbct_acPaperSpaceDCS = 3
+    rbct_acUCS = 1
+    rbct_acWorld = 0
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0015
+    rbct_acDimLineWithText = 0
+    rbct_acMoveTextAddLeader = 1
+    rbct_acMoveTextNoLeader = 2
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0016
+    rbct_acExtendBoth = 3
+    rbct_acExtendNone = 0
+    rbct_acExtendOtherEntity = 2
+    rbct_acExtendThisEntity = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0017
+    rbct_acKeyboardEntry = 1
+    rbct_acKeyboardEntryExceptScripts = 2
+    rbct_acKeyboardRunningObjSnap = 0
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0018
+    rbct_acActiveViewport = 0
+    rbct_acAllViewports = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0019
+    rbct_acSelectionSetAll = 5
+    rbct_acSelectionSetCrossing = 1
+    rbct_acSelectionSetCrossingPolygon = 7
+    rbct_acSelectionSetFence = 2
+    rbct_acSelectionSetLast = 4
+    rbct_acSelectionSetPrevious = 3
+    rbct_acSelectionSetWindow = 0
+    rbct_acSelectionSetWindowPolygon = 6
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0020
+    rbct_acInches = 0
+    rbct_acMillimeters = 1
+    rbct_acPixels = 2
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0021
+    rbct_ac0degrees = 0
+    rbct_ac90degrees = 1
+    rbct_ac180degrees = 2
+    rbct_ac270degrees = 3
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0022
+    rbct_acUnion = 0
+    rbct_acIntersection = 1
+    rbct_acSubtraction = 2
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0023
+    rbct_acColorMethodByLayer = 192
+    rbct_acColorMethodByBlock = 193
+    rbct_acColorMethodByRGB = 194
+    rbct_acColorMethodByACI = 195
+    rbct_acColorMethodForeground = 197
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0024
+    UT_NONE = 0
+    UT_LENGTH = 1
+    UT_DIAM = 2
+    UT_CROSSDIM = 2
+    UT_COVER = 3
+    UT_HOLEDIM = 3
+    UT_SANGLE = 3
+    UT_ANGLE = 4
+    UT_VOLUME = 4
+    UT_SURF = 5
+    UT_SPACE = 6
+    UT_XMASS = 6
+    UT_MASS = 7
+    UT_XANGLE = 7
+    UT_LENFIX = 8
+    UT_USERDEF = 9
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0000_0000_0025
+    eCategoryUndefined = 0
+    eLevel = 1
+    eLastCategory = 2
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0001_0064_0001
+    ET_DEFAULT = 0
+    ET_VAR_LIN = 1
+    ET_WITHOUT_ENTITY = 2
+    ET_MULTI_TAB = 3
+    ET_MAX = 4
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0001_0064_0002
+    OT_NULL = 0
+    OT_BAR_OLD = 1
+    OT_STIRRUP_OLD = 2
+    OT_BAR = 3
+    OT_BAR_LAP = 4
+    OT_POINT = 5
+    OT_DISTR_LINE_VAR_ZONE = 6
+    OT_DISTR_LINE_CONST_ZONE = 7
+    OT_DISTR_LINE_VAR_MODULE = 8
+    OT_DISTR_LINE_CONST_MODULE = 9
+    OT_DISTR_LINE_VAR_CAQUOT = 10
+    OT_DISTR_LINE_CONST_CAQUOT = 11
+    OT_DISTR_LINE_VAR_ZONE_MULT = 12
+    OT_DISTR_LINE_CONST_ZONE_MULT = 13
+    OT_DISTR_LINE_VAR_MODULE_MULT = 14
+    OT_DISTR_LINE_CONST_MODULE_MULT = 15
+    OT_DISTR_LINE_VAR_CAQUOT_MULT = 16
+    OT_DISTR_LINE_CONST_CAQUOT_MULT = 17
+    OT_DISTR_POINT_REGULAR = 18
+    OT_DISTR_POINT_FREE = 19
+    OT_DISTR_POINT_COMPLEX = 20
+    OT_SHAPE_DESCR = 21
+    OT_DISTR_DESCR = 22
+    OT_DISTR_ARC_DESCR = 23
+    OT_DISTR_BARPROJ_DESCR = 24
+    OT_BAR_SYMBOL = 25
+    OT_BAR_TABLE = 26
+    OT_STEEL_TABLE = 27
+    OT_DETA_TABLE = 28
+    OT_MAIN_TABLE = 29
+    OT_SUM_TABLE = 30
+    OT_BAR_ELEMENT_TABLE = 31
+    OT_STEEL_ELEMENT_TABLE = 32
+    OT_COLUMN_TABLE = 33
+    OT_BEAM_TABLE = 34
+    OT_AS_BAR_NUMBER = 35
+    OT_AS_BAR_TABLE = 36
+    OT_AS_SURFACE_NUMBER = 37
+    OT_AS_SURFACE_TABLE = 38
+    OT_AS_ABSTRACT_NUMBER = 39
+    OT_AS_ABSTRACT_TABLE = 40
+    OT_AS_NET_NUMBER = 41
+    OT_AS_NET_TABLE = 42
+    OT_SLAB = 43
+    OT_SUPPORT_INTERMEDIATE = 44
+    OT_SUPPORT_TERMINAL = 45
+    OT_NET = 46
+    OT_NET_DISTRIBUTION = 47
+    OT_SURFACE = 48
+    OT_SURFACE_FAN = 49
+    OT_SURFACE_DESCRIPTION = 50
+    OT_SURFACE_SYMBOL = 51
+    OT_RING = 52
+    OT_RING_SECTION = 53
+    OT_SUPPORT_CIRCLE = 54
+    OT_SUPPORT_CIRCLE_SECTION = 55
+    OT_RADIAL_SURFACE_RADIAL = 56
+    OT_RADIAL_SURFACE_CIRCLE = 57
+    OT_RADIAL_CIRCLE_DESC = 58
+    OT_RADIAL_RADIAL_DESC = 59
+    OT_NETSIDE = 60
+    OT_NETSIDE_DESC = 61
+    OT_NETSIDE_DISTR_LINE_VAR = 62
+    OT_NETSIDE_DISTR_LINE_CONST = 63
+    OT_NETSIDE_SYMBOL = 64
+    OT_DMULTI = 65
+    OT_DMULTI_DESC = 66
+    OT_OBJECT = 67
+    OT_BAR_SPRING_TOP = 68
+    OT_BAR_SPRING_SIDE = 69
+    OT_SHAPE_TEMPLATE = 70
+    OT_MAX = 71
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0001_0083_0001
+    English = 0
+    Metric = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0001_0086_0001
+    ET_CS_DEFAULT = 0
+    ET_CS_MAX = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0001_0086_0002
+    OT_CS_GROUP = 0
+    OT_CS_PROFILE = 1
+    OT_CS_PRS_PROFILE = 2
+    OT_CS_PLATE = 3
+    OT_CS_WORKFRAME = 4
+    OT_CS_CONNECTION = 5
+    OT_CS_SIMCONNECTION = 6
+    OT_CS_WELD = 7
+    OT_CS_BOLT = 8
+    OT_CS_USEROBJ = 9
+    OT_CS_GRATE = 10
+    OT_CS_MAX = 11
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0001_0091_0001
+    SPT_PROFILE = 0
+    SPT_PLATE = 1
+    SPT_USER_OBJ = 2
+    SPT_MAX = 3
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0002_0176_0001
+    EET_DEFAULT = 0
+    EET_MAX = 1
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0002_0176_0002
+    EP_XY = 0
+    EP_XZ = 1
+    EP_YZ = 2
+    EP_MAX = 3
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0002_0176_0003
+    EENT_NULL = 0
+    EENT_SOLID = 1
+    EENT_VIEW = 2
+    EENT_SECTION = 3
+    EENT_SECTION_MARK = 4
+    EENT_MAX = 5
+
+enum RBCTCOMSERVERLib.__MIDL___MIDL_itf_RBCTComServer_0002_0176_0004
+    SENT_NULL = 0
+    SENT_SOLID = 1
+    SENT_VIEW = 2
+    SENT_SECTION = 3
+    SENT_SECTION_MARK = 4
+    SENT_VIEW_DESC = 5
+    SENT_SECTION_DESC = 6
+    SENT_MAX = 7
+
+enum RBCTCOMSERVERLib.eRbCSEditorType
+    ET_CS_DEFAULT = 0
+    ET_CS_MAX = 1
+
+enum RBCTCOMSERVERLib.eRbCSObjectType
+    OT_CS_GROUP = 0
+    OT_CS_PROFILE = 1
+    OT_CS_PRS_PROFILE = 2
+    OT_CS_PLATE = 3
+    OT_CS_WORKFRAME = 4
+    OT_CS_CONNECTION = 5
+    OT_CS_SIMCONNECTION = 6
+    OT_CS_WELD = 7
+    OT_CS_BOLT = 8
+    OT_CS_USEROBJ = 9
+    OT_CS_GRATE = 10
+    OT_CS_MAX = 11
+
+enum RBCTCOMSERVERLib.eRbCSSubPartType
+    SPT_PROFILE = 0
+    SPT_PLATE = 1
+    SPT_USER_OBJ = 2
+    SPT_MAX = 3
+
+================= INTERFACES =================
+
+interface RBCTCOMSERVERLib.DiRbctAutoCADEvents
+
+interface RBCTCOMSERVERLib.DiRbctAutoCADEvents_Event
+
+interface RBCTCOMSERVERLib.IAcGeMatrix3d
+    8 System.Object Get()
+    8 Void getCoordSystem(RBCTCOMSERVERLib.IAcGePoint3d, RBCTCOMSERVERLib.IAcGeVector3d, RBCTCOMSERVERLib.IAcGeVector3d, RBCTCOMSERVERLib.IAcGeVector3d)
+    8 Void invert()
+    8 Void set(System.Object)
+    8 Void setCoordSystem(RBCTCOMSERVERLib.IAcGePoint3d, RBCTCOMSERVERLib.IAcGeVector3d, RBCTCOMSERVERLib.IAcGeVector3d, RBCTCOMSERVERLib.IAcGeVector3d)
+
+interface RBCTCOMSERVERLib.IAcGePoint3d
+    8 Double distanceTo(RBCTCOMSERVERLib.IAcGePoint3d)
+    8 Void Get(Double ByRef, Double ByRef, Double ByRef)
+    8 Void TransformBy(RBCTCOMSERVERLib.IAcGeMatrix3d)
+    8 Void set(Double, Double, Double)
+
+interface RBCTCOMSERVERLib.IAcGeVector2d
+    8 Double angleTo(RBCTCOMSERVERLib.IAcGeVector2d)
+    8 Double length()
+    8 Void Get(Double ByRef, Double ByRef)
+    8 Void set(Double, Double)
+
+interface RBCTCOMSERVERLib.IAcGeVector3d
+    8 Double angleTo(RBCTCOMSERVERLib.IAcGeVector3d, RBCTCOMSERVERLib.IAcGeVector3d)
+    8 Double length()
+    8 Int32 isCodirectionalTo(RBCTCOMSERVERLib.IAcGeVector3d)
+    8 Int32 isEqualTo(RBCTCOMSERVERLib.IAcGeVector3d)
+    8 Int32 isParallelTo(RBCTCOMSERVERLib.IAcGeVector3d)
+    8 Int32 isPerpendicularTo(RBCTCOMSERVERLib.IAcGeVector3d)
+    8 Int32 isUnitLength()
+    8 Int32 isZeroLength()
+    8 RBCTCOMSERVERLib.IAcGeMatrix3d rotateTo(RBCTCOMSERVERLib.IAcGeVector3d, RBCTCOMSERVERLib.IAcGeVector3d)
+    8 RBCTCOMSERVERLib.IAcGeVector3d rotateBy(Double, RBCTCOMSERVERLib.IAcGeVector3d)
+    8 Void Get(Double ByRef, Double ByRef, Double ByRef)
+    8 Void TransformBy(RBCTCOMSERVERLib.IAcGeMatrix3d)
+    8 Void set(Double, Double, Double)
+    8 Void setByPoints(RBCTCOMSERVERLib.IAcGePoint3d, RBCTCOMSERVERLib.IAcGePoint3d)
+
+interface RBCTCOMSERVERLib.IRbCSAttribute
+    8 Double GetDoubleValue(System.Object, Int32)
+    8 Int32 GetLongValue(System.Object, Int32)
+    8 Int32 GetObjectIdValue(System.Object, Int32)
+    8 Int32 GetParamNum(System.Object)
+    8 Int32 SetDataPointerValue(System.Object, RBCTCOMSERVERLib.IRbCSData, Int32)
+    8 Int32 SetDoubleValue(System.Object, Double, Int32)
+    8 Int32 SetLongValue(System.Object, Int32, Int32)
+    8 Int32 SetMatrix2dValue(System.Object, System.Object, Int32)
+    8 Int32 SetMatrix3dValue(System.Object, System.Object, Int32)
+    8 Int32 SetObjectIdValue(System.Object, Int32, Int32)
+    8 Int32 SetParamNum(System.Object, Int32)
+    8 Int32 SetPoint2dValue(System.Object, System.Object, Int32)
+    8 Int32 SetPoint3dValue(System.Object, System.Object, Int32)
+    8 Int32 SetStringValue(System.Object, System.String, Int32)
+    8 RBCTCOMSERVERLib.IRbCSData GetDataPointerValue(System.Object, Int32)
+    8 System.Object GetMatrix2dValue(System.Object, Int32)
+    8 System.Object GetMatrix3dValue(System.Object, Int32)
+    8 System.Object GetPoint2dValue(System.Object, Int32)
+    8 System.Object GetPoint3dValue(System.Object, Int32)
+    8 System.String GetLastError()
+    8 System.String GetStringValue(System.Object, Int32)
+
+interface RBCTCOMSERVERLib.IRbCSConnectionCopyHolder
+    16 Int32 IsSuccess
+    16 Int32 NewConnection
+    16 Int32 OldConnection
+    16 Int32 StrGenerationMode
+    8 Int32 GetPart(Int32)
+    8 Int32 GetPartsCount()
+    8 Int32 get_IsSuccess()
+    8 Int32 get_NewConnection()
+    8 Int32 get_OldConnection()
+    8 Int32 get_StrGenerationMode()
+    8 Void AddPart(Int32)
+    8 Void RemovePart(Int32)
+    8 Void set_IsSuccess(Int32)
+    8 Void set_NewConnection(Int32)
+    8 Void set_OldConnection(Int32)
+    8 Void set_StrGenerationMode(Int32)
+
+interface RBCTCOMSERVERLib.IRbCSDBUserAddonParam
+    16 System.Object value
+    16 System.String name
+    8 System.Object get_value()
+    8 System.String get_name()
+    8 Void set_name(System.String)
+    8 Void set_value(System.Object)
+
+interface RBCTCOMSERVERLib.IRbCSDBUserObjData
+    16 Double BoltExt
+    16 Double Mass
+    16 Double ScaleX
+    16 Double ScaleY
+    16 Double ScaleZ
+    16 Double SizeX
+    16 Double SizeY
+    16 Double SizeZ
+    16 Int32 DbMetric
+    16 Int32 Symmetry
+    16 Int32 id
+    16 RBCTCOMSERVERLib.IRbCSDBUserAddonParam[] AddonParam
+    16 RBCTCOMSERVERLib.IRbCSDBUserObjLocale[] Locales
+    16 System.String Category
+    16 System.String Database
+    16 System.String Description
+    16 System.String Symbol3D
+    16 System.String SymbolXY
+    16 System.String SymbolXZ
+    16 System.String SymbolYZ
+    16 System.String name
+    8 Double get_BoltExt()
+    8 Double get_Mass()
+    8 Double get_ScaleX()
+    8 Double get_ScaleY()
+    8 Double get_ScaleZ()
+    8 Double get_SizeX()
+    8 Double get_SizeY()
+    8 Double get_SizeZ()
+    8 Int32 get_DbMetric()
+    8 Int32 get_Symmetry()
+    8 Int32 get_id()
+    8 RBCTCOMSERVERLib.IRbCSDBUserAddonParam[] get_AddonParam()
+    8 RBCTCOMSERVERLib.IRbCSDBUserObjLocale[] get_Locales()
+    8 System.String get_Category()
+    8 System.String get_Database()
+    8 System.String get_Description()
+    8 System.String get_Symbol3D()
+    8 System.String get_SymbolXY()
+    8 System.String get_SymbolXZ()
+    8 System.String get_SymbolYZ()
+    8 System.String get_name()
+    8 Void set_AddonParam(RBCTCOMSERVERLib.IRbCSDBUserAddonParam[])
+    8 Void set_BoltExt(Double)
+    8 Void set_Category(System.String)
+    8 Void set_Database(System.String)
+    8 Void set_DbMetric(Int32)
+    8 Void set_Description(System.String)
+    8 Void set_Locales(RBCTCOMSERVERLib.IRbCSDBUserObjLocale[])
+    8 Void set_Mass(Double)
+    8 Void set_ScaleX(Double)
+    8 Void set_ScaleY(Double)
+    8 Void set_ScaleZ(Double)
+    8 Void set_SizeX(Double)
+    8 Void set_SizeY(Double)
+    8 Void set_SizeZ(Double)
+    8 Void set_Symbol3D(System.String)
+    8 Void set_SymbolXY(System.String)
+    8 Void set_SymbolXZ(System.String)
+    8 Void set_SymbolYZ(System.String)
+    8 Void set_Symmetry(Int32)
+    8 Void set_id(Int32)
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbCSDBUserObjLocale
+    16 Int32 Lang
+    16 System.Object Category
+    16 System.Object Description
+    8 Int32 get_Lang()
+    8 System.Object get_Category()
+    8 System.Object get_Description()
+    8 Void set_Category(System.Object)
+    8 Void set_Description(System.Object)
+    8 Void set_Lang(Int32)
+
+interface RBCTCOMSERVERLib.IRbCSDBUserObject
+    16 RBCTCOMSERVERLib.IRbCSDBUserObjData Data
+    16 System.String Category
+    16 System.String DB
+    16 System.String Description
+    16 System.String LocalCategory
+    16 System.String LocalDescription
+    16 System.String name
+    8 Int32 CreateDatabase(System.String, System.String, System.String, Int32)
+    8 RBCTCOMSERVERLib.IRbCSDBUserObjData get_Data()
+    8 System.Object GetCategoryList()
+    8 System.Object GetDBList(System.String, RBCTCOMSERVERLib.ERbctMeasurementValue)
+    8 System.Object GetLocalCategoryList()
+    8 System.Object GetNameList()
+    8 System.String get_Category()
+    8 System.String get_DB()
+    8 System.String get_Description()
+    8 System.String get_LocalCategory()
+    8 System.String get_LocalDescription()
+    8 System.String get_name()
+    8 Void set_Category(System.String)
+    8 Void set_DB(System.String)
+    8 Void set_Data(RBCTCOMSERVERLib.IRbCSDBUserObjData)
+    8 Void set_Description(System.String)
+    8 Void set_LocalCategory(System.String)
+    8 Void set_LocalDescription(System.String)
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbCSData
+    8 Int16 GetAttributeNumber(System.Object)
+    8 Int32 SetAttributeNumber(System.Object, Int16)
+    8 RBCTCOMSERVERLib.IRbCSAttribute GetAttribute(System.Object, Int16)
+    8 System.String GetLastError()
+    8 System.String GetName()
+
+interface RBCTCOMSERVERLib.IRbCSDbEditService
+    8 RBCTCOMSERVERLib.IRbCSDbEditor CreateEditor(RBCTCOMSERVERLib.eRbCSObjectType, RBCTCOMSERVERLib.eRbCSEditorType)
+    8 RBCTCOMSERVERLib.IRbCSDefaultObjEditor CreateDefaultObjEditor()
+
+interface RBCTCOMSERVERLib.IRbCSDbEditor
+    16 Int32 AttributeNumber [System.Object]
+    16 Int32 ParamNum [System.Object, Int32, System.Object]
+    16 System.Object value [System.Object, Int32, System.Object, Int32]
+    8 Int32 Accept()
+    8 Int32 Erase()
+    8 Int32 RefreshEntity(Int32)
+    8 Int32 get_AttributeNumber(System.Object)
+    8 Int32 get_ParamNum(System.Object, Int32, System.Object)
+    8 RBCTCOMSERVERLib.IRbCSData GetData()
+    8 RBCTCOMSERVERLib.IRbCSData GetEntityData(Int32)
+    8 System.Object get_value(System.Object, Int32, System.Object, Int32)
+    8 Void Cancel()
+    8 Void Close()
+    8 Void Create()
+    8 Void SetId(Int32)
+    8 Void set_AttributeNumber(System.Object, Int32)
+    8 Void set_ParamNum(System.Object, Int32, System.Object, Int32)
+    8 Void set_value(System.Object, Int32, System.Object, Int32, System.Object)
+
+interface RBCTCOMSERVERLib.IRbCSDefaultObjEditor
+    8 Int32 CreateNewDefaultObject(System.String, System.String, System.String)
+    8 Int32 GetDefaultObjId(System.String, System.String)
+    8 Int32 IsDefaultObjDefined(System.String, System.String)
+
+interface RBCTCOMSERVERLib.IRbCSMaterialDictionary
+    8 Int32 GetCount()
+    8 System.String GetDefaultMaterial(RBCTCOMSERVERLib.eRbCSObjectType)
+    8 System.String GetMaterial(Int32)
+    8 System.String GetMaterialDBName(Int32)
+    8 Void AddMaterial(System.String ByRef, System.String ByRef)
+    8 Void GetMaterialIndex(System.String ByRef, Int32 ByRef)
+    8 Void LaunchDefinitionDialog()
+    8 Void RemoveMaterial(Int32)
+
+interface RBCTCOMSERVERLib.IRbCSProfileCSStorage
+    8 Int32 AddSection(System.String ByRef, System.String ByRef, System.String ByRef)
+    8 Int32 GetCount()
+    8 Int32 GetSectionById(Int32, System.String ByRef, System.String ByRef)
+    8 Int32 GetSectionDetails(Int32, System.String ByRef, System.String ByRef, System.String ByRef, System.String ByRef, System.String ByRef, System.String ByRef, Int32 ByRef)
+    8 Int32 GetSectionIdFromName(System.String ByRef)
+    8 Int32 GetSectionTypeID(Int32)
+    8 RBCTCOMSERVERLib.IRbctObjectIdArr GetSectionsId()
+    8 System.String GetSection(Int32)
+    8 System.String GetSectionDBName(Int32)
+    8 Void GetSectionAreaAndInertia(Int32, Double ByRef, Double ByRef, Double ByRef)
+    8 Void GetSectionIndex(System.String ByRef, Int32 ByRef)
+    8 Void LaunchDefinitionDialog()
+    8 Void RemoveSection(Int32)
+    8 Void getSectionScaleFactor(Int32, Double ByRef)
+
+interface RBCTCOMSERVERLib.IRbCSTools
+    8 Int32 createUserCircle()
+    8 Int32 createUserPolyline()
+    8 Int32 fittingAnalyser(System.Object, System.Object, Int32, Int32)
+    8 Int32 getDOId(Int32)
+    8 Int32 getRepresentorId(Int32)
+    8 Int32 jigEntitiesSelect(System.String, RBCTCOMSERVERLib.eRbCSObjectType, RBCTCOMSERVERLib.IRbctObjectIdArr ByRef)
+    8 Int32 jigPointSelect(System.Object ByRef)
+    8 Int32 loadDOFromRegistryDefaults(Int32)
+    8 Int32 printString(System.Object)
+    8 Int32 saveDOToRegistryDefaults(Int32)
+    8 Int32 selectProfileSide(Int32 ByRef, Int32 ByRef)
+    8 Int32 startBoltDialog(Int32, Double)
+    8 Int32 startBoltDialogMulti(System.Object ByRef, System.Object ByRef)
+    8 System.String getStructuralStandard()
+
+interface RBCTCOMSERVERLib.IRbCTFamilyManager
+    8 Int32 AddCategory(System.String)
+    8 Int32 AddFamily(Int32, System.String)
+    8 Int32 GetCategoryByIndex(Int32)
+    8 Int32 GetCategoryByName(System.String)
+    8 Int32 GetCategoryCount()
+    8 Int32 GetCategoryVisibility(Int32)
+    8 Int32 GetDefaultSubpartFamily(RBCTCOMSERVERLib.eRbCSSubPartType)
+    8 Int32 GetFamilyByIndex(Int32, Int32)
+    8 Int32 GetFamilyByName(Int32, System.String)
+    8 Int32 GetFamilyCount(Int32)
+    8 System.String GetCategoryName(Int32)
+    8 System.String GetCategoryNameByIndex(Int32)
+    8 System.String GetFamilyName(Int32)
+    8 System.String GetFamilyNameByIndex(Int32, Int32)
+    8 Void LaunchDefinitionDialog()
+    8 Void RemoveCategory(System.String)
+    8 Void RemoveFamily(Int32)
+    8 Void RenameFamily(Int32, System.String)
+    8 Void SetCategoryVisibility(Int32, Int32)
+    8 Void SetDefaultSubpartFamily(RBCTCOMSERVERLib.eRbCSSubPartType, Int32)
+
+interface RBCTCOMSERVERLib.IRbcrAssociationCtrl
+    8 RBCTCOMSERVERLib.IRbctData GetData()
+
+interface RBCTCOMSERVERLib.IRbcrAttribute
+    8 Double GetDoubleValue(System.String, Int32)
+    8 Int32 GetLongValue(System.String, Int32)
+    8 Int32 GetObjectIdValue(System.String, Int32)
+    8 Int32 GetParamNum(System.String, Int32 ByRef)
+    8 Int32 SetDataPointerValue(System.String, RBCTCOMSERVERLib.IRbcrData, Int32)
+    8 Int32 SetDoubleValue(System.String, Double, Int32)
+    8 Int32 SetLongValue(System.String, Int32, Int32)
+    8 Int32 SetObjectIdValue(System.String, Int32, Int32)
+    8 Int32 SetParamNum(System.String, Int32)
+    8 Int32 SetPoint2dValue(System.String, System.Object, Int32)
+    8 Int32 SetPoint3dValue(System.String, System.Object, Int32)
+    8 Int32 SetStringValue(System.String, System.String, Int32)
+    8 RBCTCOMSERVERLib.IRbcrData GetDataPointerValue(System.String, Int32)
+    8 System.Object GetPoint2dValue(System.String, Int32)
+    8 System.Object GetPoint3dValue(System.String, Int32)
+    8 System.String GetStringValue(System.String, Int32)
+
+interface RBCTCOMSERVERLib.IRbcrBarDisplayJobSettings
+    16 Double SchemScaleCoeff
+    16 Int32 DistrColor
+    16 Int32 DistrLineWidth
+    16 Int32 LinDistrReinPres
+    16 Int32 PointColor
+    16 Int32 PointSymbol
+    16 Int32 SchemColor
+    16 Int32 SchemDetailTable
+    16 Int32 SchemFill
+    16 Int32 SchemFlexAngles
+    16 Int32 SchemFlexRadiuses
+    16 Int32 SchemLineWidth
+    16 Int32 SchemPresentation
+    16 Int32 SchemSegmentLength
+    16 Int32 SchemSizeMode
+    16 Int32 SchemSlantDimens
+    16 Int32 ShapeColor
+    16 Int32 ShapeEnding
+    16 Int32 ShapeFill
+    16 Int32 SurDistrDownReinLine
+    16 Int32 SurDistrReinColor
+    16 Int32 SurDistrReinLineWidth
+    16 Int32 SurDistrReinPres
+    16 Int32 SurDistrUpReinLine
+    8 Double get_SchemScaleCoeff()
+    8 Int32 get_DistrColor()
+    8 Int32 get_DistrLineWidth()
+    8 Int32 get_LinDistrReinPres()
+    8 Int32 get_PointColor()
+    8 Int32 get_PointSymbol()
+    8 Int32 get_SchemColor()
+    8 Int32 get_SchemDetailTable()
+    8 Int32 get_SchemFill()
+    8 Int32 get_SchemFlexAngles()
+    8 Int32 get_SchemFlexRadiuses()
+    8 Int32 get_SchemLineWidth()
+    8 Int32 get_SchemPresentation()
+    8 Int32 get_SchemSegmentLength()
+    8 Int32 get_SchemSizeMode()
+    8 Int32 get_SchemSlantDimens()
+    8 Int32 get_ShapeColor()
+    8 Int32 get_ShapeEnding()
+    8 Int32 get_ShapeFill()
+    8 Int32 get_SurDistrDownReinLine()
+    8 Int32 get_SurDistrReinColor()
+    8 Int32 get_SurDistrReinLineWidth()
+    8 Int32 get_SurDistrReinPres()
+    8 Int32 get_SurDistrUpReinLine()
+
+interface RBCTCOMSERVERLib.IRbcrBarNormDbCtrl
+    16 Int32 Count
+    16 RBCTCOMSERVERLib.IRbcrBarNormRecordData Item [Int32]
+    8 Double GetBendDiam(System.String, Double, Int32)
+    8 Double GetDiamFromDiamName(System.String)
+    8 Double GetDiamReal(System.String, Double)
+    8 Double GetDiamRealFromDiamName(System.String)
+    8 Double GetHookBendDiam(System.String, Double, Int32)
+    8 Double GetHookLength135(System.String, Double, Int32)
+    8 Double GetHookLength180(System.String, Double, Int32)
+    8 Double GetHookLength90(System.String, Double, Int32)
+    8 Double GetMass(System.String, Double)
+    8 Double GetMaxLength(System.String, Double)
+    8 Double GetStress(System.String, Double)
+    8 Int32 GetHookLenMode()
+    8 Int32 GetIsPlain(System.String, Double)
+    8 Int32 GetSteelClass(System.String, Int32 ByRef)
+    8 Int32 GetSteelNorm(System.String, System.String ByRef)
+    8 Int32 GetSteelSize()
+    8 Int32 HaveRecord(System.String, Double)
+    8 Int32 SaveRecord(RBCTCOMSERVERLib.IRbcrBarNormRecordData, Int32)
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IRbcrBarNormRecordData CreateRecordData(System.String, Double)
+    8 RBCTCOMSERVERLib.IRbcrBarNormRecordData GetRecord(System.String, Double)
+    8 RBCTCOMSERVERLib.IRbcrBarNormRecordData get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String CreateDiamNameFromDiam(Double)
+    8 System.String GetDiamName(System.String, Double)
+    8 System.String GetDiamNameFromDiam(Double)
+    8 System.String GetDiamNameFromDiamReal(Double, System.String)
+    8 System.String GetSteelName(Int32)
+    8 System.String MassUnit()
+    8 System.String StressUnit()
+    8 Void Reload()
+
+interface RBCTCOMSERVERLib.IRbcrBarNormRecordData
+    16 Double BarBendDiam
+    16 Double BarHookBendDiam
+    16 Double BarHookLength135
+    16 Double BarHookLength135Seis
+    16 Double BarHookLength180
+    16 Double BarHookLength180Seis
+    16 Double BarHookLength90
+    16 Double BarHookLength90Seis
+    16 Double Diameter
+    16 Double DiameterReal
+    16 Double Mass
+    16 Double MaxLength
+    16 Double StirrupBendDiam
+    16 Double StirrupHookBendDiam
+    16 Double StirrupHookLength135
+    16 Double StirrupHookLength135Seis
+    16 Double StirrupHookLength180
+    16 Double StirrupHookLength180Seis
+    16 Double StirrupHookLength90
+    16 Double StirrupHookLength90Seis
+    16 Double Stress
+    16 Int32 IsPlain
+    16 System.String DiameterName
+    16 System.String SteelName
+    8 Double get_BarBendDiam()
+    8 Double get_BarHookBendDiam()
+    8 Double get_BarHookLength135()
+    8 Double get_BarHookLength135Seis()
+    8 Double get_BarHookLength180()
+    8 Double get_BarHookLength180Seis()
+    8 Double get_BarHookLength90()
+    8 Double get_BarHookLength90Seis()
+    8 Double get_Diameter()
+    8 Double get_DiameterReal()
+    8 Double get_Mass()
+    8 Double get_MaxLength()
+    8 Double get_StirrupBendDiam()
+    8 Double get_StirrupHookBendDiam()
+    8 Double get_StirrupHookLength135()
+    8 Double get_StirrupHookLength135Seis()
+    8 Double get_StirrupHookLength180()
+    8 Double get_StirrupHookLength180Seis()
+    8 Double get_StirrupHookLength90()
+    8 Double get_StirrupHookLength90Seis()
+    8 Double get_Stress()
+    8 Int32 get_IsPlain()
+    8 System.String get_DiameterName()
+    8 System.String get_SteelName()
+    8 Void set_BarBendDiam(Double)
+    8 Void set_BarHookBendDiam(Double)
+    8 Void set_BarHookLength135(Double)
+    8 Void set_BarHookLength135Seis(Double)
+    8 Void set_BarHookLength180(Double)
+    8 Void set_BarHookLength180Seis(Double)
+    8 Void set_BarHookLength90(Double)
+    8 Void set_BarHookLength90Seis(Double)
+    8 Void set_Diameter(Double)
+    8 Void set_DiameterName(System.String)
+    8 Void set_DiameterReal(Double)
+    8 Void set_IsPlain(Int32)
+    8 Void set_Mass(Double)
+    8 Void set_MaxLength(Double)
+    8 Void set_SteelName(System.String)
+    8 Void set_StirrupBendDiam(Double)
+    8 Void set_StirrupHookBendDiam(Double)
+    8 Void set_StirrupHookLength135(Double)
+    8 Void set_StirrupHookLength135Seis(Double)
+    8 Void set_StirrupHookLength180(Double)
+    8 Void set_StirrupHookLength180Seis(Double)
+    8 Void set_StirrupHookLength90(Double)
+    8 Void set_StirrupHookLength90Seis(Double)
+    8 Void set_Stress(Double)
+
+interface RBCTCOMSERVERLib.IRbcrBarOptionsJobSettings
+    16 Double BarDrawUnderFi
+    16 Double BarDrawUnderFiValue
+    16 Double DistrDescLayoutVal
+    16 Double MinBarLengthVal
+    16 Double RegardLineLengthVal
+    16 Double RoundBarLengthVal
+    16 Double RoundBarSpanVal
+    16 Double SurfDistribMinBarLen
+    16 Int32 BarDrawMode
+    16 Int32 BarSpanMeasure
+    16 Int32 DistrDescLayoutFlg
+    16 Int32 MinBarLengthFlg
+    16 Int32 RegardLineLengthFlg
+    16 Int32 RoundBarLengthFlg
+    16 Int32 RoundBarSpanFlg
+    16 Int32 TotalBarLength
+    8 Double get_BarDrawUnderFi()
+    8 Double get_BarDrawUnderFiValue()
+    8 Double get_DistrDescLayoutVal()
+    8 Double get_MinBarLengthVal()
+    8 Double get_RegardLineLengthVal()
+    8 Double get_RoundBarLengthVal()
+    8 Double get_RoundBarSpanVal()
+    8 Double get_SurfDistribMinBarLen()
+    8 Int32 get_BarDrawMode()
+    8 Int32 get_BarSpanMeasure()
+    8 Int32 get_DistrDescLayoutFlg()
+    8 Int32 get_MinBarLengthFlg()
+    8 Int32 get_RegardLineLengthFlg()
+    8 Int32 get_RoundBarLengthFlg()
+    8 Int32 get_RoundBarSpanFlg()
+    8 Int32 get_TotalBarLength()
+
+interface RBCTCOMSERVERLib.IRbcrBarShapeDbAccess
+    8 Double GetHookGabaritDiff(Int32, Int32)
+    8 Int32 CreateShapeBar(System.String)
+    8 Int32 GetShapeSize()
+    8 Int32 SetBarShape(Int32, Int32)
+    8 Int32 SetBarShapeTo(Int32, System.String, Int32)
+    8 System.String GetShapeName(Int32)
+    8 Void SetShapeDatabase(System.String)
+
+interface RBCTCOMSERVERLib.IRbcrBarStyleJobSettings
+    16 System.String BarEndDescription
+    16 System.String DetailTable
+    16 System.String ElemTable
+    16 System.String LSchemDescription
+    16 System.String MainTable
+    16 System.String ProjDescription
+    16 System.String SchapeDescription
+    16 System.String SchemDescription
+    16 System.String SteelTable
+    16 System.String ViewDescription
+    8 System.String get_BarEndDescription()
+    8 System.String get_DetailTable()
+    8 System.String get_ElemTable()
+    8 System.String get_LSchemDescription()
+    8 System.String get_MainTable()
+    8 System.String get_ProjDescription()
+    8 System.String get_SchapeDescription()
+    8 System.String get_SchemDescription()
+    8 System.String get_SteelTable()
+    8 System.String get_ViewDescription()
+    8 Void set_BarEndDescription(System.String)
+    8 Void set_DetailTable(System.String)
+    8 Void set_ElemTable(System.String)
+    8 Void set_LSchemDescription(System.String)
+    8 Void set_MainTable(System.String)
+    8 Void set_ProjDescription(System.String)
+    8 Void set_SchapeDescription(System.String)
+    8 Void set_SchemDescription(System.String)
+    8 Void set_SteelTable(System.String)
+    8 Void set_ViewDescription(System.String)
+
+interface RBCTCOMSERVERLib.IRbcrData
+    8 Int16 GetAttributeNumber(System.String)
+    8 Int32 SetAttributeNumber(System.String, Int16)
+    8 RBCTCOMSERVERLib.IRbcrAttribute GetAttribute(System.String, Int16)
+    8 System.String GetName()
+
+interface RBCTCOMSERVERLib.IRbcrDbEditService
+    8 RBCTCOMSERVERLib.IRbcrAssociationCtrl CreateAssociationCtrl(RBCTCOMSERVERLib.ERbcrObjectType)
+    8 RBCTCOMSERVERLib.IRbcrBarNormDbCtrl CreateBarNormDbCtrl()
+    8 RBCTCOMSERVERLib.IRbcrBarShapeDbAccess CreateBarShapeDbAccess()
+    8 RBCTCOMSERVERLib.IRbcrDbEditor CreateEditor(RBCTCOMSERVERLib.ERbcrObjectType, RBCTCOMSERVERLib.ERbcrEditorType)
+    8 RBCTCOMSERVERLib.IRbcrDbEditor CreateEditorEx(RBCTCOMSERVERLib.ERbcrObjectType, RBCTCOMSERVERLib.ERbcrEditorType, Int32)
+    8 RBCTCOMSERVERLib.IRbcrDescriptionStyleIterator CreateDescriptionStyleIterator(System.String)
+    8 RBCTCOMSERVERLib.IRbcrNetNormDbCtrl CreateNetNormDbCtrl()
+    8 RBCTCOMSERVERLib.IRbcrRenumCtrl CreateRenumCtrl()
+    8 System.String GetBarShapeDbFileName()
+    8 System.String GetDbPathAndFile(System.String)
+
+interface RBCTCOMSERVERLib.IRbcrDbEditor
+    8 Int32 Create()
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 Int32 RefreshEntity()
+    8 Int32 RefreshObject()
+    8 RBCTCOMSERVERLib.IRbctData GetData()
+    8 RBCTCOMSERVERLib.IRbctData GetEntityData()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbcrDescriptionStyleIterator
+    16 System.String name
+    8 Int32 IsEnd()
+    8 RBCTCOMSERVERLib.IRbctData GetData()
+    8 System.String get_name()
+    8 Void Next()
+    8 Void Reset()
+
+interface RBCTCOMSERVERLib.IRbcrEl3dProjection
+    8 Int32 RefreshContour()
+    8 RBCTCOMSERVERLib.IRbcrData GetData()
+
+interface RBCTCOMSERVERLib.IRbcrEl3dSolid
+    8 Int32 SetHorizontalPlane(RBCTCOMSERVERLib.ERbcrElPlane)
+    8 RBCTCOMSERVERLib.IRbcrElBody CreateBody()
+    8 RBCTCOMSERVERLib.IRbcrElBody GetBody()
+
+interface RBCTCOMSERVERLib.IRbcrElBody
+    8 Int32 Add(RBCTCOMSERVERLib.IRbcrElBody)
+    8 Int32 CreateBox(System.Object, System.Object)
+    8 Int32 CreateExtrusion(System.Object, System.Object)
+    8 Int32 CreatePyramid(System.Object, System.Object)
+    8 Int32 CreateTetrahedron(System.Object, System.Object, System.Object, System.Object)
+    8 Int32 Intersect(RBCTCOMSERVERLib.IRbcrElBody)
+    8 Int32 Subtract(RBCTCOMSERVERLib.IRbcrElBody)
+
+interface RBCTCOMSERVERLib.IRbcrElDuidMngr
+    8 Int32 GetDuid(Int32, Int32)
+    8 Int32 GetId(Int32)
+    8 Void FreeAllDuids()
+
+interface RBCTCOMSERVERLib.IRbcrElEditService
+    8 Int32 GetActiveGroup()
+    8 Int32 GetRootGroup(Int32)
+    8 RBCTCOMSERVERLib.IRbcrElDuidMngr GetDuidMngr()
+    8 RBCTCOMSERVERLib.IRbcrElEditor CreateElementEditor(RBCTCOMSERVERLib.ERbcrElEditorType)
+    8 RBCTCOMSERVERLib.IRbcrElEntityEditor CreateElementEntityEditor(RBCTCOMSERVERLib.ERbcrElEntityType, RBCTCOMSERVERLib.ERbcrElEditorType)
+    8 RBCTCOMSERVERLib.IRbcrElGroupEditor CreateGroupEditor(RBCTCOMSERVERLib.ERbcrElEditorType)
+    8 RBCTCOMSERVERLib.IRbcrSteelEditor CreateSteelEditor(RBCTCOMSERVERLib.ERbcrElEditorType)
+    8 RBCTCOMSERVERLib.IRbcrSteelEntityEditor CreateSteelEntityEditor(RBCTCOMSERVERLib.ERbcrSteelEntityType, RBCTCOMSERVERLib.ERbcrElEditorType)
+    8 RBCTCOMSERVERLib.IRbctIterator CreateElementIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreateSteelIdIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreateSteelStyleIdIterator(RBCTCOMSERVERLib.ERbcrSteelEntityType)
+
+interface RBCTCOMSERVERLib.IRbcrElEditor
+    8 Int32 AddMember(Int32)
+    8 Int32 Create()
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 Int32 Refresh()
+    8 Int32 RemoveMember(Int32)
+    8 RBCTCOMSERVERLib.IRbcrData GetData()
+    8 RBCTCOMSERVERLib.IRbcrEl3dSolid Get3dSolid()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbcrElEntityEditor
+    8 Int32 Create()
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 Int32 Refresh()
+    8 Int32 RefreshEntity()
+    8 RBCTCOMSERVERLib.IRbcrData GetData()
+    8 RBCTCOMSERVERLib.IRbcrEl3dProjection Get3dProjection()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbcrElGroupEditor
+    8 Int32 Create(Int32)
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 RBCTCOMSERVERLib.IRbcrData GetData()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbcrJobSettings
+    16 RBCTCOMSERVERLib.IRbcrBarDisplayJobSettings BarDisplay
+    16 RBCTCOMSERVERLib.IRbcrBarOptionsJobSettings BarOptions
+    16 RBCTCOMSERVERLib.IRbcrBarStyleJobSettings BarStyle
+    16 RBCTCOMSERVERLib.IRbcrMaterialsJobSettings Materials
+    16 RBCTCOMSERVERLib.IRbcrNormsJobSettings Norms
+    16 RBCTCOMSERVERLib.IRbcrOptionsJobSettings Options
+    16 RBCTCOMSERVERLib.IRbctData Units
+    8 RBCTCOMSERVERLib.IRbcrBarDisplayJobSettings get_BarDisplay()
+    8 RBCTCOMSERVERLib.IRbcrBarOptionsJobSettings get_BarOptions()
+    8 RBCTCOMSERVERLib.IRbcrBarStyleJobSettings get_BarStyle()
+    8 RBCTCOMSERVERLib.IRbcrMaterialsJobSettings get_Materials()
+    8 RBCTCOMSERVERLib.IRbcrNormsJobSettings get_Norms()
+    8 RBCTCOMSERVERLib.IRbcrOptionsJobSettings get_Options()
+    8 RBCTCOMSERVERLib.IRbctData get_Units()
+
+interface RBCTCOMSERVERLib.IRbcrMaterialsJobSettings
+    16 Double DistReinfSteelBend
+    16 Double LongReinfSteelBend
+    16 Double ReinforcementCover
+    16 Double ReinforcementCoverBS
+    16 Double TranReinfSteelBend
+    16 Int16 ConcreteClass
+    16 Int16 DistReinfSteelSymbol
+    16 Int16 LongReinfSteelSymbol
+    16 Int16 MeshDataBaseNumber
+    16 Int16 TranReinfSteelSymbol
+    16 Int32 BarDataBasePath
+    16 Int32 HookLengthMode
+    16 Int32 MeshDataBasePath
+    16 Int32 RNORM_MAX
+    16 Int32 ReinfSteelSize
+    16 Int32 ReinfSteelVectorSize
+    16 System.String BarDataBase [Int32]
+    16 System.String BarDataBaseFile
+    16 System.String DefaultSteelProfMat
+    16 System.String DistReinfSteelClass
+    16 System.String LongReinfSteelClass
+    16 System.String MashReinfSteelClaas
+    16 System.String MeshDataBase [Int32]
+    16 System.String MeshDataBaseFile
+    16 System.String TranReinfSteelClass
+    8 Double get_DistReinfSteelBend()
+    8 Double get_LongReinfSteelBend()
+    8 Double get_ReinforcementCover()
+    8 Double get_ReinforcementCoverBS()
+    8 Double get_TranReinfSteelBend()
+    8 Int16 get_ConcreteClass()
+    8 Int16 get_DistReinfSteelSymbol()
+    8 Int16 get_LongReinfSteelSymbol()
+    8 Int16 get_MeshDataBaseNumber()
+    8 Int16 get_TranReinfSteelSymbol()
+    8 Int32 get_BarDataBasePath()
+    8 Int32 get_HookLengthMode()
+    8 Int32 get_MeshDataBasePath()
+    8 Int32 get_RNORM_MAX()
+    8 Int32 get_ReinfSteelSize()
+    8 Int32 get_ReinfSteelVectorSize()
+    8 RBCTCOMSERVERLib.IRbcrMaterialsJobSettingsReinfSteel GetReinfSteel(Int32)
+    8 System.String get_BarDataBase(Int32)
+    8 System.String get_BarDataBaseFile()
+    8 System.String get_DefaultSteelProfMat()
+    8 System.String get_DistReinfSteelClass()
+    8 System.String get_LongReinfSteelClass()
+    8 System.String get_MashReinfSteelClaas()
+    8 System.String get_MeshDataBase(Int32)
+    8 System.String get_MeshDataBaseFile()
+    8 System.String get_TranReinfSteelClass()
+    8 Void ResizeReinfSteelVector(Int32)
+    8 Void set_BarDataBase(Int32, System.String)
+    8 Void set_BarDataBaseFile(System.String)
+    8 Void set_BarDataBasePath(Int32)
+    8 Void set_ConcreteClass(Int16)
+    8 Void set_DefaultSteelProfMat(System.String)
+    8 Void set_DistReinfSteelBend(Double)
+    8 Void set_DistReinfSteelClass(System.String)
+    8 Void set_DistReinfSteelSymbol(Int16)
+    8 Void set_HookLengthMode(Int32)
+    8 Void set_LongReinfSteelBend(Double)
+    8 Void set_LongReinfSteelClass(System.String)
+    8 Void set_LongReinfSteelSymbol(Int16)
+    8 Void set_MashReinfSteelClaas(System.String)
+    8 Void set_MeshDataBase(Int32, System.String)
+    8 Void set_MeshDataBaseFile(System.String)
+    8 Void set_MeshDataBaseNumber(Int16)
+    8 Void set_MeshDataBasePath(Int32)
+    8 Void set_ReinfSteelSize(Int32)
+    8 Void set_ReinforcementCover(Double)
+    8 Void set_ReinforcementCoverBS(Double)
+    8 Void set_TranReinfSteelBend(Double)
+    8 Void set_TranReinfSteelClass(System.String)
+    8 Void set_TranReinfSteelSymbol(Int16)
+
+interface RBCTCOMSERVERLib.IRbcrMaterialsJobSettingsReinfSteel
+    16 Int32 Symbol
+    16 System.String Class
+    16 System.String UserSymbol
+    8 Int32 get_Symbol()
+    8 System.String get_Class()
+    8 System.String get_UserSymbol()
+    8 Void set_Class(System.String)
+    8 Void set_Symbol(Int32)
+    8 Void set_UserSymbol(System.String)
+
+interface RBCTCOMSERVERLib.IRbcrNetNormDbCtrl
+    8 Double GetHookAngle(Int32)
+    8 Double GetNet_BendDiam(System.String, Int32)
+    8 Double GetNet_Diameter(System.String, Int32)
+    8 Double GetNet_EndLength(System.String, Int32, Int32)
+    8 Double GetNet_HookBendDiam(System.String, Int32)
+    8 Double GetNet_HookLength(System.String, Int32, Double)
+    8 Double GetNet_HookLength135(System.String, Int32)
+    8 Double GetNet_HookLength180(System.String, Int32)
+    8 Double GetNet_HookLength90(System.String, Int32)
+    8 Double GetNet_Lap(System.String, Int32)
+    8 Double GetNet_Length(System.String, Int32)
+    8 Double GetNet_Section(System.String, Int32)
+    8 Double GetNet_Spacing(System.String, Int32)
+    8 Double GetNet_Weight(System.String)
+    8 Double GetNet_WeightTotal(System.String)
+    8 Int32 GetHookAngleSize()
+    8 Int32 GetNetSize()
+    8 Int32 GetNet_Adets(System.String)
+    8 Int32 GetNet_IsChecked(System.String)
+    8 Int32 GetNet_IsPanel(System.String)
+    8 Int32 GetSteelSize()
+    8 Int32 HaveNet(System.String)
+    8 System.String GetNetName(Int32)
+    8 System.String GetSteelName(Int32)
+    8 System.String StressUnit()
+    8 Void Reload()
+
+interface RBCTCOMSERVERLib.IRbcrNormsJobSettings
+    16 Int16 DrawingNumb
+    16 Int16 ReinforceNumb
+    16 Int16 ReinforceSeismic
+    16 System.String Drawing
+    16 System.String Reinforce
+    8 Int16 get_DrawingNumb()
+    8 Int16 get_ReinforceNumb()
+    8 Int16 get_ReinforceSeismic()
+    8 System.String get_Drawing()
+    8 System.String get_Reinforce()
+    8 Void set_Drawing(System.String)
+    8 Void set_DrawingNumb(Int16)
+    8 Void set_Reinforce(System.String)
+    8 Void set_ReinforceNumb(Int16)
+    8 Void set_ReinforceSeismic(Int16)
+
+interface RBCTCOMSERVERLib.IRbcrOptionsJobSettings
+    16 Double Angle90Tolerance
+    16 Double BarLenFactorWithoutLap
+    16 Double BarSegmentsDisplayPrecisionDbl
+    16 Double DisDisplayPrecisionDbl
+    16 Int32 BarDisplayPrecision
+    16 Int32 BarPosNum
+    16 Int32 BarShapeCodeIdentfy
+    16 Int32 DisplayCrossDescr
+    16 Int32 PointBarBendAdd
+    8 Double get_Angle90Tolerance()
+    8 Double get_BarLenFactorWithoutLap()
+    8 Double get_BarSegmentsDisplayPrecisionDbl()
+    8 Double get_DisDisplayPrecisionDbl()
+    8 Int32 get_BarDisplayPrecision()
+    8 Int32 get_BarPosNum()
+    8 Int32 get_BarShapeCodeIdentfy()
+    8 Int32 get_DisplayCrossDescr()
+    8 Int32 get_PointBarBendAdd()
+    8 Void set_Angle90Tolerance(Double)
+    8 Void set_BarDisplayPrecision(Int32)
+    8 Void set_BarLenFactorWithoutLap(Double)
+    8 Void set_BarPosNum(Int32)
+    8 Void set_BarSegmentsDisplayPrecisionDbl(Double)
+    8 Void set_BarShapeCodeIdentfy(Int32)
+    8 Void set_DisDisplayPrecisionDbl(Double)
+    8 Void set_DisplayCrossDescr(Int32)
+    8 Void set_PointBarBendAdd(Int32)
+
+interface RBCTCOMSERVERLib.IRbcrRenumCtrl
+    8 Void RenumConsolidate(Int32)
+    8 Void RenumIdentical(Int32)
+    8 Void RenumShift(Int32, Int32)
+
+interface RBCTCOMSERVERLib.IRbcrSteelEditor
+    8 Int32 AddMember(Int32)
+    8 Int32 Create()
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 Int32 Refresh()
+    8 Int32 RemoveMember(Int32)
+    8 RBCTCOMSERVERLib.IRbcrData GetData()
+    8 RBCTCOMSERVERLib.IRbcrEl3dSolid Get3dSolid()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbcrSteelEntityEditor
+    8 Int32 Create()
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 Int32 Refresh()
+    8 Int32 RefreshEntity()
+    8 RBCTCOMSERVERLib.IRbcrData GetData()
+    8 RBCTCOMSERVERLib.IRbcrEl3dProjection Get3dProjection()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbcsGrate
+    8 Double GetThicknesses(Int32)
+    8 Int32 GetThicknessesCount()
+
+interface RBCTCOMSERVERLib.IRbcsGroupManager
+    8 Int32 CreateAssemblyGroup(RBCTCOMSERVERLib.IRbctObjectIdArr)
+    8 Int32 CreateStandardGroupUCS(System.String, RBCTCOMSERVERLib.IRbctObjectIdArr, RBCTCOMSERVERLib.IAcGeMatrix3d)
+    8 Int32 CreateStandardGroupWCS(System.String, RBCTCOMSERVERLib.IRbctObjectIdArr)
+
+interface RBCTCOMSERVERLib.IRbcsPlate
+    8 Double GetThicknesses(Int32)
+    8 Int32 GetThicknessesCount()
+
+interface RBCTCOMSERVERLib.IRbcsProjectSettings
+    8 RBCTCOMSERVERLib.IRbcsProjectSettingsGeneral GetGeneral()
+    8 RBCTCOMSERVERLib.IRbcsProjectSettingsStandards GetStandards()
+
+interface RBCTCOMSERVERLib.IRbcsProjectSettingsGeneral
+    16 Int32 SimplifiedModelingOfParametricStructures
+    8 Int32 get_SimplifiedModelingOfParametricStructures()
+
+interface RBCTCOMSERVERLib.IRbcsProjectSettingsStandards
+    16 System.String StructuralStandard
+    8 System.String get_StructuralStandard()
+
+interface RBCTCOMSERVERLib.IRbcsService
+    8 RBCTCOMSERVERLib.IRbcsGroupManager GetGroupManager()
+
+interface RBCTCOMSERVERLib.IRbctAcGeService
+    8 RBCTCOMSERVERLib.IAcGeMatrix3d CreateMatrix3d()
+    8 RBCTCOMSERVERLib.IAcGePoint3d CreatePoint3d()
+    8 RBCTCOMSERVERLib.IAcGeVector2d CreateVector2d()
+    8 RBCTCOMSERVERLib.IAcGeVector3d CreateVector3d()
+
+interface RBCTCOMSERVERLib.IRbctAcad3DPolyline
+    16 Boolean Closed
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Coordinates
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Boolean get_Closed()
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object Explode()
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_Coordinates()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void AppendVertex(System.Object)
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Closed(Boolean)
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Coordinates(System.Object)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadAcCmColor
+    16 Int32 Blue
+    16 Int32 EntityColor
+    16 Int32 Green
+    16 Int32 Red
+    16 RBCTCOMSERVERLib.ERbctAcColorMethod ColorMethod
+    16 RBCTCOMSERVERLib.ERbctAcadColor ColorIndex
+    16 System.String BookName
+    16 System.String ColorName
+    8 Int32 get_Blue()
+    8 Int32 get_EntityColor()
+    8 Int32 get_Green()
+    8 Int32 get_Red()
+    8 RBCTCOMSERVERLib.ERbctAcColorMethod get_ColorMethod()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_ColorIndex()
+    8 System.String get_BookName()
+    8 System.String get_ColorName()
+    8 Void Delete()
+    8 Void SetColorBookColor(System.String, System.String)
+    8 Void SetNames(System.String, System.String)
+    8 Void SetRGB(Int32, Int32, Int32)
+    8 Void set_ColorIndex(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_ColorMethod(RBCTCOMSERVERLib.ERbctAcColorMethod)
+    8 Void set_EntityColor(Int32)
+
+interface RBCTCOMSERVERLib.IRbctAcadArc
+    16 Double ArcLength
+    16 Double Area
+    16 Double EndAngle
+    16 Double LinetypeScale
+    16 Double Radius
+    16 Double StartAngle
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Center
+    16 System.Object EndPoint
+    16 System.Object Normal
+    16 System.Object StartPoint
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_ArcLength()
+    8 Double get_Area()
+    8 Double get_EndAngle()
+    8 Double get_LinetypeScale()
+    8 Double get_Radius()
+    8 Double get_StartAngle()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_Center()
+    8 System.Object get_EndPoint()
+    8 System.Object get_Normal()
+    8 System.Object get_StartPoint()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Center(System.Object)
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_EndAngle(Double)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_Normal(System.Object)
+    8 Void set_Radius(Double)
+    8 Void set_StartAngle(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadBlock
+    16 Int32 ObjectID
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcad3DPolyline Add3DPoly(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadArc AddArc(System.Object, Double, Double, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadBlockReference InsertBlock(System.Object, System.String, Double, Double, Double, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadCircle AddCircle(System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadDimAligned AddDimAligned(System.Object, System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDimAngular AddDimAngular(System.Object, System.Object, System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDimDiametric AddDimDiametric(System.Object, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadDimRadial AddDimRadial(System.Object, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadHatch AddHatch(Int32, System.String, Int32)
+    8 RBCTCOMSERVERLib.IRbctAcadLWPolyline AddLightWeightPolyline(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadLine AddLine(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadPolygonMesh Add3DMesh(Int32, Int32, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadPolyline AddPolyline(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadRay AddRay(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadText AddText(System.String, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadXline AddXline(System.Object, System.Object)
+    8 System.Object AddRegion(System.Object)
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadBlockReference
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Normal
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object Explode()
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_Normal()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_Normal(System.Object)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadBlocks
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadBlock Item [System.Object]
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadBlock Add(System.Object, System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadBlock get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadCircle
+    16 Double Area
+    16 Double Diameter
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Center
+    16 System.Object Normal
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_Area()
+    8 Double get_Diameter()
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_Center()
+    8 System.Object get_Normal()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Area(Double)
+    8 Void set_Center(System.Object)
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Diameter(Double)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_Normal(System.Object)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadDatabase
+    16 RBCTCOMSERVERLib.IRbctAcadBlocks Blocks
+    8 RBCTCOMSERVERLib.IRbctAcadBlocks get_Blocks()
+
+interface RBCTCOMSERVERLib.IRbctAcadDimAligned
+    16 Double LinearScaleFactor
+    16 Double LinetypeScale
+    16 Double TextGap
+    16 Double TextHeight
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcDimTextMovement TextMovement
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    16 System.String TextOverride
+    8 Double get_LinearScaleFactor()
+    8 Double get_LinetypeScale()
+    8 Double get_TextGap()
+    8 Double get_TextHeight()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcDimTextMovement get_TextMovement()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 System.String get_TextOverride()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_LinearScaleFactor(Double)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TextGap(Double)
+    8 Void set_TextHeight(Double)
+    8 Void set_TextMovement(RBCTCOMSERVERLib.ERbctAcDimTextMovement)
+    8 Void set_TextOverride(System.String)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadDimAngular
+    16 Double LinetypeScale
+    16 Double TextGap
+    16 Double TextHeight
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcDimTextMovement TextMovement
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    16 System.String TextOverride
+    8 Double get_LinetypeScale()
+    8 Double get_TextGap()
+    8 Double get_TextHeight()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcDimTextMovement get_TextMovement()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 System.String get_TextOverride()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TextGap(Double)
+    8 Void set_TextHeight(Double)
+    8 Void set_TextMovement(RBCTCOMSERVERLib.ERbctAcDimTextMovement)
+    8 Void set_TextOverride(System.String)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadDimDiametric
+    16 Double LinetypeScale
+    16 Double TextGap
+    16 Double TextHeight
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcDimTextMovement TextMovement
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    16 System.String TextOverride
+    8 Double get_LinetypeScale()
+    8 Double get_TextGap()
+    8 Double get_TextHeight()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcDimTextMovement get_TextMovement()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 System.String get_TextOverride()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TextGap(Double)
+    8 Void set_TextHeight(Double)
+    8 Void set_TextMovement(RBCTCOMSERVERLib.ERbctAcDimTextMovement)
+    8 Void set_TextOverride(System.String)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadDimRadial
+    16 Double LinetypeScale
+    16 Double TextGap
+    16 Double TextHeight
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcDimTextMovement TextMovement
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    16 System.String TextOverride
+    8 Double get_LinetypeScale()
+    8 Double get_TextGap()
+    8 Double get_TextHeight()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcDimTextMovement get_TextMovement()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 System.String get_TextOverride()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TextGap(Double)
+    8 Void set_TextHeight(Double)
+    8 Void set_TextMovement(RBCTCOMSERVERLib.ERbctAcDimTextMovement)
+    8 Void set_TextOverride(System.String)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadDimStyle
+    16 Int32 ObjectID
+    16 System.String Handle
+    16 System.String ObjectName
+    16 System.String name
+    8 Int32 get_ObjectID()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 System.String get_name()
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadDimStyles
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadDimStyle Item [System.Object]
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadDimStyle Add(System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadDimStyle get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadDimension
+    16 Double LinetypeScale
+    16 Double TextGap
+    16 Double TextHeight
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcDimTextMovement TextMovement
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    16 System.String TextOverride
+    8 Double get_LinetypeScale()
+    8 Double get_TextGap()
+    8 Double get_TextHeight()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcDimTextMovement get_TextMovement()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 System.String get_TextOverride()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TextGap(Double)
+    8 Void set_TextHeight(Double)
+    8 Void set_TextMovement(RBCTCOMSERVERLib.ERbctAcDimTextMovement)
+    8 Void set_TextOverride(System.String)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadDocument
+    16 Boolean Active
+    16 Boolean ObjectSnapMode
+    16 Boolean ReadOnly
+    16 Boolean Saved
+    16 RBCTCOMSERVERLib.ERbctAcActiveSpace ActiveSpace
+    16 RBCTCOMSERVERLib.IRbctAcadBlocks Blocks
+    16 RBCTCOMSERVERLib.IRbctAcadDimStyle ActiveDimStyle
+    16 RBCTCOMSERVERLib.IRbctAcadDimStyles DimStyles
+    16 RBCTCOMSERVERLib.IRbctAcadGroups Groups
+    16 RBCTCOMSERVERLib.IRbctAcadLayout ActiveLayout
+    16 RBCTCOMSERVERLib.IRbctAcadLayouts Layouts
+    16 RBCTCOMSERVERLib.IRbctAcadLineTypes LineTypes
+    16 RBCTCOMSERVERLib.IRbctAcadModelSpace ModelSpace
+    16 RBCTCOMSERVERLib.IRbctAcadPaperSpace PaperSpace
+    16 RBCTCOMSERVERLib.IRbctAcadSelectionSet ActiveSelectionSet
+    16 RBCTCOMSERVERLib.IRbctAcadSelectionSets SelectionSets
+    16 RBCTCOMSERVERLib.IRbctAcadTextStyles TextStyles
+    16 RBCTCOMSERVERLib.IRbctAcadUCS ActiveUCS
+    16 RBCTCOMSERVERLib.IRbctAcadUCSs UserCoordinateSystems
+    16 RBCTCOMSERVERLib.IRbctAcadUtility Utility
+    16 RBCTCOMSERVERLib.RbctAutoCAD Application
+    16 System.String FullName
+    16 System.String Path
+    16 System.String name
+    8 Boolean get_Active()
+    8 Boolean get_ObjectSnapMode()
+    8 Boolean get_ReadOnly()
+    8 Boolean get_Saved()
+    8 RBCTCOMSERVERLib.ERbctAcActiveSpace get_ActiveSpace()
+    8 RBCTCOMSERVERLib.IRbctAcadBlocks get_Blocks()
+    8 RBCTCOMSERVERLib.IRbctAcadDimStyle get_ActiveDimStyle()
+    8 RBCTCOMSERVERLib.IRbctAcadDimStyles get_DimStyles()
+    8 RBCTCOMSERVERLib.IRbctAcadDocument New(System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadDocument Open(System.String, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadGroups get_Groups()
+    8 RBCTCOMSERVERLib.IRbctAcadLayout get_ActiveLayout()
+    8 RBCTCOMSERVERLib.IRbctAcadLayouts get_Layouts()
+    8 RBCTCOMSERVERLib.IRbctAcadLineTypes get_LineTypes()
+    8 RBCTCOMSERVERLib.IRbctAcadModelSpace get_ModelSpace()
+    8 RBCTCOMSERVERLib.IRbctAcadObject HandleToObject(System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadObject ObjectIdToObject(Int32)
+    8 RBCTCOMSERVERLib.IRbctAcadPaperSpace get_PaperSpace()
+    8 RBCTCOMSERVERLib.IRbctAcadSelectionSet get_ActiveSelectionSet()
+    8 RBCTCOMSERVERLib.IRbctAcadSelectionSets get_SelectionSets()
+    8 RBCTCOMSERVERLib.IRbctAcadTextStyles get_TextStyles()
+    8 RBCTCOMSERVERLib.IRbctAcadUCS get_ActiveUCS()
+    8 RBCTCOMSERVERLib.IRbctAcadUCSs get_UserCoordinateSystems()
+    8 RBCTCOMSERVERLib.IRbctAcadUtility get_Utility()
+    8 RBCTCOMSERVERLib.RbctAutoCAD get_Application()
+    8 System.Object GetAcadDocument()
+    8 System.Object GetVariable(System.String)
+    8 System.String get_FullName()
+    8 System.String get_Path()
+    8 System.String get_name()
+    8 Void Activate()
+    8 Void Close(System.Object, System.Object)
+    8 Void EndUndoMark()
+    8 Void Export(System.String, System.String, RBCTCOMSERVERLib.IRbctAcadSelectionSet)
+    8 Void Regen(RBCTCOMSERVERLib.ERbctAcRegenType)
+    8 Void Save()
+    8 Void SaveAs(System.String, System.Object, System.Object)
+    8 Void SendCommand(System.String)
+    8 Void SetVariable(System.String, System.Object)
+    8 Void StartUndoMark()
+    8 Void Wblock(System.String, RBCTCOMSERVERLib.IRbctAcadSelectionSet)
+    8 Void set_ActiveDimStyle(RBCTCOMSERVERLib.IRbctAcadDimStyle)
+    8 Void set_ActiveLayout(RBCTCOMSERVERLib.IRbctAcadLayout)
+    8 Void set_ActiveSpace(RBCTCOMSERVERLib.ERbctAcActiveSpace)
+    8 Void set_ActiveUCS(RBCTCOMSERVERLib.IRbctAcadUCS)
+    8 Void set_ObjectSnapMode(Boolean)
+
+interface RBCTCOMSERVERLib.IRbctAcadDocuments
+    16 Int32 Count
+    16 RBCTCOMSERVERLib.IRbctAcadDocument Item [System.Object]
+    16 RBCTCOMSERVERLib.RbctAutoCAD Application
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IRbctAcadDocument Add(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDocument Open(System.String, System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDocument get_Item(System.Object)
+    8 RBCTCOMSERVERLib.RbctAutoCAD get_Application()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Close()
+
+interface RBCTCOMSERVERLib.IRbctAcadEntity
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadGroup
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadEntity Item [Int32]
+    16 System.String Handle
+    16 System.String ObjectName
+    16 System.String name
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadEntity get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 System.String get_name()
+    8 Void AppendItems(System.Object)
+    8 Void Delete()
+    8 Void RemoveItems(System.Object)
+    8 Void Update()
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadGroups
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadGroup Item [System.Object]
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadGroup Add(System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadGroup get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadHatch
+    16 Double LinetypeScale
+    16 Double PatternAngle
+    16 Double PatternScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Normal
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Double get_PatternAngle()
+    8 Double get_PatternScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_Normal()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void AppendOuterLoop(System.Object)
+    8 Void Delete()
+    8 Void Evaluate()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_Normal(System.Object)
+    8 Void set_PatternAngle(Double)
+    8 Void set_PatternScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadLWPolyline
+    16 Boolean Closed
+    16 Double Area
+    16 Double Elevation
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Coordinates
+    16 System.Object Normal
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Boolean get_Closed()
+    8 Double GetBulge(Int32)
+    8 Double get_Area()
+    8 Double get_Elevation()
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object Explode()
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object Offset(Double)
+    8 System.Object get_Coordinates()
+    8 System.Object get_Normal()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void AddVertex(Int32, System.Object)
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void SetBulge(Int32, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Closed(Boolean)
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Coordinates(System.Object)
+    8 Void set_Elevation(Double)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_Normal(System.Object)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadLayout
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcPlotPaperUnits PaperUnits
+    16 RBCTCOMSERVERLib.ERbctAcPlotRotation PlotRotation
+    16 RBCTCOMSERVERLib.ERbctAcPlotScale StandardScale
+    16 System.Object PlotOrigin
+    16 System.String CanonicalMediaName
+    16 System.String ConfigName
+    16 System.String Handle
+    16 System.String ObjectName
+    16 System.String StyleSheet
+    16 System.String name
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcPlotPaperUnits get_PaperUnits()
+    8 RBCTCOMSERVERLib.ERbctAcPlotRotation get_PlotRotation()
+    8 RBCTCOMSERVERLib.ERbctAcPlotScale get_StandardScale()
+    8 System.Object get_PlotOrigin()
+    8 System.String get_CanonicalMediaName()
+    8 System.String get_ConfigName()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 System.String get_StyleSheet()
+    8 System.String get_name()
+    8 Void GetCustomScale(Double ByRef, Double ByRef)
+    8 Void GetPaperMargins(System.Object ByRef, System.Object ByRef)
+    8 Void GetPaperSize(Double ByRef, Double ByRef)
+    8 Void SetCustomScale(Double, Double)
+    8 Void set_CanonicalMediaName(System.String)
+    8 Void set_ConfigName(System.String)
+    8 Void set_PaperUnits(RBCTCOMSERVERLib.ERbctAcPlotPaperUnits)
+    8 Void set_PlotRotation(RBCTCOMSERVERLib.ERbctAcPlotRotation)
+    8 Void set_StandardScale(RBCTCOMSERVERLib.ERbctAcPlotScale)
+    8 Void set_StyleSheet(System.String)
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadLayouts
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadLayout Item [System.Object]
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadLayout Add(System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadLayout get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadLine
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object EndPoint
+    16 System.Object Normal
+    16 System.Object StartPoint
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_EndPoint()
+    8 System.Object get_Normal()
+    8 System.Object get_StartPoint()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_EndPoint(System.Object)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_Normal(System.Object)
+    8 Void set_StartPoint(System.Object)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadLineType
+    16 Int32 ObjectID
+    16 System.String Handle
+    16 System.String ObjectName
+    16 System.String name
+    8 Int32 get_ObjectID()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 System.String get_name()
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadLineTypes
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadLineType Item [System.Object]
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadLineType get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 Void Load(System.String, System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadMLine
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Coordinates
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_Coordinates()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Coordinates(System.Object)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadModelSpace
+    16 Int32 ObjectID
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcad3DPolyline Add3DPoly(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadArc AddArc(System.Object, Double, Double, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadBlockReference InsertBlock(System.Object, System.String, Double, Double, Double, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadCircle AddCircle(System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadDimAligned AddDimAligned(System.Object, System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDimAngular AddDimAngular(System.Object, System.Object, System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDimDiametric AddDimDiametric(System.Object, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadDimRadial AddDimRadial(System.Object, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadHatch AddHatch(Int32, System.String, Int32)
+    8 RBCTCOMSERVERLib.IRbctAcadLWPolyline AddLightWeightPolyline(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadLine AddLine(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadPolygonMesh Add3DMesh(Int32, Int32, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadPolyline AddPolyline(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadRay AddRay(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadText AddText(System.String, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadXline AddXline(System.Object, System.Object)
+    8 System.Object AddRegion(System.Object)
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadObject
+    16 Int32 ObjectID
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_ObjectID()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadPaperSpace
+    16 Int32 ObjectID
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcad3DPolyline Add3DPoly(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadArc AddArc(System.Object, Double, Double, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadBlockReference InsertBlock(System.Object, System.String, Double, Double, Double, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadCircle AddCircle(System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadDimAligned AddDimAligned(System.Object, System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDimAngular AddDimAngular(System.Object, System.Object, System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadDimDiametric AddDimDiametric(System.Object, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadDimRadial AddDimRadial(System.Object, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadHatch AddHatch(Int32, System.String, Int32)
+    8 RBCTCOMSERVERLib.IRbctAcadLWPolyline AddLightWeightPolyline(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadLine AddLine(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadPolygonMesh Add3DMesh(Int32, Int32, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadPolyline AddPolyline(System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadRay AddRay(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadText AddText(System.String, System.Object, Double)
+    8 RBCTCOMSERVERLib.IRbctAcadXline AddXline(System.Object, System.Object)
+    8 System.Object AddRegion(System.Object)
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadPlotConfiguration
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcPlotPaperUnits PaperUnits
+    16 RBCTCOMSERVERLib.ERbctAcPlotRotation PlotRotation
+    16 RBCTCOMSERVERLib.ERbctAcPlotScale StandardScale
+    16 System.Object PlotOrigin
+    16 System.String CanonicalMediaName
+    16 System.String ConfigName
+    16 System.String Handle
+    16 System.String ObjectName
+    16 System.String StyleSheet
+    16 System.String name
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcPlotPaperUnits get_PaperUnits()
+    8 RBCTCOMSERVERLib.ERbctAcPlotRotation get_PlotRotation()
+    8 RBCTCOMSERVERLib.ERbctAcPlotScale get_StandardScale()
+    8 System.Object get_PlotOrigin()
+    8 System.String get_CanonicalMediaName()
+    8 System.String get_ConfigName()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 System.String get_StyleSheet()
+    8 System.String get_name()
+    8 Void GetCustomScale(Double ByRef, Double ByRef)
+    8 Void GetPaperMargins(System.Object ByRef, System.Object ByRef)
+    8 Void GetPaperSize(Double ByRef, Double ByRef)
+    8 Void SetCustomScale(Double, Double)
+    8 Void set_CanonicalMediaName(System.String)
+    8 Void set_ConfigName(System.String)
+    8 Void set_PaperUnits(RBCTCOMSERVERLib.ERbctAcPlotPaperUnits)
+    8 Void set_PlotRotation(RBCTCOMSERVERLib.ERbctAcPlotRotation)
+    8 Void set_StandardScale(RBCTCOMSERVERLib.ERbctAcPlotScale)
+    8 Void set_StyleSheet(System.String)
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadPolygonMesh
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadPolyline
+    16 Boolean Closed
+    16 Double Area
+    16 Double Elevation
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Coordinates
+    16 System.Object Normal
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Boolean get_Closed()
+    8 Double GetBulge(Int32)
+    8 Double get_Area()
+    8 Double get_Elevation()
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object Explode()
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object Offset(Double)
+    8 System.Object get_Coordinates()
+    8 System.Object get_Normal()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void AppendVertex(System.Object)
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void SetBulge(Int32, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Closed(Boolean)
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Coordinates(System.Object)
+    8 Void set_Elevation(Double)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_Normal(System.Object)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadPreferences
+    16 RBCTCOMSERVERLib.IRbctAcadPreferencesDisplay Display
+    16 RBCTCOMSERVERLib.IRbctAcadPreferencesSelection Selection
+    16 RBCTCOMSERVERLib.IRbctAcadPreferencesSystem System
+    16 RBCTCOMSERVERLib.IRbctAcadPreferencesUser User
+    16 RBCTCOMSERVERLib.RbctAutoCAD Application
+    8 RBCTCOMSERVERLib.IRbctAcadPreferencesDisplay get_Display()
+    8 RBCTCOMSERVERLib.IRbctAcadPreferencesSelection get_Selection()
+    8 RBCTCOMSERVERLib.IRbctAcadPreferencesSystem get_System()
+    8 RBCTCOMSERVERLib.IRbctAcadPreferencesUser get_User()
+    8 RBCTCOMSERVERLib.RbctAutoCAD get_Application()
+
+interface RBCTCOMSERVERLib.IRbctAcadPreferencesDisplay
+    16 Boolean LayoutCreateViewport
+    8 Boolean get_LayoutCreateViewport()
+    8 Void set_LayoutCreateViewport(Boolean)
+
+interface RBCTCOMSERVERLib.IRbctAcadPreferencesSelection
+    16 Boolean PickGroup
+    8 Boolean get_PickGroup()
+    8 Void set_PickGroup(Boolean)
+
+interface RBCTCOMSERVERLib.IRbctAcadPreferencesSystem
+    16 Boolean ShowWarningMessages
+    8 Boolean get_ShowWarningMessages()
+    8 Void set_ShowWarningMessages(Boolean)
+
+interface RBCTCOMSERVERLib.IRbctAcadPreferencesUser
+    16 RBCTCOMSERVERLib.ERbctAcKeyboardPriority KeyboardPriority
+    8 RBCTCOMSERVERLib.ERbctAcKeyboardPriority get_KeyboardPriority()
+    8 Void set_KeyboardPriority(RBCTCOMSERVERLib.ERbctAcKeyboardPriority)
+
+interface RBCTCOMSERVERLib.IRbctAcadRay
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadRegion
+    16 Double Area
+    16 Double LinetypeScale
+    16 Double Perimeter
+    16 Double ProductOfInertia
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object Centroid
+    16 System.Object MomentOfInertia
+    16 System.Object Normal
+    16 System.Object PrincipalDirections
+    16 System.Object PrincipalMoments
+    16 System.Object RadiiOfGyration
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_Area()
+    8 Double get_LinetypeScale()
+    8 Double get_Perimeter()
+    8 Double get_ProductOfInertia()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object Explode()
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_Centroid()
+    8 System.Object get_MomentOfInertia()
+    8 System.Object get_Normal()
+    8 System.Object get_PrincipalDirections()
+    8 System.Object get_PrincipalMoments()
+    8 System.Object get_RadiiOfGyration()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Boolean(RBCTCOMSERVERLib.ERbctAcBooleanType, RBCTCOMSERVERLib.IRbctAcadRegion)
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadSelectionSet
+    16 Int32 Count
+    16 RBCTCOMSERVERLib.IRbctAcadEntity Item [Int32]
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IRbctAcadEntity get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Clear()
+    8 Void Delete()
+    8 Void Highlight(Boolean)
+    8 Void Select(RBCTCOMSERVERLib.ERbctAcSelect, System.Object, System.Object, System.Object, System.Object)
+    8 Void SelectByPolygon(RBCTCOMSERVERLib.ERbctAcSelect, System.Object, System.Object, System.Object)
+    8 Void SelectOnScreen(System.Object, System.Object)
+
+interface RBCTCOMSERVERLib.IRbctAcadSelectionSets
+    16 Int32 Count
+    16 RBCTCOMSERVERLib.IRbctAcadSelectionSet Item [System.Object]
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IRbctAcadSelectionSet Add(System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadSelectionSet get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface RBCTCOMSERVERLib.IRbctAcadText
+    16 Double LinetypeScale
+    16 Double ObliqueAngle
+    16 Double Rotation
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcAlignment Alignment
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.Object TextAlignmentPoint
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    16 System.String StyleName
+    8 Double get_LinetypeScale()
+    8 Double get_ObliqueAngle()
+    8 Double get_Rotation()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcAlignment get_Alignment()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.Object get_TextAlignmentPoint()
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 System.String get_StyleName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Alignment(RBCTCOMSERVERLib.ERbctAcAlignment)
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_ObliqueAngle(Double)
+    8 Void set_Rotation(Double)
+    8 Void set_StyleName(System.String)
+    8 Void set_TextAlignmentPoint(System.Object)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAcadTextStyle
+    16 Double height
+    16 Int32 ObjectID
+    16 System.String Handle
+    16 System.String ObjectName
+    16 System.String name
+    8 Double get_height()
+    8 Int32 get_ObjectID()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 System.String get_name()
+    8 Void SetFont(System.String, Int32, Int32, Int32, Int32)
+    8 Void set_height(Double)
+
+interface RBCTCOMSERVERLib.IRbctAcadTextStyles
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadTextStyle Item [System.Object]
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadTextStyle Add(System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadTextStyle get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadUCS
+    16 Int32 ObjectID
+    16 System.Object Origin
+    16 System.Object XVector
+    16 System.Object YVector
+    16 System.String Handle
+    16 System.String ObjectName
+    16 System.String name
+    8 Int32 get_ObjectID()
+    8 System.Object GetUCSMatrix()
+    8 System.Object get_Origin()
+    8 System.Object get_XVector()
+    8 System.Object get_YVector()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+    8 System.String get_name()
+    8 Void set_Origin(System.Object)
+    8 Void set_XVector(System.Object)
+    8 Void set_YVector(System.Object)
+    8 Void set_name(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadUCSs
+    16 Int32 Count
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.IRbctAcadUCS Item [System.Object]
+    16 System.String Handle
+    16 System.String ObjectName
+    8 Int32 get_Count()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.IRbctAcadUCS Add(System.Object, System.Object, System.Object, System.String)
+    8 RBCTCOMSERVERLib.IRbctAcadUCS get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Handle()
+    8 System.String get_ObjectName()
+
+interface RBCTCOMSERVERLib.IRbctAcadUtility
+    8 Double GetAngle(System.Object, System.Object)
+    8 Double GetDistance(System.Object, System.Object)
+    8 Double GetReal(System.Object)
+    8 Int32 GetInteger(System.Object)
+    8 System.Object GetPoint(System.Object, System.Object)
+    8 System.Object TranslateCoordinates(System.Object, RBCTCOMSERVERLib.ERbctAcCoordinateSystem, RBCTCOMSERVERLib.ERbctAcCoordinateSystem, Int32, System.Object)
+    8 System.String AngleToString(Double, RBCTCOMSERVERLib.ERbctAcAngleUnits, Int32)
+    8 System.String GetInput()
+    8 System.String GetKeyword(System.Object)
+    8 System.String GetString(Int32, System.Object)
+    8 Void GetEntity(RBCTCOMSERVERLib.IRbctAcadObject ByRef, System.Object ByRef, System.Object)
+    8 Void InitializeUserInput(Int32, System.Object)
+    8 Void prompt(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAcadXline
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctAppSet
+    8 System.String GetAppPath(System.String, Int32)
+    8 System.String GetApplicationName()
+    8 System.String GetApplicationVersion()
+    8 System.String GetPathAndFile(System.String, System.String, Int32)
+    8 System.String GetPathDataOutput()
+    8 System.String GetPathDataUser(Int32)
+
+interface RBCTCOMSERVERLib.IRbctAsynchronousCookie
+    8 Void RunMacroCmd(Int32)
+    8 Void SetAllCmdUndefined(Int32)
+    8 Void SetCmdUndefined(System.String, Int32)
+    8 Void SetHWND(Int32)
+    8 Void SetRcadChildHWND(Int32)
+    8 Void Unload()
+
+interface RBCTCOMSERVERLib.IRbctAttribute
+    8 Double GetDoubleValue(System.String)
+    8 Int32 GetLongValue(System.String)
+    8 Int32 GetObjectIdValue(System.String)
+    8 Int32 SetDataPointerValue(System.String, RBCTCOMSERVERLib.IRbctData)
+    8 Int32 SetDoubleValue(System.String, Double)
+    8 Int32 SetLongValue(System.String, Int32)
+    8 Int32 SetObjectIdValue(System.String, Int32)
+    8 Int32 SetPoint2dValue(System.String, System.Object)
+    8 Int32 SetPoint3dValue(System.String, System.Object)
+    8 Int32 SetStringValue(System.String, System.String)
+    8 RBCTCOMSERVERLib.IRbctData GetDataPointerValue(System.String)
+    8 System.Object GetPoint2dValue(System.String)
+    8 System.Object GetPoint3dValue(System.String)
+    8 System.String GetStringValue(System.String)
+
+interface RBCTCOMSERVERLib.IRbctAutoCAD
+    16 RBCTCOMSERVERLib.IRbctAcadDocument ActiveDocument
+    16 RBCTCOMSERVERLib.IRbctAcadDocuments Documents
+    16 RBCTCOMSERVERLib.IRbctAcadPreferences Preferences
+    16 System.Object AcadApplication
+    8 RBCTCOMSERVERLib.IRbctAcadDocument get_ActiveDocument()
+    8 RBCTCOMSERVERLib.IRbctAcadDocuments get_Documents()
+    8 RBCTCOMSERVERLib.IRbctAcadPreferences get_Preferences()
+    8 System.Object get_AcadApplication()
+    8 Void Update()
+    8 Void ZoomExtents()
+    8 Void ZoomPrevious()
+    8 Void ZoomWindow(System.Object, System.Object)
+
+interface RBCTCOMSERVERLib.IRbctAutoCADEvents
+
+interface RBCTCOMSERVERLib.IRbctCad
+    8 RBCTCOMSERVERLib.RbctAutoCAD GetAutoCAD()
+    8 RBCTCOMSERVERLib.RbctRcad GetRcad()
+
+interface RBCTCOMSERVERLib.IRbctComponentIdsArr
+    8 RBCTCOMSERVERLib.IRbctComponentIdsArr Add(System.String)
+
+interface RBCTCOMSERVERLib.IRbctDBUserObjService
+    8 RBCTCOMSERVERLib.IRbCSDBUserObjData CreateObjData()
+    8 RBCTCOMSERVERLib.IRbCSDBUserObject CreateObject()
+
+interface RBCTCOMSERVERLib.IRbctData
+    8 Int16 GetAttributeNumber(System.String)
+    8 Int32 SetAttributeNumber(System.String, Int16)
+    8 RBCTCOMSERVERLib.IRbctAttribute GetAttribute(System.String, Int16)
+    8 System.String GetName()
+
+interface RBCTCOMSERVERLib.IRbctDataEx
+    8 Int16 GetAttributeNumber(System.String)
+    8 Int32 SetAttributeNumber(System.String, Int16)
+    8 Int32 SetDataDoubleValue(System.String, System.String, Double, Int16, Int16)
+    8 Int32 SetDataLongValue(System.String, System.String, Int32, Int16, Int16)
+    8 Int32 SetDataPoint2dValue(System.String, System.String, System.Object, Int16, Int16)
+    8 Int32 SetDataPoint3dValue(System.String, System.String, System.Object, Int16, Int16)
+    8 Int32 SetDataStringValue(System.String, System.String, System.String, Int16, Int16)
+    8 RBCTCOMSERVERLib.IRbctAttribute GetAttribute(System.String, Int16)
+    8 System.String GetName()
+
+interface RBCTCOMSERVERLib.IRbctDatabase
+    8 RBCTCOMSERVERLib.IRbctDbDastConIHDatas GetDastConIHData(System.String, System.String, System.String)
+    8 RBCTCOMSERVERLib.IRbctDbDastConIWDatas GetDastConIWData(System.String)
+
+interface RBCTCOMSERVERLib.IRbctDbDastConIHData
+    16 System.String BOLTS
+    16 System.String BOLTS_GRADE
+    16 System.String DIN_G_1
+    16 System.String DIN_G_2
+    16 System.String DIN_G_3
+    16 System.String DIN_G_4
+    16 System.String DIN_My1Rd_1
+    16 System.String DIN_My1Rd_2
+    16 System.String DIN_My1Rd_3
+    16 System.String DIN_My1Rd_4
+    16 System.String DIN_My2Rd_1
+    16 System.String DIN_My2Rd_2
+    16 System.String DIN_My2Rd_3
+    16 System.String DIN_My2Rd_4
+    16 System.String DIN_VzRd_1
+    16 System.String DIN_VzRd_2
+    16 System.String DIN_VzRd_3
+    16 System.String DIN_VzRd_4
+    16 System.String EC_G_1
+    16 System.String EC_G_2
+    16 System.String EC_G_3
+    16 System.String EC_G_4
+    16 System.String EC_My1Rd_1
+    16 System.String EC_My1Rd_2
+    16 System.String EC_My1Rd_3
+    16 System.String EC_My1Rd_4
+    16 System.String EC_My2Rd_1
+    16 System.String EC_My2Rd_2
+    16 System.String EC_My2Rd_3
+    16 System.String EC_My2Rd_4
+    16 System.String EC_VzRd_1
+    16 System.String EC_VzRd_2
+    16 System.String EC_VzRd_3
+    16 System.String EC_VzRd_4
+    16 System.String McyRd_1
+    16 System.String McyRd_2
+    16 System.String McyRd_3
+    16 System.String McyRd_4
+    16 System.String NR
+    16 System.String PROFILE
+    16 System.String TYPE
+    16 System.String WITHOUT_COL
+    16 System.String af
+    16 System.String aw
+    16 System.String bp
+    16 System.String e1
+    16 System.String e2
+    16 System.String e3
+    16 System.String e4
+    16 System.String erfHEA_1
+    16 System.String erfHEA_2
+    16 System.String erfHEA_3
+    16 System.String erfHEA_4
+    16 System.String erfHEB_1
+    16 System.String erfHEB_2
+    16 System.String erfHEB_3
+    16 System.String erfHEB_4
+    16 System.String erfHEM_1
+    16 System.String erfHEM_2
+    16 System.String erfHEM_3
+    16 System.String erfHEM_4
+    16 System.String erfIPE_1
+    16 System.String erfIPE_2
+    16 System.String erfIPE_3
+    16 System.String erfIPE_4
+    16 System.String hp
+    16 System.String sHEA_1
+    16 System.String sHEA_2
+    16 System.String sHEA_3
+    16 System.String sHEA_4
+    16 System.String sHEB_1
+    16 System.String sHEB_2
+    16 System.String sHEB_3
+    16 System.String sHEB_4
+    16 System.String sHEM_1
+    16 System.String sHEM_2
+    16 System.String sHEM_3
+    16 System.String sHEM_4
+    16 System.String sIPE_1
+    16 System.String sIPE_2
+    16 System.String sIPE_3
+    16 System.String sIPE_4
+    16 System.String tp
+    16 System.String u1
+    16 System.String u2
+    16 System.String w1
+    16 System.String w2
+    16 System.String w3
+    8 System.String get_BOLTS()
+    8 System.String get_BOLTS_GRADE()
+    8 System.String get_DIN_G_1()
+    8 System.String get_DIN_G_2()
+    8 System.String get_DIN_G_3()
+    8 System.String get_DIN_G_4()
+    8 System.String get_DIN_My1Rd_1()
+    8 System.String get_DIN_My1Rd_2()
+    8 System.String get_DIN_My1Rd_3()
+    8 System.String get_DIN_My1Rd_4()
+    8 System.String get_DIN_My2Rd_1()
+    8 System.String get_DIN_My2Rd_2()
+    8 System.String get_DIN_My2Rd_3()
+    8 System.String get_DIN_My2Rd_4()
+    8 System.String get_DIN_VzRd_1()
+    8 System.String get_DIN_VzRd_2()
+    8 System.String get_DIN_VzRd_3()
+    8 System.String get_DIN_VzRd_4()
+    8 System.String get_EC_G_1()
+    8 System.String get_EC_G_2()
+    8 System.String get_EC_G_3()
+    8 System.String get_EC_G_4()
+    8 System.String get_EC_My1Rd_1()
+    8 System.String get_EC_My1Rd_2()
+    8 System.String get_EC_My1Rd_3()
+    8 System.String get_EC_My1Rd_4()
+    8 System.String get_EC_My2Rd_1()
+    8 System.String get_EC_My2Rd_2()
+    8 System.String get_EC_My2Rd_3()
+    8 System.String get_EC_My2Rd_4()
+    8 System.String get_EC_VzRd_1()
+    8 System.String get_EC_VzRd_2()
+    8 System.String get_EC_VzRd_3()
+    8 System.String get_EC_VzRd_4()
+    8 System.String get_McyRd_1()
+    8 System.String get_McyRd_2()
+    8 System.String get_McyRd_3()
+    8 System.String get_McyRd_4()
+    8 System.String get_NR()
+    8 System.String get_PROFILE()
+    8 System.String get_TYPE()
+    8 System.String get_WITHOUT_COL()
+    8 System.String get_af()
+    8 System.String get_aw()
+    8 System.String get_bp()
+    8 System.String get_e1()
+    8 System.String get_e2()
+    8 System.String get_e3()
+    8 System.String get_e4()
+    8 System.String get_erfHEA_1()
+    8 System.String get_erfHEA_2()
+    8 System.String get_erfHEA_3()
+    8 System.String get_erfHEA_4()
+    8 System.String get_erfHEB_1()
+    8 System.String get_erfHEB_2()
+    8 System.String get_erfHEB_3()
+    8 System.String get_erfHEB_4()
+    8 System.String get_erfHEM_1()
+    8 System.String get_erfHEM_2()
+    8 System.String get_erfHEM_3()
+    8 System.String get_erfHEM_4()
+    8 System.String get_erfIPE_1()
+    8 System.String get_erfIPE_2()
+    8 System.String get_erfIPE_3()
+    8 System.String get_erfIPE_4()
+    8 System.String get_hp()
+    8 System.String get_sHEA_1()
+    8 System.String get_sHEA_2()
+    8 System.String get_sHEA_3()
+    8 System.String get_sHEA_4()
+    8 System.String get_sHEB_1()
+    8 System.String get_sHEB_2()
+    8 System.String get_sHEB_3()
+    8 System.String get_sHEB_4()
+    8 System.String get_sHEM_1()
+    8 System.String get_sHEM_2()
+    8 System.String get_sHEM_3()
+    8 System.String get_sHEM_4()
+    8 System.String get_sIPE_1()
+    8 System.String get_sIPE_2()
+    8 System.String get_sIPE_3()
+    8 System.String get_sIPE_4()
+    8 System.String get_tp()
+    8 System.String get_u1()
+    8 System.String get_u2()
+    8 System.String get_w1()
+    8 System.String get_w2()
+    8 System.String get_w3()
+
+interface RBCTCOMSERVERLib.IRbctDbDastConIHDatas
+    16 Int32 Count
+    16 RBCTCOMSERVERLib.IRbctDbDastConIHData Item [Int32]
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IRbctDbDastConIHData get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface RBCTCOMSERVERLib.IRbctDbDastConIWData
+    16 Double BOLT_DIAMETER
+    16 Double DIN_FA_Rd_St37
+    16 Double DIN_FA_Rd_St52
+    16 Double DIN_su_St37
+    16 Double DIN_su_St52
+    16 Double EC_FA_Rd_235
+    16 Double EC_FA_Rd_355
+    16 Double EC_su_235
+    16 Double EC_su_355
+    16 Double Hwi
+    16 Double ax0
+    16 Double ax1
+    16 Double az0
+    16 Double az1
+    16 Double eu
+    16 Double u_235
+    16 Double u_355
+    16 Int32 HV_BOLTS_NUMBER
+    16 Int32 id
+    16 System.String DIN_Gz_St37
+    16 System.String DIN_Gz_St52
+    16 System.String EC_Gz_235
+    16 System.String EC_Gz_355
+    16 System.String HR
+    16 System.String SEC
+    16 System.String SECTION
+    16 System.String TYPE
+    8 Double get_BOLT_DIAMETER()
+    8 Double get_DIN_FA_Rd_St37()
+    8 Double get_DIN_FA_Rd_St52()
+    8 Double get_DIN_su_St37()
+    8 Double get_DIN_su_St52()
+    8 Double get_EC_FA_Rd_235()
+    8 Double get_EC_FA_Rd_355()
+    8 Double get_EC_su_235()
+    8 Double get_EC_su_355()
+    8 Double get_Hwi()
+    8 Double get_ax0()
+    8 Double get_ax1()
+    8 Double get_az0()
+    8 Double get_az1()
+    8 Double get_eu()
+    8 Double get_u_235()
+    8 Double get_u_355()
+    8 Int32 get_HV_BOLTS_NUMBER()
+    8 Int32 get_id()
+    8 System.String get_DIN_Gz_St37()
+    8 System.String get_DIN_Gz_St52()
+    8 System.String get_EC_Gz_235()
+    8 System.String get_EC_Gz_355()
+    8 System.String get_HR()
+    8 System.String get_SEC()
+    8 System.String get_SECTION()
+    8 System.String get_TYPE()
+
+interface RBCTCOMSERVERLib.IRbctDbDastConIWDatas
+    16 Int32 Count
+    16 RBCTCOMSERVERLib.IRbctDbDastConIWData Item [Int32]
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IRbctDbDastConIWData get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface RBCTCOMSERVERLib.IRbctDbEditService
+    8 Int32 HaveEntities()
+    8 RBCTCOMSERVERLib.IRbCSDbEditor CreateSteelEditor(RBCTCOMSERVERLib.eRbCSObjectType, RBCTCOMSERVERLib.eRbCSEditorType)
+    8 RBCTCOMSERVERLib.IRbcrDbEditor CreateReinforcementEditor(RBCTCOMSERVERLib.ERbcrObjectType, RBCTCOMSERVERLib.ERbcrEditorType)
+    8 RBCTCOMSERVERLib.IRbctDbEditor CreateEditor(RBCTCOMSERVERLib.ERbctObjectType, RBCTCOMSERVERLib.ERbctEditorType)
+    8 RBCTCOMSERVERLib.IRbctSymbolStyleIterator CreateSymbolStyleIterator(System.String)
+    8 RBCTCOMSERVERLib.IRbctVBAEditor CreateVBAEditor(System.String, RBCTCOMSERVERLib.ERbctVBAEditorType)
+    8 System.String GetLayerName(RBCTCOMSERVERLib.ERbctRCADLayerType)
+    8 Void InsertEntities(System.String)
+    8 Void SelectEntities(System.Object)
+
+interface RBCTCOMSERVERLib.IRbctDbEditor
+    8 Int32 Create()
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 Int32 Refresh()
+    8 Int32 RefreshEntity()
+    8 RBCTCOMSERVERLib.IRbctData GetData()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbctDgElem
+    16 Int32 EROElementType
+    16 Int32 GenerateDrawings
+    16 Int32 id
+    16 System.String ElementName
+    8 Int32 get_EROElementType()
+    8 Int32 get_GenerateDrawings()
+    8 Int32 get_id()
+    8 System.String get_ElementName()
+
+interface RBCTCOMSERVERLib.IRbctDgElemArr
+    16 Int32 Count
+    16 RBCTCOMSERVERLib.IRbctDgElem Item [Int32]
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IRbctDgElem get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface RBCTCOMSERVERLib.IRbctDgExportInfo
+    16 Int32 GeneratePrintouts
+    16 RBCTCOMSERVERLib.IRbctDgElemArr GetFormworkInfo
+    16 RBCTCOMSERVERLib.IRbctDgElemArr GetRBCTInfo
+    16 RBCTCOMSERVERLib.IRbctDgElemArr GetReinfInfo
+    16 RBCTCOMSERVERLib.IRbctDgElemArr GetSteelInfo
+    8 Int32 get_GeneratePrintouts()
+    8 RBCTCOMSERVERLib.IRbctDgElemArr get_GetFormworkInfo()
+    8 RBCTCOMSERVERLib.IRbctDgElemArr get_GetRBCTInfo()
+    8 RBCTCOMSERVERLib.IRbctDgElemArr get_GetReinfInfo()
+    8 RBCTCOMSERVERLib.IRbctDgElemArr get_GetSteelInfo()
+
+interface RBCTCOMSERVERLib.IRbctDgInfo
+    16 Int32 GeneratePrintouts
+    8 Int32 AddDgInfoElem(RBCTCOMSERVERLib.ERbctElementCategory, System.String, Int32, System.String, Int32)
+    8 Void set_GeneratePrintouts(Int32)
+
+interface RBCTCOMSERVERLib.IRbctDgService
+    8 Int32 EditSelection(RBCTCOMSERVERLib.IRbctDgInfo, RBCTCOMSERVERLib.IRbctDgExportInfo ByRef)
+    8 Int32 GenerateReinfDrawings(RBCTCOMSERVERLib.IRbctComponentIdsArr)
+    8 Int32 GetDgStyles(RBCTCOMSERVERLib.IStringArr ByRef, System.String)
+    8 Int32 SetDefaultDgStyle(System.String)
+    8 RBCTCOMSERVERLib.IRbctComponentIdsArr CreateRbctComponentIdsObject()
+    8 RBCTCOMSERVERLib.IRbctDgInfo CreateRbctDgInfoObject()
+
+interface RBCTCOMSERVERLib.IRbctDrawingContextMngr
+    8 Double GetWorkingViewportScale()
+    8 Int32 AddDocumentViewportsToPrintout(Int32, Int32)
+    8 Int32 AddViewportToPrintout(Int32, Int32)
+    8 Int32 CreateDocument(Int32, RBCTCOMSERVERLib.ERbctDocumentType, System.String)
+    8 Int32 CreatePrintout(System.String)
+    8 Int32 CreatePrintoutViewport(Int32, System.Object, RBCTCOMSERVERLib.ERbctFootHold)
+    8 Int32 CreateTemplateDocument(Int32, Int32, System.String)
+    8 Int32 CreateViewport(Int32, System.String, System.Object, System.Object, Int32, Int32)
+    8 Int32 DeleteViewport(Int32)
+    8 Int32 GetActiveDocumentId()
+    8 Int32 GetActivePrintoutId()
+    8 Int32 GetActiveViewportId()
+    8 Int32 GetEditAcadVportId(Int32)
+    8 Int32 GetPrintAcadViewportId(Int32)
+    8 Int32 GetRectSpaceId(Int32)
+    8 Int32 GetWorkingDocumentId()
+    8 Int32 GetWorkingViewportId()
+    8 Int32 InsertPrintLayout(System.String, System.String, System.String, Int32)
+    8 Int32 SetActiveDocumentId(Int32)
+    8 Int32 SetActivePrintoutId(Int32)
+    8 Int32 SetActiveViewportId(Int32)
+    8 Int32 SetWorkingDocumentId(Int32)
+    8 Int32 SetWorkingViewportId(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreateDocumentEntityIterator(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreateDocumentIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreateDocumentTemplateIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreatePositionDocumentIterator(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreatePositionIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreatePrintoutIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreateViewportEntityIterator(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreateViewportIterator(Int32)
+    8 Void ActivatePrintout(System.String)
+    8 Void RegenAll()
+    8 Void SynchroniseNewPaperLayout(Int32)
+
+interface RBCTCOMSERVERLib.IRbctDrawingMngr
+    8 Int32 OpenActiveViewport(Int32)
+    8 Int32 OpenCurrentDocument()
+    8 Void CloseDocument(Int32)
+    8 Void CloseViewport(Int32)
+
+interface RBCTCOMSERVERLib.IRbctIterator
+    8 Int32 Get()
+    8 Int32 IsEnd()
+    8 Void Next()
+    8 Void Reset()
+
+interface RBCTCOMSERVERLib.IRbctObjectIdArr
+    16 Int32 Count
+    16 Int32 Item [Int32]
+    8 Int32 Contains(Int32)
+    8 Int32 get_Count()
+    8 Int32 get_Item(Int32)
+    8 RBCTCOMSERVERLib.IRbctObjectIdArr Add(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Clear()
+
+interface RBCTCOMSERVERLib.IRbctPreferencesData
+    8 Int32 GetLongValue(System.String, System.String)
+    8 Int32 SetLongValue(System.String, System.String, Int32)
+    8 Int32 SetStringValue(System.String, System.String, System.String)
+    8 System.String GetStringValue(System.String, System.String)
+
+interface RBCTCOMSERVERLib.IRbctRbcrRcadEntity
+    16 Double LinetypeScale
+    16 Int32 ObjectID
+    16 RBCTCOMSERVERLib.ERbctAcadColor Color
+    16 RBCTCOMSERVERLib.IRbctAcadAcCmColor TrueColor
+    16 System.String Handle
+    16 System.String Layer
+    16 System.String Linetype
+    16 System.String ObjectName
+    8 Double get_LinetypeScale()
+    8 Int32 get_ObjectID()
+    8 RBCTCOMSERVERLib.ERbcrObjectType ObjectType()
+    8 RBCTCOMSERVERLib.ERbctAcadColor get_Color()
+    8 RBCTCOMSERVERLib.IRbctAcadAcCmColor get_TrueColor()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Copy()
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror(System.Object, System.Object)
+    8 RBCTCOMSERVERLib.IRbctAcadObject Mirror3D(System.Object, System.Object, System.Object)
+    8 System.Object ArrayRectangular(Int32, Int32, Int32, Double, Double, Double)
+    8 System.Object IntersectWith(RBCTCOMSERVERLib.IRbctAcadObject, RBCTCOMSERVERLib.ERbctAcExtendOption)
+    8 System.String get_Handle()
+    8 System.String get_Layer()
+    8 System.String get_Linetype()
+    8 System.String get_ObjectName()
+    8 Void Delete()
+    8 Void GetBoundingBox(System.Object ByRef, System.Object ByRef)
+    8 Void Highlight(Int32)
+    8 Void Move(System.Object, System.Object)
+    8 Void Rotate(System.Object, Double)
+    8 Void Rotate3D(System.Object, System.Object, Double)
+    8 Void ScaleEntity(System.Object, Double)
+    8 Void TransformBy(System.Object)
+    8 Void Update()
+    8 Void set_Color(RBCTCOMSERVERLib.ERbctAcadColor)
+    8 Void set_Layer(System.String)
+    8 Void set_Linetype(System.String)
+    8 Void set_LinetypeScale(Double)
+    8 Void set_TrueColor(RBCTCOMSERVERLib.IRbctAcadAcCmColor)
+
+interface RBCTCOMSERVERLib.IRbctRcad
+    8 Int32 IsCurDbRbcr()
+    8 Int32 IsCurDbRbcs()
+    8 Int32 IsCurDbRbct()
+    8 Int32 IsCurDbRbcx()
+    8 Int32 IsWorkingDbRbcr()
+    8 Int32 IsWorkingDbRbcs()
+    8 Int32 IsWorkingDbRbct()
+    8 Int32 IsWorkingDbRbcx()
+    8 Int32 QueueCommand(System.String)
+    8 Int32 RunArexCmd(System.Object)
+    8 Int32 SendCommandToExecute(System.String)
+    8 RBCTCOMSERVERLib.ERbctMeasurementValue GetMeasurement()
+    8 RBCTCOMSERVERLib.IRbCSConnectionCopyHolder GetSteelConnectionCopyHolder()
+    8 RBCTCOMSERVERLib.IRbCSDbEditService GetSteelDbEditService()
+    8 RBCTCOMSERVERLib.IRbCSMaterialDictionary GetSteelMaterialDictionary()
+    8 RBCTCOMSERVERLib.IRbCSProfileCSStorage GetSteelProfileCSStorage()
+    8 RBCTCOMSERVERLib.IRbCSTools GetSteelTools()
+    8 RBCTCOMSERVERLib.IRbCTFamilyManager GetSteelFamilyManager()
+    8 RBCTCOMSERVERLib.IRbcrDbEditService GetReinforcementDbEditService()
+    8 RBCTCOMSERVERLib.IRbcrElEditService GetReinforcementElEditService()
+    8 RBCTCOMSERVERLib.IRbcrJobSettings GetReinforcementJobSettings()
+    8 RBCTCOMSERVERLib.IRbcsGrate GetSteelGrate()
+    8 RBCTCOMSERVERLib.IRbcsPlate GetSteelPlate()
+    8 RBCTCOMSERVERLib.IRbcsProjectSettings GetSteelProjectSettings()
+    8 RBCTCOMSERVERLib.IRbcsService GetRbcsService()
+    8 RBCTCOMSERVERLib.IRbctAcGeService GetAcGeService()
+    8 RBCTCOMSERVERLib.IRbctAppSet GetAppSet(RBCTCOMSERVERLib.ERbctAppplication)
+    8 RBCTCOMSERVERLib.IRbctAppSet GetCurrentAppSet()
+    8 RBCTCOMSERVERLib.IRbctDBUserObjService GetSteelDBUserObjService()
+    8 RBCTCOMSERVERLib.IRbctDatabase GetDatabase()
+    8 RBCTCOMSERVERLib.IRbctPreferencesData GetPreferencesData(RBCTCOMSERVERLib.ERbctAppplication)
+    8 RBCTCOMSERVERLib.IRbctService GetRbctService()
+    8 RBCTCOMSERVERLib.IRbctSynchronizationMngr GetSynchronizationMngr()
+    8 RBCTCOMSERVERLib.IRbctUnitUtil GetUnitUtil(RBCTCOMSERVERLib.ERbctAppplication)
+    8 RBCTCOMSERVERLib.IRegenerationControler GetSteelRegenerationControler()
+    8 RBCTCOMSERVERLib.RbctDbEditService GetDbEditService()
+    8 RBCTCOMSERVERLib.RbctDrawingContextMngr GetDrawingContextMngr()
+    8 System.Object GetRO3dMngr()
+    8 Void CallRcadHelp(RBCTCOMSERVERLib.ERbctAppplication, Int32, Int32)
+    8 Void RefreshEntity(Int32)
+
+interface RBCTCOMSERVERLib.IRbctReadDwgFileService
+    8 Int32 CloseDwgFile()
+    8 Int32 OpenDwgFile(System.String)
+
+interface RBCTCOMSERVERLib.IRbctService
+    8 RBCTCOMSERVERLib.IRbctDgService GetDgService()
+    8 RBCTCOMSERVERLib.IRbctReadDwgFileService GetReadDwgFileService()
+    8 RBCTCOMSERVERLib.IRbctWorkingDatabaseService GetWorkingDatabaseService()
+
+interface RBCTCOMSERVERLib.IRbctSymbolStyleIterator
+    16 System.String name
+    8 Int32 IsEnd()
+    8 RBCTCOMSERVERLib.IRbctData GetData()
+    8 RBCTCOMSERVERLib.IRbctData GetDefaultData()
+    8 System.String get_name()
+    8 Void Next()
+    8 Void Reset()
+
+interface RBCTCOMSERVERLib.IRbctSynchronizationMngr
+    16 Int32 Activated
+    8 Int32 get_Activated()
+    8 Void BeginWaitCursor()
+    8 Void EndWaitCursor()
+    8 Void PumpInMessages()
+    8 Void RedrawRcadDwgView()
+    8 Void SetActiveWindow(Int32)
+    8 Void SetFocus(Int32)
+    8 Void SetForegroundThreadWindow(Int32)
+    8 Void SetForegroundWindow(Int32)
+    8 Void SetRcadActiveWindow()
+    8 Void SetRcadFocus()
+    8 Void SetRcadForegroundWindow()
+
+interface RBCTCOMSERVERLib.IRbctUnitUtil
+    8 Int32 IsImperialUnitModeOn()
+    8 Int32 Numeric2String(Double, System.String ByRef, RBCTCOMSERVERLib.ERbctUnitsType, Int32)
+    8 Int32 String2Numeric(System.String, Double ByRef, RBCTCOMSERVERLib.ERbctUnitsType)
+
+interface RBCTCOMSERVERLib.IRbctVBAEditor
+    8 Int32 Create()
+    8 Int32 Erase()
+    8 Int32 Open(Int32)
+    8 RBCTCOMSERVERLib.IRbctDataEx GetData()
+    8 Void Close()
+    8 Void SetId(Int32)
+
+interface RBCTCOMSERVERLib.IRbctWorkingDatabaseService
+    8 Int32 RevokeWorkingDatabase()
+    8 Int32 SetWorikingDatabaseFromDocumentName(System.String)
+
+interface RBCTCOMSERVERLib.IRegenerationControler
+    16 Int32 RegenEnabled
+    8 Int32 get_RegenEnabled()
+    8 Void set_RegenEnabled(Int32)
+
+interface RBCTCOMSERVERLib.IStringArr
+    16 Int32 Count
+    16 System.String Item [Int32]
+    8 Int32 get_Count()
+    8 RBCTCOMSERVERLib.IStringArr Add(System.String)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.String get_Item(Int32)
+
+interface RBCTCOMSERVERLib.RbctAutoCAD
+
+interface RBCTCOMSERVERLib.RbctCad
+
+interface RBCTCOMSERVERLib.RbctDbEditService
+
+interface RBCTCOMSERVERLib.RbctDrawingContextMngr
+
+interface RBCTCOMSERVERLib.RbctDrawingMngr
+
+interface RBCTCOMSERVERLib.RbctRcad
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class RBCTCOMSERVERLib.DiRbctAutoCADEvents_SinkHelper
+    base: System.Object
+    4 Int32 m_dwCookie
+
+class RBCTCOMSERVERLib.RbctAutoCADClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 RBCTCOMSERVERLib.IRbctAcadDocument ActiveDocument
+    16 RBCTCOMSERVERLib.IRbctAcadDocuments Documents
+    16 RBCTCOMSERVERLib.IRbctAcadPreferences Preferences
+    16 System.Object AcadApplication
+    8 RBCTCOMSERVERLib.IRbctAcadDocument get_ActiveDocument()
+    8 RBCTCOMSERVERLib.IRbctAcadDocuments get_Documents()
+    8 RBCTCOMSERVERLib.IRbctAcadPreferences get_Preferences()
+    8 System.Object get_AcadApplication()
+    8 Void Update()
+    8 Void ZoomExtents()
+    8 Void ZoomPrevious()
+    8 Void ZoomWindow(System.Object, System.Object)
+
+class RBCTCOMSERVERLib.RbctCadClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 RBCTCOMSERVERLib.RbctAutoCAD GetAutoCAD()
+    8 RBCTCOMSERVERLib.RbctRcad GetRcad()
+
+class RBCTCOMSERVERLib.RbctDbEditServiceClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Int32 HaveEntities()
+    8 RBCTCOMSERVERLib.IRbCSDbEditor CreateSteelEditor(RBCTCOMSERVERLib.eRbCSObjectType, RBCTCOMSERVERLib.eRbCSEditorType)
+    8 RBCTCOMSERVERLib.IRbcrDbEditor CreateReinforcementEditor(RBCTCOMSERVERLib.ERbcrObjectType, RBCTCOMSERVERLib.ERbcrEditorType)
+    8 RBCTCOMSERVERLib.IRbctDbEditor CreateEditor(RBCTCOMSERVERLib.ERbctObjectType, RBCTCOMSERVERLib.ERbctEditorType)
+    8 RBCTCOMSERVERLib.IRbctSymbolStyleIterator CreateSymbolStyleIterator(System.String)
+    8 RBCTCOMSERVERLib.IRbctVBAEditor CreateVBAEditor(System.String, RBCTCOMSERVERLib.ERbctVBAEditorType)
+    8 System.String GetLayerName(RBCTCOMSERVERLib.ERbctRCADLayerType)
+    8 Void InsertEntities(System.String)
+    8 Void SelectEntities(System.Object)
+
+class RBCTCOMSERVERLib.RbctDrawingContextMngrClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Double GetWorkingViewportScale()
+    8 Int32 AddDocumentViewportsToPrintout(Int32, Int32)
+    8 Int32 AddViewportToPrintout(Int32, Int32)
+    8 Int32 CreateDocument(Int32, RBCTCOMSERVERLib.ERbctDocumentType, System.String)
+    8 Int32 CreatePrintout(System.String)
+    8 Int32 CreatePrintoutViewport(Int32, System.Object, RBCTCOMSERVERLib.ERbctFootHold)
+    8 Int32 CreateTemplateDocument(Int32, Int32, System.String)
+    8 Int32 CreateViewport(Int32, System.String, System.Object, System.Object, Int32, Int32)
+    8 Int32 DeleteViewport(Int32)
+    8 Int32 GetActiveDocumentId()
+    8 Int32 GetActivePrintoutId()
+    8 Int32 GetActiveViewportId()
+    8 Int32 GetEditAcadVportId(Int32)
+    8 Int32 GetPrintAcadViewportId(Int32)
+    8 Int32 GetRectSpaceId(Int32)
+    8 Int32 GetWorkingDocumentId()
+    8 Int32 GetWorkingViewportId()
+    8 Int32 InsertPrintLayout(System.String, System.String, System.String, Int32)
+    8 Int32 SetActiveDocumentId(Int32)
+    8 Int32 SetActivePrintoutId(Int32)
+    8 Int32 SetActiveViewportId(Int32)
+    8 Int32 SetWorkingDocumentId(Int32)
+    8 Int32 SetWorkingViewportId(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreateDocumentEntityIterator(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreateDocumentIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreateDocumentTemplateIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreatePositionDocumentIterator(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreatePositionIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreatePrintoutIterator()
+    8 RBCTCOMSERVERLib.IRbctIterator CreateViewportEntityIterator(Int32)
+    8 RBCTCOMSERVERLib.IRbctIterator CreateViewportIterator(Int32)
+    8 Void ActivatePrintout(System.String)
+    8 Void RegenAll()
+    8 Void SynchroniseNewPaperLayout(Int32)
+
+class RBCTCOMSERVERLib.RbctDrawingMngrClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Int32 OpenActiveViewport(Int32)
+    8 Int32 OpenCurrentDocument()
+    8 Void CloseDocument(Int32)
+    8 Void CloseViewport(Int32)
+
+class RBCTCOMSERVERLib.RbctRcadClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Int32 IsCurDbRbcr()
+    8 Int32 IsCurDbRbcs()
+    8 Int32 IsCurDbRbct()
+    8 Int32 IsCurDbRbcx()
+    8 Int32 IsWorkingDbRbcr()
+    8 Int32 IsWorkingDbRbcs()
+    8 Int32 IsWorkingDbRbct()
+    8 Int32 IsWorkingDbRbcx()
+    8 Int32 QueueCommand(System.String)
+    8 Int32 RunArexCmd(System.Object)
+    8 Int32 SendCommandToExecute(System.String)
+    8 RBCTCOMSERVERLib.ERbctMeasurementValue GetMeasurement()
+    8 RBCTCOMSERVERLib.IRbCSConnectionCopyHolder GetSteelConnectionCopyHolder()
+    8 RBCTCOMSERVERLib.IRbCSDbEditService GetSteelDbEditService()
+    8 RBCTCOMSERVERLib.IRbCSMaterialDictionary GetSteelMaterialDictionary()
+    8 RBCTCOMSERVERLib.IRbCSProfileCSStorage GetSteelProfileCSStorage()
+    8 RBCTCOMSERVERLib.IRbCSTools GetSteelTools()
+    8 RBCTCOMSERVERLib.IRbCTFamilyManager GetSteelFamilyManager()
+    8 RBCTCOMSERVERLib.IRbcrDbEditService GetReinforcementDbEditService()
+    8 RBCTCOMSERVERLib.IRbcrElEditService GetReinforcementElEditService()
+    8 RBCTCOMSERVERLib.IRbcrJobSettings GetReinforcementJobSettings()
+    8 RBCTCOMSERVERLib.IRbcsGrate GetSteelGrate()
+    8 RBCTCOMSERVERLib.IRbcsPlate GetSteelPlate()
+    8 RBCTCOMSERVERLib.IRbcsProjectSettings GetSteelProjectSettings()
+    8 RBCTCOMSERVERLib.IRbcsService GetRbcsService()
+    8 RBCTCOMSERVERLib.IRbctAcGeService GetAcGeService()
+    8 RBCTCOMSERVERLib.IRbctAppSet GetAppSet(RBCTCOMSERVERLib.ERbctAppplication)
+    8 RBCTCOMSERVERLib.IRbctAppSet GetCurrentAppSet()
+    8 RBCTCOMSERVERLib.IRbctDBUserObjService GetSteelDBUserObjService()
+    8 RBCTCOMSERVERLib.IRbctDatabase GetDatabase()
+    8 RBCTCOMSERVERLib.IRbctPreferencesData GetPreferencesData(RBCTCOMSERVERLib.ERbctAppplication)
+    8 RBCTCOMSERVERLib.IRbctService GetRbctService()
+    8 RBCTCOMSERVERLib.IRbctSynchronizationMngr GetSynchronizationMngr()
+    8 RBCTCOMSERVERLib.IRbctUnitUtil GetUnitUtil(RBCTCOMSERVERLib.ERbctAppplication)
+    8 RBCTCOMSERVERLib.IRegenerationControler GetSteelRegenerationControler()
+    8 RBCTCOMSERVERLib.RbctDbEditService GetDbEditService()
+    8 RBCTCOMSERVERLib.RbctDrawingContextMngr GetDrawingContextMngr()
+    8 System.Object GetRO3dMngr()
+    8 Void CallRcadHelp(RBCTCOMSERVERLib.ERbctAppplication, Int32, Int32)
+    8 Void RefreshEntity(Int32)
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+
