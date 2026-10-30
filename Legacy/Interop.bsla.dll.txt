@@ -1,0 +1,233 @@
+Assembly : interop.bsla, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Runtime  : v4.0.30319
+Types    : 26
+
+=================== ENUMS ===================
+
+enum bsla.IRCSlabRnfSegment
+    I_RC_SLAB_SINGLE = 1
+    I_RC_SLAB_ENTIRE = 2
+
+enum bsla.IRCSlabRnfType
+    I_RC_SLAB_BAR_ONLY = 1
+    I_RC_SLAB_NET_ONLY = 2
+    I_RC_SLAB_BAR_NET = 3
+
+enum bsla.IRCSlabSupportType
+    I_RC_SLAB_SUPPORT_PINNED = 1
+    I_RC_SLAB_SUPPORT_FIXED = 1
+
+================= INTERFACES =================
+
+interface bsla.IRCSlab
+    16 Int32 UniqueId
+    16 System.Object CalculationOptions
+    16 System.Object Concrete
+    16 System.Object Geometry
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean CreateFromObjects(System.String)
+    8 Int32 get_UniqueId()
+    8 System.Object get_CalculationOptions()
+    8 System.Object get_Concrete()
+    8 System.Object get_Geometry()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 bsla.RCSlabWizard StartWizard()
+
+interface bsla.IRCSlabCalculationOptions
+    16 Double Cover
+    16 Double CoverLateral
+    8 Double get_Cover()
+    8 Double get_CoverLateral()
+    8 Void set_Cover(Double)
+    8 Void set_CoverLateral(Double)
+
+interface bsla.IRCSlabGeometry
+    16 Double ConcreteVolume
+    16 Double ShutteringArea
+    8 Double get_ConcreteVolume()
+    8 Double get_ShutteringArea()
+
+interface bsla.IRCSlabPatternOptions
+    16 bsla.IRCSlabRnfSegment ReinforcementSegment
+    16 bsla.IRCSlabRnfType ReinforcementType
+    8 Void set_ReinforcementSegment(bsla.IRCSlabRnfSegment)
+    8 Void set_ReinforcementType(bsla.IRCSlabRnfType)
+    8 bsla.IRCSlabRnfSegment get_ReinforcementSegment()
+    8 bsla.IRCSlabRnfType get_ReinforcementType()
+
+interface bsla.IRCSlabWizard
+    16 Double Thickness
+    8 Boolean Finish()
+    8 Double get_Thickness()
+    8 Void AddColumnSupport(Double, Double, Double, Double, Double)
+    8 Void AddOpening()
+    8 Void AddOpeningNode(Double, Double)
+    8 Void AddSlabNode(Double, Double)
+    8 Void AddWallSupport(Double, Double, Double, Double, Double, bsla.IRCSlabSupportType)
+    8 Void set_Thickness(Double)
+
+interface bsla.RCSlab
+
+interface bsla.RCSlabCalculationOptions
+
+interface bsla.RCSlabGeometry
+
+interface bsla.RCSlabPatternOptions
+
+interface bsla.RCSlabWizard
+
+interface bsla._IRCSlabEvents
+    8 Void GeometryModified()
+    8 Void LoadsModified()
+    8 Void ReinforcementModified()
+    8 Void ResultsModified()
+
+interface bsla._IRCSlabEvents_Event
+    2 bsla._IRCSlabEvents_GeometryModifiedEventHandler GeometryModified
+    2 bsla._IRCSlabEvents_LoadsModifiedEventHandler LoadsModified
+    2 bsla._IRCSlabEvents_ReinforcementModifiedEventHandler ReinforcementModified
+    2 bsla._IRCSlabEvents_ResultsModifiedEventHandler ResultsModified
+    8 Void add_GeometryModified(bsla._IRCSlabEvents_GeometryModifiedEventHandler)
+    8 Void add_LoadsModified(bsla._IRCSlabEvents_LoadsModifiedEventHandler)
+    8 Void add_ReinforcementModified(bsla._IRCSlabEvents_ReinforcementModifiedEventHandler)
+    8 Void add_ResultsModified(bsla._IRCSlabEvents_ResultsModifiedEventHandler)
+    8 Void remove_GeometryModified(bsla._IRCSlabEvents_GeometryModifiedEventHandler)
+    8 Void remove_LoadsModified(bsla._IRCSlabEvents_LoadsModifiedEventHandler)
+    8 Void remove_ReinforcementModified(bsla._IRCSlabEvents_ReinforcementModifiedEventHandler)
+    8 Void remove_ResultsModified(bsla._IRCSlabEvents_ResultsModifiedEventHandler)
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class bsla.RCSlabCalculationOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Cover
+    16 Double CoverLateral
+    8 Double get_Cover()
+    8 Double get_CoverLateral()
+    8 Void set_Cover(Double)
+    8 Void set_CoverLateral(Double)
+
+class bsla.RCSlabClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 UniqueId
+    16 System.Object CalculationOptions
+    16 System.Object Concrete
+    16 System.Object Geometry
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    2 bsla._IRCSlabEvents_GeometryModifiedEventHandler GeometryModified
+    2 bsla._IRCSlabEvents_LoadsModifiedEventHandler LoadsModified
+    2 bsla._IRCSlabEvents_ReinforcementModifiedEventHandler ReinforcementModified
+    2 bsla._IRCSlabEvents_ResultsModifiedEventHandler ResultsModified
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean CreateFromObjects(System.String)
+    8 Int32 get_UniqueId()
+    8 System.Object get_CalculationOptions()
+    8 System.Object get_Concrete()
+    8 System.Object get_Geometry()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 Void add_GeometryModified(bsla._IRCSlabEvents_GeometryModifiedEventHandler)
+    8 Void add_LoadsModified(bsla._IRCSlabEvents_LoadsModifiedEventHandler)
+    8 Void add_ReinforcementModified(bsla._IRCSlabEvents_ReinforcementModifiedEventHandler)
+    8 Void add_ResultsModified(bsla._IRCSlabEvents_ResultsModifiedEventHandler)
+    8 Void remove_GeometryModified(bsla._IRCSlabEvents_GeometryModifiedEventHandler)
+    8 Void remove_LoadsModified(bsla._IRCSlabEvents_LoadsModifiedEventHandler)
+    8 Void remove_ReinforcementModified(bsla._IRCSlabEvents_ReinforcementModifiedEventHandler)
+    8 Void remove_ResultsModified(bsla._IRCSlabEvents_ResultsModifiedEventHandler)
+    8 bsla.RCSlabWizard StartWizard()
+
+class bsla.RCSlabGeometryClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double ConcreteVolume
+    16 Double ShutteringArea
+    8 Double get_ConcreteVolume()
+    8 Double get_ShutteringArea()
+
+class bsla.RCSlabPatternOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 bsla.IRCSlabRnfSegment ReinforcementSegment
+    16 bsla.IRCSlabRnfType ReinforcementType
+    8 Void set_ReinforcementSegment(bsla.IRCSlabRnfSegment)
+    8 Void set_ReinforcementType(bsla.IRCSlabRnfType)
+    8 bsla.IRCSlabRnfSegment get_ReinforcementSegment()
+    8 bsla.IRCSlabRnfType get_ReinforcementType()
+
+class bsla.RCSlabWizardClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Thickness
+    8 Boolean Finish()
+    8 Double get_Thickness()
+    8 Void AddColumnSupport(Double, Double, Double, Double, Double)
+    8 Void AddOpening()
+    8 Void AddOpeningNode(Double, Double)
+    8 Void AddSlabNode(Double, Double)
+    8 Void AddWallSupport(Double, Double, Double, Double, Double, bsla.IRCSlabSupportType)
+    8 Void set_Thickness(Double)
+
+delegate bsla._IRCSlabEvents_GeometryModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bsla._IRCSlabEvents_LoadsModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bsla._IRCSlabEvents_ReinforcementModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bsla._IRCSlabEvents_ResultsModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+class bsla._IRCSlabEvents_SinkHelper
+    base: System.Object
+    4 Int32 m_dwCookie
+    4 bsla._IRCSlabEvents_GeometryModifiedEventHandler m_GeometryModifiedDelegate
+    4 bsla._IRCSlabEvents_LoadsModifiedEventHandler m_LoadsModifiedDelegate
+    4 bsla._IRCSlabEvents_ReinforcementModifiedEventHandler m_ReinforcementModifiedDelegate
+    4 bsla._IRCSlabEvents_ResultsModifiedEventHandler m_ResultsModifiedDelegate
+    8 Void GeometryModified()
+    8 Void LoadsModified()
+    8 Void ReinforcementModified()
+    8 Void ResultsModified()
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

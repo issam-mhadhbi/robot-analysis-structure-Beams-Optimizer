@@ -1,0 +1,533 @@
+Assembly : Interop.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Runtime  : v4.0.30319
+Types    : 42
+
+=================== ENUMS ===================
+
+enum Scripting.CompareMethod
+    BinaryCompare = 0
+    TextCompare = 1
+    DatabaseCompare = 2
+
+enum Scripting.DriveTypeConst
+    UnknownType = 0
+    Removable = 1
+    Fixed = 2
+    Remote = 3
+    CDRom = 4
+    RamDisk = 5
+
+enum Scripting.FileAttribute
+    Normal = 0
+    ReadOnly = 1
+    Hidden = 2
+    System = 4
+    Volume = 8
+    Directory = 16
+    Archive = 32
+    Alias = 1024
+    Compressed = 2048
+
+enum Scripting.IOMode
+    ForReading = 1
+    ForWriting = 2
+    ForAppending = 8
+
+enum Scripting.SpecialFolderConst
+    WindowsFolder = 0
+    SystemFolder = 1
+    TemporaryFolder = 2
+
+enum Scripting.StandardStreamTypes
+    StdIn = 0
+    StdOut = 1
+    StdErr = 2
+
+enum Scripting.Tristate
+    TristateTrue = -1
+    TristateFalse = 0
+    TristateUseDefault = -2
+    TristateMixed = -2
+
+enum Scripting.__MIDL___MIDL_itf_scrrun_0000_0000_0001
+    Normal = 0
+    ReadOnly = 1
+    Hidden = 2
+    System = 4
+    Volume = 8
+    Directory = 16
+    Archive = 32
+    Alias = 1024
+    Compressed = 2048
+
+enum Scripting.__MIDL___MIDL_itf_scrrun_0001_0000_0001
+    UnknownType = 0
+    Removable = 1
+    Fixed = 2
+    Remote = 3
+    CDRom = 4
+    RamDisk = 5
+
+enum Scripting.__MIDL___MIDL_itf_scrrun_0001_0000_0002
+    WindowsFolder = 0
+    SystemFolder = 1
+    TemporaryFolder = 2
+
+enum Scripting.__MIDL___MIDL_itf_scrrun_0001_0000_0003
+    StdIn = 0
+    StdOut = 1
+    StdErr = 2
+
+================= INTERFACES =================
+
+interface Scripting.Dictionary
+
+interface Scripting.Drive
+
+interface Scripting.Drives
+
+interface Scripting.Encoder
+
+interface Scripting.File
+
+interface Scripting.FileSystemObject
+
+interface Scripting.Files
+
+interface Scripting.Folder
+
+interface Scripting.Folders
+
+interface Scripting.IDictionary
+    16 Int32 Count
+    16 IntPtr Key [System.Object ByRef]
+    16 Scripting.CompareMethod CompareMode
+    16 System.Object HashVal [System.Object ByRef]
+    16 System.Object Item [System.Object ByRef]
+    8 Boolean Exists(System.Object ByRef)
+    8 Int32 get_Count()
+    8 Scripting.CompareMethod get_CompareMode()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.Object Items()
+    8 System.Object Keys()
+    8 System.Object get_HashVal(System.Object ByRef)
+    8 System.Object get_Item(System.Object ByRef)
+    8 Void Add(System.Object ByRef, System.Object ByRef)
+    8 Void Remove(System.Object ByRef)
+    8 Void RemoveAll()
+    8 Void let_Item(System.Object ByRef, System.Object ByRef)
+    8 Void set_CompareMode(Scripting.CompareMethod)
+    8 Void set_Item(System.Object ByRef, System.Object ByRef)
+    8 Void set_Key(System.Object ByRef, System.Object ByRef)
+
+interface Scripting.IDrive
+    16 Boolean IsReady
+    16 Int32 SerialNumber
+    16 Scripting.DriveTypeConst DriveType
+    16 Scripting.Folder RootFolder
+    16 System.Object AvailableSpace
+    16 System.Object FreeSpace
+    16 System.Object TotalSize
+    16 System.String DriveLetter
+    16 System.String FileSystem
+    16 System.String Path
+    16 System.String ShareName
+    16 System.String VolumeName
+    8 Boolean get_IsReady()
+    8 Int32 get_SerialNumber()
+    8 Scripting.DriveTypeConst get_DriveType()
+    8 Scripting.Folder get_RootFolder()
+    8 System.Object get_AvailableSpace()
+    8 System.Object get_FreeSpace()
+    8 System.Object get_TotalSize()
+    8 System.String get_DriveLetter()
+    8 System.String get_FileSystem()
+    8 System.String get_Path()
+    8 System.String get_ShareName()
+    8 System.String get_VolumeName()
+    8 Void set_VolumeName(System.String)
+
+interface Scripting.IDriveCollection
+    16 Int32 Count
+    16 Scripting.Drive Item [System.Object]
+    8 Int32 get_Count()
+    8 Scripting.Drive get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Scripting.IFile
+    16 Scripting.Drive Drive
+    16 Scripting.FileAttribute Attributes
+    16 Scripting.Folder ParentFolder
+    16 System.DateTime DateCreated
+    16 System.DateTime DateLastAccessed
+    16 System.DateTime DateLastModified
+    16 System.Object Size
+    16 System.String Name
+    16 System.String Path
+    16 System.String ShortName
+    16 System.String ShortPath
+    16 System.String Type
+    8 Scripting.Drive get_Drive()
+    8 Scripting.FileAttribute get_Attributes()
+    8 Scripting.Folder get_ParentFolder()
+    8 Scripting.TextStream OpenAsTextStream(Scripting.IOMode, Scripting.Tristate)
+    8 System.DateTime get_DateCreated()
+    8 System.DateTime get_DateLastAccessed()
+    8 System.DateTime get_DateLastModified()
+    8 System.Object get_Size()
+    8 System.String get_Name()
+    8 System.String get_Path()
+    8 System.String get_ShortName()
+    8 System.String get_ShortPath()
+    8 System.String get_Type()
+    8 Void Copy(System.String, Boolean)
+    8 Void Delete(Boolean)
+    8 Void Move(System.String)
+    8 Void set_Attributes(Scripting.FileAttribute)
+    8 Void set_Name(System.String)
+
+interface Scripting.IFileCollection
+    16 Int32 Count
+    16 Scripting.File Item [System.Object]
+    8 Int32 get_Count()
+    8 Scripting.File get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Scripting.IFileSystem
+    16 Scripting.Drives Drives
+    8 Boolean DriveExists(System.String)
+    8 Boolean FileExists(System.String)
+    8 Boolean FolderExists(System.String)
+    8 Scripting.Drive GetDrive(System.String)
+    8 Scripting.Drives get_Drives()
+    8 Scripting.File GetFile(System.String)
+    8 Scripting.Folder CreateFolder(System.String)
+    8 Scripting.Folder GetFolder(System.String)
+    8 Scripting.Folder GetSpecialFolder(Scripting.SpecialFolderConst)
+    8 Scripting.TextStream CreateTextFile(System.String, Boolean, Boolean)
+    8 Scripting.TextStream OpenTextFile(System.String, Scripting.IOMode, Boolean, Scripting.Tristate)
+    8 System.String BuildPath(System.String, System.String)
+    8 System.String GetAbsolutePathName(System.String)
+    8 System.String GetBaseName(System.String)
+    8 System.String GetDriveName(System.String)
+    8 System.String GetExtensionName(System.String)
+    8 System.String GetFileName(System.String)
+    8 System.String GetParentFolderName(System.String)
+    8 System.String GetTempName()
+    8 Void CopyFile(System.String, System.String, Boolean)
+    8 Void CopyFolder(System.String, System.String, Boolean)
+    8 Void DeleteFile(System.String, Boolean)
+    8 Void DeleteFolder(System.String, Boolean)
+    8 Void MoveFile(System.String, System.String)
+    8 Void MoveFolder(System.String, System.String)
+
+interface Scripting.IFileSystem3
+    16 Scripting.Drives Drives
+    8 Boolean DriveExists(System.String)
+    8 Boolean FileExists(System.String)
+    8 Boolean FolderExists(System.String)
+    8 Scripting.Drive GetDrive(System.String)
+    8 Scripting.Drives get_Drives()
+    8 Scripting.File GetFile(System.String)
+    8 Scripting.Folder CreateFolder(System.String)
+    8 Scripting.Folder GetFolder(System.String)
+    8 Scripting.Folder GetSpecialFolder(Scripting.SpecialFolderConst)
+    8 Scripting.TextStream CreateTextFile(System.String, Boolean, Boolean)
+    8 Scripting.TextStream GetStandardStream(Scripting.StandardStreamTypes, Boolean)
+    8 Scripting.TextStream OpenTextFile(System.String, Scripting.IOMode, Boolean, Scripting.Tristate)
+    8 System.String BuildPath(System.String, System.String)
+    8 System.String GetAbsolutePathName(System.String)
+    8 System.String GetBaseName(System.String)
+    8 System.String GetDriveName(System.String)
+    8 System.String GetExtensionName(System.String)
+    8 System.String GetFileName(System.String)
+    8 System.String GetFileVersion(System.String)
+    8 System.String GetParentFolderName(System.String)
+    8 System.String GetTempName()
+    8 Void CopyFile(System.String, System.String, Boolean)
+    8 Void CopyFolder(System.String, System.String, Boolean)
+    8 Void DeleteFile(System.String, Boolean)
+    8 Void DeleteFolder(System.String, Boolean)
+    8 Void MoveFile(System.String, System.String)
+    8 Void MoveFolder(System.String, System.String)
+
+interface Scripting.IFolder
+    16 Boolean IsRootFolder
+    16 Scripting.Drive Drive
+    16 Scripting.FileAttribute Attributes
+    16 Scripting.Files Files
+    16 Scripting.Folder ParentFolder
+    16 Scripting.Folders SubFolders
+    16 System.DateTime DateCreated
+    16 System.DateTime DateLastAccessed
+    16 System.DateTime DateLastModified
+    16 System.Object Size
+    16 System.String Name
+    16 System.String Path
+    16 System.String ShortName
+    16 System.String ShortPath
+    16 System.String Type
+    8 Boolean get_IsRootFolder()
+    8 Scripting.Drive get_Drive()
+    8 Scripting.FileAttribute get_Attributes()
+    8 Scripting.Files get_Files()
+    8 Scripting.Folder get_ParentFolder()
+    8 Scripting.Folders get_SubFolders()
+    8 Scripting.TextStream CreateTextFile(System.String, Boolean, Boolean)
+    8 System.DateTime get_DateCreated()
+    8 System.DateTime get_DateLastAccessed()
+    8 System.DateTime get_DateLastModified()
+    8 System.Object get_Size()
+    8 System.String get_Name()
+    8 System.String get_Path()
+    8 System.String get_ShortName()
+    8 System.String get_ShortPath()
+    8 System.String get_Type()
+    8 Void Copy(System.String, Boolean)
+    8 Void Delete(Boolean)
+    8 Void Move(System.String)
+    8 Void set_Attributes(Scripting.FileAttribute)
+    8 Void set_Name(System.String)
+
+interface Scripting.IFolderCollection
+    16 Int32 Count
+    16 Scripting.Folder Item [System.Object]
+    8 Int32 get_Count()
+    8 Scripting.Folder Add(System.String)
+    8 Scripting.Folder get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Scripting.IScriptEncoder
+    8 System.String EncodeScriptFile(System.String, System.String, Int32, System.String)
+
+interface Scripting.ITextStream
+    16 Boolean AtEndOfLine
+    16 Boolean AtEndOfStream
+    16 Int32 Column
+    16 Int32 Line
+    8 Boolean get_AtEndOfLine()
+    8 Boolean get_AtEndOfStream()
+    8 Int32 get_Column()
+    8 Int32 get_Line()
+    8 System.String Read(Int32)
+    8 System.String ReadAll()
+    8 System.String ReadLine()
+    8 Void Close()
+    8 Void Skip(Int32)
+    8 Void SkipLine()
+    8 Void Write(System.String)
+    8 Void WriteBlankLines(Int32)
+    8 Void WriteLine(System.String)
+
+interface Scripting.TextStream
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class Scripting.DictionaryClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 IntPtr Key [System.Object ByRef]
+    16 Scripting.CompareMethod CompareMode
+    16 System.Object HashVal [System.Object ByRef]
+    16 System.Object Item [System.Object ByRef]
+    8 Boolean Exists(System.Object ByRef)
+    8 Int32 get_Count()
+    8 Scripting.CompareMethod get_CompareMode()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.Object Items()
+    8 System.Object Keys()
+    8 System.Object get_HashVal(System.Object ByRef)
+    8 System.Object get_Item(System.Object ByRef)
+    8 Void Add(System.Object ByRef, System.Object ByRef)
+    8 Void Remove(System.Object ByRef)
+    8 Void RemoveAll()
+    8 Void let_Item(System.Object ByRef, System.Object ByRef)
+    8 Void set_CompareMode(Scripting.CompareMethod)
+    8 Void set_Item(System.Object ByRef, System.Object ByRef)
+    8 Void set_Key(System.Object ByRef, System.Object ByRef)
+
+class Scripting.DriveClass
+    base: System.__ComObject
+    16 Boolean IsReady
+    16 Int32 SerialNumber
+    16 Scripting.DriveTypeConst DriveType
+    16 Scripting.Folder RootFolder
+    16 System.Object AvailableSpace
+    16 System.Object FreeSpace
+    16 System.Object TotalSize
+    16 System.String DriveLetter
+    16 System.String FileSystem
+    16 System.String Path
+    16 System.String ShareName
+    16 System.String VolumeName
+    8 Boolean get_IsReady()
+    8 Int32 get_SerialNumber()
+    8 Scripting.DriveTypeConst get_DriveType()
+    8 Scripting.Folder get_RootFolder()
+    8 System.Object get_AvailableSpace()
+    8 System.Object get_FreeSpace()
+    8 System.Object get_TotalSize()
+    8 System.String get_DriveLetter()
+    8 System.String get_FileSystem()
+    8 System.String get_Path()
+    8 System.String get_ShareName()
+    8 System.String get_VolumeName()
+    8 Void set_VolumeName(System.String)
+
+class Scripting.DrivesClass
+    base: System.__ComObject
+    16 Int32 Count
+    16 Scripting.Drive Item [System.Object]
+    8 Int32 get_Count()
+    8 Scripting.Drive get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class Scripting.EncoderClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 System.String EncodeScriptFile(System.String, System.String, Int32, System.String)
+
+class Scripting.FileClass
+    base: System.__ComObject
+    16 Scripting.Drive Drive
+    16 Scripting.FileAttribute Attributes
+    16 Scripting.Folder ParentFolder
+    16 System.DateTime DateCreated
+    16 System.DateTime DateLastAccessed
+    16 System.DateTime DateLastModified
+    16 System.Object Size
+    16 System.String Name
+    16 System.String Path
+    16 System.String ShortName
+    16 System.String ShortPath
+    16 System.String Type
+    8 Scripting.Drive get_Drive()
+    8 Scripting.FileAttribute get_Attributes()
+    8 Scripting.Folder get_ParentFolder()
+    8 Scripting.TextStream OpenAsTextStream(Scripting.IOMode, Scripting.Tristate)
+    8 System.DateTime get_DateCreated()
+    8 System.DateTime get_DateLastAccessed()
+    8 System.DateTime get_DateLastModified()
+    8 System.Object get_Size()
+    8 System.String get_Name()
+    8 System.String get_Path()
+    8 System.String get_ShortName()
+    8 System.String get_ShortPath()
+    8 System.String get_Type()
+    8 Void Copy(System.String, Boolean)
+    8 Void Delete(Boolean)
+    8 Void Move(System.String)
+    8 Void set_Attributes(Scripting.FileAttribute)
+    8 Void set_Name(System.String)
+
+class Scripting.FileSystemObjectClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Scripting.Drives Drives
+    8 Boolean DriveExists(System.String)
+    8 Boolean FileExists(System.String)
+    8 Boolean FolderExists(System.String)
+    8 Scripting.Drive GetDrive(System.String)
+    8 Scripting.Drives get_Drives()
+    8 Scripting.File GetFile(System.String)
+    8 Scripting.Folder CreateFolder(System.String)
+    8 Scripting.Folder GetFolder(System.String)
+    8 Scripting.Folder GetSpecialFolder(Scripting.SpecialFolderConst)
+    8 Scripting.TextStream CreateTextFile(System.String, Boolean, Boolean)
+    8 Scripting.TextStream GetStandardStream(Scripting.StandardStreamTypes, Boolean)
+    8 Scripting.TextStream OpenTextFile(System.String, Scripting.IOMode, Boolean, Scripting.Tristate)
+    8 System.String BuildPath(System.String, System.String)
+    8 System.String GetAbsolutePathName(System.String)
+    8 System.String GetBaseName(System.String)
+    8 System.String GetDriveName(System.String)
+    8 System.String GetExtensionName(System.String)
+    8 System.String GetFileName(System.String)
+    8 System.String GetFileVersion(System.String)
+    8 System.String GetParentFolderName(System.String)
+    8 System.String GetTempName()
+    8 Void CopyFile(System.String, System.String, Boolean)
+    8 Void CopyFolder(System.String, System.String, Boolean)
+    8 Void DeleteFile(System.String, Boolean)
+    8 Void DeleteFolder(System.String, Boolean)
+    8 Void MoveFile(System.String, System.String)
+    8 Void MoveFolder(System.String, System.String)
+
+class Scripting.FilesClass
+    base: System.__ComObject
+    16 Int32 Count
+    16 Scripting.File Item [System.Object]
+    8 Int32 get_Count()
+    8 Scripting.File get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class Scripting.FolderClass
+    base: System.__ComObject
+    16 Boolean IsRootFolder
+    16 Scripting.Drive Drive
+    16 Scripting.FileAttribute Attributes
+    16 Scripting.Files Files
+    16 Scripting.Folder ParentFolder
+    16 Scripting.Folders SubFolders
+    16 System.DateTime DateCreated
+    16 System.DateTime DateLastAccessed
+    16 System.DateTime DateLastModified
+    16 System.Object Size
+    16 System.String Name
+    16 System.String Path
+    16 System.String ShortName
+    16 System.String ShortPath
+    16 System.String Type
+    8 Boolean get_IsRootFolder()
+    8 Scripting.Drive get_Drive()
+    8 Scripting.FileAttribute get_Attributes()
+    8 Scripting.Files get_Files()
+    8 Scripting.Folder get_ParentFolder()
+    8 Scripting.Folders get_SubFolders()
+    8 Scripting.TextStream CreateTextFile(System.String, Boolean, Boolean)
+    8 System.DateTime get_DateCreated()
+    8 System.DateTime get_DateLastAccessed()
+    8 System.DateTime get_DateLastModified()
+    8 System.Object get_Size()
+    8 System.String get_Name()
+    8 System.String get_Path()
+    8 System.String get_ShortName()
+    8 System.String get_ShortPath()
+    8 System.String get_Type()
+    8 Void Copy(System.String, Boolean)
+    8 Void Delete(Boolean)
+    8 Void Move(System.String)
+    8 Void set_Attributes(Scripting.FileAttribute)
+    8 Void set_Name(System.String)
+
+class Scripting.FoldersClass
+    base: System.__ComObject
+    16 Int32 Count
+    16 Scripting.Folder Item [System.Object]
+    8 Int32 get_Count()
+    8 Scripting.Folder Add(System.String)
+    8 Scripting.Folder get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class Scripting.TextStreamClass
+    base: System.__ComObject
+    16 Boolean AtEndOfLine
+    16 Boolean AtEndOfStream
+    16 Int32 Column
+    16 Int32 Line
+    8 Boolean get_AtEndOfLine()
+    8 Boolean get_AtEndOfStream()
+    8 Int32 get_Column()
+    8 Int32 get_Line()
+    8 System.String Read(Int32)
+    8 System.String ReadAll()
+    8 System.String ReadLine()
+    8 Void Close()
+    8 Void Skip(Int32)
+    8 Void SkipLine()
+    8 Void Write(System.String)
+    8 Void WriteBlankLines(Int32)
+    8 Void WriteLine(System.String)
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

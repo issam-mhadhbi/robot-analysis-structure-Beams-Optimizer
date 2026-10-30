@@ -1,0 +1,3857 @@
+Assembly : Interop.robin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Runtime  : v4.0.30319
+Types    : 338
+
+=================== ENUMS ===================
+
+enum Robin.IGeoCalculationMethod
+    IGC_UNDEFINED = 0
+    IGC_TRIANGULAR = 1
+    IGC_SIMPLIFIED_FEM = 2
+    IGC_ADVANCED_FEM = 3
+
+enum Robin.IGeoCalculationsProgressType
+    IGR_CALCULATIONS_PROGRESS_BEGIN = 1
+    IGR_CALCULATIONS_PROGRESS_STEP = 2
+    IGR_CALCULATIONS_PROGRESS_END = 3
+
+enum Robin.IGeoCombinationStateType
+    IGN_ULS = 1
+    IGN_SLS = 2
+    IGN_ALS = 3
+
+enum Robin.IGeoConnectionType
+    IGC_FIXED = 1
+    IGC_PINNED = 2
+
+enum Robin.IGeoFigureLineStyle
+    IGD_FIGURE_LS_BYLAYER = 1
+    IGD_FIGURE_LS_SOLID = 2
+    IGD_FIGURE_LS_DASH = 3
+    IGD_FIGURE_LS_DOT = 4
+    IGD_FIGURE_LS_DASHDOT = 5
+    IGD_FIGURE_LS_DASHDOTDOT = 6
+
+enum Robin.IGeoFigureLineThickness
+    IGD_FIGURE_BYLAYER = 1
+    IGD_FIGURE_LT1 = 2
+    IGD_FIGURE_LT2 = 3
+    IGD_FIGURE_LT3 = 4
+    IGD_FIGURE_LT4 = 5
+    IGD_FIGURE_LT5 = 6
+
+enum Robin.IGeoFigureType
+    IGD_FIGURE_LINE = 1
+    IGD_FIGURE_OBJ3D = 2
+
+enum Robin.IGeoLinearDiagramType
+    IGD_UNDEFINED = 0
+    IGD_LINEAR_LOAD_FORCE_X = 1
+    IGD_LINEAR_LOAD_FORCE_Y = 2
+    IGD_LINEAR_LOAD_FORCE_Z = 3
+    IGD_LINEAR_LOAD_MOMENT_X = 4
+    IGD_LINEAR_LOAD_MOMENT_Y = 5
+    IGD_LINEAR_LOAD_MOMENT_Z = 6
+
+enum Robin.IGeoLoadDirectionType
+    IGD_LOAD_DIRECTION_VERTICAL = 1
+    IGD_LOAD_DIRECTION_HORIZONTAL = 2
+    IGD_LOAD_DIRECTION_ORTHOGONAL = 3
+    IGD_LOAD_DIRECTION_PROJECTED = 4
+    IGD_LOAD_DIRECTION_FREE = 5
+
+enum Robin.IGeoLoadNature
+    IGN_DEAD = 1
+    IGN_LIVE = 2
+    IGN_SNOW = 3
+    IGN_WIND = 4
+    IGN_ACCIDENTAL = 5
+    IGN_TEMPERATURE = 6
+    IGN_SEISMIC = 7
+
+enum Robin.IGeoMaterialType
+    IGM_MATERIAL_STEEL = 1
+    IGM_MATERIAL_CONCRETE = 2
+    IGM_MATERIAL_ALUMINIUM = 3
+    IGM_MATERIAL_WOOD = 4
+    IGM_MATERIAL_OTHER = 5
+    IGM_MATERIAL_CERAMIC = 6
+    IGM_MATERIAL_LAYER_SET = 7
+    IGM_MATERIAL_REINFORCING_STEEL = 256
+
+enum Robin.IGeoObjectType
+    IGO_FOOT = 1
+    IGO_CONTFOOT = 2
+    IGO_COLUMN = 4
+    IGO_WALL = 8
+    IGO_BEAM = 16
+    IGO_PLATE = 32
+    IGO_FOOTPLATE = 64
+    IGO_STAIRS = 128
+    IGO_WINDOW = 256
+    IGO_DOOR = 512
+    IGO_RWINDOW = 1024
+    IGO_HOLE = 2048
+    IGO_ROOM = 4096
+    IGO_FIGURE = 8192
+    IGO_TEXT = 16384
+    IGO_DIMLINE = 32768
+    IGO_CONCENTRATED_LOAD = 65536
+    IGO_LINEAR_LOAD = 131072
+    IGO_PLANAR_LOAD = 262144
+    IGO_RELATIONSHIP = 524288
+    IGO_REBAR = 1048576
+    IGO_RNFNET = 2097152
+
+enum Robin.IGeoOffsetType
+    IGF_UNDEFINED = 0
+    IGF_CENTER = 1
+    IGF_LEFT_TOP = 2
+    IGF_RIGHT_TOP = 3
+    IGF_RIGHT_BOTTOM = 4
+    IGF_LEFT_BOTTOM = 5
+    IGF_LEFT_CENTER = 6
+    IGF_RIGHT_CENTER = 7
+    IGF_TOP_CENTER = 8
+    IGF_BOTTOM_CENTER = 9
+    IGF_LEFT_AUTO = 10
+    IGF_RIGHT_AUTO = 11
+    IGF_CUSTOM_AUTO = 12
+    IGF_LEFT = 13
+    IGF_MIDDLE = 14
+    IGF_RIGHT = 15
+    IGF_TOP = 16
+    IGF_AVERAGE = 17
+    IGF_BOTTOM = 18
+    IGF_AUTO = 19
+    IGF_CUSTOM = 20
+
+enum Robin.IGeoPointDiagramType
+    IGP_UNDEFINED = 0
+    IGP_POINT_LOAD_FORCE_X = 1
+    IGP_POINT_LOAD_FORCE_Y = 2
+    IGP_POINT_LOAD_FORCE_Z = 3
+    IGP_POINT_LOAD_MOMENT_Y = 4
+
+enum Robin.IGeoPredefinedSubnature
+    IGP_SUBNATURE_UNDEFINED = 1
+    IGP_SELF_WEIGHT = 2
+    IGP_PARTITION_WALLS = 3
+    IGP_FINISHING_LAYERS = 4
+
+enum Robin.IGeoResultsMapType
+    IGR_RESULT_MAP_NONE = 0
+    IGR_RESULT_MAP_MXX = 1
+    IGR_RESULT_MAP_MYY = 2
+    IGR_RESULT_MAP_MXY = 3
+    IGR_RESULT_MAP_NXX = 4
+    IGR_RESULT_MAP_NYY = 5
+    IGR_RESULT_MAP_NXY = 6
+    IGR_RESULT_MAP_UX = 7
+    IGR_RESULT_MAP_UY = 8
+    IGR_RESULT_MAP_UZ = 9
+
+enum Robin.IGeoSectionHoleType
+    IGH_HOLE_TYPE_DEFAULT = 1
+    IGH_HOLE_TYPE_WINDOW = 2
+    IGH_HOLE_TYPE_DOOR = 3
+
+enum Robin.IGeoSectionType
+    IGS_SECTION_R = 1
+    IGS_SECTION_C = 2
+    IGS_SECTION_T = 3
+    IGS_SECTION_PROFILE = 8
+    IGS_SECTION_THICK = 9
+    IGS_SECTION_RHOLE = 12
+    IGS_SECTION_RFOOT = 10
+    IGS_SECTION_TFOOT = 11
+    IGS_SECTION_STAIRS = 13
+    IGS_SECTION_LAYERS = 14
+    IGS_SECTION_POLYHOLE = 15
+
+enum Robin.IGeoSegmentType
+    IGH_SEGMENT_TYPE_LINE = 1
+    IGH_SEGMENT_TYPE_ARC = 2
+
+enum Robin.IGeoViewMode
+    IGM_COMPUTATIONAL = 1
+    IGM_STRUCTURAL = 2
+    IGM_ARCHITECTURAL = 3
+
+enum Robin.IGeoViewProjectionType
+    IGP_XY = 1
+    IGP_3D_ENTIRE_STRUCTURE = 2
+    IGP_3D_SINGLE_STOREY = 3
+
+enum Robin.IGeoViewView3D
+    IGM_WIREFRAME = 1
+    IGM_HIDDENLINES = 2
+    IGM_SHADING = 3
+    IGM_SHADING_WITH_EDGES = 4
+
+enum Robin.ILifeLoadRedCode
+    IGM_LIFE_LOAD_RED_ASCE_7_05 = 1
+    IGM_LIFE_LOAD_RED_EN_1991 = 2
+
+enum Robin.ILllrASCE7_05StrType
+    ILLR_ASCE7_05_PUBLIC = 1
+    ILLR_ASCE7_05_PASS_GAR = 2
+    ILLR_ASCE7_05_OTHER = 3
+
+enum Robin.ILllrEN1991StrCat
+    ILLR_EN1991_CAT_A = 1
+    ILLR_EN1991_CAT_B = 2
+    ILLR_EN1991_CAT_C = 3
+    ILLR_EN1991_CAT_D = 4
+    ILLR_EN1991_CAT_E = 5
+
+enum Robin.IRobinDocVerb
+    IGV_CREATE = 1
+    IGV_OPEN_NO_TOOLBARS = 2
+
+enum Robin.IRobinReportType
+    IGT_VERIFICATION = 1
+    IGT_STATIC_ANALYSIS = 2
+
+enum Robin.IRobinUnitType
+    IGU_FORCE = 1
+    IGU_MOMENT = 2
+    IGU_STRESS = 3
+    IGU_DISPLACEMENT = 4
+    IGU_STRUCTURE_DIMENSIONS = 5
+
+================= INTERFACES =================
+
+interface Robin.Application
+
+interface Robin.Document
+
+interface Robin.Documents
+
+interface Robin.GeoBeamCalculationModel
+
+interface Robin.GeoBeamDesignOptions
+
+interface Robin.GeoBeamResults
+
+interface Robin.GeoBeamSupport
+
+interface Robin.GeoBeamSupports
+
+interface Robin.GeoCalculations
+
+interface Robin.GeoCalculationsOptions
+
+interface Robin.GeoColumnDesignOptions
+
+interface Robin.GeoColumnResults
+
+interface Robin.GeoContFootDesignOptions
+
+interface Robin.GeoContFootResults
+
+interface Robin.GeoDiagramPoint
+
+interface Robin.GeoDiagramPoints
+
+interface Robin.GeoFigureResults
+
+interface Robin.GeoFootDesignOptions
+
+interface Robin.GeoFootPlateResults
+
+interface Robin.GeoFootResults
+
+interface Robin.GeoLifeLoadRedASCEResults
+
+interface Robin.GeoLifeLoadRedENResults
+
+interface Robin.GeoLifeLoadRedOptions
+
+interface Robin.GeoLifeLoadRedResults
+
+interface Robin.GeoLinearDiagram
+
+interface Robin.GeoPointDiagram
+
+interface Robin.GeoRCElementDesignOptions
+
+interface Robin.GeoRCGeneralParameters
+
+interface Robin.GeoReactions
+
+interface Robin.GeoResultCombinationCase
+
+interface Robin.GeoResultCombinationCases
+
+interface Robin.GeoResultLoadCase
+
+interface Robin.GeoResultLoadCases
+
+interface Robin.GeoResultLoadCombination
+
+interface Robin.GeoResultLoadCombinations
+
+interface Robin.GeoSlabDesignOptions
+
+interface Robin.GeoStructureResults
+
+interface Robin.GeoWallDesignOptions
+
+interface Robin.GeoWallResults
+
+interface Robin.GridAxisArc
+
+interface Robin.GridAxisArcs
+
+interface Robin.GridAxisGroup
+
+interface Robin.GridAxisGroups
+
+interface Robin.GridAxisLine
+
+interface Robin.GridAxisLines
+
+interface Robin.GridCart
+
+interface Robin.GridCyl
+
+interface Robin.GridStep
+
+interface Robin.GridSteps
+
+interface Robin.GridSystem
+
+interface Robin.GridsCart
+
+interface Robin.GridsCyl
+
+interface Robin.IApplication
+    16 Boolean Visible
+    16 Int32 MainWindowHandle
+    16 Robin.Documents Documents
+    16 Robin.RobinPreferences Preferences
+    8 Boolean IsVersion(System.String)
+    8 Boolean get_Visible()
+    8 Int32 get_MainWindowHandle()
+    8 Robin.Documents get_Documents()
+    8 Robin.RobinPreferences get_Preferences()
+    8 Void Activate()
+    8 Void set_Documents(Robin.Documents)
+    8 Void set_MainWindowHandle(Int32)
+    8 Void set_Preferences(Robin.RobinPreferences)
+    8 Void set_Visible(Boolean)
+
+interface Robin.IApplicationClient
+    8 Boolean Connect(System.Object, System.String, System.String, Boolean, System.Object)
+
+interface Robin.IDocuments
+    16 Int32 Count
+    16 Robin.Document ActiveDocument
+    16 System.Object _NewEnum
+    8 Int32 get_Count()
+    8 Robin.Document Add(System.String, Boolean)
+    8 Robin.Document Item(System.Object)
+    8 Robin.Document get_ActiveDocument()
+    8 System.Object get__NewEnum()
+    8 Void set_ActiveDocument(Robin.Document)
+    8 Void set_Count(Int32)
+    8 Void set__NewEnum(System.Object)
+
+interface Robin.IGeoBRep
+    16 Robin.IGeoFaces Faces
+    16 Robin.IGeoPoints Vertices
+    16 Robin.IGeoVectors Normals
+    8 Robin.IGeoFaces get_Faces()
+    8 Robin.IGeoPoints get_Vertices()
+    8 Robin.IGeoVectors get_Normals()
+    8 Void Clear()
+    8 Void GetExtents(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef)
+    8 Void Intersect(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Int32 ByRef, Boolean ByRef)
+    8 Void Intersect2(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Int32 ByRef, Boolean ByRef)
+    8 Void ProjectToPlaneXY(Double ByRef, Double ByRef, Double ByRef, Boolean ByRef)
+    8 Void SetBRep(System.String ByRef)
+    8 Void SetByText(System.String ByRef)
+
+interface Robin.IGeoBeam
+    16 Boolean EqualSpanParts
+    16 Boolean IsCarrying
+    16 Boolean IsGroundBeam
+    16 Boolean IsLintel
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Length
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.GeoBeamResults Results
+    16 Robin.IGeoBRep BRep
+    16 Robin.IGeoConnectionType EndRelease
+    16 Robin.IGeoConnectionType StartRelease
+    16 Robin.IGeoObject Parent
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoSpans Spans
+    16 Robin.IGeoVector OffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_EqualSpanParts()
+    8 Boolean get_IsCarrying()
+    8 Boolean get_IsGroundBeam()
+    8 Boolean get_IsLintel()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Length()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.GeoBeamResults get_Results()
+    8 Robin.IGeoBRep get_BRep()
+    8 Robin.IGeoConnectionType get_EndRelease()
+    8 Robin.IGeoConnectionType get_StartRelease()
+    8 Robin.IGeoObject get_Parent()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoSpans get_Spans()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_EndRelease(Robin.IGeoConnectionType)
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_IsGroundBeam(Boolean)
+    8 Void set_IsLintel(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_Parent(Robin.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_StartRelease(Robin.IGeoConnectionType)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoBeamCalculationModel
+    16 Boolean IsLeftCantilever
+    16 Boolean IsLeftRelease
+    16 Boolean IsRightCantilever
+    16 Boolean IsRightRelease
+    16 Robin.GeoBeamSupports Supports
+    8 Boolean get_IsLeftCantilever()
+    8 Boolean get_IsLeftRelease()
+    8 Boolean get_IsRightCantilever()
+    8 Boolean get_IsRightRelease()
+    8 Robin.GeoBeamSupports get_Supports()
+    8 Void set_IsLeftRelease(Boolean)
+    8 Void set_IsRightRelease(Boolean)
+
+interface Robin.IGeoBeamDesignOptions
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+interface Robin.IGeoBeamResults
+    16 Robin.GeoBeamCalculationModel CalculationModel
+    16 Robin.GeoLinearDiagram LinearDiagram
+    16 Robin.GeoPointDiagram PointDiagram
+    8 Robin.GeoBeamCalculationModel get_CalculationModel()
+    8 Robin.GeoLinearDiagram get_LinearDiagram()
+    8 Robin.GeoPointDiagram get_PointDiagram()
+
+interface Robin.IGeoBeamSupport
+    16 Double Width
+    8 Double get_Width()
+    8 Void set_Width(Double)
+
+interface Robin.IGeoBeamSupports
+    16 Int32 Count
+    16 Robin.GeoBeamSupport Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GeoBeamSupport get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoBeams
+    16 Int32 Count
+    16 Robin.IGeoBeam Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoBeam Add(System.Object)
+    8 Robin.IGeoBeam get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoCalculations
+    16 Robin.GeoCalculationsOptions Options
+    8 Boolean Calculate()
+    8 Boolean Dimensioning()
+    8 Robin.GeoCalculationsOptions get_Options()
+
+interface Robin.IGeoCalculationsOptions
+    16 Boolean DefaultSupportConditions
+    16 Boolean GenerateCombinations
+    16 Boolean LifeLoadReductionEnabled
+    16 Boolean ShowProgress
+    16 Double CalculationEpsilon
+    16 Double MeshSize
+    16 Double ReactionTolerance
+    16 Int32 UseLTD
+    16 Robin.GeoLifeLoadRedOptions LifeLoadRedOptions
+    16 Robin.GeoRCElementDesignOptions RCElementDesignOptions
+    16 Robin.IGeoCalculationMethod Method
+    8 Boolean get_DefaultSupportConditions()
+    8 Boolean get_GenerateCombinations()
+    8 Boolean get_LifeLoadReductionEnabled()
+    8 Boolean get_ShowProgress()
+    8 Double get_CalculationEpsilon()
+    8 Double get_MeshSize()
+    8 Double get_ReactionTolerance()
+    8 Int32 get_UseLTD()
+    8 Robin.GeoLifeLoadRedOptions get_LifeLoadRedOptions()
+    8 Robin.GeoRCElementDesignOptions get_RCElementDesignOptions()
+    8 Robin.IGeoCalculationMethod get_Method()
+    8 Void set_CalculationEpsilon(Double)
+    8 Void set_DefaultSupportConditions(Boolean)
+    8 Void set_GenerateCombinations(Boolean)
+    8 Void set_LifeLoadReductionEnabled(Boolean)
+    8 Void set_MeshSize(Double)
+    8 Void set_Method(Robin.IGeoCalculationMethod)
+    8 Void set_ReactionTolerance(Double)
+    8 Void set_ShowProgress(Boolean)
+    8 Void set_UseLTD(Int32)
+
+interface Robin.IGeoColumn
+    16 Boolean IsBearingHorizontalForces
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.GeoColumnResults Results
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoVector OffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsBearingHorizontalForces()
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.GeoColumnResults get_Results()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsBearingHorizontalForces(Boolean)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoColumnDesignOptions
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+interface Robin.IGeoColumnResults
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double Fz [Int32]
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_Fz(Int32)
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+
+interface Robin.IGeoColumns
+    16 Int32 Count
+    16 Robin.IGeoColumn Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoColumn Add(System.Object)
+    8 Robin.IGeoColumn get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoComplexContour
+    16 Robin.IGeoContours InnerContours
+    16 Robin.IGeoContours OuterContours
+    8 Robin.IGeoContours get_InnerContours()
+    8 Robin.IGeoContours get_OuterContours()
+
+interface Robin.IGeoContFoot
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.GeoContFootResults Results
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoVector OffsetVector
+    16 Robin.IGeoVector PierOffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.GeoContFootResults get_Results()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 Robin.IGeoVector get_PierOffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_PierOffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoContFootDesignOptions
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+
+interface Robin.IGeoContFootResults
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Robin.GeoReactions Reactions
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Robin.GeoReactions get_Reactions()
+
+interface Robin.IGeoContFoots
+    16 Int32 Count
+    16 Robin.IGeoContFoot Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoContFoot Add(System.Object)
+    8 Robin.IGeoContFoot get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoContour
+    16 Robin.IGeoSegments Segments
+    8 Robin.IGeoSegments get_Segments()
+
+interface Robin.IGeoContours
+    16 Int32 Count
+    16 Robin.IGeoContour Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoContour Add()
+    8 Robin.IGeoContour get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoCurve
+    16 Robin.IGeoPoint Beg
+    16 Robin.IGeoSegments Segments
+    8 Robin.IGeoPoint get_Beg()
+    8 Robin.IGeoSegments get_Segments()
+
+interface Robin.IGeoDiagramPoint
+    16 Double Position
+    16 Double Value
+    8 Double get_Position()
+    8 Double get_Value()
+
+interface Robin.IGeoDiagramPoints
+    16 Int32 Count
+    16 Robin.GeoDiagramPoint Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GeoDiagramPoint get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoDoor
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoDoors
+    16 Int32 Count
+    16 Robin.IGeoDoor Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoDoor Add(System.Object)
+    8 Robin.IGeoDoor get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoFace
+    16 Robin.IGeoNumbers OuterBound
+    16 Robin.IGeoNumbers OuterBoundNormals
+    8 Robin.IGeoNumbers get_OuterBound()
+    8 Robin.IGeoNumbers get_OuterBoundNormals()
+
+interface Robin.IGeoFaces
+    16 Int32 Count
+    16 Robin.IGeoFace Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoFace Add()
+    8 Robin.IGeoFace get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoFigure
+    16 Boolean IsCarrying
+    16 Boolean IsPoint
+    16 Boolean IsSimpleArcLine
+    16 Boolean IsSimpleLine
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.GeoFigureResults Results
+    16 Robin.IGeoBRep BRep
+    16 Robin.IGeoFigureLineStyle LineStyle
+    16 Robin.IGeoFigureLineThickness LineThickness
+    16 Robin.IGeoFigureType FigureType
+    16 Robin.IGeoObjectType Type
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Boolean get_IsPoint()
+    8 Boolean get_IsSimpleArcLine()
+    8 Boolean get_IsSimpleLine()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.GeoFigureResults get_Results()
+    8 Robin.IGeoBRep get_BRep()
+    8 Robin.IGeoFigureLineStyle get_LineStyle()
+    8 Robin.IGeoFigureLineThickness get_LineThickness()
+    8 Robin.IGeoFigureType get_FigureType()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void GetLineColor(Int16 ByRef, Int16 ByRef, Int16 ByRef)
+    8 Void GetPoint(Double ByRef, Double ByRef)
+    8 Void GetSimpleArcLine(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef)
+    8 Void GetSimpleLine(Double ByRef, Double ByRef, Double ByRef, Double ByRef)
+    8 Void SetLineColor(Int16, Int16, Int16)
+    8 Void SetPoint(Double, Double)
+    8 Void SetSimpleArcLine(Double, Double, Double, Double, Double, Double)
+    8 Void SetSimpleLine(Double, Double, Double, Double)
+    8 Void set_FigureType(Robin.IGeoFigureType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_LineStyle(Robin.IGeoFigureLineStyle)
+    8 Void set_LineThickness(Robin.IGeoFigureLineThickness)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoFigureResults
+    16 Double MaxMapValue [Int32, Robin.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, Robin.IGeoResultsMapType]
+    8 Double get_MaxMapValue(Int32, Robin.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, Robin.IGeoResultsMapType)
+
+interface Robin.IGeoFigures
+    16 Int32 Count
+    16 Robin.IGeoFigure Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoFigure Add(System.Object)
+    8 Robin.IGeoFigure get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoFoot
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.GeoFootResults Results
+    16 Robin.IGeoConnectionType ConnectionType
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoVector OffsetVector
+    16 Robin.IGeoVector PierOffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.GeoFootResults get_Results()
+    8 Robin.IGeoConnectionType get_ConnectionType()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 Robin.IGeoVector get_PierOffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_ConnectionType(Robin.IGeoConnectionType)
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_PierOffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoFootDesignOptions
+    16 Boolean AIsFixed
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    16 Boolean EyIsFixed
+    8 Boolean get_AIsFixed()
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Boolean get_EyIsFixed()
+    8 Void set_AIsFixed(Boolean)
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+    8 Void set_EyIsFixed(Boolean)
+
+interface Robin.IGeoFootPlate
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.GeoFootPlateResults Results
+    16 Robin.IGeoHoles Holes
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoPlateDirectionSettings DirectionSettings
+    16 Robin.IGeoVector OffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.GeoFootPlateResults get_Results()
+    8 Robin.IGeoHoles get_Holes()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoPlateDirectionSettings get_DirectionSettings()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoFootPlateResults
+    16 Robin.GeoReactions Reactions
+    8 Robin.GeoReactions get_Reactions()
+
+interface Robin.IGeoFootPlates
+    16 Int32 Count
+    16 Robin.IGeoFootPlate Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoFootPlate Add(System.Object)
+    8 Robin.IGeoFootPlate get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoFootResults
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Robin.GeoReactions Reactions
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Robin.GeoReactions get_Reactions()
+
+interface Robin.IGeoFoots
+    16 Int32 Count
+    16 Robin.IGeoFoot Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoFoot Add(System.Object)
+    8 Robin.IGeoFoot get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoHole
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoHoles
+    16 Int32 Count
+    16 Robin.IGeoHole Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoHole Add(System.Object)
+    8 Robin.IGeoHole get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoLifeLoadRedASCEResults
+    16 Double CumulativeTributaryArea [Int32]
+    16 Double KLL [Int32]
+    16 Double TributaryArea [Int32]
+    8 Double get_CumulativeTributaryArea(Int32)
+    8 Double get_KLL(Int32)
+    8 Double get_TributaryArea(Int32)
+    8 Void ChangeKLL(Robin.ILllrASCE7_05StrType, Int32, Double)
+
+interface Robin.IGeoLifeLoadRedENResults
+    16 Double AlphaA [Int32]
+    16 Double AlphaN [Int32]
+    8 Double get_AlphaA(Int32)
+    8 Double get_AlphaN(Int32)
+
+interface Robin.IGeoLifeLoadRedOptions
+    16 Robin.ILllrASCE7_05StrType StructureTypeASCE
+    16 Robin.ILllrEN1991StrCat StructureCatEN
+    8 Robin.ILllrASCE7_05StrType get_StructureTypeASCE()
+    8 Robin.ILllrEN1991StrCat get_StructureCatEN()
+    8 Void set_StructureCatEN(Robin.ILllrEN1991StrCat)
+    8 Void set_StructureTypeASCE(Robin.ILllrASCE7_05StrType)
+
+interface Robin.IGeoLifeLoadRedResults
+    16 Double ReductionCoeficient [Int32]
+    16 Robin.GeoLifeLoadRedASCEResults ASCEResults
+    16 Robin.GeoLifeLoadRedENResults ENResults
+    8 Double get_ReductionCoeficient(Int32)
+    8 Robin.GeoLifeLoadRedASCEResults get_ASCEResults()
+    8 Robin.GeoLifeLoadRedENResults get_ENResults()
+    8 Void set_ReductionCoeficient(Int32, Double)
+
+interface Robin.IGeoLinearDiagram
+    16 Int32 Case
+    16 Robin.GeoDiagramPoints Points
+    16 Robin.IGeoLinearDiagramType Type
+    8 Int32 get_Case()
+    8 Robin.GeoDiagramPoints get_Points()
+    8 Robin.IGeoLinearDiagramType get_Type()
+    8 Void set_Case(Int32)
+    8 Void set_Type(Robin.IGeoLinearDiagramType)
+
+interface Robin.IGeoLinearLoad
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Value
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoLoadDirectionType DirectionType
+    16 Robin.IGeoLoadNature Nature
+    16 Robin.IGeoObject Parent
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoPoint Point1
+    16 Robin.IGeoPoint Point2
+    16 Robin.IGeoVector Direction
+    16 System.String CaseName
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    16 System.String Subnature
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Value()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoLoadDirectionType get_DirectionType()
+    8 Robin.IGeoLoadNature get_Nature()
+    8 Robin.IGeoObject get_Parent()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoPoint get_Point1()
+    8 Robin.IGeoPoint get_Point2()
+    8 Robin.IGeoVector get_Direction()
+    8 System.String get_CaseName()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 System.String get_Subnature()
+    8 Void set_CaseName(System.String)
+    8 Void set_Direction(Robin.IGeoVector)
+    8 Void set_DirectionType(Robin.IGeoLoadDirectionType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(Robin.IGeoLoadNature)
+    8 Void set_Parent(Robin.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Subnature(System.String)
+    8 Void set_Value(Double)
+
+interface Robin.IGeoLinearLoads
+    16 Int32 Count
+    16 Robin.IGeoLinearLoad Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoLinearLoad Add(System.Object)
+    8 Robin.IGeoLinearLoad get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoLoadSubnature
+    16 Double Factor
+    16 Robin.IGeoLoadNature Nature
+    16 System.String Name
+    8 Double get_Factor()
+    8 Robin.IGeoLoadNature get_Nature()
+    8 System.String get_Name()
+    8 Void set_Factor(Double)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(Robin.IGeoLoadNature)
+
+interface Robin.IGeoLoadSubnatures
+    16 Int32 Count
+    16 Robin.IGeoLoadSubnature Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoLoadSubnature get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoLoadsRegulations
+    16 Boolean AutoGenerateSelfWeight
+    16 Double PredefinedFactor [Robin.IGeoPredefinedSubnature]
+    16 Robin.IGeoLoadSubnatures Subnatures
+    8 Boolean IsMainSubnatureName(System.String)
+    8 Boolean get_AutoGenerateSelfWeight()
+    8 Double get_PredefinedFactor(Robin.IGeoPredefinedSubnature)
+    8 Robin.IGeoLoadSubnatures get_Subnatures()
+    8 System.String GetDefaultSubnatureName(Robin.IGeoLoadNature)
+    8 Void AddSubnature(Robin.IGeoLoadNature, System.String)
+    8 Void set_AutoGenerateSelfWeight(Boolean)
+    8 Void set_PredefinedFactor(Robin.IGeoPredefinedSubnature, Double)
+
+interface Robin.IGeoMaterial
+    16 Boolean HasMaterialLayers
+    16 Boolean HasThickness
+    16 Boolean IsStructural
+    16 Boolean IsTexture
+    16 Double Poisson
+    16 Double Resistance
+    16 Double Thickness
+    16 Double Transparency
+    16 Double UnitWeight
+    16 Double UnitWeight2
+    16 Double Young
+    16 Robin.IGeoMaterial StructuralMaterial
+    16 Robin.IGeoMaterialLayers MaterialLayers
+    16 Robin.IGeoMaterialType Type
+    16 System.String Name
+    16 System.String Texture
+    8 Boolean get_HasMaterialLayers()
+    8 Boolean get_HasThickness()
+    8 Boolean get_IsStructural()
+    8 Boolean get_IsTexture()
+    8 Double get_Poisson()
+    8 Double get_Resistance()
+    8 Double get_Thickness()
+    8 Double get_Transparency()
+    8 Double get_UnitWeight()
+    8 Double get_UnitWeight2()
+    8 Double get_Young()
+    8 Robin.IGeoMaterial get_StructuralMaterial()
+    8 Robin.IGeoMaterialLayers get_MaterialLayers()
+    8 Robin.IGeoMaterialType get_Type()
+    8 System.String get_Name()
+    8 System.String get_Texture()
+    8 Void Copy(Robin.IGeoMaterial)
+    8 Void set_HasThickness(Boolean)
+    8 Void set_IsStructural(Boolean)
+    8 Void set_IsTexture(Boolean)
+    8 Void set_Name(System.String)
+    8 Void set_Poisson(Double)
+    8 Void set_Resistance(Double)
+    8 Void set_Texture(System.String)
+    8 Void set_Thickness(Double)
+    8 Void set_Transparency(Double)
+    8 Void set_UnitWeight(Double)
+    8 Void set_UnitWeight2(Double)
+    8 Void set_Young(Double)
+
+interface Robin.IGeoMaterialLayer
+    16 Double Thickness
+    16 Robin.IGeoMaterial Material
+    8 Double get_Thickness()
+    8 Robin.IGeoMaterial get_Material()
+    8 Void set_Material(Robin.IGeoMaterial)
+    8 Void set_Thickness(Double)
+
+interface Robin.IGeoMaterialLayers
+    16 Int32 Count
+    16 Robin.IGeoMaterialLayer Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoMaterialLayer Add(System.Object)
+    8 Robin.IGeoMaterialLayer get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+interface Robin.IGeoMaterials
+    16 Int32 Count
+    16 Robin.IGeoMaterial Item [System.Object]
+    8 Int32 get_Count()
+    8 Robin.IGeoMaterial Add(Robin.IGeoMaterialType, System.String)
+    8 Robin.IGeoMaterial get_Item(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void SelectAll()
+    8 Void SelectUsed()
+
+interface Robin.IGeoNumbers
+    16 Int32 Count
+    16 Int32 Item [Int32]
+    8 Int32 get_Count()
+    8 Int32 get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Add(Int32)
+
+interface Robin.IGeoObject
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Robin.IGeoObjectType Type
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoObjects
+    16 Int32 Count
+    16 Robin.IGeoObject Item [Int32]
+    16 Robin.IGeoObject ItemByGlobalId [System.String]
+    16 Robin.IGeoObject ItemByUniqueNumber [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoObject get_Item(Int32)
+    8 Robin.IGeoObject get_ItemByGlobalId(System.String)
+    8 Robin.IGeoObject get_ItemByUniqueNumber(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Add(System.Object)
+    8 Void RemoveAll()
+    8 Void SelectAll()
+    8 Void SelectCarrying(Boolean)
+    8 Void SelectMaterial(System.Object)
+    8 Void SelectMaterialType(Robin.IGeoMaterialType)
+    8 Void SelectSection(System.Object)
+    8 Void SelectSectionType(Robin.IGeoSectionType)
+    8 Void SelectSelected(Boolean)
+    8 Void SelectStorey(System.Object)
+    8 Void SelectType(Robin.IGeoObjectType)
+
+interface Robin.IGeoPlanarLoad
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Value
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoLoadDirectionType DirectionType
+    16 Robin.IGeoLoadNature Nature
+    16 Robin.IGeoObject Parent
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoVector Direction
+    16 System.String CaseName
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    16 System.String Subnature
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Value()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoLoadDirectionType get_DirectionType()
+    8 Robin.IGeoLoadNature get_Nature()
+    8 Robin.IGeoObject get_Parent()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoVector get_Direction()
+    8 System.String get_CaseName()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 System.String get_Subnature()
+    8 Void set_CaseName(System.String)
+    8 Void set_Direction(Robin.IGeoVector)
+    8 Void set_DirectionType(Robin.IGeoLoadDirectionType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(Robin.IGeoLoadNature)
+    8 Void set_Parent(Robin.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Subnature(System.String)
+    8 Void set_Value(Double)
+
+interface Robin.IGeoPlanarLoads
+    16 Int32 Count
+    16 Robin.IGeoPlanarLoad Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoPlanarLoad Add(System.Object)
+    8 Robin.IGeoPlanarLoad get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoPlate
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoHoles Holes
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoPlateDirectionSettings DirectionSettings
+    16 Robin.IGeoVector OffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoHoles get_Holes()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoPlateDirectionSettings get_DirectionSettings()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoPlateDirectionSettings
+    16 Boolean IsMainDirection
+    16 Boolean IsRnfDirectionAuto
+    16 Boolean IsRnfOneDir
+    16 Double DirectionAngle
+    16 Double RnfDirection
+    8 Boolean get_IsMainDirection()
+    8 Boolean get_IsRnfDirectionAuto()
+    8 Boolean get_IsRnfOneDir()
+    8 Double get_DirectionAngle()
+    8 Double get_RnfDirection()
+    8 Void set_DirectionAngle(Double)
+    8 Void set_IsMainDirection(Boolean)
+    8 Void set_IsRnfDirectionAuto(Boolean)
+    8 Void set_IsRnfOneDir(Boolean)
+
+interface Robin.IGeoPlates
+    16 Int32 Count
+    16 Robin.IGeoPlate Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoPlate Add(System.Object)
+    8 Robin.IGeoPlate get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoPoint
+    16 Double X
+    16 Double Y
+    16 Double Z
+    8 Double get_X()
+    8 Double get_Y()
+    8 Double get_Z()
+    8 Void GetXYZ(Double ByRef, Double ByRef, Double ByRef)
+    8 Void SetXYZ(Double, Double, Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+    8 Void set_Z(Double)
+
+interface Robin.IGeoPointDiagram
+    16 Int32 Case
+    16 Robin.GeoDiagramPoints Points
+    16 Robin.IGeoPointDiagramType Type
+    8 Int32 get_Case()
+    8 Robin.GeoDiagramPoints get_Points()
+    8 Robin.IGeoPointDiagramType get_Type()
+    8 Void set_Case(Int32)
+    8 Void set_Type(Robin.IGeoPointDiagramType)
+
+interface Robin.IGeoPointLoad
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Value
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoLoadDirectionType DirectionType
+    16 Robin.IGeoLoadNature Nature
+    16 Robin.IGeoObject Parent
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoPoint Point
+    16 Robin.IGeoVector Direction
+    16 System.String CaseName
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    16 System.String Subnature
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Value()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoLoadDirectionType get_DirectionType()
+    8 Robin.IGeoLoadNature get_Nature()
+    8 Robin.IGeoObject get_Parent()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoPoint get_Point()
+    8 Robin.IGeoVector get_Direction()
+    8 System.String get_CaseName()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 System.String get_Subnature()
+    8 Void set_CaseName(System.String)
+    8 Void set_Direction(Robin.IGeoVector)
+    8 Void set_DirectionType(Robin.IGeoLoadDirectionType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(Robin.IGeoLoadNature)
+    8 Void set_Parent(Robin.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Subnature(System.String)
+    8 Void set_Value(Double)
+
+interface Robin.IGeoPointLoads
+    16 Int32 Count
+    16 Robin.IGeoPointLoad Item [Int32]
+    8 Boolean GenerateWindLoadsOnMesh(System.String, Double, Double, Double, Double, Boolean, Double ByRef)
+    8 Int32 get_Count()
+    8 Robin.IGeoPointLoad Add(System.Object)
+    8 Robin.IGeoPointLoad get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoPoints
+    16 Int32 Count
+    16 Robin.IGeoPoint Item [Int32]
+    8 Int32 Add(Double, Double, Double)
+    8 Int32 get_Count()
+    8 Robin.IGeoPoint get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Count(Int32)
+
+interface Robin.IGeoPolyline
+    16 Boolean Closed
+    16 Robin.IGeoPoints Points
+    8 Boolean get_Closed()
+    8 Robin.IGeoPoints get_Points()
+    8 Void set_Closed(Boolean)
+
+interface Robin.IGeoProfileBase
+    16 Boolean IsChecked
+    16 System.String Description
+    16 System.String FullName
+    16 System.String Name
+    8 Boolean MoveDown()
+    8 Boolean MoveUp()
+    8 Boolean get_IsChecked()
+    8 System.String get_Description()
+    8 System.String get_FullName()
+    8 System.String get_Name()
+    8 Void set_IsChecked(Boolean)
+
+interface Robin.IGeoProfileBases
+    16 Int32 Count
+    16 Robin.IGeoProfileBase Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoProfileBase get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoRCElementDesignOptions
+    16 Robin.GeoRCGeneralParameters GeneralParameters
+    8 Robin.GeoRCGeneralParameters get_GeneralParameters()
+
+interface Robin.IGeoRCGeneralParameters
+    16 Robin.GeoBeamDesignOptions Beams
+    16 Robin.GeoColumnDesignOptions Columns
+    16 Robin.GeoContFootDesignOptions ContFoots
+    16 Robin.GeoFootDesignOptions Foots
+    16 Robin.GeoSlabDesignOptions Slabs
+    16 Robin.GeoWallDesignOptions Walls
+    8 Robin.GeoBeamDesignOptions get_Beams()
+    8 Robin.GeoColumnDesignOptions get_Columns()
+    8 Robin.GeoContFootDesignOptions get_ContFoots()
+    8 Robin.GeoFootDesignOptions get_Foots()
+    8 Robin.GeoSlabDesignOptions get_Slabs()
+    8 Robin.GeoWallDesignOptions get_Walls()
+
+interface Robin.IGeoReactions
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double N [Int32]
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_N(Int32)
+
+interface Robin.IGeoRebar
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoResultCombinationCase
+    16 Double Factor
+    16 Int32 CaseNumber
+    8 Double get_Factor()
+    8 Int32 get_CaseNumber()
+    8 Void set_CaseNumber(Int32)
+    8 Void set_Factor(Double)
+
+interface Robin.IGeoResultCombinationCases
+    16 Int32 Count
+    16 Robin.GeoResultCombinationCase Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GeoResultCombinationCase Add(Int32, Double)
+    8 Robin.GeoResultCombinationCase get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoResultLoadCase
+    16 Boolean IsSimple
+    16 Robin.IGeoLoadNature Nature
+    16 Robin.IGeoPredefinedSubnature PredefinedType
+    16 System.String Name
+    8 Boolean get_IsSimple()
+    8 Robin.IGeoLoadNature get_Nature()
+    8 Robin.IGeoPredefinedSubnature get_PredefinedType()
+    8 System.String get_Name()
+
+interface Robin.IGeoResultLoadCases
+    16 Int32 Count
+    16 Robin.GeoResultLoadCase Item [Int32]
+    16 Robin.GeoResultLoadCombinations Combinations
+    8 Int32 get_Count()
+    8 Robin.GeoResultLoadCase InsertSelfWeightCase(Int32, Robin.IGeoLoadNature, System.String)
+    8 Robin.GeoResultLoadCase get_Item(Int32)
+    8 Robin.GeoResultLoadCombinations get_Combinations()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void ApplySelfWeightToCase(Int32)
+
+interface Robin.IGeoResultLoadCombination
+    16 Robin.GeoResultCombinationCases Cases
+    16 Robin.IGeoCombinationStateType StateType
+    16 System.String Name
+    8 Robin.GeoResultCombinationCases get_Cases()
+    8 Robin.IGeoCombinationStateType get_StateType()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_StateType(Robin.IGeoCombinationStateType)
+
+interface Robin.IGeoResultLoadCombinations
+    16 Boolean Manual
+    16 Int32 Count
+    16 Robin.GeoResultLoadCombination Item [Int32]
+    8 Boolean get_Manual()
+    8 Int32 get_Count()
+    8 Robin.GeoResultLoadCombination Add(Robin.IGeoCombinationStateType, System.String)
+    8 Robin.GeoResultLoadCombination get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Manual(Boolean)
+
+interface Robin.IGeoRoom
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoRooms
+    16 Int32 Count
+    16 Robin.IGeoRoom Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoRoom get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoSection
+    16 Robin.IGeoSectionType Type
+    16 System.String Name
+    8 Robin.IGeoSectionType get_Type()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+interface Robin.IGeoSectionC
+    16 Double D
+    8 Double get_D()
+    8 Void set_D(Double)
+
+interface Robin.IGeoSectionLayers
+
+interface Robin.IGeoSectionPolyHole
+    16 Robin.IGeoSectionHoleType HoleType
+    8 Robin.IGeoSectionHoleType get_HoleType()
+    8 Void set_HoleType(Robin.IGeoSectionHoleType)
+
+interface Robin.IGeoSectionProfile
+    16 Robin.IGeoComplexContour Profile
+    16 System.String BaseName
+    8 Robin.IGeoComplexContour get_Profile()
+    8 System.String get_BaseName()
+    8 Void set_BaseName(System.String)
+
+interface Robin.IGeoSectionR
+    16 Double B
+    16 Double H
+    8 Double get_B()
+    8 Double get_H()
+    8 Void set_B(Double)
+    8 Void set_H(Double)
+
+interface Robin.IGeoSectionRFoot
+    16 Double A
+    16 Double A2
+    16 Double B
+    16 Double B2
+    16 Double EX
+    16 Double EY
+    16 Double H
+    16 Double H2
+    8 Double get_A()
+    8 Double get_A2()
+    8 Double get_B()
+    8 Double get_B2()
+    8 Double get_EX()
+    8 Double get_EY()
+    8 Double get_H()
+    8 Double get_H2()
+    8 Void set_A(Double)
+    8 Void set_A2(Double)
+    8 Void set_B(Double)
+    8 Void set_B2(Double)
+    8 Void set_EX(Double)
+    8 Void set_EY(Double)
+    8 Void set_H(Double)
+    8 Void set_H2(Double)
+
+interface Robin.IGeoSectionRHole
+    16 Double H
+    16 Double L
+    16 Robin.IGeoSectionHoleType HoleType
+    8 Double get_H()
+    8 Double get_L()
+    8 Robin.IGeoSectionHoleType get_HoleType()
+    8 Void set_H(Double)
+    8 Void set_HoleType(Robin.IGeoSectionHoleType)
+    8 Void set_L(Double)
+
+interface Robin.IGeoSectionStairs
+    16 Boolean IsAutoRiserHeight
+    16 Boolean IsAutoStepCount
+    16 Boolean IsAutoTreadLength
+    16 Double RiserHeight
+    16 Double Thickness
+    16 Double TreadLength
+    16 Int32 StepCount
+    8 Boolean get_IsAutoRiserHeight()
+    8 Boolean get_IsAutoStepCount()
+    8 Boolean get_IsAutoTreadLength()
+    8 Double get_RiserHeight()
+    8 Double get_Thickness()
+    8 Double get_TreadLength()
+    8 Int32 get_StepCount()
+    8 Void set_IsAutoRiserHeight(Boolean)
+    8 Void set_IsAutoStepCount(Boolean)
+    8 Void set_IsAutoTreadLength(Boolean)
+    8 Void set_RiserHeight(Double)
+    8 Void set_StepCount(Int32)
+    8 Void set_Thickness(Double)
+    8 Void set_TreadLength(Double)
+
+interface Robin.IGeoSectionT
+    16 Double B
+    16 Double BF
+    16 Double H
+    16 Double HF
+    8 Double get_B()
+    8 Double get_BF()
+    8 Double get_H()
+    8 Double get_HF()
+    8 Void set_B(Double)
+    8 Void set_BF(Double)
+    8 Void set_H(Double)
+    8 Void set_HF(Double)
+
+interface Robin.IGeoSectionTFoot
+    16 Double A
+    16 Double A1
+    16 Double B
+    16 Double B1
+    16 Double H
+    16 Double H1
+    8 Double get_A()
+    8 Double get_A1()
+    8 Double get_B()
+    8 Double get_B1()
+    8 Double get_H()
+    8 Double get_H1()
+    8 Void set_A(Double)
+    8 Void set_A1(Double)
+    8 Void set_B(Double)
+    8 Void set_B1(Double)
+    8 Void set_H(Double)
+    8 Void set_H1(Double)
+
+interface Robin.IGeoSectionThick
+    16 Double H
+    8 Double get_H()
+    8 Void set_H(Double)
+
+interface Robin.IGeoSections
+    16 Int32 Count
+    16 Robin.IGeoProfileBases SectionBases
+    16 Robin.IGeoSection Item [System.Object]
+    8 Int32 get_Count()
+    8 Robin.IGeoProfileBases get_SectionBases()
+    8 Robin.IGeoSection Add(Robin.IGeoSectionType, System.String)
+    8 Robin.IGeoSection get_Item(System.Object)
+    8 Robin.IGeoSectionProfile AddProfile(System.String, System.String)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void SelectAll()
+    8 Void SelectUsed()
+
+interface Robin.IGeoSegment
+    16 Robin.IGeoPoint End
+    16 Robin.IGeoPoint Medium
+    16 Robin.IGeoSegmentType Type
+    8 Robin.IGeoPoint get_End()
+    8 Robin.IGeoPoint get_Medium()
+    8 Robin.IGeoSegmentType get_Type()
+    8 Void set_Type(Robin.IGeoSegmentType)
+
+interface Robin.IGeoSegments
+    16 Int32 Count
+    16 Robin.IGeoSegment Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoSegment get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Count(Int32)
+
+interface Robin.IGeoSlabDesignOptions
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+interface Robin.IGeoSpan
+    16 Double Length
+    16 Robin.IGeoSpanParts SpanParts
+    16 System.String Name
+    8 Double get_Length()
+    8 Robin.IGeoSpanParts get_SpanParts()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+interface Robin.IGeoSpanPart
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Length
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoVector OffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Length()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoSpanParts
+    16 Int32 Count
+    16 Robin.IGeoSpanPart Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoSpanPart get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoSpans
+    16 Int32 Count
+    16 Robin.IGeoSpan Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoSpan get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoStaircase
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double RiserHeight
+    16 Double TreadLength
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 StepCount
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoVector OffsetVector
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_RiserHeight()
+    8 Double get_TreadLength()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_StepCount()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoStairs
+    16 Int32 Count
+    16 Robin.IGeoStaircase Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoStaircase Add(System.Object)
+    8 Robin.IGeoStaircase get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoStorey
+    16 Boolean AutoName
+    16 Double Area
+    16 Double Elevation
+    16 Double Height
+    16 Double Volume
+    16 Int16 CalculationGroup
+    16 Int16 Number
+    16 Robin.IGeoBeams Beams
+    16 Robin.IGeoColumns Columns
+    16 Robin.IGeoContFoots ContFoots
+    16 Robin.IGeoFootPlates FootPlates
+    16 Robin.IGeoFoots Foots
+    16 Robin.IGeoLinearLoads LinearLoads
+    16 Robin.IGeoPlanarLoads PlanarLoads
+    16 Robin.IGeoPlates Plates
+    16 Robin.IGeoPointLoads PointLoads
+    16 Robin.IGeoRooms Rooms
+    16 Robin.IGeoStairs Stairs
+    16 Robin.IGeoWalls Walls
+    16 System.String Name
+    8 Boolean get_AutoName()
+    8 Double get_Area()
+    8 Double get_Elevation()
+    8 Double get_Height()
+    8 Double get_Volume()
+    8 Int16 get_CalculationGroup()
+    8 Int16 get_Number()
+    8 Robin.IGeoBeams get_Beams()
+    8 Robin.IGeoColumns get_Columns()
+    8 Robin.IGeoContFoots get_ContFoots()
+    8 Robin.IGeoFootPlates get_FootPlates()
+    8 Robin.IGeoFoots get_Foots()
+    8 Robin.IGeoLinearLoads get_LinearLoads()
+    8 Robin.IGeoPlanarLoads get_PlanarLoads()
+    8 Robin.IGeoPlates get_Plates()
+    8 Robin.IGeoPointLoads get_PointLoads()
+    8 Robin.IGeoRooms get_Rooms()
+    8 Robin.IGeoStairs get_Stairs()
+    8 Robin.IGeoWalls get_Walls()
+    8 System.String get_Name()
+    8 Void set_AutoName(Boolean)
+    8 Void set_CalculationGroup(Int16)
+    8 Void set_Height(Double)
+    8 Void set_Name(System.String)
+
+interface Robin.IGeoStoreys
+    16 Boolean IsNext [System.Object]
+    16 Boolean IsPrevious [System.Object]
+    16 Int32 Count
+    16 Robin.IGeoStorey Item [Int32]
+    16 Robin.IGeoStorey ItemByNumber [System.Object]
+    16 Robin.IGeoStorey Next [System.Object]
+    16 Robin.IGeoStorey Previous [System.Object]
+    8 Boolean get_IsNext(System.Object)
+    8 Boolean get_IsPrevious(System.Object)
+    8 Int32 get_Count()
+    8 Robin.IGeoStorey Add(Int16)
+    8 Robin.IGeoStorey get_Item(Int32)
+    8 Robin.IGeoStorey get_ItemByNumber(System.Object)
+    8 Robin.IGeoStorey get_Next(System.Object)
+    8 Robin.IGeoStorey get_Previous(System.Object)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoStructure
+    16 Boolean IsRoomAuto
+    16 Double ElevationOfRefHeight
+    16 Double ElevationOfTerrain
+    16 Robin.GeoStructureResults Results
+    16 Robin.IGeoBeams Beams
+    16 Robin.IGeoColumns Columns
+    16 Robin.IGeoContFoots ContFoots
+    16 Robin.IGeoDoors Doors
+    16 Robin.IGeoFigures Figures
+    16 Robin.IGeoFootPlates FootPlates
+    16 Robin.IGeoFoots Foots
+    16 Robin.IGeoHoles Holes
+    16 Robin.IGeoLinearLoads LinearLoads
+    16 Robin.IGeoMaterials Materials
+    16 Robin.IGeoObject FindObjectByUniqueNumber [Int32]
+    16 Robin.IGeoObjects Objects
+    16 Robin.IGeoPlanarLoads PlanarLoads
+    16 Robin.IGeoPlates Plates
+    16 Robin.IGeoPointLoads PointLoads
+    16 Robin.IGeoRooms Rooms
+    16 Robin.IGeoSections Sections
+    16 Robin.IGeoStairs Stairs
+    16 Robin.IGeoStoreys Storeys
+    16 Robin.IGeoTexts Texts
+    16 Robin.IGeoWalls Walls
+    16 Robin.IGeoWindows Windows
+    8 Boolean RunScript(System.String, System.String)
+    8 Boolean get_IsRoomAuto()
+    8 Double get_ElevationOfRefHeight()
+    8 Double get_ElevationOfTerrain()
+    8 Robin.GeoStructureResults get_Results()
+    8 Robin.IGeoBeams get_Beams()
+    8 Robin.IGeoColumns get_Columns()
+    8 Robin.IGeoContFoots get_ContFoots()
+    8 Robin.IGeoDoors get_Doors()
+    8 Robin.IGeoFigures get_Figures()
+    8 Robin.IGeoFootPlates get_FootPlates()
+    8 Robin.IGeoFoots get_Foots()
+    8 Robin.IGeoHoles get_Holes()
+    8 Robin.IGeoLinearLoads get_LinearLoads()
+    8 Robin.IGeoMaterials get_Materials()
+    8 Robin.IGeoObject GroupObjects(Robin.IGeoObjects)
+    8 Robin.IGeoObject get_FindObjectByUniqueNumber(Int32)
+    8 Robin.IGeoObjects get_Objects()
+    8 Robin.IGeoPlanarLoads get_PlanarLoads()
+    8 Robin.IGeoPlates get_Plates()
+    8 Robin.IGeoPointLoads get_PointLoads()
+    8 Robin.IGeoRooms get_Rooms()
+    8 Robin.IGeoSections get_Sections()
+    8 Robin.IGeoStairs get_Stairs()
+    8 Robin.IGeoStoreys get_Storeys()
+    8 Robin.IGeoTexts get_Texts()
+    8 Robin.IGeoWalls get_Walls()
+    8 Robin.IGeoWindows get_Windows()
+    8 System.String GetDefaultMaterial(Robin.IGeoObjectType ByRef)
+    8 Void GenerateCalculationsStoreys()
+    8 Void Initialize()
+    8 Void LockUpdate()
+    8 Void MeshFiguresSynchronizeEdges()
+    8 Void Normalize()
+    8 Void NormalizeStoreys()
+    8 Void RemoveObject(Int32)
+    8 Void RemoveObject2(System.Object)
+    8 Void UnlockUpdate()
+    8 Void set_ElevationOfRefHeight(Double)
+    8 Void set_ElevationOfTerrain(Double)
+    8 Void set_IsRoomAuto(Boolean)
+
+interface Robin.IGeoStructureResults
+    16 Boolean Exist
+    16 Double MaxMapValue [Int32, Robin.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, Robin.IGeoResultsMapType]
+    16 Robin.GeoResultLoadCases LoadCases
+    16 Robin.IGeoCalculationMethod Method
+    8 Boolean get_Exist()
+    8 Double get_MaxMapValue(Int32, Robin.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, Robin.IGeoResultsMapType)
+    8 Robin.GeoResultLoadCases get_LoadCases()
+    8 Robin.IGeoCalculationMethod get_Method()
+    8 Void set_Method(Robin.IGeoCalculationMethod)
+
+interface Robin.IGeoText
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoTexts
+    16 Int32 Count
+    16 Robin.IGeoText Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoText get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoVector
+    16 Double X
+    16 Double Y
+    16 Double Z
+    8 Double get_X()
+    8 Double get_Y()
+    8 Double get_Z()
+    8 Void GetXYZ(Double ByRef, Double ByRef, Double ByRef)
+    8 Void SetXYZ(Double, Double, Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+    8 Void set_Z(Double)
+
+interface Robin.IGeoVectors
+    16 Int32 Count
+    16 Robin.IGeoVector Item [Int32]
+    8 Int32 Add(Double, Double, Double)
+    8 Int32 get_Count()
+    8 Robin.IGeoVector get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoVersion
+    16 System.String VersionID
+    8 System.String get_VersionID()
+
+interface Robin.IGeoVersion2
+    8 Boolean IsVersion(System.String)
+
+interface Robin.IGeoWall
+    16 Boolean IsCarrying
+    16 Boolean IsSimplified
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.GeoWallResults Results
+    16 Robin.IGeoDoors Doors
+    16 Robin.IGeoObjectType Type
+    16 Robin.IGeoOffsetType OffsetType
+    16 Robin.IGeoVector OffsetVector
+    16 Robin.IGeoWindows Windows
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Boolean get_IsSimplified()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.GeoWallResults get_Results()
+    8 Robin.IGeoDoors get_Doors()
+    8 Robin.IGeoObjectType get_Type()
+    8 Robin.IGeoOffsetType get_OffsetType()
+    8 Robin.IGeoVector get_OffsetVector()
+    8 Robin.IGeoWindows get_Windows()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void Normalize()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_IsSimplified(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(Robin.IGeoOffsetType)
+    8 Void set_OffsetVector(Robin.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface Robin.IGeoWallDesignOptions
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+interface Robin.IGeoWallResults
+    16 Double Fx [Int32]
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    8 Double get_Fx(Int32)
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+
+interface Robin.IGeoWalls
+    16 Int32 Count
+    16 Robin.IGeoWall Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoWall Add(System.Object)
+    8 Robin.IGeoWall get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGeoWindow
+    16 Boolean IsCarrying
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Transparency
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 Robin.IGeoObjectType Type
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Transparency()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 Robin.IGeoObjectType get_Type()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void GetColor(Int16 ByRef, Int16 ByRef, Int16 ByRef)
+    8 Void SetColor(Int16, Int16, Int16)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Transparency(Double)
+
+interface Robin.IGeoWindows
+    16 Int32 Count
+    16 Robin.IGeoWindow Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.IGeoWindow Add(System.Object)
+    8 Robin.IGeoWindow get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGridAxisArc
+    16 Double DeltaAngle
+    16 Double Radius
+    16 Double StartAngle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 Double get_DeltaAngle()
+    8 Double get_Radius()
+    8 Double get_StartAngle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_DeltaAngle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_Radius(Double)
+    8 Void set_StartAngle(Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+interface Robin.IGridAxisArcs
+    16 Int32 Count
+    16 Robin.GridAxisArc Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridAxisArc Add()
+    8 Robin.GridAxisArc get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface Robin.IGridAxisGroup
+    16 Robin.GridAxisArcs GridAxisArcs
+    16 Robin.GridAxisLines GridAxisLines
+    16 System.String Name
+    8 Robin.GridAxisArcs get_GridAxisArcs()
+    8 Robin.GridAxisLines get_GridAxisLines()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+interface Robin.IGridAxisGroups
+    16 Int32 Count
+    16 Robin.GridAxisGroup Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridAxisGroup Add()
+    8 Robin.GridAxisGroup get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAllArcAxis(Boolean)
+    8 Void ShowAllLineAxis(Boolean)
+
+interface Robin.IGridAxisLine
+    16 Double x1
+    16 Double x2
+    16 Double y1
+    16 Double y2
+    16 System.String Name
+    8 Double get_x1()
+    8 Double get_x2()
+    8 Double get_y1()
+    8 Double get_y2()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_x1(Double)
+    8 Void set_x2(Double)
+    8 Void set_y1(Double)
+    8 Void set_y2(Double)
+
+interface Robin.IGridAxisLines
+    16 Int32 Count
+    16 Robin.GridAxisLine Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridAxisLine Add()
+    8 Robin.GridAxisLine get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+interface Robin.IGridCart
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 Robin.GridSteps XgridSteps
+    16 Robin.GridSteps YgridSteps
+    16 System.String Name
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 Robin.GridSteps get_XgridSteps()
+    8 Robin.GridSteps get_YgridSteps()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+interface Robin.IGridCyl
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 Robin.GridSteps AngleSteps
+    16 Robin.GridSteps RadiusSteps
+    16 System.String Name
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 Robin.GridSteps get_AngleSteps()
+    8 Robin.GridSteps get_RadiusSteps()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+interface Robin.IGridStep
+    16 Double Value
+    16 Int32 Count
+    8 Double get_Value()
+    8 Int32 get_Count()
+    8 Void set_Count(Int32)
+    8 Void set_Value(Double)
+
+interface Robin.IGridSteps
+    16 Int32 Count
+    16 Robin.GridStep Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridStep Add()
+    8 Robin.GridStep get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+interface Robin.IGridSystem
+    16 Robin.GridAxisGroups GridAxisGroups
+    16 Robin.GridsCart GridsCart
+    16 Robin.GridsCyl GridsCyl
+    8 Robin.GridAxisGroups get_GridAxisGroups()
+    8 Robin.GridsCart get_GridsCart()
+    8 Robin.GridsCyl get_GridsCyl()
+    8 Void ShowAll(Boolean)
+
+interface Robin.IGridsCart
+    16 Int32 Count
+    16 Robin.GridCart Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridCart Add()
+    8 Robin.GridCart get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+interface Robin.IGridsCyl
+    16 Int32 Count
+    16 Robin.GridCyl Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridCyl Add()
+    8 Robin.GridCyl get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+interface Robin.IRobinCommand
+    16 Boolean Checked
+    16 Boolean Enabled
+    8 Boolean get_Checked()
+    8 Boolean get_Enabled()
+    8 Void Run()
+
+interface Robin.IRobinDocPreferences
+    8 Void GetColor3D(Robin.IGeoObjectType, Boolean, UInt32 ByRef, UInt32 ByRef, UInt32 ByRef)
+    8 Void SetColor3D(Robin.IGeoObjectType, Boolean, UInt32, UInt32, UInt32)
+
+interface Robin.IRobinDocument
+    16 Boolean IsDemo
+    16 Robin.GeoCalculations Calculations
+    16 Robin.IGeoLoadsRegulations LoadsRegulations2
+    16 Robin.IGeoStructure Structure2
+    16 Robin.RobinCommand CommandEditModeDrag
+    16 Robin.RobinCommand CommandSelect
+    16 Robin.RobinCommand CommandSnapAxialIntersections
+    16 Robin.RobinCommand CommandSnapGraphicalObjects
+    16 Robin.RobinCommand CommandSnapObjectCenters
+    16 Robin.RobinCommand CommandSnapObjectEnds
+    16 Robin.RobinCommand CommandSnapObjectExtension
+    16 Robin.RobinCommand CommandSnapOrthogonalToPoint
+    16 Robin.RobinCommand CommandSnapParallelToObject
+    16 Robin.RobinCommand CommandSnapPerpendicularToObject
+    16 Robin.RobinDocPreferences DocPreferences
+    16 Robin.RobinEventManager Events
+    16 Robin.RobinOptions Options
+    16 Robin.RobinReports Reports
+    16 Robin.RobinTaskManager TaskManager
+    16 Robin.RobinView ActiveView
+    16 System.Object Grids
+    16 System.Object LoadsRegulations
+    16 System.Object Structure
+    16 System.String PathName
+    16 System.String Title
+    8 Boolean get_IsDemo()
+    8 Robin.GeoCalculations get_Calculations()
+    8 Robin.IGeoLoadsRegulations get_LoadsRegulations2()
+    8 Robin.IGeoStructure get_Structure2()
+    8 Robin.RobinCommand get_CommandEditModeDrag()
+    8 Robin.RobinCommand get_CommandSelect()
+    8 Robin.RobinCommand get_CommandSnapAxialIntersections()
+    8 Robin.RobinCommand get_CommandSnapGraphicalObjects()
+    8 Robin.RobinCommand get_CommandSnapObjectCenters()
+    8 Robin.RobinCommand get_CommandSnapObjectEnds()
+    8 Robin.RobinCommand get_CommandSnapObjectExtension()
+    8 Robin.RobinCommand get_CommandSnapOrthogonalToPoint()
+    8 Robin.RobinCommand get_CommandSnapParallelToObject()
+    8 Robin.RobinCommand get_CommandSnapPerpendicularToObject()
+    8 Robin.RobinDocPreferences get_DocPreferences()
+    8 Robin.RobinEventManager get_Events()
+    8 Robin.RobinOptions get_Options()
+    8 Robin.RobinReports get_Reports()
+    8 Robin.RobinTaskManager get_TaskManager()
+    8 Robin.RobinView get_ActiveView()
+    8 System.Object get_Grids()
+    8 System.Object get_LoadsRegulations()
+    8 System.Object get_Structure()
+    8 System.String get_PathName()
+    8 System.String get_Title()
+    8 Void Close(Boolean)
+    8 Void ExportAllToRSA()
+    8 Void ExportSelToRSA()
+    8 Void ExportToRSA()
+    8 Void FileImport(System.String)
+    8 Void FileOpen(System.String)
+    8 Void GetAccessCode(Int32 ByRef, System.String ByRef)
+    8 Void SaveAs(System.String)
+    8 Void SetAccessCode(System.String)
+    8 Void UpdateViews()
+    8 Void ViewsZoomAll()
+    8 Void set_ActiveView(Robin.RobinView)
+    8 Void set_Calculations(Robin.GeoCalculations)
+    8 Void set_CommandEditModeDrag(Robin.RobinCommand)
+    8 Void set_CommandSelect(Robin.RobinCommand)
+    8 Void set_CommandSnapAxialIntersections(Robin.RobinCommand)
+    8 Void set_CommandSnapGraphicalObjects(Robin.RobinCommand)
+    8 Void set_CommandSnapObjectCenters(Robin.RobinCommand)
+    8 Void set_CommandSnapObjectEnds(Robin.RobinCommand)
+    8 Void set_CommandSnapObjectExtension(Robin.RobinCommand)
+    8 Void set_CommandSnapOrthogonalToPoint(Robin.RobinCommand)
+    8 Void set_CommandSnapParallelToObject(Robin.RobinCommand)
+    8 Void set_CommandSnapPerpendicularToObject(Robin.RobinCommand)
+    8 Void set_DocPreferences(Robin.RobinDocPreferences)
+    8 Void set_Events(Robin.RobinEventManager)
+    8 Void set_Grids(System.Object)
+    8 Void set_IsDemo(Boolean)
+    8 Void set_LoadsRegulations(System.Object)
+    8 Void set_LoadsRegulations2(Robin.IGeoLoadsRegulations)
+    8 Void set_Options(Robin.RobinOptions)
+    8 Void set_PathName(System.String)
+    8 Void set_Reports(Robin.RobinReports)
+    8 Void set_Structure(System.Object)
+    8 Void set_Structure2(Robin.IGeoStructure)
+    8 Void set_TaskManager(Robin.RobinTaskManager)
+    8 Void set_Title(System.String)
+
+interface Robin.IRobinEventManager
+    16 Boolean EventsLocked
+    8 Boolean LockEvents(Boolean)
+    8 Boolean get_EventsLocked()
+
+interface Robin.IRobinOptions
+    16 Boolean AddFootingsUnderColumns
+    16 Boolean AddFootingsUnderWalls
+    16 Boolean PlatePinned
+    8 Boolean get_AddFootingsUnderColumns()
+    8 Boolean get_AddFootingsUnderWalls()
+    8 Boolean get_PlatePinned()
+    8 Void set_AddFootingsUnderColumns(Boolean)
+    8 Void set_AddFootingsUnderWalls(Boolean)
+    8 Void set_PlatePinned(Boolean)
+
+interface Robin.IRobinPreferences
+    16 Robin.ILifeLoadRedCode LifeLoadRedCode
+    16 Robin.RobinUnits Units
+    8 Robin.ILifeLoadRedCode get_LifeLoadRedCode()
+    8 Robin.RobinUnits get_Units()
+    8 Void set_LifeLoadRedCode(Robin.ILifeLoadRedCode)
+
+interface Robin.IRobinReports
+    16 Boolean EnableLog
+    16 Robin.RobinVerification Verification
+    8 Boolean SaveToFile(Robin.IRobinReportType, System.String)
+    8 Boolean get_EnableLog()
+    8 Robin.RobinVerification get_Verification()
+    8 Void set_EnableLog(Boolean)
+
+interface Robin.IRobinTaskManager
+    8 Boolean AddObjectTaskIsWorking(Boolean ByRef, Robin.IGeoObjectType ByRef)
+    8 Void StartAddContFoot(Boolean)
+    8 Void StartAddFoot(Boolean)
+    8 Void StartAddFootTask()
+    8 Void StartAddLine(Boolean)
+    8 Void StartAddPoint()
+    8 Void StopAllTasks()
+
+interface Robin.IRobinUnits
+    8 Boolean ModifyUnit(Robin.IRobinUnitType, System.String, Int16, System.String)
+
+interface Robin.IRobinVerification
+    16 Robin.RobinVerificationOptions Options
+    8 Boolean Run()
+    8 Robin.RobinVerificationOptions get_Options()
+
+interface Robin.IRobinVerificationOptions
+    16 Boolean RangeMaximumAuto
+    16 Double RangeMaximum
+    16 Double RangeMinimum
+    8 Boolean get_RangeMaximumAuto()
+    8 Double get_RangeMaximum()
+    8 Double get_RangeMinimum()
+    8 Void set_RangeMaximum(Double)
+    8 Void set_RangeMaximumAuto(Boolean)
+    8 Void set_RangeMinimum(Double)
+
+interface Robin.IRobinView
+    16 Int16 StoreyNumber
+    16 Robin.IGeoViewMode Mode
+    16 Robin.IGeoViewProjectionType Projection
+    16 Robin.IGeoViewView3D View3D
+    16 Robin.RobinCommand CommandDisplayGroups
+    16 Robin.RobinCommand CommandDisplaySelectedElements
+    16 Robin.RobinCommand CommandRotateZoomPan
+    16 Robin.RobinCommand CommandZoomAll
+    16 Robin.RobinCommand CommandZoomWindow
+    16 Robin.RobinViewDisplay Display
+    8 Boolean MakeScreenShot(System.String)
+    8 Boolean VisibleObjectsCheck(Int32)
+    8 Int16 get_StoreyNumber()
+    8 Int32 VisibleObjectsGet()
+    8 Robin.IGeoViewMode get_Mode()
+    8 Robin.IGeoViewProjectionType get_Projection()
+    8 Robin.IGeoViewView3D get_View3D()
+    8 Robin.RobinCommand get_CommandDisplayGroups()
+    8 Robin.RobinCommand get_CommandDisplaySelectedElements()
+    8 Robin.RobinCommand get_CommandRotateZoomPan()
+    8 Robin.RobinCommand get_CommandZoomAll()
+    8 Robin.RobinCommand get_CommandZoomWindow()
+    8 Robin.RobinViewDisplay get_Display()
+    8 Void SelectObject(Int32, Boolean)
+    8 Void SelectOneObject(Int32, Boolean)
+    8 Void VisibleObjectsSet(Int32, Boolean)
+    8 Void set_Mode(Robin.IGeoViewMode)
+    8 Void set_Projection(Robin.IGeoViewProjectionType)
+    8 Void set_StoreyNumber(Int16)
+    8 Void set_View3D(Robin.IGeoViewView3D)
+
+interface Robin.IRobinViewDisplay
+    16 Robin.RobinViewLoadsDisplay Loads
+    16 Robin.RobinViewResultsDisplay Results
+    8 Robin.RobinViewLoadsDisplay get_Loads()
+    8 Robin.RobinViewResultsDisplay get_Results()
+    8 Void ShowObjectsAndShadows(Robin.IGeoObjects, Robin.IGeoObjects)
+    8 Void ShowObjectsCollection(Robin.IGeoObjects, Boolean)
+
+interface Robin.IRobinViewLoadsDisplay
+    8 Void ShowAllNatures()
+    8 Void ShowNature(Robin.IGeoLoadNature, System.String)
+
+interface Robin.IRobinViewResultsDisplay
+    16 Boolean Deformation
+    16 Boolean DisplayLLRedEnvelopes
+    16 Boolean DisplayLLRedValues
+    16 Boolean LPFoc
+    16 Boolean LPLin
+    16 Boolean LPMap
+    16 Boolean Legend
+    16 Boolean LoadMap
+    16 Boolean MassCenter
+    16 Boolean Resultant
+    16 Boolean RigidityCenter
+    16 Boolean SlabDir3dView
+    16 Boolean StoreyResult
+    16 Boolean StressMap
+    16 Boolean Values
+    16 Double Scale
+    16 Int32 CaseIndex
+    16 Robin.IGeoResultsMapType Map
+    8 Boolean get_Deformation()
+    8 Boolean get_DisplayLLRedEnvelopes()
+    8 Boolean get_DisplayLLRedValues()
+    8 Boolean get_LPFoc()
+    8 Boolean get_LPLin()
+    8 Boolean get_LPMap()
+    8 Boolean get_Legend()
+    8 Boolean get_LoadMap()
+    8 Boolean get_MassCenter()
+    8 Boolean get_Resultant()
+    8 Boolean get_RigidityCenter()
+    8 Boolean get_SlabDir3dView()
+    8 Boolean get_StoreyResult()
+    8 Boolean get_StressMap()
+    8 Boolean get_Values()
+    8 Double get_Scale()
+    8 Int32 get_CaseIndex()
+    8 Robin.IGeoResultsMapType get_Map()
+    8 Void Animate()
+    8 Void set_CaseIndex(Int32)
+    8 Void set_Deformation(Boolean)
+    8 Void set_DisplayLLRedEnvelopes(Boolean)
+    8 Void set_DisplayLLRedValues(Boolean)
+    8 Void set_LPFoc(Boolean)
+    8 Void set_LPLin(Boolean)
+    8 Void set_LPMap(Boolean)
+    8 Void set_Legend(Boolean)
+    8 Void set_LoadMap(Boolean)
+    8 Void set_Map(Robin.IGeoResultsMapType)
+    8 Void set_MassCenter(Boolean)
+    8 Void set_Resultant(Boolean)
+    8 Void set_RigidityCenter(Boolean)
+    8 Void set_Scale(Double)
+    8 Void set_SlabDir3dView(Boolean)
+    8 Void set_StoreyResult(Boolean)
+    8 Void set_StressMap(Boolean)
+    8 Void set_Values(Boolean)
+
+interface Robin.Note
+
+interface Robin.NoteFactory
+
+interface Robin.RobinCommand
+
+interface Robin.RobinDocPreferences
+
+interface Robin.RobinEventManager
+
+interface Robin.RobinOptions
+
+interface Robin.RobinPreferences
+
+interface Robin.RobinReports
+
+interface Robin.RobinTaskManager
+
+interface Robin.RobinUnits
+
+interface Robin.RobinVerification
+
+interface Robin.RobinVerificationOptions
+
+interface Robin.RobinView
+
+interface Robin.RobinViewDisplay
+
+interface Robin.RobinViewLoadsDisplay
+
+interface Robin.RobinViewResultsDisplay
+
+interface Robin.View
+
+interface Robin.ViewFactory
+
+interface Robin._IGeoCalculationsEvents
+    8 Void ProgressStep(Robin.IGeoCalculationsProgressType, Int32, System.String, System.Object, Boolean ByRef)
+
+interface Robin._IGeoCalculationsEvents_Event
+    2 Robin._IGeoCalculationsEvents_ProgressStepEventHandler ProgressStep
+    8 Void add_ProgressStep(Robin._IGeoCalculationsEvents_ProgressStepEventHandler)
+    8 Void remove_ProgressStep(Robin._IGeoCalculationsEvents_ProgressStepEventHandler)
+
+interface Robin._IRobinDocEvents
+    8 Void ObjectListChanged()
+    8 Void OnUpdateAll()
+    8 Void SelectionChanged()
+    8 Void SelectionModeEntered()
+    8 Void SingleObjectAdded(Int32)
+
+interface Robin._IRobinDocEvents_Event
+    2 Robin._IRobinDocEvents_ObjectListChangedEventHandler ObjectListChanged
+    2 Robin._IRobinDocEvents_OnUpdateAllEventHandler OnUpdateAll
+    2 Robin._IRobinDocEvents_SelectionChangedEventHandler SelectionChanged
+    2 Robin._IRobinDocEvents_SelectionModeEnteredEventHandler SelectionModeEntered
+    2 Robin._IRobinDocEvents_SingleObjectAddedEventHandler SingleObjectAdded
+    8 Void add_ObjectListChanged(Robin._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void add_OnUpdateAll(Robin._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void add_SelectionChanged(Robin._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void add_SelectionModeEntered(Robin._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void add_SingleObjectAdded(Robin._IRobinDocEvents_SingleObjectAddedEventHandler)
+    8 Void remove_ObjectListChanged(Robin._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void remove_OnUpdateAll(Robin._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void remove_SelectionChanged(Robin._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void remove_SelectionModeEntered(Robin._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void remove_SingleObjectAdded(Robin._IRobinDocEvents_SingleObjectAddedEventHandler)
+
+interface Robin._IRobinViewEvents
+    8 Void ObjectShined(Int32)
+
+interface Robin._IRobinViewEvents_Event
+    2 Robin._IRobinViewEvents_ObjectShinedEventHandler ObjectShined
+    8 Void add_ObjectShined(Robin._IRobinViewEvents_ObjectShinedEventHandler)
+    8 Void remove_ObjectShined(Robin._IRobinViewEvents_ObjectShinedEventHandler)
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class Robin.ApplicationClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Visible
+    16 Int32 MainWindowHandle
+    16 Robin.Documents Documents
+    16 Robin.RobinPreferences Preferences
+    8 Boolean Connect(System.Object, System.String, System.String, Boolean, System.Object)
+    8 Boolean IsVersion(System.String)
+    8 Boolean get_Visible()
+    8 Int32 get_MainWindowHandle()
+    8 Robin.Documents get_Documents()
+    8 Robin.RobinPreferences get_Preferences()
+    8 Void Activate()
+    8 Void set_Documents(Robin.Documents)
+    8 Void set_MainWindowHandle(Int32)
+    8 Void set_Preferences(Robin.RobinPreferences)
+    8 Void set_Visible(Boolean)
+
+class Robin.DocumentClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsDemo
+    16 Robin.GeoCalculations Calculations
+    16 Robin.IGeoLoadsRegulations LoadsRegulations2
+    16 Robin.IGeoStructure Structure2
+    16 Robin.RobinCommand CommandEditModeDrag
+    16 Robin.RobinCommand CommandSelect
+    16 Robin.RobinCommand CommandSnapAxialIntersections
+    16 Robin.RobinCommand CommandSnapGraphicalObjects
+    16 Robin.RobinCommand CommandSnapObjectCenters
+    16 Robin.RobinCommand CommandSnapObjectEnds
+    16 Robin.RobinCommand CommandSnapObjectExtension
+    16 Robin.RobinCommand CommandSnapOrthogonalToPoint
+    16 Robin.RobinCommand CommandSnapParallelToObject
+    16 Robin.RobinCommand CommandSnapPerpendicularToObject
+    16 Robin.RobinDocPreferences DocPreferences
+    16 Robin.RobinEventManager Events
+    16 Robin.RobinOptions Options
+    16 Robin.RobinReports Reports
+    16 Robin.RobinTaskManager TaskManager
+    16 Robin.RobinView ActiveView
+    16 System.Object Grids
+    16 System.Object LoadsRegulations
+    16 System.Object Structure
+    16 System.String PathName
+    16 System.String Title
+    8 Boolean IsVersion(System.String)
+    8 Boolean get_IsDemo()
+    8 Robin.GeoCalculations get_Calculations()
+    8 Robin.IGeoLoadsRegulations get_LoadsRegulations2()
+    8 Robin.IGeoStructure get_Structure2()
+    8 Robin.RobinCommand get_CommandEditModeDrag()
+    8 Robin.RobinCommand get_CommandSelect()
+    8 Robin.RobinCommand get_CommandSnapAxialIntersections()
+    8 Robin.RobinCommand get_CommandSnapGraphicalObjects()
+    8 Robin.RobinCommand get_CommandSnapObjectCenters()
+    8 Robin.RobinCommand get_CommandSnapObjectEnds()
+    8 Robin.RobinCommand get_CommandSnapObjectExtension()
+    8 Robin.RobinCommand get_CommandSnapOrthogonalToPoint()
+    8 Robin.RobinCommand get_CommandSnapParallelToObject()
+    8 Robin.RobinCommand get_CommandSnapPerpendicularToObject()
+    8 Robin.RobinDocPreferences get_DocPreferences()
+    8 Robin.RobinEventManager get_Events()
+    8 Robin.RobinOptions get_Options()
+    8 Robin.RobinReports get_Reports()
+    8 Robin.RobinTaskManager get_TaskManager()
+    8 Robin.RobinView get_ActiveView()
+    8 System.Object get_Grids()
+    8 System.Object get_LoadsRegulations()
+    8 System.Object get_Structure()
+    8 System.String get_PathName()
+    8 System.String get_Title()
+    8 Void Close(Boolean)
+    8 Void ExportAllToRSA()
+    8 Void ExportSelToRSA()
+    8 Void ExportToRSA()
+    8 Void FileImport(System.String)
+    8 Void FileOpen(System.String)
+    8 Void GetAccessCode(Int32 ByRef, System.String ByRef)
+    8 Void SaveAs(System.String)
+    8 Void SetAccessCode(System.String)
+    8 Void UpdateViews()
+    8 Void ViewsZoomAll()
+    8 Void set_ActiveView(Robin.RobinView)
+    8 Void set_Calculations(Robin.GeoCalculations)
+    8 Void set_CommandEditModeDrag(Robin.RobinCommand)
+    8 Void set_CommandSelect(Robin.RobinCommand)
+    8 Void set_CommandSnapAxialIntersections(Robin.RobinCommand)
+    8 Void set_CommandSnapGraphicalObjects(Robin.RobinCommand)
+    8 Void set_CommandSnapObjectCenters(Robin.RobinCommand)
+    8 Void set_CommandSnapObjectEnds(Robin.RobinCommand)
+    8 Void set_CommandSnapObjectExtension(Robin.RobinCommand)
+    8 Void set_CommandSnapOrthogonalToPoint(Robin.RobinCommand)
+    8 Void set_CommandSnapParallelToObject(Robin.RobinCommand)
+    8 Void set_CommandSnapPerpendicularToObject(Robin.RobinCommand)
+    8 Void set_DocPreferences(Robin.RobinDocPreferences)
+    8 Void set_Events(Robin.RobinEventManager)
+    8 Void set_Grids(System.Object)
+    8 Void set_IsDemo(Boolean)
+    8 Void set_LoadsRegulations(System.Object)
+    8 Void set_LoadsRegulations2(Robin.IGeoLoadsRegulations)
+    8 Void set_Options(Robin.RobinOptions)
+    8 Void set_PathName(System.String)
+    8 Void set_Reports(Robin.RobinReports)
+    8 Void set_Structure(System.Object)
+    8 Void set_Structure2(Robin.IGeoStructure)
+    8 Void set_TaskManager(Robin.RobinTaskManager)
+    8 Void set_Title(System.String)
+
+class Robin.DocumentsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.Document ActiveDocument
+    16 System.Object _NewEnum
+    8 Int32 get_Count()
+    8 Robin.Document Add(System.String, Boolean)
+    8 Robin.Document Item(System.Object)
+    8 Robin.Document get_ActiveDocument()
+    8 System.Object get__NewEnum()
+    8 Void set_ActiveDocument(Robin.Document)
+    8 Void set_Count(Int32)
+    8 Void set__NewEnum(System.Object)
+
+class Robin.GeoBeamCalculationModelClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsLeftCantilever
+    16 Boolean IsLeftRelease
+    16 Boolean IsRightCantilever
+    16 Boolean IsRightRelease
+    16 Robin.GeoBeamSupports Supports
+    8 Boolean get_IsLeftCantilever()
+    8 Boolean get_IsLeftRelease()
+    8 Boolean get_IsRightCantilever()
+    8 Boolean get_IsRightRelease()
+    8 Robin.GeoBeamSupports get_Supports()
+    8 Void set_IsLeftRelease(Boolean)
+    8 Void set_IsRightRelease(Boolean)
+
+class Robin.GeoBeamDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+class Robin.GeoBeamResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GeoBeamCalculationModel CalculationModel
+    16 Robin.GeoLinearDiagram LinearDiagram
+    16 Robin.GeoPointDiagram PointDiagram
+    8 Robin.GeoBeamCalculationModel get_CalculationModel()
+    8 Robin.GeoLinearDiagram get_LinearDiagram()
+    8 Robin.GeoPointDiagram get_PointDiagram()
+
+class Robin.GeoBeamSupportClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Width
+    8 Double get_Width()
+    8 Void set_Width(Double)
+
+class Robin.GeoBeamSupportsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GeoBeamSupport Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GeoBeamSupport get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class Robin.GeoCalculationsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GeoCalculationsOptions Options
+    2 Robin._IGeoCalculationsEvents_ProgressStepEventHandler ProgressStep
+    8 Boolean Calculate()
+    8 Boolean Dimensioning()
+    8 Robin.GeoCalculationsOptions get_Options()
+    8 Void add_ProgressStep(Robin._IGeoCalculationsEvents_ProgressStepEventHandler)
+    8 Void remove_ProgressStep(Robin._IGeoCalculationsEvents_ProgressStepEventHandler)
+
+class Robin.GeoCalculationsOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean DefaultSupportConditions
+    16 Boolean GenerateCombinations
+    16 Boolean LifeLoadReductionEnabled
+    16 Boolean ShowProgress
+    16 Double CalculationEpsilon
+    16 Double MeshSize
+    16 Double ReactionTolerance
+    16 Int32 UseLTD
+    16 Robin.GeoLifeLoadRedOptions LifeLoadRedOptions
+    16 Robin.GeoRCElementDesignOptions RCElementDesignOptions
+    16 Robin.IGeoCalculationMethod Method
+    8 Boolean get_DefaultSupportConditions()
+    8 Boolean get_GenerateCombinations()
+    8 Boolean get_LifeLoadReductionEnabled()
+    8 Boolean get_ShowProgress()
+    8 Double get_CalculationEpsilon()
+    8 Double get_MeshSize()
+    8 Double get_ReactionTolerance()
+    8 Int32 get_UseLTD()
+    8 Robin.GeoLifeLoadRedOptions get_LifeLoadRedOptions()
+    8 Robin.GeoRCElementDesignOptions get_RCElementDesignOptions()
+    8 Robin.IGeoCalculationMethod get_Method()
+    8 Void set_CalculationEpsilon(Double)
+    8 Void set_DefaultSupportConditions(Boolean)
+    8 Void set_GenerateCombinations(Boolean)
+    8 Void set_LifeLoadReductionEnabled(Boolean)
+    8 Void set_MeshSize(Double)
+    8 Void set_Method(Robin.IGeoCalculationMethod)
+    8 Void set_ReactionTolerance(Double)
+    8 Void set_ShowProgress(Boolean)
+    8 Void set_UseLTD(Int32)
+
+class Robin.GeoColumnDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+class Robin.GeoColumnResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double Fz [Int32]
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_Fz(Int32)
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+
+class Robin.GeoContFootDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+
+class Robin.GeoContFootResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Robin.GeoReactions Reactions
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Robin.GeoReactions get_Reactions()
+
+class Robin.GeoDiagramPointClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Position
+    16 Double Value
+    8 Double get_Position()
+    8 Double get_Value()
+
+class Robin.GeoDiagramPointsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GeoDiagramPoint Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GeoDiagramPoint get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class Robin.GeoFigureResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double MaxMapValue [Int32, Robin.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, Robin.IGeoResultsMapType]
+    8 Double get_MaxMapValue(Int32, Robin.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, Robin.IGeoResultsMapType)
+
+class Robin.GeoFootDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean AIsFixed
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    16 Boolean EyIsFixed
+    8 Boolean get_AIsFixed()
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Boolean get_EyIsFixed()
+    8 Void set_AIsFixed(Boolean)
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+    8 Void set_EyIsFixed(Boolean)
+
+class Robin.GeoFootPlateResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GeoReactions Reactions
+    8 Robin.GeoReactions get_Reactions()
+
+class Robin.GeoFootResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Robin.GeoReactions Reactions
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Robin.GeoReactions get_Reactions()
+
+class Robin.GeoLifeLoadRedASCEResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double CumulativeTributaryArea [Int32]
+    16 Double KLL [Int32]
+    16 Double TributaryArea [Int32]
+    8 Double get_CumulativeTributaryArea(Int32)
+    8 Double get_KLL(Int32)
+    8 Double get_TributaryArea(Int32)
+    8 Void ChangeKLL(Robin.ILllrASCE7_05StrType, Int32, Double)
+
+class Robin.GeoLifeLoadRedENResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double AlphaA [Int32]
+    16 Double AlphaN [Int32]
+    8 Double get_AlphaA(Int32)
+    8 Double get_AlphaN(Int32)
+
+class Robin.GeoLifeLoadRedOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.ILllrASCE7_05StrType StructureTypeASCE
+    16 Robin.ILllrEN1991StrCat StructureCatEN
+    8 Robin.ILllrASCE7_05StrType get_StructureTypeASCE()
+    8 Robin.ILllrEN1991StrCat get_StructureCatEN()
+    8 Void set_StructureCatEN(Robin.ILllrEN1991StrCat)
+    8 Void set_StructureTypeASCE(Robin.ILllrASCE7_05StrType)
+
+class Robin.GeoLifeLoadRedResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double ReductionCoeficient [Int32]
+    16 Robin.GeoLifeLoadRedASCEResults ASCEResults
+    16 Robin.GeoLifeLoadRedENResults ENResults
+    8 Double get_ReductionCoeficient(Int32)
+    8 Robin.GeoLifeLoadRedASCEResults get_ASCEResults()
+    8 Robin.GeoLifeLoadRedENResults get_ENResults()
+    8 Void set_ReductionCoeficient(Int32, Double)
+
+class Robin.GeoLinearDiagramClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Case
+    16 Robin.GeoDiagramPoints Points
+    16 Robin.IGeoLinearDiagramType Type
+    8 Int32 get_Case()
+    8 Robin.GeoDiagramPoints get_Points()
+    8 Robin.IGeoLinearDiagramType get_Type()
+    8 Void set_Case(Int32)
+    8 Void set_Type(Robin.IGeoLinearDiagramType)
+
+class Robin.GeoPointDiagramClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Case
+    16 Robin.GeoDiagramPoints Points
+    16 Robin.IGeoPointDiagramType Type
+    8 Int32 get_Case()
+    8 Robin.GeoDiagramPoints get_Points()
+    8 Robin.IGeoPointDiagramType get_Type()
+    8 Void set_Case(Int32)
+    8 Void set_Type(Robin.IGeoPointDiagramType)
+
+class Robin.GeoRCElementDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GeoRCGeneralParameters GeneralParameters
+    8 Robin.GeoRCGeneralParameters get_GeneralParameters()
+
+class Robin.GeoRCGeneralParametersClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GeoBeamDesignOptions Beams
+    16 Robin.GeoColumnDesignOptions Columns
+    16 Robin.GeoContFootDesignOptions ContFoots
+    16 Robin.GeoFootDesignOptions Foots
+    16 Robin.GeoSlabDesignOptions Slabs
+    16 Robin.GeoWallDesignOptions Walls
+    8 Robin.GeoBeamDesignOptions get_Beams()
+    8 Robin.GeoColumnDesignOptions get_Columns()
+    8 Robin.GeoContFootDesignOptions get_ContFoots()
+    8 Robin.GeoFootDesignOptions get_Foots()
+    8 Robin.GeoSlabDesignOptions get_Slabs()
+    8 Robin.GeoWallDesignOptions get_Walls()
+
+class Robin.GeoReactionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double N [Int32]
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_N(Int32)
+
+class Robin.GeoResultCombinationCaseClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Factor
+    16 Int32 CaseNumber
+    8 Double get_Factor()
+    8 Int32 get_CaseNumber()
+    8 Void set_CaseNumber(Int32)
+    8 Void set_Factor(Double)
+
+class Robin.GeoResultCombinationCasesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GeoResultCombinationCase Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GeoResultCombinationCase Add(Int32, Double)
+    8 Robin.GeoResultCombinationCase get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class Robin.GeoResultLoadCaseClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsSimple
+    16 Robin.IGeoLoadNature Nature
+    16 Robin.IGeoPredefinedSubnature PredefinedType
+    16 System.String Name
+    8 Boolean get_IsSimple()
+    8 Robin.IGeoLoadNature get_Nature()
+    8 Robin.IGeoPredefinedSubnature get_PredefinedType()
+    8 System.String get_Name()
+
+class Robin.GeoResultLoadCasesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GeoResultLoadCase Item [Int32]
+    16 Robin.GeoResultLoadCombinations Combinations
+    8 Int32 get_Count()
+    8 Robin.GeoResultLoadCase InsertSelfWeightCase(Int32, Robin.IGeoLoadNature, System.String)
+    8 Robin.GeoResultLoadCase get_Item(Int32)
+    8 Robin.GeoResultLoadCombinations get_Combinations()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void ApplySelfWeightToCase(Int32)
+
+class Robin.GeoResultLoadCombinationClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GeoResultCombinationCases Cases
+    16 Robin.IGeoCombinationStateType StateType
+    16 System.String Name
+    8 Robin.GeoResultCombinationCases get_Cases()
+    8 Robin.IGeoCombinationStateType get_StateType()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_StateType(Robin.IGeoCombinationStateType)
+
+class Robin.GeoResultLoadCombinationsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Manual
+    16 Int32 Count
+    16 Robin.GeoResultLoadCombination Item [Int32]
+    8 Boolean get_Manual()
+    8 Int32 get_Count()
+    8 Robin.GeoResultLoadCombination Add(Robin.IGeoCombinationStateType, System.String)
+    8 Robin.GeoResultLoadCombination get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Manual(Boolean)
+
+class Robin.GeoSlabDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+class Robin.GeoStructureResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Exist
+    16 Double MaxMapValue [Int32, Robin.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, Robin.IGeoResultsMapType]
+    16 Robin.GeoResultLoadCases LoadCases
+    16 Robin.IGeoCalculationMethod Method
+    8 Boolean get_Exist()
+    8 Double get_MaxMapValue(Int32, Robin.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, Robin.IGeoResultsMapType)
+    8 Robin.GeoResultLoadCases get_LoadCases()
+    8 Robin.IGeoCalculationMethod get_Method()
+    8 Void set_Method(Robin.IGeoCalculationMethod)
+
+class Robin.GeoWallDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+class Robin.GeoWallResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Fx [Int32]
+    16 Double Stress [Int32]
+    16 Robin.GeoLifeLoadRedResults LifeLoadRedResults
+    8 Double get_Fx(Int32)
+    8 Double get_Stress(Int32)
+    8 Robin.GeoLifeLoadRedResults get_LifeLoadRedResults()
+
+class Robin.GridAxisArcClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double DeltaAngle
+    16 Double Radius
+    16 Double StartAngle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 Double get_DeltaAngle()
+    8 Double get_Radius()
+    8 Double get_StartAngle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_DeltaAngle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_Radius(Double)
+    8 Void set_StartAngle(Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+class Robin.GridAxisArcsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GridAxisArc Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridAxisArc Add()
+    8 Robin.GridAxisArc get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class Robin.GridAxisGroupClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GridAxisArcs GridAxisArcs
+    16 Robin.GridAxisLines GridAxisLines
+    16 System.String Name
+    8 Robin.GridAxisArcs get_GridAxisArcs()
+    8 Robin.GridAxisLines get_GridAxisLines()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+class Robin.GridAxisGroupsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GridAxisGroup Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridAxisGroup Add()
+    8 Robin.GridAxisGroup get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAllArcAxis(Boolean)
+    8 Void ShowAllLineAxis(Boolean)
+
+class Robin.GridAxisLineClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double x1
+    16 Double x2
+    16 Double y1
+    16 Double y2
+    16 System.String Name
+    8 Double get_x1()
+    8 Double get_x2()
+    8 Double get_y1()
+    8 Double get_y2()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_x1(Double)
+    8 Void set_x2(Double)
+    8 Void set_y1(Double)
+    8 Void set_y2(Double)
+
+class Robin.GridAxisLinesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GridAxisLine Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridAxisLine Add()
+    8 Robin.GridAxisLine get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+class Robin.GridCartClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 Robin.GridSteps XgridSteps
+    16 Robin.GridSteps YgridSteps
+    16 System.String Name
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 Robin.GridSteps get_XgridSteps()
+    8 Robin.GridSteps get_YgridSteps()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+class Robin.GridCylClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 Robin.GridSteps AngleSteps
+    16 Robin.GridSteps RadiusSteps
+    16 System.String Name
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 Robin.GridSteps get_AngleSteps()
+    8 Robin.GridSteps get_RadiusSteps()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+class Robin.GridStepClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Value
+    16 Int32 Count
+    8 Double get_Value()
+    8 Int32 get_Count()
+    8 Void set_Count(Int32)
+    8 Void set_Value(Double)
+
+class Robin.GridStepsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GridStep Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridStep Add()
+    8 Robin.GridStep get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+class Robin.GridSystemClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.GridAxisGroups GridAxisGroups
+    16 Robin.GridsCart GridsCart
+    16 Robin.GridsCyl GridsCyl
+    8 Robin.GridAxisGroups get_GridAxisGroups()
+    8 Robin.GridsCart get_GridsCart()
+    8 Robin.GridsCyl get_GridsCyl()
+    8 Void ShowAll(Boolean)
+
+class Robin.GridsCartClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GridCart Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridCart Add()
+    8 Robin.GridCart get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+class Robin.GridsCylClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int32 Count
+    16 Robin.GridCyl Item [Int32]
+    8 Int32 get_Count()
+    8 Robin.GridCyl Add()
+    8 Robin.GridCyl get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+class Robin.NoteClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+class Robin.NoteFactoryClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+class Robin.RobinCommandClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Checked
+    16 Boolean Enabled
+    8 Boolean get_Checked()
+    8 Boolean get_Enabled()
+    8 Void Run()
+
+class Robin.RobinDocPreferencesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Void GetColor3D(Robin.IGeoObjectType, Boolean, UInt32 ByRef, UInt32 ByRef, UInt32 ByRef)
+    8 Void SetColor3D(Robin.IGeoObjectType, Boolean, UInt32, UInt32, UInt32)
+
+class Robin.RobinEventManagerClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean EventsLocked
+    2 Robin._IRobinDocEvents_ObjectListChangedEventHandler ObjectListChanged
+    2 Robin._IRobinDocEvents_OnUpdateAllEventHandler OnUpdateAll
+    2 Robin._IRobinDocEvents_SelectionChangedEventHandler SelectionChanged
+    2 Robin._IRobinDocEvents_SelectionModeEnteredEventHandler SelectionModeEntered
+    2 Robin._IRobinDocEvents_SingleObjectAddedEventHandler SingleObjectAdded
+    8 Boolean LockEvents(Boolean)
+    8 Boolean get_EventsLocked()
+    8 Void add_ObjectListChanged(Robin._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void add_OnUpdateAll(Robin._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void add_SelectionChanged(Robin._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void add_SelectionModeEntered(Robin._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void add_SingleObjectAdded(Robin._IRobinDocEvents_SingleObjectAddedEventHandler)
+    8 Void remove_ObjectListChanged(Robin._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void remove_OnUpdateAll(Robin._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void remove_SelectionChanged(Robin._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void remove_SelectionModeEntered(Robin._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void remove_SingleObjectAdded(Robin._IRobinDocEvents_SingleObjectAddedEventHandler)
+
+class Robin.RobinOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean AddFootingsUnderColumns
+    16 Boolean AddFootingsUnderWalls
+    16 Boolean PlatePinned
+    8 Boolean get_AddFootingsUnderColumns()
+    8 Boolean get_AddFootingsUnderWalls()
+    8 Boolean get_PlatePinned()
+    8 Void set_AddFootingsUnderColumns(Boolean)
+    8 Void set_AddFootingsUnderWalls(Boolean)
+    8 Void set_PlatePinned(Boolean)
+
+class Robin.RobinPreferencesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.ILifeLoadRedCode LifeLoadRedCode
+    16 Robin.RobinUnits Units
+    8 Robin.ILifeLoadRedCode get_LifeLoadRedCode()
+    8 Robin.RobinUnits get_Units()
+    8 Void set_LifeLoadRedCode(Robin.ILifeLoadRedCode)
+
+class Robin.RobinReportsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean EnableLog
+    16 Robin.RobinVerification Verification
+    8 Boolean SaveToFile(Robin.IRobinReportType, System.String)
+    8 Boolean get_EnableLog()
+    8 Robin.RobinVerification get_Verification()
+    8 Void set_EnableLog(Boolean)
+
+class Robin.RobinTaskManagerClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Boolean AddObjectTaskIsWorking(Boolean ByRef, Robin.IGeoObjectType ByRef)
+    8 Void StartAddContFoot(Boolean)
+    8 Void StartAddFoot(Boolean)
+    8 Void StartAddFootTask()
+    8 Void StartAddLine(Boolean)
+    8 Void StartAddPoint()
+    8 Void StopAllTasks()
+
+class Robin.RobinUnitsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Boolean ModifyUnit(Robin.IRobinUnitType, System.String, Int16, System.String)
+
+class Robin.RobinVerificationClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.RobinVerificationOptions Options
+    8 Boolean Run()
+    8 Robin.RobinVerificationOptions get_Options()
+
+class Robin.RobinVerificationOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean RangeMaximumAuto
+    16 Double RangeMaximum
+    16 Double RangeMinimum
+    8 Boolean get_RangeMaximumAuto()
+    8 Double get_RangeMaximum()
+    8 Double get_RangeMinimum()
+    8 Void set_RangeMaximum(Double)
+    8 Void set_RangeMaximumAuto(Boolean)
+    8 Void set_RangeMinimum(Double)
+
+class Robin.RobinViewClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int16 StoreyNumber
+    16 Robin.IGeoViewMode Mode
+    16 Robin.IGeoViewProjectionType Projection
+    16 Robin.IGeoViewView3D View3D
+    16 Robin.RobinCommand CommandDisplayGroups
+    16 Robin.RobinCommand CommandDisplaySelectedElements
+    16 Robin.RobinCommand CommandRotateZoomPan
+    16 Robin.RobinCommand CommandZoomAll
+    16 Robin.RobinCommand CommandZoomWindow
+    16 Robin.RobinViewDisplay Display
+    2 Robin._IRobinViewEvents_ObjectShinedEventHandler ObjectShined
+    8 Boolean MakeScreenShot(System.String)
+    8 Boolean VisibleObjectsCheck(Int32)
+    8 Int16 get_StoreyNumber()
+    8 Int32 VisibleObjectsGet()
+    8 Robin.IGeoViewMode get_Mode()
+    8 Robin.IGeoViewProjectionType get_Projection()
+    8 Robin.IGeoViewView3D get_View3D()
+    8 Robin.RobinCommand get_CommandDisplayGroups()
+    8 Robin.RobinCommand get_CommandDisplaySelectedElements()
+    8 Robin.RobinCommand get_CommandRotateZoomPan()
+    8 Robin.RobinCommand get_CommandZoomAll()
+    8 Robin.RobinCommand get_CommandZoomWindow()
+    8 Robin.RobinViewDisplay get_Display()
+    8 Void SelectObject(Int32, Boolean)
+    8 Void SelectOneObject(Int32, Boolean)
+    8 Void VisibleObjectsSet(Int32, Boolean)
+    8 Void add_ObjectShined(Robin._IRobinViewEvents_ObjectShinedEventHandler)
+    8 Void remove_ObjectShined(Robin._IRobinViewEvents_ObjectShinedEventHandler)
+    8 Void set_Mode(Robin.IGeoViewMode)
+    8 Void set_Projection(Robin.IGeoViewProjectionType)
+    8 Void set_StoreyNumber(Int16)
+    8 Void set_View3D(Robin.IGeoViewView3D)
+
+class Robin.RobinViewDisplayClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Robin.RobinViewLoadsDisplay Loads
+    16 Robin.RobinViewResultsDisplay Results
+    8 Robin.RobinViewLoadsDisplay get_Loads()
+    8 Robin.RobinViewResultsDisplay get_Results()
+    8 Void ShowObjectsAndShadows(Robin.IGeoObjects, Robin.IGeoObjects)
+    8 Void ShowObjectsCollection(Robin.IGeoObjects, Boolean)
+
+class Robin.RobinViewLoadsDisplayClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Void ShowAllNatures()
+    8 Void ShowNature(Robin.IGeoLoadNature, System.String)
+
+class Robin.RobinViewResultsDisplayClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Deformation
+    16 Boolean DisplayLLRedEnvelopes
+    16 Boolean DisplayLLRedValues
+    16 Boolean LPFoc
+    16 Boolean LPLin
+    16 Boolean LPMap
+    16 Boolean Legend
+    16 Boolean LoadMap
+    16 Boolean MassCenter
+    16 Boolean Resultant
+    16 Boolean RigidityCenter
+    16 Boolean SlabDir3dView
+    16 Boolean StoreyResult
+    16 Boolean StressMap
+    16 Boolean Values
+    16 Double Scale
+    16 Int32 CaseIndex
+    16 Robin.IGeoResultsMapType Map
+    8 Boolean get_Deformation()
+    8 Boolean get_DisplayLLRedEnvelopes()
+    8 Boolean get_DisplayLLRedValues()
+    8 Boolean get_LPFoc()
+    8 Boolean get_LPLin()
+    8 Boolean get_LPMap()
+    8 Boolean get_Legend()
+    8 Boolean get_LoadMap()
+    8 Boolean get_MassCenter()
+    8 Boolean get_Resultant()
+    8 Boolean get_RigidityCenter()
+    8 Boolean get_SlabDir3dView()
+    8 Boolean get_StoreyResult()
+    8 Boolean get_StressMap()
+    8 Boolean get_Values()
+    8 Double get_Scale()
+    8 Int32 get_CaseIndex()
+    8 Robin.IGeoResultsMapType get_Map()
+    8 Void Animate()
+    8 Void set_CaseIndex(Int32)
+    8 Void set_Deformation(Boolean)
+    8 Void set_DisplayLLRedEnvelopes(Boolean)
+    8 Void set_DisplayLLRedValues(Boolean)
+    8 Void set_LPFoc(Boolean)
+    8 Void set_LPLin(Boolean)
+    8 Void set_LPMap(Boolean)
+    8 Void set_Legend(Boolean)
+    8 Void set_LoadMap(Boolean)
+    8 Void set_Map(Robin.IGeoResultsMapType)
+    8 Void set_MassCenter(Boolean)
+    8 Void set_Resultant(Boolean)
+    8 Void set_RigidityCenter(Boolean)
+    8 Void set_Scale(Double)
+    8 Void set_SlabDir3dView(Boolean)
+    8 Void set_StoreyResult(Boolean)
+    8 Void set_StressMap(Boolean)
+    8 Void set_Values(Boolean)
+
+class Robin.ViewClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+class Robin.ViewFactoryClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+delegate Robin._IGeoCalculationsEvents_ProgressStepEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke(Robin.IGeoCalculationsProgressType, Int32, System.String, System.Object, Boolean ByRef)
+
+class Robin._IGeoCalculationsEvents_SinkHelper
+    base: System.Object
+    4 Int32 m_dwCookie
+    4 Robin._IGeoCalculationsEvents_ProgressStepEventHandler m_ProgressStepDelegate
+    8 Void ProgressStep(Robin.IGeoCalculationsProgressType, Int32, System.String, System.Object, Boolean ByRef)
+
+delegate Robin._IRobinDocEvents_ObjectListChangedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate Robin._IRobinDocEvents_OnUpdateAllEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate Robin._IRobinDocEvents_SelectionChangedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate Robin._IRobinDocEvents_SelectionModeEnteredEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate Robin._IRobinDocEvents_SingleObjectAddedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke(Int32)
+
+class Robin._IRobinDocEvents_SinkHelper
+    base: System.Object
+    4 Int32 m_dwCookie
+    4 Robin._IRobinDocEvents_ObjectListChangedEventHandler m_ObjectListChangedDelegate
+    4 Robin._IRobinDocEvents_OnUpdateAllEventHandler m_OnUpdateAllDelegate
+    4 Robin._IRobinDocEvents_SelectionChangedEventHandler m_SelectionChangedDelegate
+    4 Robin._IRobinDocEvents_SelectionModeEnteredEventHandler m_SelectionModeEnteredDelegate
+    4 Robin._IRobinDocEvents_SingleObjectAddedEventHandler m_SingleObjectAddedDelegate
+    8 Void ObjectListChanged()
+    8 Void OnUpdateAll()
+    8 Void SelectionChanged()
+    8 Void SelectionModeEntered()
+    8 Void SingleObjectAdded(Int32)
+
+delegate Robin._IRobinViewEvents_ObjectShinedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke(Int32)
+
+class Robin._IRobinViewEvents_SinkHelper
+    base: System.Object
+    4 Int32 m_dwCookie
+    4 Robin._IRobinViewEvents_ObjectShinedEventHandler m_ObjectShinedDelegate
+    8 Void ObjectShined(Int32)
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

@@ -1,0 +1,1005 @@
+Assembly : interop.bbm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Runtime  : v4.0.30319
+Types    : 78
+
+=================== ENUMS ===================
+
+enum bbm.IRCBeamCrackingType
+    I_RC_BEAM_CRACK_UNDEFINED = 1
+    I_RC_BEAM_CRACK_PERMISSIBLE = 2
+    I_RC_BEAM_CRACK_LIMITED = 3
+    I_RC_BEAM_CRACK_NOT_PERMISSIBLE = 4
+
+enum bbm.IRCBeamLinearLoadType
+    I_RC_BMLL_SELF_WEIGHT = 1
+    I_RC_BMLL_UNIFORM = 2
+    I_RC_BMLL_CONTINUOUS = 3
+    I_RC_BMLL_TRAPEZOIDAL1 = 4
+    I_RC_BMLL_TRAPEZOIDAL2 = 5
+    I_RC_BMLL_TRAPEZOIDAL3 = 6
+
+enum bbm.IRCBeamLoadNature
+    I_RC_BEAM_NAT_DEAD = 1
+    I_RC_BEAM_NAT_LIVE = 2
+    I_RC_BEAM_NAT_WIND = 3
+    I_RC_BEAM_NAT_SNOW = 4
+    I_RC_BEAM_NAT_SEISMIC = 5
+
+enum bbm.IRCBeamPointLoadType
+    I_RC_BMPL_FORCE = 1
+    I_RC_BMPL_MOMENT = 2
+    I_RC_BMPL_AXIAL_FORCE = 3
+    I_RC_BMPL_TORSION_MOMENT = 4
+    I_RC_BMPL_UNIFORM_TORSION_MOMENT = 5
+
+enum bbm.IRCBeamSectionDim
+    I_RC_BEAM_L = 1
+    I_RC_BEAM_H1 = 2
+    I_RC_BEAM_H2 = 3
+    I_RC_BEAM_OffY1 = 4
+    I_RC_BEAM_OffY2 = 5
+    I_RC_BEAM_OffZ1 = 6
+    I_RC_BEAM_OffZ2 = 7
+    I_RC_BEAM_B = 8
+    I_RC_BEAM_EL1 = 9
+    I_RC_BEAM_EL2 = 10
+    I_RC_BEAM_PL = 11
+    I_RC_BEAM_RL = 12
+    I_RC_BEAM_HG1 = 13
+    I_RC_BEAM_BG1 = 14
+    I_RC_BEAM_HG2 = 15
+    I_RC_BEAM_BG2 = 16
+    I_RC_BEAM_ER1 = 17
+    I_RC_BEAM_ER2 = 18
+    I_RC_BEAM_PR = 19
+    I_RC_BEAM_RR = 20
+    I_RC_BEAM_HG3 = 21
+    I_RC_BEAM_BG3 = 22
+    I_RC_BEAM_HG4 = 23
+    I_RC_BEAM_BG4 = 24
+    I_RC_BEAM_PL_CALC = 25
+    I_RC_BEAM_PR_CALC = 26
+    I_RC_BEAM_CL = 27
+    I_RC_BEAM_CR = 28
+
+enum bbm.IRCBeamSectionType
+    I_RC_BEAM_NG_NP = 1
+    I_RC_BEAM_NG_LP = 2
+    I_RC_BEAM_NG_RP = 3
+    I_RC_BEAM_NG_BP = 4
+    I_RC_BEAM_LG_NP = 5
+    I_RC_BEAM_LG_LP = 6
+    I_RC_BEAM_LG_RP = 7
+    I_RC_BEAM_LG_BP = 8
+    I_RC_BEAM_RG_NP = 9
+    I_RC_BEAM_RG_LP = 10
+    I_RC_BEAM_RG_RP = 11
+    I_RC_BEAM_RG_BP = 12
+
+enum bbm.IRCBeamSupportMaterialType
+    I_RC_BEAM_SUPP_CONCRETE = 1
+    I_RC_BEAM_SUPP_MASONRY = 2
+
+enum bbm.IRCBeamSupportType
+    I_RC_BEAM_SUPP_PINNED = 1
+    I_RC_BEAM_SUPP_FIXED = 2
+    I_RC_BEAM_SUPP_SWAY = 3
+
+enum bbm.IRCContinuousFootingSectionDim
+    I_RC_CFOOT_L = 1
+    I_RC_CFOOT_H1 = 2
+    I_RC_CFOOT_H2 = 3
+    I_RC_CFOOT_B = 4
+    I_RC_CFOOT_EL1 = 5
+    I_RC_CFOOT_ER1 = 6
+    I_RC_CFOOT_PL = 7
+    I_RC_CFOOT_RL = 8
+    I_RC_CFOOT_PR = 9
+    I_RC_CFOOT_RR = 10
+
+enum bbm.IRCContinuousFootingSectionType
+    I_RC_CFOOT_NP = 1
+    I_RC_CFOOT_LP = 2
+    I_RC_CFOOT_RP = 3
+    I_RC_CFOOT_BP = 4
+
+enum bbm.IRCContinuousFootingSupportMaterialType
+    I_RC_CF_SUPP_CONCRETE = 1
+    I_RC_CF_SUPP_MASONRY = 2
+
+================= INTERFACES =================
+
+interface bbm.IRCBeam
+    16 Boolean IsActive
+    16 Boolean IsNew
+    16 Int16 LinearLoadsCount
+    16 Int16 PointLoadsCount
+    16 Int16 StructureUserNoCount
+    16 Int32 StructureUserNo [Int16]
+    16 Int32 UniqueId
+    16 System.Object Concrete
+    16 System.Object ImportOptions
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    16 bbm.RCBeamCalcOptions CalculationOptions
+    16 bbm.RCBeamGeometry Geometry
+    16 bbm.RCBeamLinearLoad LinearLoad [Int16]
+    16 bbm.RCBeamPointLoad PointLoad [Int16]
+    16 bbm.RCBeamStoryOptions StoryOptions
+    8 Boolean Calculate(Boolean)
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean CreateFromBars(System.String)
+    8 Boolean GenerateSpliceBars()
+    8 Boolean get_IsActive()
+    8 Boolean get_IsNew()
+    8 Int16 get_LinearLoadsCount()
+    8 Int16 get_PointLoadsCount()
+    8 Int16 get_StructureUserNoCount()
+    8 Int32 Verify(Boolean)
+    8 Int32 VerifySpan(Boolean, Int16)
+    8 Int32 get_StructureUserNo(Int16)
+    8 Int32 get_UniqueId()
+    8 System.Object get_Concrete()
+    8 System.Object get_ImportOptions()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 Void set_LinearLoadsCount(Int16)
+    8 Void set_PointLoadsCount(Int16)
+    8 Void set_StructureUserNo(Int16, Int32)
+    8 Void set_StructureUserNoCount(Int16)
+    8 bbm.RCBeamCalcOptions get_CalculationOptions()
+    8 bbm.RCBeamGeometry get_Geometry()
+    8 bbm.RCBeamLinearLoad get_LinearLoad(Int16)
+    8 bbm.RCBeamPointLoad get_PointLoad(Int16)
+    8 bbm.RCBeamStoryOptions get_StoryOptions()
+
+interface bbm.IRCBeamCalcOptions
+    16 Boolean CalcSpanLengthInAxis
+    16 Boolean CoverBottomFixed
+    16 Boolean CoverSideFixed
+    16 Boolean CoverTopFixed
+    16 Double CoverBottom
+    16 Double CoverSide
+    16 Double CoverTop
+    8 Boolean get_CalcSpanLengthInAxis()
+    8 Boolean get_CoverBottomFixed()
+    8 Boolean get_CoverSideFixed()
+    8 Boolean get_CoverTopFixed()
+    8 Double get_CoverBottom()
+    8 Double get_CoverSide()
+    8 Double get_CoverTop()
+    8 Void set_CalcSpanLengthInAxis(Boolean)
+    8 Void set_CoverBottom(Double)
+    8 Void set_CoverBottomFixed(Boolean)
+    8 Void set_CoverSide(Double)
+    8 Void set_CoverSideFixed(Boolean)
+    8 Void set_CoverTop(Double)
+    8 Void set_CoverTopFixed(Boolean)
+
+interface bbm.IRCBeamGeometry
+    16 Boolean AutoNameSpans
+    16 Boolean AutoNameSupports
+    16 Boolean LeftCantilever
+    16 Boolean RightCantilever
+    16 Double ConcreteVolume
+    16 Double ShutteringArea
+    16 Int16 SpanNumber
+    16 bbm.RCBeamSpan Span [Int16]
+    8 Boolean get_AutoNameSpans()
+    8 Boolean get_AutoNameSupports()
+    8 Boolean get_LeftCantilever()
+    8 Boolean get_RightCantilever()
+    8 Double get_ConcreteVolume()
+    8 Double get_ShutteringArea()
+    8 Int16 get_SpanNumber()
+    8 Void UpdateInternalGeometryData()
+    8 Void set_AutoNameSpans(Boolean)
+    8 Void set_AutoNameSupports(Boolean)
+    8 Void set_LeftCantilever(Boolean)
+    8 Void set_RightCantilever(Boolean)
+    8 Void set_SpanNumber(Int16)
+    8 bbm.RCBeamSpan get_Span(Int16)
+
+interface bbm.IRCBeamImportOptions
+    16 Boolean GroupByGeometry
+    16 Boolean GroupByLevel
+    16 Boolean ImportCombinations
+    16 Boolean RunCalcAuto
+    16 Boolean ShowDialog
+    16 Double LiveLongCoeff
+    8 Boolean get_GroupByGeometry()
+    8 Boolean get_GroupByLevel()
+    8 Boolean get_ImportCombinations()
+    8 Boolean get_RunCalcAuto()
+    8 Boolean get_ShowDialog()
+    8 Double get_LiveLongCoeff()
+    8 Void set_GroupByGeometry(Boolean)
+    8 Void set_GroupByLevel(Boolean)
+    8 Void set_ImportCombinations(Boolean)
+    8 Void set_LiveLongCoeff(Double)
+    8 Void set_RunCalcAuto(Boolean)
+    8 Void set_ShowDialog(Boolean)
+
+interface bbm.IRCBeamLinearLoad
+    16 Boolean RelativeCoordinates
+    16 Double Value1
+    16 Double Value2
+    16 Double Value3
+    16 Double X1
+    16 Double X2
+    16 Double X3
+    16 Double X4
+    16 Int16 Case
+    16 bbm.IRCBeamLinearLoadType Type
+    16 bbm.IRCBeamLoadNature Nature
+    16 bbm.RCBeamSpanNumbers Spans
+    8 Boolean get_RelativeCoordinates()
+    8 Double get_Value1()
+    8 Double get_Value2()
+    8 Double get_Value3()
+    8 Double get_X1()
+    8 Double get_X2()
+    8 Double get_X3()
+    8 Double get_X4()
+    8 Int16 get_Case()
+    8 Void set_Case(Int16)
+    8 Void set_Nature(bbm.IRCBeamLoadNature)
+    8 Void set_RelativeCoordinates(Boolean)
+    8 Void set_Type(bbm.IRCBeamLinearLoadType)
+    8 Void set_Value1(Double)
+    8 Void set_Value2(Double)
+    8 Void set_Value3(Double)
+    8 Void set_X1(Double)
+    8 Void set_X2(Double)
+    8 Void set_X3(Double)
+    8 Void set_X4(Double)
+    8 bbm.IRCBeamLinearLoadType get_Type()
+    8 bbm.IRCBeamLoadNature get_Nature()
+    8 bbm.RCBeamSpanNumbers get_Spans()
+
+interface bbm.IRCBeamPatternOptions
+    16 Boolean SpanBySpan
+    8 Boolean get_SpanBySpan()
+    8 Void set_SpanBySpan(Boolean)
+
+interface bbm.IRCBeamPointLoad
+    16 Boolean RelativeCoordinates
+    16 Double Value
+    16 Double X1
+    16 Int16 Case
+    16 bbm.IRCBeamLoadNature Nature
+    16 bbm.IRCBeamPointLoadType Type
+    16 bbm.RCBeamSpanNumbers Spans
+    8 Boolean get_RelativeCoordinates()
+    8 Double get_Value()
+    8 Double get_X1()
+    8 Int16 get_Case()
+    8 Void set_Case(Int16)
+    8 Void set_Nature(bbm.IRCBeamLoadNature)
+    8 Void set_RelativeCoordinates(Boolean)
+    8 Void set_Type(bbm.IRCBeamPointLoadType)
+    8 Void set_Value(Double)
+    8 Void set_X1(Double)
+    8 bbm.IRCBeamLoadNature get_Nature()
+    8 bbm.IRCBeamPointLoadType get_Type()
+    8 bbm.RCBeamSpanNumbers get_Spans()
+
+interface bbm.IRCBeamSegment
+    16 Double Dim [bbm.IRCBeamSectionDim]
+    16 bbm.IRCBeamSectionType SectionType
+    8 Double get_Dim(bbm.IRCBeamSectionDim)
+    8 Void set_Dim(bbm.IRCBeamSectionDim, Double)
+    8 Void set_SectionType(bbm.IRCBeamSectionType)
+    8 bbm.IRCBeamSectionType get_SectionType()
+
+interface bbm.IRCBeamSpan
+    16 Boolean HasOpenings
+    16 Double CalculationLength
+    16 Double Length
+    16 Int16 SegmentNumber
+    16 System.String Name
+    16 bbm.RCBeamSegment Segment [Int16]
+    16 bbm.RCBeamSupport LeftSupport
+    16 bbm.RCBeamSupport RightSupport
+    8 Boolean get_HasOpenings()
+    8 Double get_CalculationLength()
+    8 Double get_Length()
+    8 Int16 get_SegmentNumber()
+    8 System.String get_Name()
+    8 Void set_Length(Double)
+    8 Void set_Name(System.String)
+    8 Void set_SegmentNumber(Int16)
+    8 bbm.RCBeamSegment get_Segment(Int16)
+    8 bbm.RCBeamSupport get_LeftSupport()
+    8 bbm.RCBeamSupport get_RightSupport()
+
+interface bbm.IRCBeamSpanNumbers
+    16 Int16 Item [Int32]
+    16 Int32 Count
+    8 Int16 get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Add(Int16)
+    8 Void RemoveAll()
+
+interface bbm.IRCBeamStoryOptions
+    16 bbm.IRCBeamCrackingType Cracking
+    8 Void set_Cracking(bbm.IRCBeamCrackingType)
+    8 bbm.IRCBeamCrackingType get_Cracking()
+
+interface bbm.IRCBeamSupport
+    16 Double Width
+    16 System.String Name
+    16 bbm.IRCBeamSupportMaterialType MaterialType
+    16 bbm.IRCBeamSupportType Type
+    8 Double get_Width()
+    8 System.String get_Name()
+    8 Void set_MaterialType(bbm.IRCBeamSupportMaterialType)
+    8 Void set_Name(System.String)
+    8 Void set_Type(bbm.IRCBeamSupportType)
+    8 Void set_Width(Double)
+    8 bbm.IRCBeamSupportMaterialType get_MaterialType()
+    8 bbm.IRCBeamSupportType get_Type()
+
+interface bbm.IRCContinuousFooting
+    16 Boolean IsActive
+    16 Boolean IsNew
+    16 Int16 StructureUserNoCount
+    16 Int32 StructureUserNo [Int16]
+    16 Int32 UniqueId
+    16 System.Object Concrete
+    16 System.Object ImportOptions
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    16 bbm.RCBeamCalcOptions CalculationOptions
+    16 bbm.RCContinuousFootingGeometry Geometry
+    8 Boolean Calculate(Boolean)
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean get_IsActive()
+    8 Boolean get_IsNew()
+    8 Int16 get_StructureUserNoCount()
+    8 Int32 Verify(Boolean)
+    8 Int32 get_StructureUserNo(Int16)
+    8 Int32 get_UniqueId()
+    8 System.Object get_Concrete()
+    8 System.Object get_ImportOptions()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 Void set_StructureUserNo(Int16, Int32)
+    8 Void set_StructureUserNoCount(Int16)
+    8 bbm.RCBeamCalcOptions get_CalculationOptions()
+    8 bbm.RCContinuousFootingGeometry get_Geometry()
+
+interface bbm.IRCContinuousFootingGeometry
+    16 Boolean AutoNameSpans
+    16 Boolean AutoNameSupports
+    16 Boolean LeftCantilever
+    16 Boolean RightCantilever
+    16 Double ConcreteVolume
+    16 Double ShutteringArea
+    16 Int16 SpanNumber
+    16 bbm.RCContinuousFootingSpan Span [Int16]
+    8 Boolean get_AutoNameSpans()
+    8 Boolean get_AutoNameSupports()
+    8 Boolean get_LeftCantilever()
+    8 Boolean get_RightCantilever()
+    8 Double get_ConcreteVolume()
+    8 Double get_ShutteringArea()
+    8 Int16 get_SpanNumber()
+    8 Void UpdateInternalGeometryData()
+    8 Void set_AutoNameSpans(Boolean)
+    8 Void set_AutoNameSupports(Boolean)
+    8 Void set_LeftCantilever(Boolean)
+    8 Void set_RightCantilever(Boolean)
+    8 Void set_SpanNumber(Int16)
+    8 bbm.RCContinuousFootingSpan get_Span(Int16)
+
+interface bbm.IRCContinuousFootingSegment
+    16 Double Dim [bbm.IRCContinuousFootingSectionDim]
+    16 bbm.IRCContinuousFootingSectionType SectionType
+    8 Double get_Dim(bbm.IRCContinuousFootingSectionDim)
+    8 Void set_Dim(bbm.IRCContinuousFootingSectionDim, Double)
+    8 Void set_SectionType(bbm.IRCContinuousFootingSectionType)
+    8 bbm.IRCContinuousFootingSectionType get_SectionType()
+
+interface bbm.IRCContinuousFootingSpan
+    16 Double CalculationLength
+    16 Double Length
+    16 Int16 SegmentNumber
+    16 System.String Name
+    16 bbm.RCContinuousFootingSegment Segment [Int16]
+    16 bbm.RCContinuousFootingSupport LeftSupport
+    16 bbm.RCContinuousFootingSupport RightSupport
+    8 Double get_CalculationLength()
+    8 Double get_Length()
+    8 Int16 get_SegmentNumber()
+    8 System.String get_Name()
+    8 Void set_Length(Double)
+    8 Void set_Name(System.String)
+    8 Void set_SegmentNumber(Int16)
+    8 bbm.RCContinuousFootingSegment get_Segment(Int16)
+    8 bbm.RCContinuousFootingSupport get_LeftSupport()
+    8 bbm.RCContinuousFootingSupport get_RightSupport()
+
+interface bbm.IRCContinuousFootingSupport
+    16 Double Width
+    16 System.String Name
+    16 bbm.IRCContinuousFootingSupportMaterialType MaterialType
+    8 Double get_Width()
+    8 System.String get_Name()
+    8 Void set_MaterialType(bbm.IRCContinuousFootingSupportMaterialType)
+    8 Void set_Name(System.String)
+    8 Void set_Width(Double)
+    8 bbm.IRCContinuousFootingSupportMaterialType get_MaterialType()
+
+interface bbm.RCBeam
+
+interface bbm.RCBeamCalcOptions
+
+interface bbm.RCBeamGeometry
+
+interface bbm.RCBeamImportOptions
+
+interface bbm.RCBeamLinearLoad
+
+interface bbm.RCBeamPatternOptions
+
+interface bbm.RCBeamPointLoad
+
+interface bbm.RCBeamSegment
+
+interface bbm.RCBeamSpan
+
+interface bbm.RCBeamSpanNumbers
+
+interface bbm.RCBeamStoryOptions
+
+interface bbm.RCBeamSupport
+
+interface bbm.RCContinuousFooting
+
+interface bbm.RCContinuousFootingGeometry
+
+interface bbm.RCContinuousFootingSegment
+
+interface bbm.RCContinuousFootingSpan
+
+interface bbm.RCContinuousFootingSupport
+
+interface bbm._IRCBeamEvents
+    8 Void GeometryModified()
+    8 Void LoadsModified()
+    8 Void ReinforcementModified()
+    8 Void ResultsModified()
+
+interface bbm._IRCBeamEvents_Event
+    2 bbm._IRCBeamEvents_GeometryModifiedEventHandler GeometryModified
+    2 bbm._IRCBeamEvents_LoadsModifiedEventHandler LoadsModified
+    2 bbm._IRCBeamEvents_ReinforcementModifiedEventHandler ReinforcementModified
+    2 bbm._IRCBeamEvents_ResultsModifiedEventHandler ResultsModified
+    8 Void add_GeometryModified(bbm._IRCBeamEvents_GeometryModifiedEventHandler)
+    8 Void add_LoadsModified(bbm._IRCBeamEvents_LoadsModifiedEventHandler)
+    8 Void add_ReinforcementModified(bbm._IRCBeamEvents_ReinforcementModifiedEventHandler)
+    8 Void add_ResultsModified(bbm._IRCBeamEvents_ResultsModifiedEventHandler)
+    8 Void remove_GeometryModified(bbm._IRCBeamEvents_GeometryModifiedEventHandler)
+    8 Void remove_LoadsModified(bbm._IRCBeamEvents_LoadsModifiedEventHandler)
+    8 Void remove_ReinforcementModified(bbm._IRCBeamEvents_ReinforcementModifiedEventHandler)
+    8 Void remove_ResultsModified(bbm._IRCBeamEvents_ResultsModifiedEventHandler)
+
+interface bbm._IRCContinuousFootingEvents
+    8 Void GeometryModified()
+    8 Void LoadsModified()
+    8 Void ReinforcementModified()
+    8 Void ResultsModified()
+
+interface bbm._IRCContinuousFootingEvents_Event
+    2 bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler GeometryModified
+    2 bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler LoadsModified
+    2 bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler ReinforcementModified
+    2 bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler ResultsModified
+    8 Void add_GeometryModified(bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler)
+    8 Void add_LoadsModified(bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler)
+    8 Void add_ReinforcementModified(bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler)
+    8 Void add_ResultsModified(bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler)
+    8 Void remove_GeometryModified(bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler)
+    8 Void remove_LoadsModified(bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler)
+    8 Void remove_ReinforcementModified(bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler)
+    8 Void remove_ResultsModified(bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler)
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class bbm.RCBeamCalcOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean CalcSpanLengthInAxis
+    16 Boolean CoverBottomFixed
+    16 Boolean CoverSideFixed
+    16 Boolean CoverTopFixed
+    16 Double CoverBottom
+    16 Double CoverSide
+    16 Double CoverTop
+    8 Boolean get_CalcSpanLengthInAxis()
+    8 Boolean get_CoverBottomFixed()
+    8 Boolean get_CoverSideFixed()
+    8 Boolean get_CoverTopFixed()
+    8 Double get_CoverBottom()
+    8 Double get_CoverSide()
+    8 Double get_CoverTop()
+    8 Void set_CalcSpanLengthInAxis(Boolean)
+    8 Void set_CoverBottom(Double)
+    8 Void set_CoverBottomFixed(Boolean)
+    8 Void set_CoverSide(Double)
+    8 Void set_CoverSideFixed(Boolean)
+    8 Void set_CoverTop(Double)
+    8 Void set_CoverTopFixed(Boolean)
+
+class bbm.RCBeamClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsActive
+    16 Boolean IsNew
+    16 Int16 LinearLoadsCount
+    16 Int16 PointLoadsCount
+    16 Int16 StructureUserNoCount
+    16 Int32 StructureUserNo [Int16]
+    16 Int32 UniqueId
+    16 System.Object Concrete
+    16 System.Object ImportOptions
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    16 bbm.RCBeamCalcOptions CalculationOptions
+    16 bbm.RCBeamGeometry Geometry
+    16 bbm.RCBeamLinearLoad LinearLoad [Int16]
+    16 bbm.RCBeamPointLoad PointLoad [Int16]
+    16 bbm.RCBeamStoryOptions StoryOptions
+    2 bbm._IRCBeamEvents_GeometryModifiedEventHandler GeometryModified
+    2 bbm._IRCBeamEvents_LoadsModifiedEventHandler LoadsModified
+    2 bbm._IRCBeamEvents_ReinforcementModifiedEventHandler ReinforcementModified
+    2 bbm._IRCBeamEvents_ResultsModifiedEventHandler ResultsModified
+    8 Boolean Calculate(Boolean)
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean CreateFromBars(System.String)
+    8 Boolean GenerateSpliceBars()
+    8 Boolean get_IsActive()
+    8 Boolean get_IsNew()
+    8 Int16 get_LinearLoadsCount()
+    8 Int16 get_PointLoadsCount()
+    8 Int16 get_StructureUserNoCount()
+    8 Int32 Verify(Boolean)
+    8 Int32 VerifySpan(Boolean, Int16)
+    8 Int32 get_StructureUserNo(Int16)
+    8 Int32 get_UniqueId()
+    8 System.Object get_Concrete()
+    8 System.Object get_ImportOptions()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 Void add_GeometryModified(bbm._IRCBeamEvents_GeometryModifiedEventHandler)
+    8 Void add_LoadsModified(bbm._IRCBeamEvents_LoadsModifiedEventHandler)
+    8 Void add_ReinforcementModified(bbm._IRCBeamEvents_ReinforcementModifiedEventHandler)
+    8 Void add_ResultsModified(bbm._IRCBeamEvents_ResultsModifiedEventHandler)
+    8 Void remove_GeometryModified(bbm._IRCBeamEvents_GeometryModifiedEventHandler)
+    8 Void remove_LoadsModified(bbm._IRCBeamEvents_LoadsModifiedEventHandler)
+    8 Void remove_ReinforcementModified(bbm._IRCBeamEvents_ReinforcementModifiedEventHandler)
+    8 Void remove_ResultsModified(bbm._IRCBeamEvents_ResultsModifiedEventHandler)
+    8 Void set_LinearLoadsCount(Int16)
+    8 Void set_PointLoadsCount(Int16)
+    8 Void set_StructureUserNo(Int16, Int32)
+    8 Void set_StructureUserNoCount(Int16)
+    8 bbm.RCBeamCalcOptions get_CalculationOptions()
+    8 bbm.RCBeamGeometry get_Geometry()
+    8 bbm.RCBeamLinearLoad get_LinearLoad(Int16)
+    8 bbm.RCBeamPointLoad get_PointLoad(Int16)
+    8 bbm.RCBeamStoryOptions get_StoryOptions()
+
+class bbm.RCBeamGeometryClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean AutoNameSpans
+    16 Boolean AutoNameSupports
+    16 Boolean LeftCantilever
+    16 Boolean RightCantilever
+    16 Double ConcreteVolume
+    16 Double ShutteringArea
+    16 Int16 SpanNumber
+    16 bbm.RCBeamSpan Span [Int16]
+    8 Boolean get_AutoNameSpans()
+    8 Boolean get_AutoNameSupports()
+    8 Boolean get_LeftCantilever()
+    8 Boolean get_RightCantilever()
+    8 Double get_ConcreteVolume()
+    8 Double get_ShutteringArea()
+    8 Int16 get_SpanNumber()
+    8 Void UpdateInternalGeometryData()
+    8 Void set_AutoNameSpans(Boolean)
+    8 Void set_AutoNameSupports(Boolean)
+    8 Void set_LeftCantilever(Boolean)
+    8 Void set_RightCantilever(Boolean)
+    8 Void set_SpanNumber(Int16)
+    8 bbm.RCBeamSpan get_Span(Int16)
+
+class bbm.RCBeamImportOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean GroupByGeometry
+    16 Boolean GroupByLevel
+    16 Boolean ImportCombinations
+    16 Boolean RunCalcAuto
+    16 Boolean ShowDialog
+    16 Double LiveLongCoeff
+    8 Boolean get_GroupByGeometry()
+    8 Boolean get_GroupByLevel()
+    8 Boolean get_ImportCombinations()
+    8 Boolean get_RunCalcAuto()
+    8 Boolean get_ShowDialog()
+    8 Double get_LiveLongCoeff()
+    8 Void set_GroupByGeometry(Boolean)
+    8 Void set_GroupByLevel(Boolean)
+    8 Void set_ImportCombinations(Boolean)
+    8 Void set_LiveLongCoeff(Double)
+    8 Void set_RunCalcAuto(Boolean)
+    8 Void set_ShowDialog(Boolean)
+
+class bbm.RCBeamLinearLoadClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean RelativeCoordinates
+    16 Double Value1
+    16 Double Value2
+    16 Double Value3
+    16 Double X1
+    16 Double X2
+    16 Double X3
+    16 Double X4
+    16 Int16 Case
+    16 bbm.IRCBeamLinearLoadType Type
+    16 bbm.IRCBeamLoadNature Nature
+    16 bbm.RCBeamSpanNumbers Spans
+    8 Boolean get_RelativeCoordinates()
+    8 Double get_Value1()
+    8 Double get_Value2()
+    8 Double get_Value3()
+    8 Double get_X1()
+    8 Double get_X2()
+    8 Double get_X3()
+    8 Double get_X4()
+    8 Int16 get_Case()
+    8 Void set_Case(Int16)
+    8 Void set_Nature(bbm.IRCBeamLoadNature)
+    8 Void set_RelativeCoordinates(Boolean)
+    8 Void set_Type(bbm.IRCBeamLinearLoadType)
+    8 Void set_Value1(Double)
+    8 Void set_Value2(Double)
+    8 Void set_Value3(Double)
+    8 Void set_X1(Double)
+    8 Void set_X2(Double)
+    8 Void set_X3(Double)
+    8 Void set_X4(Double)
+    8 bbm.IRCBeamLinearLoadType get_Type()
+    8 bbm.IRCBeamLoadNature get_Nature()
+    8 bbm.RCBeamSpanNumbers get_Spans()
+
+class bbm.RCBeamPatternOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean SpanBySpan
+    8 Boolean get_SpanBySpan()
+    8 Void set_SpanBySpan(Boolean)
+
+class bbm.RCBeamPointLoadClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean RelativeCoordinates
+    16 Double Value
+    16 Double X1
+    16 Int16 Case
+    16 bbm.IRCBeamLoadNature Nature
+    16 bbm.IRCBeamPointLoadType Type
+    16 bbm.RCBeamSpanNumbers Spans
+    8 Boolean get_RelativeCoordinates()
+    8 Double get_Value()
+    8 Double get_X1()
+    8 Int16 get_Case()
+    8 Void set_Case(Int16)
+    8 Void set_Nature(bbm.IRCBeamLoadNature)
+    8 Void set_RelativeCoordinates(Boolean)
+    8 Void set_Type(bbm.IRCBeamPointLoadType)
+    8 Void set_Value(Double)
+    8 Void set_X1(Double)
+    8 bbm.IRCBeamLoadNature get_Nature()
+    8 bbm.IRCBeamPointLoadType get_Type()
+    8 bbm.RCBeamSpanNumbers get_Spans()
+
+class bbm.RCBeamSegmentClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Dim [bbm.IRCBeamSectionDim]
+    16 bbm.IRCBeamSectionType SectionType
+    8 Double get_Dim(bbm.IRCBeamSectionDim)
+    8 Void set_Dim(bbm.IRCBeamSectionDim, Double)
+    8 Void set_SectionType(bbm.IRCBeamSectionType)
+    8 bbm.IRCBeamSectionType get_SectionType()
+
+class bbm.RCBeamSpanClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean HasOpenings
+    16 Double CalculationLength
+    16 Double Length
+    16 Int16 SegmentNumber
+    16 System.String Name
+    16 bbm.RCBeamSegment Segment [Int16]
+    16 bbm.RCBeamSupport LeftSupport
+    16 bbm.RCBeamSupport RightSupport
+    8 Boolean get_HasOpenings()
+    8 Double get_CalculationLength()
+    8 Double get_Length()
+    8 Int16 get_SegmentNumber()
+    8 System.String get_Name()
+    8 Void set_Length(Double)
+    8 Void set_Name(System.String)
+    8 Void set_SegmentNumber(Int16)
+    8 bbm.RCBeamSegment get_Segment(Int16)
+    8 bbm.RCBeamSupport get_LeftSupport()
+    8 bbm.RCBeamSupport get_RightSupport()
+
+class bbm.RCBeamSpanNumbersClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Int16 Item [Int32]
+    16 Int32 Count
+    8 Int16 get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Add(Int16)
+    8 Void RemoveAll()
+
+class bbm.RCBeamStoryOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 bbm.IRCBeamCrackingType Cracking
+    8 Void set_Cracking(bbm.IRCBeamCrackingType)
+    8 bbm.IRCBeamCrackingType get_Cracking()
+
+class bbm.RCBeamSupportClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Width
+    16 System.String Name
+    16 bbm.IRCBeamSupportMaterialType MaterialType
+    16 bbm.IRCBeamSupportType Type
+    8 Double get_Width()
+    8 System.String get_Name()
+    8 Void set_MaterialType(bbm.IRCBeamSupportMaterialType)
+    8 Void set_Name(System.String)
+    8 Void set_Type(bbm.IRCBeamSupportType)
+    8 Void set_Width(Double)
+    8 bbm.IRCBeamSupportMaterialType get_MaterialType()
+    8 bbm.IRCBeamSupportType get_Type()
+
+class bbm.RCContinuousFootingClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsActive
+    16 Boolean IsNew
+    16 Int16 StructureUserNoCount
+    16 Int32 StructureUserNo [Int16]
+    16 Int32 UniqueId
+    16 System.Object Concrete
+    16 System.Object ImportOptions
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    16 bbm.RCBeamCalcOptions CalculationOptions
+    16 bbm.RCContinuousFootingGeometry Geometry
+    2 bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler GeometryModified
+    2 bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler LoadsModified
+    2 bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler ReinforcementModified
+    2 bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler ResultsModified
+    8 Boolean Calculate(Boolean)
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean get_IsActive()
+    8 Boolean get_IsNew()
+    8 Int16 get_StructureUserNoCount()
+    8 Int32 Verify(Boolean)
+    8 Int32 get_StructureUserNo(Int16)
+    8 Int32 get_UniqueId()
+    8 System.Object get_Concrete()
+    8 System.Object get_ImportOptions()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 Void add_GeometryModified(bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler)
+    8 Void add_LoadsModified(bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler)
+    8 Void add_ReinforcementModified(bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler)
+    8 Void add_ResultsModified(bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler)
+    8 Void remove_GeometryModified(bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler)
+    8 Void remove_LoadsModified(bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler)
+    8 Void remove_ReinforcementModified(bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler)
+    8 Void remove_ResultsModified(bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler)
+    8 Void set_StructureUserNo(Int16, Int32)
+    8 Void set_StructureUserNoCount(Int16)
+    8 bbm.RCBeamCalcOptions get_CalculationOptions()
+    8 bbm.RCContinuousFootingGeometry get_Geometry()
+
+class bbm.RCContinuousFootingGeometryClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean AutoNameSpans
+    16 Boolean AutoNameSupports
+    16 Boolean LeftCantilever
+    16 Boolean RightCantilever
+    16 Double ConcreteVolume
+    16 Double ShutteringArea
+    16 Int16 SpanNumber
+    16 bbm.RCContinuousFootingSpan Span [Int16]
+    8 Boolean get_AutoNameSpans()
+    8 Boolean get_AutoNameSupports()
+    8 Boolean get_LeftCantilever()
+    8 Boolean get_RightCantilever()
+    8 Double get_ConcreteVolume()
+    8 Double get_ShutteringArea()
+    8 Int16 get_SpanNumber()
+    8 Void UpdateInternalGeometryData()
+    8 Void set_AutoNameSpans(Boolean)
+    8 Void set_AutoNameSupports(Boolean)
+    8 Void set_LeftCantilever(Boolean)
+    8 Void set_RightCantilever(Boolean)
+    8 Void set_SpanNumber(Int16)
+    8 bbm.RCContinuousFootingSpan get_Span(Int16)
+
+class bbm.RCContinuousFootingSegmentClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Dim [bbm.IRCContinuousFootingSectionDim]
+    16 bbm.IRCContinuousFootingSectionType SectionType
+    8 Double get_Dim(bbm.IRCContinuousFootingSectionDim)
+    8 Void set_Dim(bbm.IRCContinuousFootingSectionDim, Double)
+    8 Void set_SectionType(bbm.IRCContinuousFootingSectionType)
+    8 bbm.IRCContinuousFootingSectionType get_SectionType()
+
+class bbm.RCContinuousFootingSpanClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double CalculationLength
+    16 Double Length
+    16 Int16 SegmentNumber
+    16 System.String Name
+    16 bbm.RCContinuousFootingSegment Segment [Int16]
+    16 bbm.RCContinuousFootingSupport LeftSupport
+    16 bbm.RCContinuousFootingSupport RightSupport
+    8 Double get_CalculationLength()
+    8 Double get_Length()
+    8 Int16 get_SegmentNumber()
+    8 System.String get_Name()
+    8 Void set_Length(Double)
+    8 Void set_Name(System.String)
+    8 Void set_SegmentNumber(Int16)
+    8 bbm.RCContinuousFootingSegment get_Segment(Int16)
+    8 bbm.RCContinuousFootingSupport get_LeftSupport()
+    8 bbm.RCContinuousFootingSupport get_RightSupport()
+
+class bbm.RCContinuousFootingSupportClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Width
+    16 System.String Name
+    16 bbm.IRCContinuousFootingSupportMaterialType MaterialType
+    8 Double get_Width()
+    8 System.String get_Name()
+    8 Void set_MaterialType(bbm.IRCContinuousFootingSupportMaterialType)
+    8 Void set_Name(System.String)
+    8 Void set_Width(Double)
+    8 bbm.IRCContinuousFootingSupportMaterialType get_MaterialType()
+
+delegate bbm._IRCBeamEvents_GeometryModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bbm._IRCBeamEvents_LoadsModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bbm._IRCBeamEvents_ReinforcementModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bbm._IRCBeamEvents_ResultsModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+class bbm._IRCBeamEvents_SinkHelper
+    base: System.Object
+    4 Int32 m_dwCookie
+    4 bbm._IRCBeamEvents_GeometryModifiedEventHandler m_GeometryModifiedDelegate
+    4 bbm._IRCBeamEvents_LoadsModifiedEventHandler m_LoadsModifiedDelegate
+    4 bbm._IRCBeamEvents_ReinforcementModifiedEventHandler m_ReinforcementModifiedDelegate
+    4 bbm._IRCBeamEvents_ResultsModifiedEventHandler m_ResultsModifiedDelegate
+    8 Void GeometryModified()
+    8 Void LoadsModified()
+    8 Void ReinforcementModified()
+    8 Void ResultsModified()
+
+delegate bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+class bbm._IRCContinuousFootingEvents_SinkHelper
+    base: System.Object
+    4 Int32 m_dwCookie
+    4 bbm._IRCContinuousFootingEvents_GeometryModifiedEventHandler m_GeometryModifiedDelegate
+    4 bbm._IRCContinuousFootingEvents_LoadsModifiedEventHandler m_LoadsModifiedDelegate
+    4 bbm._IRCContinuousFootingEvents_ReinforcementModifiedEventHandler m_ReinforcementModifiedDelegate
+    4 bbm._IRCContinuousFootingEvents_ResultsModifiedEventHandler m_ResultsModifiedDelegate
+    8 Void GeometryModified()
+    8 Void LoadsModified()
+    8 Void ReinforcementModified()
+    8 Void ResultsModified()
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

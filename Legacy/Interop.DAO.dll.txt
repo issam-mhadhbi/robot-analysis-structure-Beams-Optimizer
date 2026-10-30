@@ -1,0 +1,1451 @@
+Assembly : Interop.DAO, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+Runtime  : v2.0.50727
+Types    : 82
+
+=================== ENUMS ===================
+
+enum DAO.CollatingOrderEnum
+    dbSortNeutral = 1024
+    dbSortArabic = 1025
+    dbSortCyrillic = 1049
+    dbSortCzech = 1029
+    dbSortDutch = 1043
+    dbSortGeneral = 1033
+    dbSortGreek = 1032
+    dbSortHebrew = 1037
+    dbSortHungarian = 1038
+    dbSortIcelandic = 1039
+    dbSortNorwdan = 1030
+    dbSortPDXIntl = 1033
+    dbSortPDXNor = 1030
+    dbSortPDXSwe = 1053
+    dbSortPolish = 1045
+    dbSortSpanish = 1034
+    dbSortSwedFin = 1053
+    dbSortTurkish = 1055
+    dbSortJapanese = 1041
+    dbSortChineseSimplified = 2052
+    dbSortChineseTraditional = 1028
+    dbSortKorean = 1042
+    dbSortThai = 1054
+    dbSortSlovenian = 1060
+    dbSortUndefined = -1
+
+enum DAO.CommitTransOptionsEnum
+    dbForceOSFlush = 1
+
+enum DAO.CursorDriverEnum
+    dbUseDefaultCursor = -1
+    dbUseODBCCursor = 1
+    dbUseServerCursor = 2
+    dbUseClientBatchCursor = 3
+    dbUseNoCursor = 4
+
+enum DAO.DataTypeEnum
+    dbBoolean = 1
+    dbByte = 2
+    dbInteger = 3
+    dbLong = 4
+    dbCurrency = 5
+    dbSingle = 6
+    dbDouble = 7
+    dbDate = 8
+    dbBinary = 9
+    dbText = 10
+    dbLongBinary = 11
+    dbMemo = 12
+    dbGUID = 15
+    dbBigInt = 16
+    dbVarBinary = 17
+    dbChar = 18
+    dbNumeric = 19
+    dbDecimal = 20
+    dbFloat = 21
+    dbTime = 22
+    dbTimeStamp = 23
+
+enum DAO.DatabaseTypeEnum
+    dbVersion10 = 1
+    dbEncrypt = 2
+    dbDecrypt = 4
+    dbVersion11 = 8
+    dbVersion20 = 16
+    dbVersion30 = 32
+    dbVersion40 = 64
+
+enum DAO.DriverPromptEnum
+    dbDriverPrompt = 2
+    dbDriverNoPrompt = 1
+    dbDriverComplete = 0
+    dbDriverCompleteRequired = 3
+
+enum DAO.EditModeEnum
+    dbEditNone = 0
+    dbEditInProgress = 1
+    dbEditAdd = 2
+
+enum DAO.FieldAttributeEnum
+    dbFixedField = 1
+    dbVariableField = 2
+    dbAutoIncrField = 16
+    dbUpdatableField = 32
+    dbSystemField = 8192
+    dbHyperlinkField = 32768
+    dbDescending = 1
+
+enum DAO.IdleEnum
+    dbFreeLocks = 1
+    dbRefreshCache = 8
+
+enum DAO.LockTypeEnum
+    dbPessimistic = 2
+    dbOptimistic = 3
+    dbOptimisticValue = 1
+    dbOptimisticBatch = 5
+
+enum DAO.ParameterDirectionEnum
+    dbParamInput = 1
+    dbParamOutput = 2
+    dbParamInputOutput = 3
+    dbParamReturnValue = 4
+
+enum DAO.PermissionEnum
+    dbSecNoAccess = 0
+    dbSecFullAccess = 1048575
+    dbSecDelete = 65536
+    dbSecReadSec = 131072
+    dbSecWriteSec = 262144
+    dbSecWriteOwner = 524288
+    dbSecDBCreate = 1
+    dbSecDBOpen = 2
+    dbSecDBExclusive = 4
+    dbSecDBAdmin = 8
+    dbSecCreate = 1
+    dbSecReadDef = 4
+    dbSecWriteDef = 65548
+    dbSecRetrieveData = 20
+    dbSecInsertData = 32
+    dbSecReplaceData = 64
+    dbSecDeleteData = 128
+
+enum DAO.QueryDefStateEnum
+    dbQPrepare = 1
+    dbQUnprepare = 2
+
+enum DAO.QueryDefTypeEnum
+    dbQSelect = 0
+    dbQProcedure = 224
+    dbQAction = 240
+    dbQCrosstab = 16
+    dbQDelete = 32
+    dbQUpdate = 48
+    dbQAppend = 64
+    dbQMakeTable = 80
+    dbQDDL = 96
+    dbQSQLPassThrough = 112
+    dbQSetOperation = 128
+    dbQSPTBulk = 144
+    dbQCompound = 160
+
+enum DAO.RecordStatusEnum
+    dbRecordUnmodified = 0
+    dbRecordModified = 1
+    dbRecordNew = 2
+    dbRecordDeleted = 3
+    dbRecordDBDeleted = 4
+
+enum DAO.RecordsetOptionEnum
+    dbDenyWrite = 1
+    dbDenyRead = 2
+    dbReadOnly = 4
+    dbAppendOnly = 8
+    dbInconsistent = 16
+    dbConsistent = 32
+    dbSQLPassThrough = 64
+    dbFailOnError = 128
+    dbForwardOnly = 256
+    dbSeeChanges = 512
+    dbRunAsync = 1024
+    dbExecDirect = 2048
+
+enum DAO.RecordsetTypeEnum
+    dbOpenTable = 1
+    dbOpenDynaset = 2
+    dbOpenSnapshot = 4
+    dbOpenForwardOnly = 8
+    dbOpenDynamic = 16
+
+enum DAO.RelationAttributeEnum
+    dbRelationUnique = 1
+    dbRelationDontEnforce = 2
+    dbRelationInherited = 4
+    dbRelationUpdateCascade = 256
+    dbRelationDeleteCascade = 4096
+    dbRelationLeft = 16777216
+    dbRelationRight = 33554432
+
+enum DAO.ReplicaTypeEnum
+    dbRepMakeReadOnly = 2
+    dbRepMakePartial = 1
+
+enum DAO.SetOptionEnum
+    dbPageTimeout = 6
+    dbLockRetry = 57
+    dbMaxBufferSize = 8
+    dbUserCommitSync = 58
+    dbImplicitCommitSync = 59
+    dbExclusiveAsyncDelay = 60
+    dbSharedAsyncDelay = 61
+    dbMaxLocksPerFile = 62
+    dbLockDelay = 63
+    dbRecycleLVs = 65
+    dbFlushTransactionTimeout = 66
+
+enum DAO.SynchronizeTypeEnum
+    dbRepExportChanges = 1
+    dbRepImportChanges = 2
+    dbRepImpExpChanges = 4
+    dbRepSyncInternet = 16
+
+enum DAO.TableDefAttributeEnum
+    dbAttachExclusive = 65536
+    dbAttachSavePWD = 131072
+    dbSystemObject = -2147483646
+    dbAttachedTable = 1073741824
+    dbAttachedODBC = 536870912
+    dbHiddenObject = 1
+
+enum DAO.UpdateCriteriaEnum
+    dbCriteriaKey = 1
+    dbCriteriaModValues = 2
+    dbCriteriaAllCols = 4
+    dbCriteriaTimestamp = 8
+    dbCriteriaDeleteInsert = 16
+    dbCriteriaUpdate = 32
+
+enum DAO.UpdateTypeEnum
+    dbUpdateBatch = 4
+    dbUpdateRegular = 1
+    dbUpdateCurrentRecord = 2
+
+enum DAO.WorkspaceTypeEnum
+    dbUseODBC = 1
+    dbUseJet = 2
+
+enum DAO._DAOSuppHelp
+    LogMessages = 0
+    KeepLocal = 0
+    Replicable = 0
+    ReplicableBool = 0
+    V1xNullBehavior = 0
+
+================= INTERFACES =================
+
+interface DAO.Connection
+    16 Boolean StillExecuting
+    16 Boolean Transactions
+    16 Boolean Updatable
+    16 DAO.Database Database
+    16 DAO.QueryDefs QueryDefs
+    16 DAO.Recordsets Recordsets
+    16 Int16 QueryTimeout
+    16 Int32 RecordsAffected
+    16 Int32 hDbc
+    16 System.String Connect
+    16 System.String Name
+    8 Boolean get_StillExecuting()
+    8 Boolean get_Transactions()
+    8 Boolean get_Updatable()
+    8 DAO.Database get_Database()
+    8 DAO.QueryDef CreateQueryDef(System.Object, System.Object)
+    8 DAO.QueryDefs get_QueryDefs()
+    8 DAO.Recordset OpenRecordset(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Recordsets get_Recordsets()
+    8 Int16 get_QueryTimeout()
+    8 Int32 get_RecordsAffected()
+    8 Int32 get_hDbc()
+    8 System.String get_Connect()
+    8 System.String get_Name()
+    8 Void Cancel()
+    8 Void Close()
+    8 Void Execute(System.String, System.Object)
+    8 Void set_QueryTimeout(Int16)
+
+interface DAO.Connections
+    16 DAO.Connection Item [System.Object]
+    16 Int16 Count
+    8 DAO.Connection get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO.Container
+    16 Boolean Inherit
+    16 DAO.Documents Documents
+    16 DAO.Properties Properties
+    16 Int32 AllPermissions
+    16 Int32 Permissions
+    16 System.String Name
+    16 System.String Owner
+    16 System.String UserName
+    8 Boolean get_Inherit()
+    8 DAO.Documents get_Documents()
+    8 DAO.Properties get_Properties()
+    8 Int32 get_AllPermissions()
+    8 Int32 get_Permissions()
+    8 System.String get_Name()
+    8 System.String get_Owner()
+    8 System.String get_UserName()
+    8 Void set_Inherit(Boolean)
+    8 Void set_Owner(System.String)
+    8 Void set_Permissions(Int32)
+    8 Void set_UserName(System.String)
+
+interface DAO.Containers
+    16 DAO.Container Item [System.Object]
+    16 Int16 Count
+    8 DAO.Container get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO.DBEngine
+
+interface DAO.Database
+    16 Boolean Transactions
+    16 Boolean Updatable
+    16 DAO.Connection Connection
+    16 DAO.Containers Containers
+    16 DAO.Properties Properties
+    16 DAO.QueryDefs QueryDefs
+    16 DAO.Recordsets Recordsets
+    16 DAO.Relations Relations
+    16 DAO.TableDefs TableDefs
+    16 Int16 QueryTimeout
+    16 Int32 CollatingOrder
+    16 Int32 RecordsAffected
+    16 System.String Connect
+    16 System.String DesignMasterID
+    16 System.String Name
+    16 System.String ReplicaID
+    16 System.String Version
+    8 Boolean get_Transactions()
+    8 Boolean get_Updatable()
+    8 DAO.Connection get_Connection()
+    8 DAO.Containers get_Containers()
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 DAO.QueryDef CreateQueryDef(System.Object, System.Object)
+    8 DAO.QueryDef OpenQueryDef(System.String)
+    8 DAO.QueryDefs get_QueryDefs()
+    8 DAO.Recordset CreateDynaset(System.String, System.Object, System.Object)
+    8 DAO.Recordset CreateSnapshot(System.String, System.Object)
+    8 DAO.Recordset ListFields(System.String)
+    8 DAO.Recordset ListTables()
+    8 DAO.Recordset OpenRecordset(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Recordset OpenTable(System.String, System.Object)
+    8 DAO.Recordset _30_OpenRecordset(System.String, System.Object, System.Object)
+    8 DAO.Recordsets get_Recordsets()
+    8 DAO.Relation CreateRelation(System.Object, System.Object, System.Object, System.Object)
+    8 DAO.Relations get_Relations()
+    8 DAO.TableDef CreateTableDef(System.Object, System.Object, System.Object, System.Object)
+    8 DAO.TableDefs get_TableDefs()
+    8 Int16 get_QueryTimeout()
+    8 Int32 ExecuteSQL(System.String)
+    8 Int32 get_CollatingOrder()
+    8 Int32 get_RecordsAffected()
+    8 System.String get_Connect()
+    8 System.String get_DesignMasterID()
+    8 System.String get_Name()
+    8 System.String get_ReplicaID()
+    8 System.String get_Version()
+    8 Void BeginTrans()
+    8 Void Close()
+    8 Void CommitTrans(Int32)
+    8 Void DeleteQueryDef(System.String)
+    8 Void Execute(System.String, System.Object)
+    8 Void MakeReplica(System.String, System.String, System.Object)
+    8 Void NewPassword(System.String, System.String)
+    8 Void PopulatePartial(System.String)
+    8 Void Rollback()
+    8 Void Synchronize(System.String, System.Object)
+    8 Void set_Connect(System.String)
+    8 Void set_DesignMasterID(System.String)
+    8 Void set_QueryTimeout(Int16)
+
+interface DAO.Databases
+    16 DAO.Database Item [System.Object]
+    16 Int16 Count
+    8 DAO.Database get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO.Document
+    16 DAO.Properties Properties
+    16 Int32 AllPermissions
+    16 Int32 Permissions
+    16 System.Object DateCreated
+    16 System.Object LastUpdated
+    16 System.String Container
+    16 System.String Name
+    16 System.String Owner
+    16 System.String UserName
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 Int32 get_AllPermissions()
+    8 Int32 get_Permissions()
+    8 System.Object get_DateCreated()
+    8 System.Object get_LastUpdated()
+    8 System.String get_Container()
+    8 System.String get_Name()
+    8 System.String get_Owner()
+    8 System.String get_UserName()
+    8 Void set_Owner(System.String)
+    8 Void set_Permissions(Int32)
+    8 Void set_UserName(System.String)
+
+interface DAO.Documents
+    16 DAO.Document Item [System.Object]
+    16 Int16 Count
+    8 DAO.Document get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO.Error
+    16 Int32 HelpContext
+    16 Int32 Number
+    16 System.String Description
+    16 System.String HelpFile
+    16 System.String Source
+    8 Int32 get_HelpContext()
+    8 Int32 get_Number()
+    8 System.String get_Description()
+    8 System.String get_HelpFile()
+    8 System.String get_Source()
+
+interface DAO.Errors
+    16 DAO.Error Item [System.Object]
+    16 Int16 Count
+    8 DAO.Error get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO.Field
+
+interface DAO.Fields
+    16 DAO.Field Item [System.Object]
+    16 Int16 Count
+    8 DAO.Field get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.Group
+
+interface DAO.Groups
+    16 DAO.Group Item [System.Object]
+    16 Int16 Count
+    8 DAO.Group get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.Index
+
+interface DAO.IndexFields
+    16 Int16 Count
+    16 System.Object Item [System.Object]
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 System.Object get_Item(System.Object)
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.Indexes
+    16 DAO.Index Item [System.Object]
+    16 Int16 Count
+    8 DAO.Index get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.Parameter
+    16 DAO.Properties Properties
+    16 Int16 Direction
+    16 Int16 Type
+    16 System.Object Value
+    16 System.String Name
+    8 DAO.Properties get_Properties()
+    8 Int16 get_Direction()
+    8 Int16 get_Type()
+    8 System.Object get_Value()
+    8 System.String get_Name()
+    8 Void set_Direction(Int16)
+    8 Void set_Type(Int16)
+    8 Void set_Value(System.Object)
+
+interface DAO.Parameters
+    16 DAO.Parameter Item [System.Object]
+    16 Int16 Count
+    8 DAO.Parameter get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO.PrivDBEngine
+
+interface DAO.Properties
+    16 DAO.Property Item [System.Object]
+    16 Int16 Count
+    8 DAO.Property get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.Property
+    16 Boolean Inherited
+    16 DAO.Properties Properties
+    16 Int16 Type
+    16 System.Object Value
+    16 System.String Name
+    8 Boolean get_Inherited()
+    8 DAO.Properties get_Properties()
+    8 Int16 get_Type()
+    8 System.Object get_Value()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_Type(Int16)
+    8 Void set_Value(System.Object)
+
+interface DAO.QueryDef
+
+interface DAO.QueryDefs
+    16 DAO.QueryDef Item [System.Object]
+    16 Int16 Count
+    8 DAO.QueryDef get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.Recordset
+    16 Boolean BOF
+    16 Boolean Bookmarkable
+    16 Boolean EOF
+    16 Boolean LockEdits
+    16 Boolean NoMatch
+    16 Boolean Restartable
+    16 Boolean StillExecuting
+    16 Boolean Transactions
+    16 Boolean Updatable
+    16 DAO.Connection Connection
+    16 DAO.Database Parent
+    16 DAO.Fields Fields
+    16 DAO.Indexes Indexes
+    16 DAO.Properties Properties
+    16 Int16 EditMode
+    16 Int16 RecordStatus
+    16 Int16 Type
+    16 Int32 AbsolutePosition
+    16 Int32 BatchCollisionCount
+    16 Int32 BatchSize
+    16 Int32 CacheSize
+    16 Int32 ODBCFetchCount
+    16 Int32 ODBCFetchDelay
+    16 Int32 RecordCount
+    16 Int32 UpdateOptions
+    16 Int32 hStmt
+    16 Single PercentPosition
+    16 System.Array Bookmark
+    16 System.Array CacheStart
+    16 System.Array LastModified
+    16 System.Object BatchCollisions
+    16 System.Object Collect [System.Object]
+    16 System.Object DateCreated
+    16 System.Object LastUpdated
+    16 System.String Filter
+    16 System.String Index
+    16 System.String Name
+    16 System.String Sort
+    16 System.String ValidationRule
+    16 System.String ValidationText
+    8 Boolean NextRecordset()
+    8 Boolean get_BOF()
+    8 Boolean get_Bookmarkable()
+    8 Boolean get_EOF()
+    8 Boolean get_LockEdits()
+    8 Boolean get_NoMatch()
+    8 Boolean get_Restartable()
+    8 Boolean get_StillExecuting()
+    8 Boolean get_Transactions()
+    8 Boolean get_Updatable()
+    8 DAO.Connection get_Connection()
+    8 DAO.Database get_Parent()
+    8 DAO.Fields get_Fields()
+    8 DAO.Indexes get_Indexes()
+    8 DAO.Properties get_Properties()
+    8 DAO.QueryDef CopyQueryDef()
+    8 DAO.Recordset Clone()
+    8 DAO.Recordset CreateDynaset(System.Object, System.Object)
+    8 DAO.Recordset CreateSnapshot(System.Object)
+    8 DAO.Recordset ListFields()
+    8 DAO.Recordset ListIndexes()
+    8 DAO.Recordset OpenRecordset(System.Object, System.Object)
+    8 Int16 get_EditMode()
+    8 Int16 get_RecordStatus()
+    8 Int16 get_Type()
+    8 Int32 get_AbsolutePosition()
+    8 Int32 get_BatchCollisionCount()
+    8 Int32 get_BatchSize()
+    8 Int32 get_CacheSize()
+    8 Int32 get_ODBCFetchCount()
+    8 Int32 get_ODBCFetchDelay()
+    8 Int32 get_RecordCount()
+    8 Int32 get_UpdateOptions()
+    8 Int32 get_hStmt()
+    8 Single get_PercentPosition()
+    8 System.Array get_Bookmark()
+    8 System.Array get_CacheStart()
+    8 System.Array get_LastModified()
+    8 System.Object GetRows(System.Object)
+    8 System.Object get_BatchCollisions()
+    8 System.Object get_Collect(System.Object)
+    8 System.Object get_DateCreated()
+    8 System.Object get_LastUpdated()
+    8 System.String get_Filter()
+    8 System.String get_Index()
+    8 System.String get_Name()
+    8 System.String get_Sort()
+    8 System.String get_ValidationRule()
+    8 System.String get_ValidationText()
+    8 Void AddNew()
+    8 Void Cancel()
+    8 Void CancelUpdate(Int32)
+    8 Void Close()
+    8 Void Delete()
+    8 Void Edit()
+    8 Void FillCache(System.Object, System.Object)
+    8 Void FindFirst(System.String)
+    8 Void FindLast(System.String)
+    8 Void FindNext(System.String)
+    8 Void FindPrevious(System.String)
+    8 Void Move(Int32, System.Object)
+    8 Void MoveFirst()
+    8 Void MoveLast(Int32)
+    8 Void MoveNext()
+    8 Void MovePrevious()
+    8 Void Requery(System.Object)
+    8 Void Seek(System.String, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object, System.Object)
+    8 Void Update(Int32, Boolean)
+    8 Void _30_CancelUpdate()
+    8 Void _30_MoveLast()
+    8 Void _30_Update()
+    8 Void set_AbsolutePosition(Int32)
+    8 Void set_BatchSize(Int32)
+    8 Void set_Bookmark(System.Array ByRef)
+    8 Void set_CacheSize(Int32)
+    8 Void set_CacheStart(System.Array ByRef)
+    8 Void set_Collect(System.Object, System.Object)
+    8 Void set_Connection(DAO.Connection)
+    8 Void set_Filter(System.String)
+    8 Void set_Index(System.String)
+    8 Void set_LockEdits(Boolean)
+    8 Void set_PercentPosition(Single)
+    8 Void set_Sort(System.String)
+    8 Void set_UpdateOptions(Int32)
+
+interface DAO.Recordsets
+    16 DAO.Recordset Item [System.Object]
+    16 Int16 Count
+    8 DAO.Recordset get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO.Relation
+
+interface DAO.Relations
+    16 DAO.Relation Item [System.Object]
+    16 Int16 Count
+    8 DAO.Relation get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.TableDef
+
+interface DAO.TableDefs
+    16 DAO.TableDef Item [System.Object]
+    16 Int16 Count
+    8 DAO.TableDef get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.User
+
+interface DAO.Users
+    16 DAO.User Item [System.Object]
+    16 Int16 Count
+    8 DAO.User get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO.Workspace
+    16 DAO.Connections Connections
+    16 DAO.Databases Databases
+    16 DAO.Groups Groups
+    16 DAO.Properties Properties
+    16 DAO.Users Users
+    16 Int16 IsolateODBCTrans
+    16 Int32 DefaultCursorDriver
+    16 Int32 LoginTimeout
+    16 Int32 Type
+    16 Int32 hEnv
+    16 System.String Name
+    16 System.String UserName
+    16 System.String _30_Password
+    16 System.String _30_UserName
+    8 DAO.Connection OpenConnection(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Connections get_Connections()
+    8 DAO.Database CreateDatabase(System.String, System.String, System.Object)
+    8 DAO.Database OpenDatabase(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Databases get_Databases()
+    8 DAO.Group CreateGroup(System.Object, System.Object)
+    8 DAO.Groups get_Groups()
+    8 DAO.Properties get_Properties()
+    8 DAO.User CreateUser(System.Object, System.Object, System.Object)
+    8 DAO.Users get_Users()
+    8 Int16 get_IsolateODBCTrans()
+    8 Int32 get_DefaultCursorDriver()
+    8 Int32 get_LoginTimeout()
+    8 Int32 get_Type()
+    8 Int32 get_hEnv()
+    8 System.String get_Name()
+    8 System.String get_UserName()
+    8 Void BeginTrans()
+    8 Void Close()
+    8 Void CommitTrans(Int32)
+    8 Void Rollback()
+    8 Void set_DefaultCursorDriver(Int32)
+    8 Void set_IsolateODBCTrans(Int16)
+    8 Void set_LoginTimeout(Int32)
+    8 Void set_Name(System.String)
+    8 Void set__30_Password(System.String)
+    8 Void set__30_UserName(System.String)
+
+interface DAO.Workspaces
+    16 DAO.Workspace Item [System.Object]
+    16 Int16 Count
+    8 DAO.Workspace get_Item(System.Object)
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO._Collection
+    16 Int16 Count
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Refresh()
+
+interface DAO._DAO
+    16 DAO.Properties Properties
+    8 DAO.Properties get_Properties()
+
+interface DAO._DBEngine
+    16 DAO.Errors Errors
+    16 DAO.Properties Properties
+    16 DAO.Workspaces Workspaces
+    16 Int16 LoginTimeout
+    16 Int32 DefaultType
+    16 System.String DefaultPassword
+    16 System.String DefaultUser
+    16 System.String IniPath
+    16 System.String SystemDB
+    16 System.String Version
+    8 DAO.Connection OpenConnection(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Database CreateDatabase(System.String, System.String, System.Object)
+    8 DAO.Database OpenDatabase(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Errors get_Errors()
+    8 DAO.Properties get_Properties()
+    8 DAO.Workspace CreateWorkspace(System.String, System.String, System.String, System.Object)
+    8 DAO.Workspace _30_CreateWorkspace(System.String, System.String, System.String)
+    8 DAO.Workspaces get_Workspaces()
+    8 Int16 get_LoginTimeout()
+    8 Int32 ISAMStats(Int32, System.Object)
+    8 Int32 get_DefaultType()
+    8 System.String get_IniPath()
+    8 System.String get_SystemDB()
+    8 System.String get_Version()
+    8 Void BeginTrans()
+    8 Void CommitTrans(Int32)
+    8 Void CompactDatabase(System.String, System.String, System.Object, System.Object, System.Object)
+    8 Void FreeLocks()
+    8 Void Idle(System.Object)
+    8 Void RegisterDatabase(System.String, System.String, Boolean, System.String)
+    8 Void RepairDatabase(System.String)
+    8 Void Rollback()
+    8 Void SetDataAccessOption(Int16, System.Object)
+    8 Void SetDefaultWorkspace(System.String, System.String)
+    8 Void SetOption(Int32, System.Object)
+    8 Void set_DefaultPassword(System.String)
+    8 Void set_DefaultType(Int32)
+    8 Void set_DefaultUser(System.String)
+    8 Void set_IniPath(System.String)
+    8 Void set_LoginTimeout(Int16)
+    8 Void set_SystemDB(System.String)
+
+interface DAO._DynaCollection
+    16 Int16 Count
+    8 Int16 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Append(System.Object)
+    8 Void Delete(System.String)
+    8 Void Refresh()
+
+interface DAO._Field
+    16 Boolean AllowZeroLength
+    16 Boolean DataUpdatable
+    16 Boolean Required
+    16 Boolean ValidateOnSet
+    16 DAO.Properties Properties
+    16 Int16 CollectionIndex
+    16 Int16 OrdinalPosition
+    16 Int16 Type
+    16 Int32 Attributes
+    16 Int32 CollatingOrder
+    16 Int32 FieldSize
+    16 Int32 Size
+    16 System.Object DefaultValue
+    16 System.Object OriginalValue
+    16 System.Object Value
+    16 System.Object VisibleValue
+    16 System.String ForeignName
+    16 System.String Name
+    16 System.String SourceField
+    16 System.String SourceTable
+    16 System.String ValidationRule
+    16 System.String ValidationText
+    8 Boolean get_AllowZeroLength()
+    8 Boolean get_DataUpdatable()
+    8 Boolean get_Required()
+    8 Boolean get_ValidateOnSet()
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 Int16 get_CollectionIndex()
+    8 Int16 get_OrdinalPosition()
+    8 Int16 get_Type()
+    8 Int32 _30_FieldSize()
+    8 Int32 get_Attributes()
+    8 Int32 get_CollatingOrder()
+    8 Int32 get_FieldSize()
+    8 Int32 get_Size()
+    8 System.Object GetChunk(Int32, Int32)
+    8 System.Object get_DefaultValue()
+    8 System.Object get_OriginalValue()
+    8 System.Object get_Value()
+    8 System.Object get_VisibleValue()
+    8 System.String get_ForeignName()
+    8 System.String get_Name()
+    8 System.String get_SourceField()
+    8 System.String get_SourceTable()
+    8 System.String get_ValidationRule()
+    8 System.String get_ValidationText()
+    8 Void AppendChunk(System.Object)
+    8 Void set_AllowZeroLength(Boolean)
+    8 Void set_Attributes(Int32)
+    8 Void set_DefaultValue(System.Object)
+    8 Void set_ForeignName(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OrdinalPosition(Int16)
+    8 Void set_Required(Boolean)
+    8 Void set_Size(Int32)
+    8 Void set_Type(Int16)
+    8 Void set_ValidateOnSet(Boolean)
+    8 Void set_ValidationRule(System.String)
+    8 Void set_ValidationText(System.String)
+    8 Void set_Value(System.Object)
+
+interface DAO._Group
+    16 DAO.Properties Properties
+    16 DAO.Users Users
+    16 System.String Name
+    16 System.String PID
+    8 DAO.Properties get_Properties()
+    8 DAO.User CreateUser(System.Object, System.Object, System.Object)
+    8 DAO.Users get_Users()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_PID(System.String)
+
+interface DAO._Index
+    16 Boolean Clustered
+    16 Boolean Foreign
+    16 Boolean IgnoreNulls
+    16 Boolean Primary
+    16 Boolean Required
+    16 Boolean Unique
+    16 DAO.Properties Properties
+    16 Int32 DistinctCount
+    16 System.Object Fields
+    16 System.String Name
+    8 Boolean get_Clustered()
+    8 Boolean get_Foreign()
+    8 Boolean get_IgnoreNulls()
+    8 Boolean get_Primary()
+    8 Boolean get_Required()
+    8 Boolean get_Unique()
+    8 DAO.Field CreateField(System.Object, System.Object, System.Object)
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 Int32 get_DistinctCount()
+    8 System.Object get_Fields()
+    8 System.String get_Name()
+    8 Void set_Clustered(Boolean)
+    8 Void set_Fields(System.Object)
+    8 Void set_IgnoreNulls(Boolean)
+    8 Void set_Name(System.String)
+    8 Void set_Primary(Boolean)
+    8 Void set_Required(Boolean)
+    8 Void set_Unique(Boolean)
+
+interface DAO._QueryDef
+    16 Boolean ReturnsRecords
+    16 Boolean StillExecuting
+    16 Boolean Updatable
+    16 DAO.Fields Fields
+    16 DAO.Parameters Parameters
+    16 DAO.Properties Properties
+    16 Int16 ODBCTimeout
+    16 Int16 Type
+    16 Int32 CacheSize
+    16 Int32 MaxRecords
+    16 Int32 RecordsAffected
+    16 Int32 hStmt
+    16 System.Object DateCreated
+    16 System.Object LastUpdated
+    16 System.Object Prepare
+    16 System.String Connect
+    16 System.String Name
+    16 System.String SQL
+    8 Boolean get_ReturnsRecords()
+    8 Boolean get_StillExecuting()
+    8 Boolean get_Updatable()
+    8 DAO.Fields get_Fields()
+    8 DAO.Parameters get_Parameters()
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 DAO.QueryDef _Copy()
+    8 DAO.Recordset CreateDynaset(System.Object, System.Object)
+    8 DAO.Recordset CreateSnapshot(System.Object)
+    8 DAO.Recordset ListParameters()
+    8 DAO.Recordset OpenRecordset(System.Object, System.Object, System.Object)
+    8 DAO.Recordset _30_OpenRecordset(System.Object, System.Object)
+    8 DAO.Recordset _30__OpenRecordset(System.Object, System.Object)
+    8 DAO.Recordset _OpenRecordset(System.Object, System.Object, System.Object)
+    8 Int16 get_ODBCTimeout()
+    8 Int16 get_Type()
+    8 Int32 get_CacheSize()
+    8 Int32 get_MaxRecords()
+    8 Int32 get_RecordsAffected()
+    8 Int32 get_hStmt()
+    8 System.Object get_DateCreated()
+    8 System.Object get_LastUpdated()
+    8 System.Object get_Prepare()
+    8 System.String get_Connect()
+    8 System.String get_Name()
+    8 System.String get_SQL()
+    8 Void Cancel()
+    8 Void Close()
+    8 Void Compare(DAO.QueryDef, Int16 ByRef)
+    8 Void Execute(System.Object)
+    8 Void set_CacheSize(Int32)
+    8 Void set_Connect(System.String)
+    8 Void set_MaxRecords(Int32)
+    8 Void set_Name(System.String)
+    8 Void set_ODBCTimeout(Int16)
+    8 Void set_Prepare(System.Object)
+    8 Void set_ReturnsRecords(Boolean)
+    8 Void set_SQL(System.String)
+
+interface DAO._Relation
+    16 Boolean PartialReplica
+    16 DAO.Fields Fields
+    16 DAO.Properties Properties
+    16 Int32 Attributes
+    16 System.String ForeignTable
+    16 System.String Name
+    16 System.String Table
+    8 Boolean get_PartialReplica()
+    8 DAO.Field CreateField(System.Object, System.Object, System.Object)
+    8 DAO.Fields get_Fields()
+    8 DAO.Properties get_Properties()
+    8 Int32 get_Attributes()
+    8 System.String get_ForeignTable()
+    8 System.String get_Name()
+    8 System.String get_Table()
+    8 Void set_Attributes(Int32)
+    8 Void set_ForeignTable(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_PartialReplica(Boolean)
+    8 Void set_Table(System.String)
+
+interface DAO._TableDef
+    16 Boolean Updatable
+    16 DAO.Fields Fields
+    16 DAO.Indexes Indexes
+    16 DAO.Properties Properties
+    16 Int32 Attributes
+    16 Int32 RecordCount
+    16 System.Object DateCreated
+    16 System.Object LastUpdated
+    16 System.Object ReplicaFilter
+    16 System.String ConflictTable
+    16 System.String Connect
+    16 System.String Name
+    16 System.String SourceTableName
+    16 System.String ValidationRule
+    16 System.String ValidationText
+    8 Boolean get_Updatable()
+    8 DAO.Field CreateField(System.Object, System.Object, System.Object)
+    8 DAO.Fields get_Fields()
+    8 DAO.Index CreateIndex(System.Object)
+    8 DAO.Indexes get_Indexes()
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 DAO.Recordset OpenRecordset(System.Object, System.Object)
+    8 Int32 get_Attributes()
+    8 Int32 get_RecordCount()
+    8 System.Object get_DateCreated()
+    8 System.Object get_LastUpdated()
+    8 System.Object get_ReplicaFilter()
+    8 System.String get_ConflictTable()
+    8 System.String get_Connect()
+    8 System.String get_Name()
+    8 System.String get_SourceTableName()
+    8 System.String get_ValidationRule()
+    8 System.String get_ValidationText()
+    8 Void RefreshLink()
+    8 Void set_Attributes(Int32)
+    8 Void set_Connect(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_ReplicaFilter(System.Object)
+    8 Void set_SourceTableName(System.String)
+    8 Void set_ValidationRule(System.String)
+    8 Void set_ValidationText(System.String)
+
+interface DAO._User
+    16 DAO.Groups Groups
+    16 DAO.Properties Properties
+    16 System.String Name
+    16 System.String PID
+    16 System.String Password
+    8 DAO.Group CreateGroup(System.Object, System.Object)
+    8 DAO.Groups get_Groups()
+    8 DAO.Properties get_Properties()
+    8 System.String get_Name()
+    8 Void NewPassword(System.String, System.String)
+    8 Void set_Name(System.String)
+    8 Void set_PID(System.String)
+    8 Void set_Password(System.String)
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class DAO.DBEngineClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 DAO.Errors Errors
+    16 DAO.Properties Properties
+    16 DAO.Workspaces Workspaces
+    16 Int16 LoginTimeout
+    16 Int32 DefaultType
+    16 System.String DefaultPassword
+    16 System.String DefaultUser
+    16 System.String IniPath
+    16 System.String SystemDB
+    16 System.String Version
+    8 DAO.Connection OpenConnection(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Database CreateDatabase(System.String, System.String, System.Object)
+    8 DAO.Database OpenDatabase(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Errors get_Errors()
+    8 DAO.Properties get_Properties()
+    8 DAO.Workspace CreateWorkspace(System.String, System.String, System.String, System.Object)
+    8 DAO.Workspace _30_CreateWorkspace(System.String, System.String, System.String)
+    8 DAO.Workspaces get_Workspaces()
+    8 Int16 get_LoginTimeout()
+    8 Int32 ISAMStats(Int32, System.Object)
+    8 Int32 get_DefaultType()
+    8 System.String get_IniPath()
+    8 System.String get_SystemDB()
+    8 System.String get_Version()
+    8 Void BeginTrans()
+    8 Void CommitTrans(Int32)
+    8 Void CompactDatabase(System.String, System.String, System.Object, System.Object, System.Object)
+    8 Void FreeLocks()
+    8 Void Idle(System.Object)
+    8 Void RegisterDatabase(System.String, System.String, Boolean, System.String)
+    8 Void RepairDatabase(System.String)
+    8 Void Rollback()
+    8 Void SetDataAccessOption(Int16, System.Object)
+    8 Void SetDefaultWorkspace(System.String, System.String)
+    8 Void SetOption(Int32, System.Object)
+    8 Void set_DefaultPassword(System.String)
+    8 Void set_DefaultType(Int32)
+    8 Void set_DefaultUser(System.String)
+    8 Void set_IniPath(System.String)
+    8 Void set_LoginTimeout(Int16)
+    8 Void set_SystemDB(System.String)
+
+class DAO.FieldClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean AllowZeroLength
+    16 Boolean DataUpdatable
+    16 Boolean Required
+    16 Boolean ValidateOnSet
+    16 DAO.Properties Properties
+    16 Int16 CollectionIndex
+    16 Int16 OrdinalPosition
+    16 Int16 Type
+    16 Int32 Attributes
+    16 Int32 CollatingOrder
+    16 Int32 FieldSize
+    16 Int32 Size
+    16 System.Object DefaultValue
+    16 System.Object OriginalValue
+    16 System.Object Value
+    16 System.Object VisibleValue
+    16 System.String ForeignName
+    16 System.String Name
+    16 System.String SourceField
+    16 System.String SourceTable
+    16 System.String ValidationRule
+    16 System.String ValidationText
+    8 Boolean get_AllowZeroLength()
+    8 Boolean get_DataUpdatable()
+    8 Boolean get_Required()
+    8 Boolean get_ValidateOnSet()
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 Int16 get_CollectionIndex()
+    8 Int16 get_OrdinalPosition()
+    8 Int16 get_Type()
+    8 Int32 _30_FieldSize()
+    8 Int32 get_Attributes()
+    8 Int32 get_CollatingOrder()
+    8 Int32 get_FieldSize()
+    8 Int32 get_Size()
+    8 System.Object GetChunk(Int32, Int32)
+    8 System.Object get_DefaultValue()
+    8 System.Object get_OriginalValue()
+    8 System.Object get_Value()
+    8 System.Object get_VisibleValue()
+    8 System.String get_ForeignName()
+    8 System.String get_Name()
+    8 System.String get_SourceField()
+    8 System.String get_SourceTable()
+    8 System.String get_ValidationRule()
+    8 System.String get_ValidationText()
+    8 Void AppendChunk(System.Object)
+    8 Void set_AllowZeroLength(Boolean)
+    8 Void set_Attributes(Int32)
+    8 Void set_DefaultValue(System.Object)
+    8 Void set_ForeignName(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OrdinalPosition(Int16)
+    8 Void set_Required(Boolean)
+    8 Void set_Size(Int32)
+    8 Void set_Type(Int16)
+    8 Void set_ValidateOnSet(Boolean)
+    8 Void set_ValidationRule(System.String)
+    8 Void set_ValidationText(System.String)
+    8 Void set_Value(System.Object)
+
+class DAO.GroupClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 DAO.Properties Properties
+    16 DAO.Users Users
+    16 System.String Name
+    16 System.String PID
+    8 DAO.Properties get_Properties()
+    8 DAO.User CreateUser(System.Object, System.Object, System.Object)
+    8 DAO.Users get_Users()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_PID(System.String)
+
+class DAO.IndexClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Clustered
+    16 Boolean Foreign
+    16 Boolean IgnoreNulls
+    16 Boolean Primary
+    16 Boolean Required
+    16 Boolean Unique
+    16 DAO.Properties Properties
+    16 Int32 DistinctCount
+    16 System.Object Fields
+    16 System.String Name
+    8 Boolean get_Clustered()
+    8 Boolean get_Foreign()
+    8 Boolean get_IgnoreNulls()
+    8 Boolean get_Primary()
+    8 Boolean get_Required()
+    8 Boolean get_Unique()
+    8 DAO.Field CreateField(System.Object, System.Object, System.Object)
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 Int32 get_DistinctCount()
+    8 System.Object get_Fields()
+    8 System.String get_Name()
+    8 Void set_Clustered(Boolean)
+    8 Void set_Fields(System.Object)
+    8 Void set_IgnoreNulls(Boolean)
+    8 Void set_Name(System.String)
+    8 Void set_Primary(Boolean)
+    8 Void set_Required(Boolean)
+    8 Void set_Unique(Boolean)
+
+class DAO.LanguageConstants
+    base: System.Object
+    4 System.String dbLangArabic
+    4 System.String dbLangChineseSimplified
+    4 System.String dbLangChineseTraditional
+    4 System.String dbLangCyrillic
+    4 System.String dbLangCzech
+    4 System.String dbLangDutch
+    4 System.String dbLangGeneral
+    4 System.String dbLangGreek
+    4 System.String dbLangHebrew
+    4 System.String dbLangHungarian
+    4 System.String dbLangIcelandic
+    4 System.String dbLangJapanese
+    4 System.String dbLangKorean
+    4 System.String dbLangNordic
+    4 System.String dbLangNorwDan
+    4 System.String dbLangPolish
+    4 System.String dbLangSlovenian
+    4 System.String dbLangSpanish
+    4 System.String dbLangSwedFin
+    4 System.String dbLangThai
+    4 System.String dbLangTurkish
+
+class DAO.PrivDBEngineClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 DAO.Errors Errors
+    16 DAO.Properties Properties
+    16 DAO.Workspaces Workspaces
+    16 Int16 LoginTimeout
+    16 Int32 DefaultType
+    16 System.String DefaultPassword
+    16 System.String DefaultUser
+    16 System.String IniPath
+    16 System.String SystemDB
+    16 System.String Version
+    8 DAO.Connection OpenConnection(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Database CreateDatabase(System.String, System.String, System.Object)
+    8 DAO.Database OpenDatabase(System.String, System.Object, System.Object, System.Object)
+    8 DAO.Errors get_Errors()
+    8 DAO.Properties get_Properties()
+    8 DAO.Workspace CreateWorkspace(System.String, System.String, System.String, System.Object)
+    8 DAO.Workspace _30_CreateWorkspace(System.String, System.String, System.String)
+    8 DAO.Workspaces get_Workspaces()
+    8 Int16 get_LoginTimeout()
+    8 Int32 ISAMStats(Int32, System.Object)
+    8 Int32 get_DefaultType()
+    8 System.String get_IniPath()
+    8 System.String get_SystemDB()
+    8 System.String get_Version()
+    8 Void BeginTrans()
+    8 Void CommitTrans(Int32)
+    8 Void CompactDatabase(System.String, System.String, System.Object, System.Object, System.Object)
+    8 Void FreeLocks()
+    8 Void Idle(System.Object)
+    8 Void RegisterDatabase(System.String, System.String, Boolean, System.String)
+    8 Void RepairDatabase(System.String)
+    8 Void Rollback()
+    8 Void SetDataAccessOption(Int16, System.Object)
+    8 Void SetDefaultWorkspace(System.String, System.String)
+    8 Void SetOption(Int32, System.Object)
+    8 Void set_DefaultPassword(System.String)
+    8 Void set_DefaultType(Int32)
+    8 Void set_DefaultUser(System.String)
+    8 Void set_IniPath(System.String)
+    8 Void set_LoginTimeout(Int16)
+    8 Void set_SystemDB(System.String)
+
+class DAO.QueryDefClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean ReturnsRecords
+    16 Boolean StillExecuting
+    16 Boolean Updatable
+    16 DAO.Fields Fields
+    16 DAO.Parameters Parameters
+    16 DAO.Properties Properties
+    16 Int16 ODBCTimeout
+    16 Int16 Type
+    16 Int32 CacheSize
+    16 Int32 MaxRecords
+    16 Int32 RecordsAffected
+    16 Int32 hStmt
+    16 System.Object DateCreated
+    16 System.Object LastUpdated
+    16 System.Object Prepare
+    16 System.String Connect
+    16 System.String Name
+    16 System.String SQL
+    8 Boolean get_ReturnsRecords()
+    8 Boolean get_StillExecuting()
+    8 Boolean get_Updatable()
+    8 DAO.Fields get_Fields()
+    8 DAO.Parameters get_Parameters()
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 DAO.QueryDef _Copy()
+    8 DAO.Recordset CreateDynaset(System.Object, System.Object)
+    8 DAO.Recordset CreateSnapshot(System.Object)
+    8 DAO.Recordset ListParameters()
+    8 DAO.Recordset OpenRecordset(System.Object, System.Object, System.Object)
+    8 DAO.Recordset _30_OpenRecordset(System.Object, System.Object)
+    8 DAO.Recordset _30__OpenRecordset(System.Object, System.Object)
+    8 DAO.Recordset _OpenRecordset(System.Object, System.Object, System.Object)
+    8 Int16 get_ODBCTimeout()
+    8 Int16 get_Type()
+    8 Int32 get_CacheSize()
+    8 Int32 get_MaxRecords()
+    8 Int32 get_RecordsAffected()
+    8 Int32 get_hStmt()
+    8 System.Object get_DateCreated()
+    8 System.Object get_LastUpdated()
+    8 System.Object get_Prepare()
+    8 System.String get_Connect()
+    8 System.String get_Name()
+    8 System.String get_SQL()
+    8 Void Cancel()
+    8 Void Close()
+    8 Void Compare(DAO.QueryDef, Int16 ByRef)
+    8 Void Execute(System.Object)
+    8 Void set_CacheSize(Int32)
+    8 Void set_Connect(System.String)
+    8 Void set_MaxRecords(Int32)
+    8 Void set_Name(System.String)
+    8 Void set_ODBCTimeout(Int16)
+    8 Void set_Prepare(System.Object)
+    8 Void set_ReturnsRecords(Boolean)
+    8 Void set_SQL(System.String)
+
+class DAO.RelationClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean PartialReplica
+    16 DAO.Fields Fields
+    16 DAO.Properties Properties
+    16 Int32 Attributes
+    16 System.String ForeignTable
+    16 System.String Name
+    16 System.String Table
+    8 Boolean get_PartialReplica()
+    8 DAO.Field CreateField(System.Object, System.Object, System.Object)
+    8 DAO.Fields get_Fields()
+    8 DAO.Properties get_Properties()
+    8 Int32 get_Attributes()
+    8 System.String get_ForeignTable()
+    8 System.String get_Name()
+    8 System.String get_Table()
+    8 Void set_Attributes(Int32)
+    8 Void set_ForeignTable(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_PartialReplica(Boolean)
+    8 Void set_Table(System.String)
+
+class DAO.TableDefClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Updatable
+    16 DAO.Fields Fields
+    16 DAO.Indexes Indexes
+    16 DAO.Properties Properties
+    16 Int32 Attributes
+    16 Int32 RecordCount
+    16 System.Object DateCreated
+    16 System.Object LastUpdated
+    16 System.Object ReplicaFilter
+    16 System.String ConflictTable
+    16 System.String Connect
+    16 System.String Name
+    16 System.String SourceTableName
+    16 System.String ValidationRule
+    16 System.String ValidationText
+    8 Boolean get_Updatable()
+    8 DAO.Field CreateField(System.Object, System.Object, System.Object)
+    8 DAO.Fields get_Fields()
+    8 DAO.Index CreateIndex(System.Object)
+    8 DAO.Indexes get_Indexes()
+    8 DAO.Properties get_Properties()
+    8 DAO.Property CreateProperty(System.Object, System.Object, System.Object, System.Object)
+    8 DAO.Recordset OpenRecordset(System.Object, System.Object)
+    8 Int32 get_Attributes()
+    8 Int32 get_RecordCount()
+    8 System.Object get_DateCreated()
+    8 System.Object get_LastUpdated()
+    8 System.Object get_ReplicaFilter()
+    8 System.String get_ConflictTable()
+    8 System.String get_Connect()
+    8 System.String get_Name()
+    8 System.String get_SourceTableName()
+    8 System.String get_ValidationRule()
+    8 System.String get_ValidationText()
+    8 Void RefreshLink()
+    8 Void set_Attributes(Int32)
+    8 Void set_Connect(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_ReplicaFilter(System.Object)
+    8 Void set_SourceTableName(System.String)
+    8 Void set_ValidationRule(System.String)
+    8 Void set_ValidationText(System.String)
+
+class DAO.UserClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 DAO.Groups Groups
+    16 DAO.Properties Properties
+    16 System.String Name
+    16 System.String PID
+    16 System.String Password
+    8 DAO.Group CreateGroup(System.Object, System.Object)
+    8 DAO.Groups get_Groups()
+    8 DAO.Properties get_Properties()
+    8 System.String get_Name()
+    8 Void NewPassword(System.String, System.String)
+    8 Void set_Name(System.String)
+    8 Void set_PID(System.String)
+    8 Void set_Password(System.String)
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

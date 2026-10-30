@@ -1,0 +1,3857 @@
+Assembly : Interop.CBSEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Runtime  : v4.0.30319
+Types    : 338
+
+=================== ENUMS ===================
+
+enum CBSEngine.IGeoCalculationMethod
+    IGC_UNDEFINED = 0
+    IGC_TRIANGULAR = 1
+    IGC_SIMPLIFIED_FEM = 2
+    IGC_ADVANCED_FEM = 3
+
+enum CBSEngine.IGeoCalculationsProgressType
+    IGR_CALCULATIONS_PROGRESS_BEGIN = 1
+    IGR_CALCULATIONS_PROGRESS_STEP = 2
+    IGR_CALCULATIONS_PROGRESS_END = 3
+
+enum CBSEngine.IGeoCombinationStateType
+    IGN_ULS = 1
+    IGN_SLS = 2
+    IGN_ALS = 3
+
+enum CBSEngine.IGeoConnectionType
+    IGC_FIXED = 1
+    IGC_PINNED = 2
+
+enum CBSEngine.IGeoFigureLineStyle
+    IGD_FIGURE_LS_BYLAYER = 1
+    IGD_FIGURE_LS_SOLID = 2
+    IGD_FIGURE_LS_DASH = 3
+    IGD_FIGURE_LS_DOT = 4
+    IGD_FIGURE_LS_DASHDOT = 5
+    IGD_FIGURE_LS_DASHDOTDOT = 6
+
+enum CBSEngine.IGeoFigureLineThickness
+    IGD_FIGURE_BYLAYER = 1
+    IGD_FIGURE_LT1 = 2
+    IGD_FIGURE_LT2 = 3
+    IGD_FIGURE_LT3 = 4
+    IGD_FIGURE_LT4 = 5
+    IGD_FIGURE_LT5 = 6
+
+enum CBSEngine.IGeoFigureType
+    IGD_FIGURE_LINE = 1
+    IGD_FIGURE_OBJ3D = 2
+
+enum CBSEngine.IGeoLinearDiagramType
+    IGD_UNDEFINED = 0
+    IGD_LINEAR_LOAD_FORCE_X = 1
+    IGD_LINEAR_LOAD_FORCE_Y = 2
+    IGD_LINEAR_LOAD_FORCE_Z = 3
+    IGD_LINEAR_LOAD_MOMENT_X = 4
+    IGD_LINEAR_LOAD_MOMENT_Y = 5
+    IGD_LINEAR_LOAD_MOMENT_Z = 6
+
+enum CBSEngine.IGeoLoadDirectionType
+    IGD_LOAD_DIRECTION_VERTICAL = 1
+    IGD_LOAD_DIRECTION_HORIZONTAL = 2
+    IGD_LOAD_DIRECTION_ORTHOGONAL = 3
+    IGD_LOAD_DIRECTION_PROJECTED = 4
+    IGD_LOAD_DIRECTION_FREE = 5
+
+enum CBSEngine.IGeoLoadNature
+    IGN_DEAD = 1
+    IGN_LIVE = 2
+    IGN_SNOW = 3
+    IGN_WIND = 4
+    IGN_ACCIDENTAL = 5
+    IGN_TEMPERATURE = 6
+    IGN_SEISMIC = 7
+
+enum CBSEngine.IGeoMaterialType
+    IGM_MATERIAL_STEEL = 1
+    IGM_MATERIAL_CONCRETE = 2
+    IGM_MATERIAL_ALUMINIUM = 3
+    IGM_MATERIAL_WOOD = 4
+    IGM_MATERIAL_OTHER = 5
+    IGM_MATERIAL_CERAMIC = 6
+    IGM_MATERIAL_LAYER_SET = 7
+    IGM_MATERIAL_REINFORCING_STEEL = 256
+
+enum CBSEngine.IGeoObjectType
+    IGO_FOOT = 1
+    IGO_CONTFOOT = 2
+    IGO_COLUMN = 4
+    IGO_WALL = 8
+    IGO_BEAM = 16
+    IGO_PLATE = 32
+    IGO_FOOTPLATE = 64
+    IGO_STAIRS = 128
+    IGO_WINDOW = 256
+    IGO_DOOR = 512
+    IGO_RWINDOW = 1024
+    IGO_HOLE = 2048
+    IGO_ROOM = 4096
+    IGO_FIGURE = 8192
+    IGO_TEXT = 16384
+    IGO_DIMLINE = 32768
+    IGO_CONCENTRATED_LOAD = 65536
+    IGO_LINEAR_LOAD = 131072
+    IGO_PLANAR_LOAD = 262144
+    IGO_RELATIONSHIP = 524288
+    IGO_REBAR = 1048576
+    IGO_RNFNET = 2097152
+
+enum CBSEngine.IGeoOffsetType
+    IGF_UNDEFINED = 0
+    IGF_CENTER = 1
+    IGF_LEFT_TOP = 2
+    IGF_RIGHT_TOP = 3
+    IGF_RIGHT_BOTTOM = 4
+    IGF_LEFT_BOTTOM = 5
+    IGF_LEFT_CENTER = 6
+    IGF_RIGHT_CENTER = 7
+    IGF_TOP_CENTER = 8
+    IGF_BOTTOM_CENTER = 9
+    IGF_LEFT_AUTO = 10
+    IGF_RIGHT_AUTO = 11
+    IGF_CUSTOM_AUTO = 12
+    IGF_LEFT = 13
+    IGF_MIDDLE = 14
+    IGF_RIGHT = 15
+    IGF_TOP = 16
+    IGF_AVERAGE = 17
+    IGF_BOTTOM = 18
+    IGF_AUTO = 19
+    IGF_CUSTOM = 20
+
+enum CBSEngine.IGeoPointDiagramType
+    IGP_UNDEFINED = 0
+    IGP_POINT_LOAD_FORCE_X = 1
+    IGP_POINT_LOAD_FORCE_Y = 2
+    IGP_POINT_LOAD_FORCE_Z = 3
+    IGP_POINT_LOAD_MOMENT_Y = 4
+
+enum CBSEngine.IGeoPredefinedSubnature
+    IGP_SUBNATURE_UNDEFINED = 1
+    IGP_SELF_WEIGHT = 2
+    IGP_PARTITION_WALLS = 3
+    IGP_FINISHING_LAYERS = 4
+
+enum CBSEngine.IGeoResultsMapType
+    IGR_RESULT_MAP_NONE = 0
+    IGR_RESULT_MAP_MXX = 1
+    IGR_RESULT_MAP_MYY = 2
+    IGR_RESULT_MAP_MXY = 3
+    IGR_RESULT_MAP_NXX = 4
+    IGR_RESULT_MAP_NYY = 5
+    IGR_RESULT_MAP_NXY = 6
+    IGR_RESULT_MAP_UX = 7
+    IGR_RESULT_MAP_UY = 8
+    IGR_RESULT_MAP_UZ = 9
+
+enum CBSEngine.IGeoSectionHoleType
+    IGH_HOLE_TYPE_DEFAULT = 1
+    IGH_HOLE_TYPE_WINDOW = 2
+    IGH_HOLE_TYPE_DOOR = 3
+
+enum CBSEngine.IGeoSectionType
+    IGS_SECTION_R = 1
+    IGS_SECTION_C = 2
+    IGS_SECTION_T = 3
+    IGS_SECTION_PROFILE = 8
+    IGS_SECTION_THICK = 9
+    IGS_SECTION_RHOLE = 12
+    IGS_SECTION_RFOOT = 10
+    IGS_SECTION_TFOOT = 11
+    IGS_SECTION_STAIRS = 13
+    IGS_SECTION_LAYERS = 14
+    IGS_SECTION_POLYHOLE = 15
+
+enum CBSEngine.IGeoSegmentType
+    IGH_SEGMENT_TYPE_LINE = 1
+    IGH_SEGMENT_TYPE_ARC = 2
+
+enum CBSEngine.IGeoViewMode
+    IGM_COMPUTATIONAL = 1
+    IGM_STRUCTURAL = 2
+    IGM_ARCHITECTURAL = 3
+
+enum CBSEngine.IGeoViewProjectionType
+    IGP_XY = 1
+    IGP_3D_ENTIRE_STRUCTURE = 2
+    IGP_3D_SINGLE_STOREY = 3
+
+enum CBSEngine.IGeoViewView3D
+    IGM_WIREFRAME = 1
+    IGM_HIDDENLINES = 2
+    IGM_SHADING = 3
+    IGM_SHADING_WITH_EDGES = 4
+
+enum CBSEngine.ILifeLoadRedCode
+    IGM_LIFE_LOAD_RED_ASCE_7_05 = 1
+    IGM_LIFE_LOAD_RED_EN_1991 = 2
+
+enum CBSEngine.ILllrASCE7_05StrType
+    ILLR_ASCE7_05_PUBLIC = 1
+    ILLR_ASCE7_05_PASS_GAR = 2
+    ILLR_ASCE7_05_OTHER = 3
+
+enum CBSEngine.ILllrEN1991StrCat
+    ILLR_EN1991_CAT_A = 1
+    ILLR_EN1991_CAT_B = 2
+    ILLR_EN1991_CAT_C = 3
+    ILLR_EN1991_CAT_D = 4
+    ILLR_EN1991_CAT_E = 5
+
+enum CBSEngine.IRobinDocVerb
+    IGV_CREATE = 1
+    IGV_OPEN_NO_TOOLBARS = 2
+
+enum CBSEngine.IRobinReportType
+    IGT_VERIFICATION = 1
+    IGT_STATIC_ANALYSIS = 2
+
+enum CBSEngine.IRobinUnitType
+    IGU_FORCE = 1
+    IGU_MOMENT = 2
+    IGU_STRESS = 3
+    IGU_DISPLACEMENT = 4
+    IGU_STRUCTURE_DIMENSIONS = 5
+
+================= INTERFACES =================
+
+interface CBSEngine.Application
+
+interface CBSEngine.Document
+
+interface CBSEngine.Documents
+
+interface CBSEngine.GeoBeamCalculationModel
+
+interface CBSEngine.GeoBeamDesignOptions
+
+interface CBSEngine.GeoBeamResults
+
+interface CBSEngine.GeoBeamSupport
+
+interface CBSEngine.GeoBeamSupports
+
+interface CBSEngine.GeoCalculations
+
+interface CBSEngine.GeoCalculationsOptions
+
+interface CBSEngine.GeoColumnDesignOptions
+
+interface CBSEngine.GeoColumnResults
+
+interface CBSEngine.GeoContFootDesignOptions
+
+interface CBSEngine.GeoContFootResults
+
+interface CBSEngine.GeoDiagramPoint
+
+interface CBSEngine.GeoDiagramPoints
+
+interface CBSEngine.GeoFigureResults
+
+interface CBSEngine.GeoFootDesignOptions
+
+interface CBSEngine.GeoFootPlateResults
+
+interface CBSEngine.GeoFootResults
+
+interface CBSEngine.GeoLifeLoadRedASCEResults
+
+interface CBSEngine.GeoLifeLoadRedENResults
+
+interface CBSEngine.GeoLifeLoadRedOptions
+
+interface CBSEngine.GeoLifeLoadRedResults
+
+interface CBSEngine.GeoLinearDiagram
+
+interface CBSEngine.GeoPointDiagram
+
+interface CBSEngine.GeoRCElementDesignOptions
+
+interface CBSEngine.GeoRCGeneralParameters
+
+interface CBSEngine.GeoReactions
+
+interface CBSEngine.GeoResultCombinationCase
+
+interface CBSEngine.GeoResultCombinationCases
+
+interface CBSEngine.GeoResultLoadCase
+
+interface CBSEngine.GeoResultLoadCases
+
+interface CBSEngine.GeoResultLoadCombination
+
+interface CBSEngine.GeoResultLoadCombinations
+
+interface CBSEngine.GeoSlabDesignOptions
+
+interface CBSEngine.GeoStructureResults
+
+interface CBSEngine.GeoWallDesignOptions
+
+interface CBSEngine.GeoWallResults
+
+interface CBSEngine.GridAxisArc
+
+interface CBSEngine.GridAxisArcs
+
+interface CBSEngine.GridAxisGroup
+
+interface CBSEngine.GridAxisGroups
+
+interface CBSEngine.GridAxisLine
+
+interface CBSEngine.GridAxisLines
+
+interface CBSEngine.GridCart
+
+interface CBSEngine.GridCyl
+
+interface CBSEngine.GridStep
+
+interface CBSEngine.GridSteps
+
+interface CBSEngine.GridSystem
+
+interface CBSEngine.GridsCart
+
+interface CBSEngine.GridsCyl
+
+interface CBSEngine.IApplication
+    16 Boolean Visible
+    16 CBSEngine.Documents Documents
+    16 CBSEngine.RobinPreferences Preferences
+    16 Int32 MainWindowHandle
+    8 Boolean IsVersion(System.String)
+    8 Boolean get_Visible()
+    8 CBSEngine.Documents get_Documents()
+    8 CBSEngine.RobinPreferences get_Preferences()
+    8 Int32 get_MainWindowHandle()
+    8 Void Activate()
+    8 Void set_Documents(CBSEngine.Documents)
+    8 Void set_MainWindowHandle(Int32)
+    8 Void set_Preferences(CBSEngine.RobinPreferences)
+    8 Void set_Visible(Boolean)
+
+interface CBSEngine.IApplicationClient
+    8 Boolean Connect(System.Object, System.String, System.String, Boolean, System.Object)
+
+interface CBSEngine.IDocuments
+    16 CBSEngine.Document ActiveDocument
+    16 Int32 Count
+    16 System.Object _NewEnum
+    8 CBSEngine.Document Add(System.String, Boolean)
+    8 CBSEngine.Document Item(System.Object)
+    8 CBSEngine.Document get_ActiveDocument()
+    8 Int32 get_Count()
+    8 System.Object get__NewEnum()
+    8 Void set_ActiveDocument(CBSEngine.Document)
+    8 Void set_Count(Int32)
+    8 Void set__NewEnum(System.Object)
+
+interface CBSEngine.IGeoBRep
+    16 CBSEngine.IGeoFaces Faces
+    16 CBSEngine.IGeoPoints Vertices
+    16 CBSEngine.IGeoVectors Normals
+    8 CBSEngine.IGeoFaces get_Faces()
+    8 CBSEngine.IGeoPoints get_Vertices()
+    8 CBSEngine.IGeoVectors get_Normals()
+    8 Void Clear()
+    8 Void GetExtents(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef)
+    8 Void Intersect(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Int32 ByRef, Boolean ByRef)
+    8 Void Intersect2(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Int32 ByRef, Boolean ByRef)
+    8 Void ProjectToPlaneXY(Double ByRef, Double ByRef, Double ByRef, Boolean ByRef)
+    8 Void SetBRep(System.String ByRef)
+    8 Void SetByText(System.String ByRef)
+
+interface CBSEngine.IGeoBeam
+    16 Boolean EqualSpanParts
+    16 Boolean IsCarrying
+    16 Boolean IsGroundBeam
+    16 Boolean IsLintel
+    16 CBSEngine.GeoBeamResults Results
+    16 CBSEngine.IGeoBRep BRep
+    16 CBSEngine.IGeoConnectionType EndRelease
+    16 CBSEngine.IGeoConnectionType StartRelease
+    16 CBSEngine.IGeoObject Parent
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoSpans Spans
+    16 CBSEngine.IGeoVector OffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Length
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_EqualSpanParts()
+    8 Boolean get_IsCarrying()
+    8 Boolean get_IsGroundBeam()
+    8 Boolean get_IsLintel()
+    8 CBSEngine.GeoBeamResults get_Results()
+    8 CBSEngine.IGeoBRep get_BRep()
+    8 CBSEngine.IGeoConnectionType get_EndRelease()
+    8 CBSEngine.IGeoConnectionType get_StartRelease()
+    8 CBSEngine.IGeoObject get_Parent()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoSpans get_Spans()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Length()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_EndRelease(CBSEngine.IGeoConnectionType)
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_IsGroundBeam(Boolean)
+    8 Void set_IsLintel(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_Parent(CBSEngine.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_StartRelease(CBSEngine.IGeoConnectionType)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoBeamCalculationModel
+    16 Boolean IsLeftCantilever
+    16 Boolean IsLeftRelease
+    16 Boolean IsRightCantilever
+    16 Boolean IsRightRelease
+    16 CBSEngine.GeoBeamSupports Supports
+    8 Boolean get_IsLeftCantilever()
+    8 Boolean get_IsLeftRelease()
+    8 Boolean get_IsRightCantilever()
+    8 Boolean get_IsRightRelease()
+    8 CBSEngine.GeoBeamSupports get_Supports()
+    8 Void set_IsLeftRelease(Boolean)
+    8 Void set_IsRightRelease(Boolean)
+
+interface CBSEngine.IGeoBeamDesignOptions
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+interface CBSEngine.IGeoBeamResults
+    16 CBSEngine.GeoBeamCalculationModel CalculationModel
+    16 CBSEngine.GeoLinearDiagram LinearDiagram
+    16 CBSEngine.GeoPointDiagram PointDiagram
+    8 CBSEngine.GeoBeamCalculationModel get_CalculationModel()
+    8 CBSEngine.GeoLinearDiagram get_LinearDiagram()
+    8 CBSEngine.GeoPointDiagram get_PointDiagram()
+
+interface CBSEngine.IGeoBeamSupport
+    16 Double Width
+    8 Double get_Width()
+    8 Void set_Width(Double)
+
+interface CBSEngine.IGeoBeamSupports
+    16 CBSEngine.GeoBeamSupport Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GeoBeamSupport get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoBeams
+    16 CBSEngine.IGeoBeam Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoBeam Add(System.Object)
+    8 CBSEngine.IGeoBeam get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoCalculations
+    16 CBSEngine.GeoCalculationsOptions Options
+    8 Boolean Calculate()
+    8 Boolean Dimensioning()
+    8 CBSEngine.GeoCalculationsOptions get_Options()
+
+interface CBSEngine.IGeoCalculationsOptions
+    16 Boolean DefaultSupportConditions
+    16 Boolean GenerateCombinations
+    16 Boolean LifeLoadReductionEnabled
+    16 Boolean ShowProgress
+    16 CBSEngine.GeoLifeLoadRedOptions LifeLoadRedOptions
+    16 CBSEngine.GeoRCElementDesignOptions RCElementDesignOptions
+    16 CBSEngine.IGeoCalculationMethod Method
+    16 Double CalculationEpsilon
+    16 Double MeshSize
+    16 Double ReactionTolerance
+    16 Int32 UseLTD
+    8 Boolean get_DefaultSupportConditions()
+    8 Boolean get_GenerateCombinations()
+    8 Boolean get_LifeLoadReductionEnabled()
+    8 Boolean get_ShowProgress()
+    8 CBSEngine.GeoLifeLoadRedOptions get_LifeLoadRedOptions()
+    8 CBSEngine.GeoRCElementDesignOptions get_RCElementDesignOptions()
+    8 CBSEngine.IGeoCalculationMethod get_Method()
+    8 Double get_CalculationEpsilon()
+    8 Double get_MeshSize()
+    8 Double get_ReactionTolerance()
+    8 Int32 get_UseLTD()
+    8 Void set_CalculationEpsilon(Double)
+    8 Void set_DefaultSupportConditions(Boolean)
+    8 Void set_GenerateCombinations(Boolean)
+    8 Void set_LifeLoadReductionEnabled(Boolean)
+    8 Void set_MeshSize(Double)
+    8 Void set_Method(CBSEngine.IGeoCalculationMethod)
+    8 Void set_ReactionTolerance(Double)
+    8 Void set_ShowProgress(Boolean)
+    8 Void set_UseLTD(Int32)
+
+interface CBSEngine.IGeoColumn
+    16 Boolean IsBearingHorizontalForces
+    16 Boolean IsCarrying
+    16 CBSEngine.GeoColumnResults Results
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoVector OffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsBearingHorizontalForces()
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.GeoColumnResults get_Results()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsBearingHorizontalForces(Boolean)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoColumnDesignOptions
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+interface CBSEngine.IGeoColumnResults
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double Fz [Int32]
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_Fz(Int32)
+    8 Double get_Stress(Int32)
+
+interface CBSEngine.IGeoColumns
+    16 CBSEngine.IGeoColumn Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoColumn Add(System.Object)
+    8 CBSEngine.IGeoColumn get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoComplexContour
+    16 CBSEngine.IGeoContours InnerContours
+    16 CBSEngine.IGeoContours OuterContours
+    8 CBSEngine.IGeoContours get_InnerContours()
+    8 CBSEngine.IGeoContours get_OuterContours()
+
+interface CBSEngine.IGeoContFoot
+    16 Boolean IsCarrying
+    16 CBSEngine.GeoContFootResults Results
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoVector OffsetVector
+    16 CBSEngine.IGeoVector PierOffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.GeoContFootResults get_Results()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 CBSEngine.IGeoVector get_PierOffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_PierOffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoContFootDesignOptions
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+
+interface CBSEngine.IGeoContFootResults
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 CBSEngine.GeoReactions Reactions
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 CBSEngine.GeoReactions get_Reactions()
+    8 Double get_Stress(Int32)
+
+interface CBSEngine.IGeoContFoots
+    16 CBSEngine.IGeoContFoot Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoContFoot Add(System.Object)
+    8 CBSEngine.IGeoContFoot get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoContour
+    16 CBSEngine.IGeoSegments Segments
+    8 CBSEngine.IGeoSegments get_Segments()
+
+interface CBSEngine.IGeoContours
+    16 CBSEngine.IGeoContour Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoContour Add()
+    8 CBSEngine.IGeoContour get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoCurve
+    16 CBSEngine.IGeoPoint Beg
+    16 CBSEngine.IGeoSegments Segments
+    8 CBSEngine.IGeoPoint get_Beg()
+    8 CBSEngine.IGeoSegments get_Segments()
+
+interface CBSEngine.IGeoDiagramPoint
+    16 Double Position
+    16 Double Value
+    8 Double get_Position()
+    8 Double get_Value()
+
+interface CBSEngine.IGeoDiagramPoints
+    16 CBSEngine.GeoDiagramPoint Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GeoDiagramPoint get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoDoor
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoDoors
+    16 CBSEngine.IGeoDoor Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoDoor Add(System.Object)
+    8 CBSEngine.IGeoDoor get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoFace
+    16 CBSEngine.IGeoNumbers OuterBound
+    16 CBSEngine.IGeoNumbers OuterBoundNormals
+    8 CBSEngine.IGeoNumbers get_OuterBound()
+    8 CBSEngine.IGeoNumbers get_OuterBoundNormals()
+
+interface CBSEngine.IGeoFaces
+    16 CBSEngine.IGeoFace Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoFace Add()
+    8 CBSEngine.IGeoFace get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoFigure
+    16 Boolean IsCarrying
+    16 Boolean IsPoint
+    16 Boolean IsSimpleArcLine
+    16 Boolean IsSimpleLine
+    16 CBSEngine.GeoFigureResults Results
+    16 CBSEngine.IGeoBRep BRep
+    16 CBSEngine.IGeoFigureLineStyle LineStyle
+    16 CBSEngine.IGeoFigureLineThickness LineThickness
+    16 CBSEngine.IGeoFigureType FigureType
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Boolean get_IsPoint()
+    8 Boolean get_IsSimpleArcLine()
+    8 Boolean get_IsSimpleLine()
+    8 CBSEngine.GeoFigureResults get_Results()
+    8 CBSEngine.IGeoBRep get_BRep()
+    8 CBSEngine.IGeoFigureLineStyle get_LineStyle()
+    8 CBSEngine.IGeoFigureLineThickness get_LineThickness()
+    8 CBSEngine.IGeoFigureType get_FigureType()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void GetLineColor(Int16 ByRef, Int16 ByRef, Int16 ByRef)
+    8 Void GetPoint(Double ByRef, Double ByRef)
+    8 Void GetSimpleArcLine(Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef, Double ByRef)
+    8 Void GetSimpleLine(Double ByRef, Double ByRef, Double ByRef, Double ByRef)
+    8 Void SetLineColor(Int16, Int16, Int16)
+    8 Void SetPoint(Double, Double)
+    8 Void SetSimpleArcLine(Double, Double, Double, Double, Double, Double)
+    8 Void SetSimpleLine(Double, Double, Double, Double)
+    8 Void set_FigureType(CBSEngine.IGeoFigureType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_LineStyle(CBSEngine.IGeoFigureLineStyle)
+    8 Void set_LineThickness(CBSEngine.IGeoFigureLineThickness)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoFigureResults
+    16 Double MaxMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    8 Double get_MaxMapValue(Int32, CBSEngine.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, CBSEngine.IGeoResultsMapType)
+
+interface CBSEngine.IGeoFigures
+    16 CBSEngine.IGeoFigure Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoFigure Add(System.Object)
+    8 CBSEngine.IGeoFigure get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoFoot
+    16 Boolean IsCarrying
+    16 CBSEngine.GeoFootResults Results
+    16 CBSEngine.IGeoConnectionType ConnectionType
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoVector OffsetVector
+    16 CBSEngine.IGeoVector PierOffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.GeoFootResults get_Results()
+    8 CBSEngine.IGeoConnectionType get_ConnectionType()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 CBSEngine.IGeoVector get_PierOffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_ConnectionType(CBSEngine.IGeoConnectionType)
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_PierOffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoFootDesignOptions
+    16 Boolean AIsFixed
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    16 Boolean EyIsFixed
+    8 Boolean get_AIsFixed()
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Boolean get_EyIsFixed()
+    8 Void set_AIsFixed(Boolean)
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+    8 Void set_EyIsFixed(Boolean)
+
+interface CBSEngine.IGeoFootPlate
+    16 Boolean IsCarrying
+    16 CBSEngine.GeoFootPlateResults Results
+    16 CBSEngine.IGeoHoles Holes
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoPlateDirectionSettings DirectionSettings
+    16 CBSEngine.IGeoVector OffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.GeoFootPlateResults get_Results()
+    8 CBSEngine.IGeoHoles get_Holes()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoPlateDirectionSettings get_DirectionSettings()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoFootPlateResults
+    16 CBSEngine.GeoReactions Reactions
+    8 CBSEngine.GeoReactions get_Reactions()
+
+interface CBSEngine.IGeoFootPlates
+    16 CBSEngine.IGeoFootPlate Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoFootPlate Add(System.Object)
+    8 CBSEngine.IGeoFootPlate get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoFootResults
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 CBSEngine.GeoReactions Reactions
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 CBSEngine.GeoReactions get_Reactions()
+    8 Double get_Stress(Int32)
+
+interface CBSEngine.IGeoFoots
+    16 CBSEngine.IGeoFoot Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoFoot Add(System.Object)
+    8 CBSEngine.IGeoFoot get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoHole
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoHoles
+    16 CBSEngine.IGeoHole Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoHole Add(System.Object)
+    8 CBSEngine.IGeoHole get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoLifeLoadRedASCEResults
+    16 Double CumulativeTributaryArea [Int32]
+    16 Double KLL [Int32]
+    16 Double TributaryArea [Int32]
+    8 Double get_CumulativeTributaryArea(Int32)
+    8 Double get_KLL(Int32)
+    8 Double get_TributaryArea(Int32)
+    8 Void ChangeKLL(CBSEngine.ILllrASCE7_05StrType, Int32, Double)
+
+interface CBSEngine.IGeoLifeLoadRedENResults
+    16 Double AlphaA [Int32]
+    16 Double AlphaN [Int32]
+    8 Double get_AlphaA(Int32)
+    8 Double get_AlphaN(Int32)
+
+interface CBSEngine.IGeoLifeLoadRedOptions
+    16 CBSEngine.ILllrASCE7_05StrType StructureTypeASCE
+    16 CBSEngine.ILllrEN1991StrCat StructureCatEN
+    8 CBSEngine.ILllrASCE7_05StrType get_StructureTypeASCE()
+    8 CBSEngine.ILllrEN1991StrCat get_StructureCatEN()
+    8 Void set_StructureCatEN(CBSEngine.ILllrEN1991StrCat)
+    8 Void set_StructureTypeASCE(CBSEngine.ILllrASCE7_05StrType)
+
+interface CBSEngine.IGeoLifeLoadRedResults
+    16 CBSEngine.GeoLifeLoadRedASCEResults ASCEResults
+    16 CBSEngine.GeoLifeLoadRedENResults ENResults
+    16 Double ReductionCoeficient [Int32]
+    8 CBSEngine.GeoLifeLoadRedASCEResults get_ASCEResults()
+    8 CBSEngine.GeoLifeLoadRedENResults get_ENResults()
+    8 Double get_ReductionCoeficient(Int32)
+    8 Void set_ReductionCoeficient(Int32, Double)
+
+interface CBSEngine.IGeoLinearDiagram
+    16 CBSEngine.GeoDiagramPoints Points
+    16 CBSEngine.IGeoLinearDiagramType Type
+    16 Int32 Case
+    8 CBSEngine.GeoDiagramPoints get_Points()
+    8 CBSEngine.IGeoLinearDiagramType get_Type()
+    8 Int32 get_Case()
+    8 Void set_Case(Int32)
+    8 Void set_Type(CBSEngine.IGeoLinearDiagramType)
+
+interface CBSEngine.IGeoLinearLoad
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoLoadDirectionType DirectionType
+    16 CBSEngine.IGeoLoadNature Nature
+    16 CBSEngine.IGeoObject Parent
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoPoint Point1
+    16 CBSEngine.IGeoPoint Point2
+    16 CBSEngine.IGeoVector Direction
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Value
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String CaseName
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    16 System.String Subnature
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoLoadDirectionType get_DirectionType()
+    8 CBSEngine.IGeoLoadNature get_Nature()
+    8 CBSEngine.IGeoObject get_Parent()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoPoint get_Point1()
+    8 CBSEngine.IGeoPoint get_Point2()
+    8 CBSEngine.IGeoVector get_Direction()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Value()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_CaseName()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 System.String get_Subnature()
+    8 Void set_CaseName(System.String)
+    8 Void set_Direction(CBSEngine.IGeoVector)
+    8 Void set_DirectionType(CBSEngine.IGeoLoadDirectionType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(CBSEngine.IGeoLoadNature)
+    8 Void set_Parent(CBSEngine.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Subnature(System.String)
+    8 Void set_Value(Double)
+
+interface CBSEngine.IGeoLinearLoads
+    16 CBSEngine.IGeoLinearLoad Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoLinearLoad Add(System.Object)
+    8 CBSEngine.IGeoLinearLoad get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoLoadSubnature
+    16 CBSEngine.IGeoLoadNature Nature
+    16 Double Factor
+    16 System.String Name
+    8 CBSEngine.IGeoLoadNature get_Nature()
+    8 Double get_Factor()
+    8 System.String get_Name()
+    8 Void set_Factor(Double)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(CBSEngine.IGeoLoadNature)
+
+interface CBSEngine.IGeoLoadSubnatures
+    16 CBSEngine.IGeoLoadSubnature Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoLoadSubnature get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoLoadsRegulations
+    16 Boolean AutoGenerateSelfWeight
+    16 CBSEngine.IGeoLoadSubnatures Subnatures
+    16 Double PredefinedFactor [CBSEngine.IGeoPredefinedSubnature]
+    8 Boolean IsMainSubnatureName(System.String)
+    8 Boolean get_AutoGenerateSelfWeight()
+    8 CBSEngine.IGeoLoadSubnatures get_Subnatures()
+    8 Double get_PredefinedFactor(CBSEngine.IGeoPredefinedSubnature)
+    8 System.String GetDefaultSubnatureName(CBSEngine.IGeoLoadNature)
+    8 Void AddSubnature(CBSEngine.IGeoLoadNature, System.String)
+    8 Void set_AutoGenerateSelfWeight(Boolean)
+    8 Void set_PredefinedFactor(CBSEngine.IGeoPredefinedSubnature, Double)
+
+interface CBSEngine.IGeoMaterial
+    16 Boolean HasMaterialLayers
+    16 Boolean HasThickness
+    16 Boolean IsStructural
+    16 Boolean IsTexture
+    16 CBSEngine.IGeoMaterial StructuralMaterial
+    16 CBSEngine.IGeoMaterialLayers MaterialLayers
+    16 CBSEngine.IGeoMaterialType Type
+    16 Double Poisson
+    16 Double Resistance
+    16 Double Thickness
+    16 Double Transparency
+    16 Double UnitWeight
+    16 Double UnitWeight2
+    16 Double Young
+    16 System.String Name
+    16 System.String Texture
+    8 Boolean get_HasMaterialLayers()
+    8 Boolean get_HasThickness()
+    8 Boolean get_IsStructural()
+    8 Boolean get_IsTexture()
+    8 CBSEngine.IGeoMaterial get_StructuralMaterial()
+    8 CBSEngine.IGeoMaterialLayers get_MaterialLayers()
+    8 CBSEngine.IGeoMaterialType get_Type()
+    8 Double get_Poisson()
+    8 Double get_Resistance()
+    8 Double get_Thickness()
+    8 Double get_Transparency()
+    8 Double get_UnitWeight()
+    8 Double get_UnitWeight2()
+    8 Double get_Young()
+    8 System.String get_Name()
+    8 System.String get_Texture()
+    8 Void Copy(CBSEngine.IGeoMaterial)
+    8 Void set_HasThickness(Boolean)
+    8 Void set_IsStructural(Boolean)
+    8 Void set_IsTexture(Boolean)
+    8 Void set_Name(System.String)
+    8 Void set_Poisson(Double)
+    8 Void set_Resistance(Double)
+    8 Void set_Texture(System.String)
+    8 Void set_Thickness(Double)
+    8 Void set_Transparency(Double)
+    8 Void set_UnitWeight(Double)
+    8 Void set_UnitWeight2(Double)
+    8 Void set_Young(Double)
+
+interface CBSEngine.IGeoMaterialLayer
+    16 CBSEngine.IGeoMaterial Material
+    16 Double Thickness
+    8 CBSEngine.IGeoMaterial get_Material()
+    8 Double get_Thickness()
+    8 Void set_Material(CBSEngine.IGeoMaterial)
+    8 Void set_Thickness(Double)
+
+interface CBSEngine.IGeoMaterialLayers
+    16 CBSEngine.IGeoMaterialLayer Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoMaterialLayer Add(System.Object)
+    8 CBSEngine.IGeoMaterialLayer get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+interface CBSEngine.IGeoMaterials
+    16 CBSEngine.IGeoMaterial Item [System.Object]
+    16 Int32 Count
+    8 CBSEngine.IGeoMaterial Add(CBSEngine.IGeoMaterialType, System.String)
+    8 CBSEngine.IGeoMaterial get_Item(System.Object)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void SelectAll()
+    8 Void SelectUsed()
+
+interface CBSEngine.IGeoNumbers
+    16 Int32 Count
+    16 Int32 Item [Int32]
+    8 Int32 get_Count()
+    8 Int32 get_Item(Int32)
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Add(Int32)
+
+interface CBSEngine.IGeoObject
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoObjects
+    16 CBSEngine.IGeoObject Item [Int32]
+    16 CBSEngine.IGeoObject ItemByGlobalId [System.String]
+    16 CBSEngine.IGeoObject ItemByUniqueNumber [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoObject get_Item(Int32)
+    8 CBSEngine.IGeoObject get_ItemByGlobalId(System.String)
+    8 CBSEngine.IGeoObject get_ItemByUniqueNumber(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void Add(System.Object)
+    8 Void RemoveAll()
+    8 Void SelectAll()
+    8 Void SelectCarrying(Boolean)
+    8 Void SelectMaterial(System.Object)
+    8 Void SelectMaterialType(CBSEngine.IGeoMaterialType)
+    8 Void SelectSection(System.Object)
+    8 Void SelectSectionType(CBSEngine.IGeoSectionType)
+    8 Void SelectSelected(Boolean)
+    8 Void SelectStorey(System.Object)
+    8 Void SelectType(CBSEngine.IGeoObjectType)
+
+interface CBSEngine.IGeoPlanarLoad
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoLoadDirectionType DirectionType
+    16 CBSEngine.IGeoLoadNature Nature
+    16 CBSEngine.IGeoObject Parent
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoVector Direction
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Value
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String CaseName
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    16 System.String Subnature
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoLoadDirectionType get_DirectionType()
+    8 CBSEngine.IGeoLoadNature get_Nature()
+    8 CBSEngine.IGeoObject get_Parent()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoVector get_Direction()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Value()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_CaseName()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 System.String get_Subnature()
+    8 Void set_CaseName(System.String)
+    8 Void set_Direction(CBSEngine.IGeoVector)
+    8 Void set_DirectionType(CBSEngine.IGeoLoadDirectionType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(CBSEngine.IGeoLoadNature)
+    8 Void set_Parent(CBSEngine.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Subnature(System.String)
+    8 Void set_Value(Double)
+
+interface CBSEngine.IGeoPlanarLoads
+    16 CBSEngine.IGeoPlanarLoad Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoPlanarLoad Add(System.Object)
+    8 CBSEngine.IGeoPlanarLoad get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoPlate
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoHoles Holes
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoPlateDirectionSettings DirectionSettings
+    16 CBSEngine.IGeoVector OffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoHoles get_Holes()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoPlateDirectionSettings get_DirectionSettings()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoPlateDirectionSettings
+    16 Boolean IsMainDirection
+    16 Boolean IsRnfDirectionAuto
+    16 Boolean IsRnfOneDir
+    16 Double DirectionAngle
+    16 Double RnfDirection
+    8 Boolean get_IsMainDirection()
+    8 Boolean get_IsRnfDirectionAuto()
+    8 Boolean get_IsRnfOneDir()
+    8 Double get_DirectionAngle()
+    8 Double get_RnfDirection()
+    8 Void set_DirectionAngle(Double)
+    8 Void set_IsMainDirection(Boolean)
+    8 Void set_IsRnfDirectionAuto(Boolean)
+    8 Void set_IsRnfOneDir(Boolean)
+
+interface CBSEngine.IGeoPlates
+    16 CBSEngine.IGeoPlate Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoPlate Add(System.Object)
+    8 CBSEngine.IGeoPlate get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoPoint
+    16 Double X
+    16 Double Y
+    16 Double Z
+    8 Double get_X()
+    8 Double get_Y()
+    8 Double get_Z()
+    8 Void GetXYZ(Double ByRef, Double ByRef, Double ByRef)
+    8 Void SetXYZ(Double, Double, Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+    8 Void set_Z(Double)
+
+interface CBSEngine.IGeoPointDiagram
+    16 CBSEngine.GeoDiagramPoints Points
+    16 CBSEngine.IGeoPointDiagramType Type
+    16 Int32 Case
+    8 CBSEngine.GeoDiagramPoints get_Points()
+    8 CBSEngine.IGeoPointDiagramType get_Type()
+    8 Int32 get_Case()
+    8 Void set_Case(Int32)
+    8 Void set_Type(CBSEngine.IGeoPointDiagramType)
+
+interface CBSEngine.IGeoPointLoad
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoLoadDirectionType DirectionType
+    16 CBSEngine.IGeoLoadNature Nature
+    16 CBSEngine.IGeoObject Parent
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoPoint Point
+    16 CBSEngine.IGeoVector Direction
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Value
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String CaseName
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    16 System.String Subnature
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoLoadDirectionType get_DirectionType()
+    8 CBSEngine.IGeoLoadNature get_Nature()
+    8 CBSEngine.IGeoObject get_Parent()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoPoint get_Point()
+    8 CBSEngine.IGeoVector get_Direction()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Value()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_CaseName()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 System.String get_Subnature()
+    8 Void set_CaseName(System.String)
+    8 Void set_Direction(CBSEngine.IGeoVector)
+    8 Void set_DirectionType(CBSEngine.IGeoLoadDirectionType)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_Nature(CBSEngine.IGeoLoadNature)
+    8 Void set_Parent(CBSEngine.IGeoObject)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Subnature(System.String)
+    8 Void set_Value(Double)
+
+interface CBSEngine.IGeoPointLoads
+    16 CBSEngine.IGeoPointLoad Item [Int32]
+    16 Int32 Count
+    8 Boolean GenerateWindLoadsOnMesh(System.String, Double, Double, Double, Double, Boolean, Double ByRef)
+    8 CBSEngine.IGeoPointLoad Add(System.Object)
+    8 CBSEngine.IGeoPointLoad get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoPoints
+    16 CBSEngine.IGeoPoint Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoPoint get_Item(Int32)
+    8 Int32 Add(Double, Double, Double)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Count(Int32)
+
+interface CBSEngine.IGeoPolyline
+    16 Boolean Closed
+    16 CBSEngine.IGeoPoints Points
+    8 Boolean get_Closed()
+    8 CBSEngine.IGeoPoints get_Points()
+    8 Void set_Closed(Boolean)
+
+interface CBSEngine.IGeoProfileBase
+    16 Boolean IsChecked
+    16 System.String Description
+    16 System.String FullName
+    16 System.String Name
+    8 Boolean MoveDown()
+    8 Boolean MoveUp()
+    8 Boolean get_IsChecked()
+    8 System.String get_Description()
+    8 System.String get_FullName()
+    8 System.String get_Name()
+    8 Void set_IsChecked(Boolean)
+
+interface CBSEngine.IGeoProfileBases
+    16 CBSEngine.IGeoProfileBase Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoProfileBase get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoRCElementDesignOptions
+    16 CBSEngine.GeoRCGeneralParameters GeneralParameters
+    8 CBSEngine.GeoRCGeneralParameters get_GeneralParameters()
+
+interface CBSEngine.IGeoRCGeneralParameters
+    16 CBSEngine.GeoBeamDesignOptions Beams
+    16 CBSEngine.GeoColumnDesignOptions Columns
+    16 CBSEngine.GeoContFootDesignOptions ContFoots
+    16 CBSEngine.GeoFootDesignOptions Foots
+    16 CBSEngine.GeoSlabDesignOptions Slabs
+    16 CBSEngine.GeoWallDesignOptions Walls
+    8 CBSEngine.GeoBeamDesignOptions get_Beams()
+    8 CBSEngine.GeoColumnDesignOptions get_Columns()
+    8 CBSEngine.GeoContFootDesignOptions get_ContFoots()
+    8 CBSEngine.GeoFootDesignOptions get_Foots()
+    8 CBSEngine.GeoSlabDesignOptions get_Slabs()
+    8 CBSEngine.GeoWallDesignOptions get_Walls()
+
+interface CBSEngine.IGeoReactions
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double N [Int32]
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_N(Int32)
+
+interface CBSEngine.IGeoRebar
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoResultCombinationCase
+    16 Double Factor
+    16 Int32 CaseNumber
+    8 Double get_Factor()
+    8 Int32 get_CaseNumber()
+    8 Void set_CaseNumber(Int32)
+    8 Void set_Factor(Double)
+
+interface CBSEngine.IGeoResultCombinationCases
+    16 CBSEngine.GeoResultCombinationCase Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GeoResultCombinationCase Add(Int32, Double)
+    8 CBSEngine.GeoResultCombinationCase get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoResultLoadCase
+    16 Boolean IsSimple
+    16 CBSEngine.IGeoLoadNature Nature
+    16 CBSEngine.IGeoPredefinedSubnature PredefinedType
+    16 System.String Name
+    8 Boolean get_IsSimple()
+    8 CBSEngine.IGeoLoadNature get_Nature()
+    8 CBSEngine.IGeoPredefinedSubnature get_PredefinedType()
+    8 System.String get_Name()
+
+interface CBSEngine.IGeoResultLoadCases
+    16 CBSEngine.GeoResultLoadCase Item [Int32]
+    16 CBSEngine.GeoResultLoadCombinations Combinations
+    16 Int32 Count
+    8 CBSEngine.GeoResultLoadCase InsertSelfWeightCase(Int32, CBSEngine.IGeoLoadNature, System.String)
+    8 CBSEngine.GeoResultLoadCase get_Item(Int32)
+    8 CBSEngine.GeoResultLoadCombinations get_Combinations()
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void ApplySelfWeightToCase(Int32)
+
+interface CBSEngine.IGeoResultLoadCombination
+    16 CBSEngine.GeoResultCombinationCases Cases
+    16 CBSEngine.IGeoCombinationStateType StateType
+    16 System.String Name
+    8 CBSEngine.GeoResultCombinationCases get_Cases()
+    8 CBSEngine.IGeoCombinationStateType get_StateType()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_StateType(CBSEngine.IGeoCombinationStateType)
+
+interface CBSEngine.IGeoResultLoadCombinations
+    16 Boolean Manual
+    16 CBSEngine.GeoResultLoadCombination Item [Int32]
+    16 Int32 Count
+    8 Boolean get_Manual()
+    8 CBSEngine.GeoResultLoadCombination Add(CBSEngine.IGeoCombinationStateType, System.String)
+    8 CBSEngine.GeoResultLoadCombination get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Manual(Boolean)
+
+interface CBSEngine.IGeoRoom
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoRooms
+    16 CBSEngine.IGeoRoom Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoRoom get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoSection
+    16 CBSEngine.IGeoSectionType Type
+    16 System.String Name
+    8 CBSEngine.IGeoSectionType get_Type()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+interface CBSEngine.IGeoSectionC
+    16 Double D
+    8 Double get_D()
+    8 Void set_D(Double)
+
+interface CBSEngine.IGeoSectionLayers
+
+interface CBSEngine.IGeoSectionPolyHole
+    16 CBSEngine.IGeoSectionHoleType HoleType
+    8 CBSEngine.IGeoSectionHoleType get_HoleType()
+    8 Void set_HoleType(CBSEngine.IGeoSectionHoleType)
+
+interface CBSEngine.IGeoSectionProfile
+    16 CBSEngine.IGeoComplexContour Profile
+    16 System.String BaseName
+    8 CBSEngine.IGeoComplexContour get_Profile()
+    8 System.String get_BaseName()
+    8 Void set_BaseName(System.String)
+
+interface CBSEngine.IGeoSectionR
+    16 Double B
+    16 Double H
+    8 Double get_B()
+    8 Double get_H()
+    8 Void set_B(Double)
+    8 Void set_H(Double)
+
+interface CBSEngine.IGeoSectionRFoot
+    16 Double A
+    16 Double A2
+    16 Double B
+    16 Double B2
+    16 Double EX
+    16 Double EY
+    16 Double H
+    16 Double H2
+    8 Double get_A()
+    8 Double get_A2()
+    8 Double get_B()
+    8 Double get_B2()
+    8 Double get_EX()
+    8 Double get_EY()
+    8 Double get_H()
+    8 Double get_H2()
+    8 Void set_A(Double)
+    8 Void set_A2(Double)
+    8 Void set_B(Double)
+    8 Void set_B2(Double)
+    8 Void set_EX(Double)
+    8 Void set_EY(Double)
+    8 Void set_H(Double)
+    8 Void set_H2(Double)
+
+interface CBSEngine.IGeoSectionRHole
+    16 CBSEngine.IGeoSectionHoleType HoleType
+    16 Double H
+    16 Double L
+    8 CBSEngine.IGeoSectionHoleType get_HoleType()
+    8 Double get_H()
+    8 Double get_L()
+    8 Void set_H(Double)
+    8 Void set_HoleType(CBSEngine.IGeoSectionHoleType)
+    8 Void set_L(Double)
+
+interface CBSEngine.IGeoSectionStairs
+    16 Boolean IsAutoRiserHeight
+    16 Boolean IsAutoStepCount
+    16 Boolean IsAutoTreadLength
+    16 Double RiserHeight
+    16 Double Thickness
+    16 Double TreadLength
+    16 Int32 StepCount
+    8 Boolean get_IsAutoRiserHeight()
+    8 Boolean get_IsAutoStepCount()
+    8 Boolean get_IsAutoTreadLength()
+    8 Double get_RiserHeight()
+    8 Double get_Thickness()
+    8 Double get_TreadLength()
+    8 Int32 get_StepCount()
+    8 Void set_IsAutoRiserHeight(Boolean)
+    8 Void set_IsAutoStepCount(Boolean)
+    8 Void set_IsAutoTreadLength(Boolean)
+    8 Void set_RiserHeight(Double)
+    8 Void set_StepCount(Int32)
+    8 Void set_Thickness(Double)
+    8 Void set_TreadLength(Double)
+
+interface CBSEngine.IGeoSectionT
+    16 Double B
+    16 Double BF
+    16 Double H
+    16 Double HF
+    8 Double get_B()
+    8 Double get_BF()
+    8 Double get_H()
+    8 Double get_HF()
+    8 Void set_B(Double)
+    8 Void set_BF(Double)
+    8 Void set_H(Double)
+    8 Void set_HF(Double)
+
+interface CBSEngine.IGeoSectionTFoot
+    16 Double A
+    16 Double A1
+    16 Double B
+    16 Double B1
+    16 Double H
+    16 Double H1
+    8 Double get_A()
+    8 Double get_A1()
+    8 Double get_B()
+    8 Double get_B1()
+    8 Double get_H()
+    8 Double get_H1()
+    8 Void set_A(Double)
+    8 Void set_A1(Double)
+    8 Void set_B(Double)
+    8 Void set_B1(Double)
+    8 Void set_H(Double)
+    8 Void set_H1(Double)
+
+interface CBSEngine.IGeoSectionThick
+    16 Double H
+    8 Double get_H()
+    8 Void set_H(Double)
+
+interface CBSEngine.IGeoSections
+    16 CBSEngine.IGeoProfileBases SectionBases
+    16 CBSEngine.IGeoSection Item [System.Object]
+    16 Int32 Count
+    8 CBSEngine.IGeoProfileBases get_SectionBases()
+    8 CBSEngine.IGeoSection Add(CBSEngine.IGeoSectionType, System.String)
+    8 CBSEngine.IGeoSection get_Item(System.Object)
+    8 CBSEngine.IGeoSectionProfile AddProfile(System.String, System.String)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void SelectAll()
+    8 Void SelectUsed()
+
+interface CBSEngine.IGeoSegment
+    16 CBSEngine.IGeoPoint End
+    16 CBSEngine.IGeoPoint Medium
+    16 CBSEngine.IGeoSegmentType Type
+    8 CBSEngine.IGeoPoint get_End()
+    8 CBSEngine.IGeoPoint get_Medium()
+    8 CBSEngine.IGeoSegmentType get_Type()
+    8 Void set_Type(CBSEngine.IGeoSegmentType)
+
+interface CBSEngine.IGeoSegments
+    16 CBSEngine.IGeoSegment Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoSegment get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Count(Int32)
+
+interface CBSEngine.IGeoSlabDesignOptions
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+interface CBSEngine.IGeoSpan
+    16 CBSEngine.IGeoSpanParts SpanParts
+    16 Double Length
+    16 System.String Name
+    8 CBSEngine.IGeoSpanParts get_SpanParts()
+    8 Double get_Length()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+interface CBSEngine.IGeoSpanPart
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoVector OffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Gamma
+    16 Double Length
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Gamma()
+    8 Double get_Length()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_Gamma(Double)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoSpanParts
+    16 CBSEngine.IGeoSpanPart Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoSpanPart get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoSpans
+    16 CBSEngine.IGeoSpan Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoSpan get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoStaircase
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoVector OffsetVector
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double RiserHeight
+    16 Double TreadLength
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 StepCount
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_RiserHeight()
+    8 Double get_TreadLength()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_StepCount()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoStairs
+    16 CBSEngine.IGeoStaircase Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoStaircase Add(System.Object)
+    8 CBSEngine.IGeoStaircase get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoStorey
+    16 Boolean AutoName
+    16 CBSEngine.IGeoBeams Beams
+    16 CBSEngine.IGeoColumns Columns
+    16 CBSEngine.IGeoContFoots ContFoots
+    16 CBSEngine.IGeoFootPlates FootPlates
+    16 CBSEngine.IGeoFoots Foots
+    16 CBSEngine.IGeoLinearLoads LinearLoads
+    16 CBSEngine.IGeoPlanarLoads PlanarLoads
+    16 CBSEngine.IGeoPlates Plates
+    16 CBSEngine.IGeoPointLoads PointLoads
+    16 CBSEngine.IGeoRooms Rooms
+    16 CBSEngine.IGeoStairs Stairs
+    16 CBSEngine.IGeoWalls Walls
+    16 Double Area
+    16 Double Elevation
+    16 Double Height
+    16 Double Volume
+    16 Int16 CalculationGroup
+    16 Int16 Number
+    16 System.String Name
+    8 Boolean get_AutoName()
+    8 CBSEngine.IGeoBeams get_Beams()
+    8 CBSEngine.IGeoColumns get_Columns()
+    8 CBSEngine.IGeoContFoots get_ContFoots()
+    8 CBSEngine.IGeoFootPlates get_FootPlates()
+    8 CBSEngine.IGeoFoots get_Foots()
+    8 CBSEngine.IGeoLinearLoads get_LinearLoads()
+    8 CBSEngine.IGeoPlanarLoads get_PlanarLoads()
+    8 CBSEngine.IGeoPlates get_Plates()
+    8 CBSEngine.IGeoPointLoads get_PointLoads()
+    8 CBSEngine.IGeoRooms get_Rooms()
+    8 CBSEngine.IGeoStairs get_Stairs()
+    8 CBSEngine.IGeoWalls get_Walls()
+    8 Double get_Area()
+    8 Double get_Elevation()
+    8 Double get_Height()
+    8 Double get_Volume()
+    8 Int16 get_CalculationGroup()
+    8 Int16 get_Number()
+    8 System.String get_Name()
+    8 Void set_AutoName(Boolean)
+    8 Void set_CalculationGroup(Int16)
+    8 Void set_Height(Double)
+    8 Void set_Name(System.String)
+
+interface CBSEngine.IGeoStoreys
+    16 Boolean IsNext [System.Object]
+    16 Boolean IsPrevious [System.Object]
+    16 CBSEngine.IGeoStorey Item [Int32]
+    16 CBSEngine.IGeoStorey ItemByNumber [System.Object]
+    16 CBSEngine.IGeoStorey Next [System.Object]
+    16 CBSEngine.IGeoStorey Previous [System.Object]
+    16 Int32 Count
+    8 Boolean get_IsNext(System.Object)
+    8 Boolean get_IsPrevious(System.Object)
+    8 CBSEngine.IGeoStorey Add(Int16)
+    8 CBSEngine.IGeoStorey get_Item(Int32)
+    8 CBSEngine.IGeoStorey get_ItemByNumber(System.Object)
+    8 CBSEngine.IGeoStorey get_Next(System.Object)
+    8 CBSEngine.IGeoStorey get_Previous(System.Object)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoStructure
+    16 Boolean IsRoomAuto
+    16 CBSEngine.GeoStructureResults Results
+    16 CBSEngine.IGeoBeams Beams
+    16 CBSEngine.IGeoColumns Columns
+    16 CBSEngine.IGeoContFoots ContFoots
+    16 CBSEngine.IGeoDoors Doors
+    16 CBSEngine.IGeoFigures Figures
+    16 CBSEngine.IGeoFootPlates FootPlates
+    16 CBSEngine.IGeoFoots Foots
+    16 CBSEngine.IGeoHoles Holes
+    16 CBSEngine.IGeoLinearLoads LinearLoads
+    16 CBSEngine.IGeoMaterials Materials
+    16 CBSEngine.IGeoObject FindObjectByUniqueNumber [Int32]
+    16 CBSEngine.IGeoObjects Objects
+    16 CBSEngine.IGeoPlanarLoads PlanarLoads
+    16 CBSEngine.IGeoPlates Plates
+    16 CBSEngine.IGeoPointLoads PointLoads
+    16 CBSEngine.IGeoRooms Rooms
+    16 CBSEngine.IGeoSections Sections
+    16 CBSEngine.IGeoStairs Stairs
+    16 CBSEngine.IGeoStoreys Storeys
+    16 CBSEngine.IGeoTexts Texts
+    16 CBSEngine.IGeoWalls Walls
+    16 CBSEngine.IGeoWindows Windows
+    16 Double ElevationOfRefHeight
+    16 Double ElevationOfTerrain
+    8 Boolean RunScript(System.String, System.String)
+    8 Boolean get_IsRoomAuto()
+    8 CBSEngine.GeoStructureResults get_Results()
+    8 CBSEngine.IGeoBeams get_Beams()
+    8 CBSEngine.IGeoColumns get_Columns()
+    8 CBSEngine.IGeoContFoots get_ContFoots()
+    8 CBSEngine.IGeoDoors get_Doors()
+    8 CBSEngine.IGeoFigures get_Figures()
+    8 CBSEngine.IGeoFootPlates get_FootPlates()
+    8 CBSEngine.IGeoFoots get_Foots()
+    8 CBSEngine.IGeoHoles get_Holes()
+    8 CBSEngine.IGeoLinearLoads get_LinearLoads()
+    8 CBSEngine.IGeoMaterials get_Materials()
+    8 CBSEngine.IGeoObject GroupObjects(CBSEngine.IGeoObjects)
+    8 CBSEngine.IGeoObject get_FindObjectByUniqueNumber(Int32)
+    8 CBSEngine.IGeoObjects get_Objects()
+    8 CBSEngine.IGeoPlanarLoads get_PlanarLoads()
+    8 CBSEngine.IGeoPlates get_Plates()
+    8 CBSEngine.IGeoPointLoads get_PointLoads()
+    8 CBSEngine.IGeoRooms get_Rooms()
+    8 CBSEngine.IGeoSections get_Sections()
+    8 CBSEngine.IGeoStairs get_Stairs()
+    8 CBSEngine.IGeoStoreys get_Storeys()
+    8 CBSEngine.IGeoTexts get_Texts()
+    8 CBSEngine.IGeoWalls get_Walls()
+    8 CBSEngine.IGeoWindows get_Windows()
+    8 Double get_ElevationOfRefHeight()
+    8 Double get_ElevationOfTerrain()
+    8 System.String GetDefaultMaterial(CBSEngine.IGeoObjectType ByRef)
+    8 Void GenerateCalculationsStoreys()
+    8 Void Initialize()
+    8 Void LockUpdate()
+    8 Void MeshFiguresSynchronizeEdges()
+    8 Void Normalize()
+    8 Void NormalizeStoreys()
+    8 Void RemoveObject(Int32)
+    8 Void RemoveObject2(System.Object)
+    8 Void UnlockUpdate()
+    8 Void set_ElevationOfRefHeight(Double)
+    8 Void set_ElevationOfTerrain(Double)
+    8 Void set_IsRoomAuto(Boolean)
+
+interface CBSEngine.IGeoStructureResults
+    16 Boolean Exist
+    16 CBSEngine.GeoResultLoadCases LoadCases
+    16 CBSEngine.IGeoCalculationMethod Method
+    16 Double MaxMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    8 Boolean get_Exist()
+    8 CBSEngine.GeoResultLoadCases get_LoadCases()
+    8 CBSEngine.IGeoCalculationMethod get_Method()
+    8 Double get_MaxMapValue(Int32, CBSEngine.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, CBSEngine.IGeoResultsMapType)
+    8 Void set_Method(CBSEngine.IGeoCalculationMethod)
+
+interface CBSEngine.IGeoText
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoTexts
+    16 CBSEngine.IGeoText Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoText get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoVector
+    16 Double X
+    16 Double Y
+    16 Double Z
+    8 Double get_X()
+    8 Double get_Y()
+    8 Double get_Z()
+    8 Void GetXYZ(Double ByRef, Double ByRef, Double ByRef)
+    8 Void SetXYZ(Double, Double, Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+    8 Void set_Z(Double)
+
+interface CBSEngine.IGeoVectors
+    16 CBSEngine.IGeoVector Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoVector get_Item(Int32)
+    8 Int32 Add(Double, Double, Double)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoVersion
+    16 System.String VersionID
+    8 System.String get_VersionID()
+
+interface CBSEngine.IGeoVersion2
+    8 Boolean IsVersion(System.String)
+
+interface CBSEngine.IGeoWall
+    16 Boolean IsCarrying
+    16 Boolean IsSimplified
+    16 CBSEngine.GeoWallResults Results
+    16 CBSEngine.IGeoDoors Doors
+    16 CBSEngine.IGeoObjectType Type
+    16 CBSEngine.IGeoOffsetType OffsetType
+    16 CBSEngine.IGeoVector OffsetVector
+    16 CBSEngine.IGeoWindows Windows
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 Boolean get_IsSimplified()
+    8 CBSEngine.GeoWallResults get_Results()
+    8 CBSEngine.IGeoDoors get_Doors()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 CBSEngine.IGeoOffsetType get_OffsetType()
+    8 CBSEngine.IGeoVector get_OffsetVector()
+    8 CBSEngine.IGeoWindows get_Windows()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void Normalize()
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_IsSimplified(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_OffsetType(CBSEngine.IGeoOffsetType)
+    8 Void set_OffsetVector(CBSEngine.IGeoVector)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+
+interface CBSEngine.IGeoWallDesignOptions
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+interface CBSEngine.IGeoWallResults
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Double Fx [Int32]
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Double get_Fx(Int32)
+    8 Double get_Stress(Int32)
+
+interface CBSEngine.IGeoWalls
+    16 CBSEngine.IGeoWall Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoWall Add(System.Object)
+    8 CBSEngine.IGeoWall get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGeoWindow
+    16 Boolean IsCarrying
+    16 CBSEngine.IGeoObjectType Type
+    16 Double Area
+    16 Double AreaWithoutOpenings
+    16 Double Formwork
+    16 Double Transparency
+    16 Double Volume
+    16 Int16 Storey
+    16 Int32 RevitId
+    16 Int32 UniqueNumber
+    16 System.String GlobalId
+    16 System.String Material
+    16 System.String Name
+    16 System.String Section
+    8 Boolean get_IsCarrying()
+    8 CBSEngine.IGeoObjectType get_Type()
+    8 Double get_Area()
+    8 Double get_AreaWithoutOpenings()
+    8 Double get_Formwork()
+    8 Double get_Transparency()
+    8 Double get_Volume()
+    8 Int16 get_Storey()
+    8 Int32 get_RevitId()
+    8 Int32 get_UniqueNumber()
+    8 System.String get_GlobalId()
+    8 System.String get_Material()
+    8 System.String get_Name()
+    8 System.String get_Section()
+    8 Void GetColor(Int16 ByRef, Int16 ByRef, Int16 ByRef)
+    8 Void SetColor(Int16, Int16, Int16)
+    8 Void set_GlobalId(System.String)
+    8 Void set_IsCarrying(Boolean)
+    8 Void set_Material(System.String)
+    8 Void set_Name(System.String)
+    8 Void set_RevitId(Int32)
+    8 Void set_Section(System.String)
+    8 Void set_Storey(Int16)
+    8 Void set_Transparency(Double)
+
+interface CBSEngine.IGeoWindows
+    16 CBSEngine.IGeoWindow Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.IGeoWindow Add(System.Object)
+    8 CBSEngine.IGeoWindow get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGridAxisArc
+    16 Double DeltaAngle
+    16 Double Radius
+    16 Double StartAngle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 Double get_DeltaAngle()
+    8 Double get_Radius()
+    8 Double get_StartAngle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_DeltaAngle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_Radius(Double)
+    8 Void set_StartAngle(Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+interface CBSEngine.IGridAxisArcs
+    16 CBSEngine.GridAxisArc Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridAxisArc Add()
+    8 CBSEngine.GridAxisArc get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+interface CBSEngine.IGridAxisGroup
+    16 CBSEngine.GridAxisArcs GridAxisArcs
+    16 CBSEngine.GridAxisLines GridAxisLines
+    16 System.String Name
+    8 CBSEngine.GridAxisArcs get_GridAxisArcs()
+    8 CBSEngine.GridAxisLines get_GridAxisLines()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+interface CBSEngine.IGridAxisGroups
+    16 CBSEngine.GridAxisGroup Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridAxisGroup Add()
+    8 CBSEngine.GridAxisGroup get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAllArcAxis(Boolean)
+    8 Void ShowAllLineAxis(Boolean)
+
+interface CBSEngine.IGridAxisLine
+    16 Double x1
+    16 Double x2
+    16 Double y1
+    16 Double y2
+    16 System.String Name
+    8 Double get_x1()
+    8 Double get_x2()
+    8 Double get_y1()
+    8 Double get_y2()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_x1(Double)
+    8 Void set_x2(Double)
+    8 Void set_y1(Double)
+    8 Void set_y2(Double)
+
+interface CBSEngine.IGridAxisLines
+    16 CBSEngine.GridAxisLine Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridAxisLine Add()
+    8 CBSEngine.GridAxisLine get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+interface CBSEngine.IGridCart
+    16 CBSEngine.GridSteps XgridSteps
+    16 CBSEngine.GridSteps YgridSteps
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 CBSEngine.GridSteps get_XgridSteps()
+    8 CBSEngine.GridSteps get_YgridSteps()
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+interface CBSEngine.IGridCyl
+    16 CBSEngine.GridSteps AngleSteps
+    16 CBSEngine.GridSteps RadiusSteps
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 CBSEngine.GridSteps get_AngleSteps()
+    8 CBSEngine.GridSteps get_RadiusSteps()
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+interface CBSEngine.IGridStep
+    16 Double Value
+    16 Int32 Count
+    8 Double get_Value()
+    8 Int32 get_Count()
+    8 Void set_Count(Int32)
+    8 Void set_Value(Double)
+
+interface CBSEngine.IGridSteps
+    16 CBSEngine.GridStep Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridStep Add()
+    8 CBSEngine.GridStep get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+interface CBSEngine.IGridSystem
+    16 CBSEngine.GridAxisGroups GridAxisGroups
+    16 CBSEngine.GridsCart GridsCart
+    16 CBSEngine.GridsCyl GridsCyl
+    8 CBSEngine.GridAxisGroups get_GridAxisGroups()
+    8 CBSEngine.GridsCart get_GridsCart()
+    8 CBSEngine.GridsCyl get_GridsCyl()
+    8 Void ShowAll(Boolean)
+
+interface CBSEngine.IGridsCart
+    16 CBSEngine.GridCart Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridCart Add()
+    8 CBSEngine.GridCart get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+interface CBSEngine.IGridsCyl
+    16 CBSEngine.GridCyl Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridCyl Add()
+    8 CBSEngine.GridCyl get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+interface CBSEngine.IRobinCommand
+    16 Boolean Checked
+    16 Boolean Enabled
+    8 Boolean get_Checked()
+    8 Boolean get_Enabled()
+    8 Void Run()
+
+interface CBSEngine.IRobinDocPreferences
+    8 Void GetColor3D(CBSEngine.IGeoObjectType, Boolean, UInt32 ByRef, UInt32 ByRef, UInt32 ByRef)
+    8 Void SetColor3D(CBSEngine.IGeoObjectType, Boolean, UInt32, UInt32, UInt32)
+
+interface CBSEngine.IRobinDocument
+    16 Boolean IsDemo
+    16 CBSEngine.GeoCalculations Calculations
+    16 CBSEngine.IGeoLoadsRegulations LoadsRegulations2
+    16 CBSEngine.IGeoStructure Structure2
+    16 CBSEngine.RobinCommand CommandEditModeDrag
+    16 CBSEngine.RobinCommand CommandSelect
+    16 CBSEngine.RobinCommand CommandSnapAxialIntersections
+    16 CBSEngine.RobinCommand CommandSnapGraphicalObjects
+    16 CBSEngine.RobinCommand CommandSnapObjectCenters
+    16 CBSEngine.RobinCommand CommandSnapObjectEnds
+    16 CBSEngine.RobinCommand CommandSnapObjectExtension
+    16 CBSEngine.RobinCommand CommandSnapOrthogonalToPoint
+    16 CBSEngine.RobinCommand CommandSnapParallelToObject
+    16 CBSEngine.RobinCommand CommandSnapPerpendicularToObject
+    16 CBSEngine.RobinDocPreferences DocPreferences
+    16 CBSEngine.RobinEventManager Events
+    16 CBSEngine.RobinOptions Options
+    16 CBSEngine.RobinReports Reports
+    16 CBSEngine.RobinTaskManager TaskManager
+    16 CBSEngine.RobinView ActiveView
+    16 System.Object Grids
+    16 System.Object LoadsRegulations
+    16 System.Object Structure
+    16 System.String PathName
+    16 System.String Title
+    8 Boolean get_IsDemo()
+    8 CBSEngine.GeoCalculations get_Calculations()
+    8 CBSEngine.IGeoLoadsRegulations get_LoadsRegulations2()
+    8 CBSEngine.IGeoStructure get_Structure2()
+    8 CBSEngine.RobinCommand get_CommandEditModeDrag()
+    8 CBSEngine.RobinCommand get_CommandSelect()
+    8 CBSEngine.RobinCommand get_CommandSnapAxialIntersections()
+    8 CBSEngine.RobinCommand get_CommandSnapGraphicalObjects()
+    8 CBSEngine.RobinCommand get_CommandSnapObjectCenters()
+    8 CBSEngine.RobinCommand get_CommandSnapObjectEnds()
+    8 CBSEngine.RobinCommand get_CommandSnapObjectExtension()
+    8 CBSEngine.RobinCommand get_CommandSnapOrthogonalToPoint()
+    8 CBSEngine.RobinCommand get_CommandSnapParallelToObject()
+    8 CBSEngine.RobinCommand get_CommandSnapPerpendicularToObject()
+    8 CBSEngine.RobinDocPreferences get_DocPreferences()
+    8 CBSEngine.RobinEventManager get_Events()
+    8 CBSEngine.RobinOptions get_Options()
+    8 CBSEngine.RobinReports get_Reports()
+    8 CBSEngine.RobinTaskManager get_TaskManager()
+    8 CBSEngine.RobinView get_ActiveView()
+    8 System.Object get_Grids()
+    8 System.Object get_LoadsRegulations()
+    8 System.Object get_Structure()
+    8 System.String get_PathName()
+    8 System.String get_Title()
+    8 Void Close(Boolean)
+    8 Void ExportAllToRSA()
+    8 Void ExportSelToRSA()
+    8 Void ExportToRSA()
+    8 Void FileImport(System.String)
+    8 Void FileOpen(System.String)
+    8 Void GetAccessCode(Int32 ByRef, System.String ByRef)
+    8 Void SaveAs(System.String)
+    8 Void SetAccessCode(System.String)
+    8 Void UpdateViews()
+    8 Void ViewsZoomAll()
+    8 Void set_ActiveView(CBSEngine.RobinView)
+    8 Void set_Calculations(CBSEngine.GeoCalculations)
+    8 Void set_CommandEditModeDrag(CBSEngine.RobinCommand)
+    8 Void set_CommandSelect(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapAxialIntersections(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapGraphicalObjects(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapObjectCenters(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapObjectEnds(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapObjectExtension(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapOrthogonalToPoint(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapParallelToObject(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapPerpendicularToObject(CBSEngine.RobinCommand)
+    8 Void set_DocPreferences(CBSEngine.RobinDocPreferences)
+    8 Void set_Events(CBSEngine.RobinEventManager)
+    8 Void set_Grids(System.Object)
+    8 Void set_IsDemo(Boolean)
+    8 Void set_LoadsRegulations(System.Object)
+    8 Void set_LoadsRegulations2(CBSEngine.IGeoLoadsRegulations)
+    8 Void set_Options(CBSEngine.RobinOptions)
+    8 Void set_PathName(System.String)
+    8 Void set_Reports(CBSEngine.RobinReports)
+    8 Void set_Structure(System.Object)
+    8 Void set_Structure2(CBSEngine.IGeoStructure)
+    8 Void set_TaskManager(CBSEngine.RobinTaskManager)
+    8 Void set_Title(System.String)
+
+interface CBSEngine.IRobinEventManager
+    16 Boolean EventsLocked
+    8 Boolean LockEvents(Boolean)
+    8 Boolean get_EventsLocked()
+
+interface CBSEngine.IRobinOptions
+    16 Boolean AddFootingsUnderColumns
+    16 Boolean AddFootingsUnderWalls
+    16 Boolean PlatePinned
+    8 Boolean get_AddFootingsUnderColumns()
+    8 Boolean get_AddFootingsUnderWalls()
+    8 Boolean get_PlatePinned()
+    8 Void set_AddFootingsUnderColumns(Boolean)
+    8 Void set_AddFootingsUnderWalls(Boolean)
+    8 Void set_PlatePinned(Boolean)
+
+interface CBSEngine.IRobinPreferences
+    16 CBSEngine.ILifeLoadRedCode LifeLoadRedCode
+    16 CBSEngine.RobinUnits Units
+    8 CBSEngine.ILifeLoadRedCode get_LifeLoadRedCode()
+    8 CBSEngine.RobinUnits get_Units()
+    8 Void set_LifeLoadRedCode(CBSEngine.ILifeLoadRedCode)
+
+interface CBSEngine.IRobinReports
+    16 Boolean EnableLog
+    16 CBSEngine.RobinVerification Verification
+    8 Boolean SaveToFile(CBSEngine.IRobinReportType, System.String)
+    8 Boolean get_EnableLog()
+    8 CBSEngine.RobinVerification get_Verification()
+    8 Void set_EnableLog(Boolean)
+
+interface CBSEngine.IRobinTaskManager
+    8 Boolean AddObjectTaskIsWorking(Boolean ByRef, CBSEngine.IGeoObjectType ByRef)
+    8 Void StartAddContFoot(Boolean)
+    8 Void StartAddFoot(Boolean)
+    8 Void StartAddFootTask()
+    8 Void StartAddLine(Boolean)
+    8 Void StartAddPoint()
+    8 Void StopAllTasks()
+
+interface CBSEngine.IRobinUnits
+    8 Boolean ModifyUnit(CBSEngine.IRobinUnitType, System.String, Int16, System.String)
+
+interface CBSEngine.IRobinVerification
+    16 CBSEngine.RobinVerificationOptions Options
+    8 Boolean Run()
+    8 CBSEngine.RobinVerificationOptions get_Options()
+
+interface CBSEngine.IRobinVerificationOptions
+    16 Boolean RangeMaximumAuto
+    16 Double RangeMaximum
+    16 Double RangeMinimum
+    8 Boolean get_RangeMaximumAuto()
+    8 Double get_RangeMaximum()
+    8 Double get_RangeMinimum()
+    8 Void set_RangeMaximum(Double)
+    8 Void set_RangeMaximumAuto(Boolean)
+    8 Void set_RangeMinimum(Double)
+
+interface CBSEngine.IRobinView
+    16 CBSEngine.IGeoViewMode Mode
+    16 CBSEngine.IGeoViewProjectionType Projection
+    16 CBSEngine.IGeoViewView3D View3D
+    16 CBSEngine.RobinCommand CommandDisplayGroups
+    16 CBSEngine.RobinCommand CommandDisplaySelectedElements
+    16 CBSEngine.RobinCommand CommandRotateZoomPan
+    16 CBSEngine.RobinCommand CommandZoomAll
+    16 CBSEngine.RobinCommand CommandZoomWindow
+    16 CBSEngine.RobinViewDisplay Display
+    16 Int16 StoreyNumber
+    8 Boolean MakeScreenShot(System.String)
+    8 Boolean VisibleObjectsCheck(Int32)
+    8 CBSEngine.IGeoViewMode get_Mode()
+    8 CBSEngine.IGeoViewProjectionType get_Projection()
+    8 CBSEngine.IGeoViewView3D get_View3D()
+    8 CBSEngine.RobinCommand get_CommandDisplayGroups()
+    8 CBSEngine.RobinCommand get_CommandDisplaySelectedElements()
+    8 CBSEngine.RobinCommand get_CommandRotateZoomPan()
+    8 CBSEngine.RobinCommand get_CommandZoomAll()
+    8 CBSEngine.RobinCommand get_CommandZoomWindow()
+    8 CBSEngine.RobinViewDisplay get_Display()
+    8 Int16 get_StoreyNumber()
+    8 Int32 VisibleObjectsGet()
+    8 Void SelectObject(Int32, Boolean)
+    8 Void SelectOneObject(Int32, Boolean)
+    8 Void VisibleObjectsSet(Int32, Boolean)
+    8 Void set_Mode(CBSEngine.IGeoViewMode)
+    8 Void set_Projection(CBSEngine.IGeoViewProjectionType)
+    8 Void set_StoreyNumber(Int16)
+    8 Void set_View3D(CBSEngine.IGeoViewView3D)
+
+interface CBSEngine.IRobinViewDisplay
+    16 CBSEngine.RobinViewLoadsDisplay Loads
+    16 CBSEngine.RobinViewResultsDisplay Results
+    8 CBSEngine.RobinViewLoadsDisplay get_Loads()
+    8 CBSEngine.RobinViewResultsDisplay get_Results()
+    8 Void ShowObjectsAndShadows(CBSEngine.IGeoObjects, CBSEngine.IGeoObjects)
+    8 Void ShowObjectsCollection(CBSEngine.IGeoObjects, Boolean)
+
+interface CBSEngine.IRobinViewLoadsDisplay
+    8 Void ShowAllNatures()
+    8 Void ShowNature(CBSEngine.IGeoLoadNature, System.String)
+
+interface CBSEngine.IRobinViewResultsDisplay
+    16 Boolean Deformation
+    16 Boolean DisplayLLRedEnvelopes
+    16 Boolean DisplayLLRedValues
+    16 Boolean LPFoc
+    16 Boolean LPLin
+    16 Boolean LPMap
+    16 Boolean Legend
+    16 Boolean LoadMap
+    16 Boolean MassCenter
+    16 Boolean Resultant
+    16 Boolean RigidityCenter
+    16 Boolean SlabDir3dView
+    16 Boolean StoreyResult
+    16 Boolean StressMap
+    16 Boolean Values
+    16 CBSEngine.IGeoResultsMapType Map
+    16 Double Scale
+    16 Int32 CaseIndex
+    8 Boolean get_Deformation()
+    8 Boolean get_DisplayLLRedEnvelopes()
+    8 Boolean get_DisplayLLRedValues()
+    8 Boolean get_LPFoc()
+    8 Boolean get_LPLin()
+    8 Boolean get_LPMap()
+    8 Boolean get_Legend()
+    8 Boolean get_LoadMap()
+    8 Boolean get_MassCenter()
+    8 Boolean get_Resultant()
+    8 Boolean get_RigidityCenter()
+    8 Boolean get_SlabDir3dView()
+    8 Boolean get_StoreyResult()
+    8 Boolean get_StressMap()
+    8 Boolean get_Values()
+    8 CBSEngine.IGeoResultsMapType get_Map()
+    8 Double get_Scale()
+    8 Int32 get_CaseIndex()
+    8 Void Animate()
+    8 Void set_CaseIndex(Int32)
+    8 Void set_Deformation(Boolean)
+    8 Void set_DisplayLLRedEnvelopes(Boolean)
+    8 Void set_DisplayLLRedValues(Boolean)
+    8 Void set_LPFoc(Boolean)
+    8 Void set_LPLin(Boolean)
+    8 Void set_LPMap(Boolean)
+    8 Void set_Legend(Boolean)
+    8 Void set_LoadMap(Boolean)
+    8 Void set_Map(CBSEngine.IGeoResultsMapType)
+    8 Void set_MassCenter(Boolean)
+    8 Void set_Resultant(Boolean)
+    8 Void set_RigidityCenter(Boolean)
+    8 Void set_Scale(Double)
+    8 Void set_SlabDir3dView(Boolean)
+    8 Void set_StoreyResult(Boolean)
+    8 Void set_StressMap(Boolean)
+    8 Void set_Values(Boolean)
+
+interface CBSEngine.Note
+
+interface CBSEngine.NoteFactory
+
+interface CBSEngine.RobinCommand
+
+interface CBSEngine.RobinDocPreferences
+
+interface CBSEngine.RobinEventManager
+
+interface CBSEngine.RobinOptions
+
+interface CBSEngine.RobinPreferences
+
+interface CBSEngine.RobinReports
+
+interface CBSEngine.RobinTaskManager
+
+interface CBSEngine.RobinUnits
+
+interface CBSEngine.RobinVerification
+
+interface CBSEngine.RobinVerificationOptions
+
+interface CBSEngine.RobinView
+
+interface CBSEngine.RobinViewDisplay
+
+interface CBSEngine.RobinViewLoadsDisplay
+
+interface CBSEngine.RobinViewResultsDisplay
+
+interface CBSEngine.View
+
+interface CBSEngine.ViewFactory
+
+interface CBSEngine._IGeoCalculationsEvents
+    8 Void ProgressStep(CBSEngine.IGeoCalculationsProgressType, Int32, System.String, System.Object, Boolean ByRef)
+
+interface CBSEngine._IGeoCalculationsEvents_Event
+    2 CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler ProgressStep
+    8 Void add_ProgressStep(CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler)
+    8 Void remove_ProgressStep(CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler)
+
+interface CBSEngine._IRobinDocEvents
+    8 Void ObjectListChanged()
+    8 Void OnUpdateAll()
+    8 Void SelectionChanged()
+    8 Void SelectionModeEntered()
+    8 Void SingleObjectAdded(Int32)
+
+interface CBSEngine._IRobinDocEvents_Event
+    2 CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler ObjectListChanged
+    2 CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler OnUpdateAll
+    2 CBSEngine._IRobinDocEvents_SelectionChangedEventHandler SelectionChanged
+    2 CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler SelectionModeEntered
+    2 CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler SingleObjectAdded
+    8 Void add_ObjectListChanged(CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void add_OnUpdateAll(CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void add_SelectionChanged(CBSEngine._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void add_SelectionModeEntered(CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void add_SingleObjectAdded(CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler)
+    8 Void remove_ObjectListChanged(CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void remove_OnUpdateAll(CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void remove_SelectionChanged(CBSEngine._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void remove_SelectionModeEntered(CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void remove_SingleObjectAdded(CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler)
+
+interface CBSEngine._IRobinViewEvents
+    8 Void ObjectShined(Int32)
+
+interface CBSEngine._IRobinViewEvents_Event
+    2 CBSEngine._IRobinViewEvents_ObjectShinedEventHandler ObjectShined
+    8 Void add_ObjectShined(CBSEngine._IRobinViewEvents_ObjectShinedEventHandler)
+    8 Void remove_ObjectShined(CBSEngine._IRobinViewEvents_ObjectShinedEventHandler)
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class CBSEngine.ApplicationClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Visible
+    16 CBSEngine.Documents Documents
+    16 CBSEngine.RobinPreferences Preferences
+    16 Int32 MainWindowHandle
+    8 Boolean Connect(System.Object, System.String, System.String, Boolean, System.Object)
+    8 Boolean IsVersion(System.String)
+    8 Boolean get_Visible()
+    8 CBSEngine.Documents get_Documents()
+    8 CBSEngine.RobinPreferences get_Preferences()
+    8 Int32 get_MainWindowHandle()
+    8 Void Activate()
+    8 Void set_Documents(CBSEngine.Documents)
+    8 Void set_MainWindowHandle(Int32)
+    8 Void set_Preferences(CBSEngine.RobinPreferences)
+    8 Void set_Visible(Boolean)
+
+class CBSEngine.DocumentClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsDemo
+    16 CBSEngine.GeoCalculations Calculations
+    16 CBSEngine.IGeoLoadsRegulations LoadsRegulations2
+    16 CBSEngine.IGeoStructure Structure2
+    16 CBSEngine.RobinCommand CommandEditModeDrag
+    16 CBSEngine.RobinCommand CommandSelect
+    16 CBSEngine.RobinCommand CommandSnapAxialIntersections
+    16 CBSEngine.RobinCommand CommandSnapGraphicalObjects
+    16 CBSEngine.RobinCommand CommandSnapObjectCenters
+    16 CBSEngine.RobinCommand CommandSnapObjectEnds
+    16 CBSEngine.RobinCommand CommandSnapObjectExtension
+    16 CBSEngine.RobinCommand CommandSnapOrthogonalToPoint
+    16 CBSEngine.RobinCommand CommandSnapParallelToObject
+    16 CBSEngine.RobinCommand CommandSnapPerpendicularToObject
+    16 CBSEngine.RobinDocPreferences DocPreferences
+    16 CBSEngine.RobinEventManager Events
+    16 CBSEngine.RobinOptions Options
+    16 CBSEngine.RobinReports Reports
+    16 CBSEngine.RobinTaskManager TaskManager
+    16 CBSEngine.RobinView ActiveView
+    16 System.Object Grids
+    16 System.Object LoadsRegulations
+    16 System.Object Structure
+    16 System.String PathName
+    16 System.String Title
+    8 Boolean IsVersion(System.String)
+    8 Boolean get_IsDemo()
+    8 CBSEngine.GeoCalculations get_Calculations()
+    8 CBSEngine.IGeoLoadsRegulations get_LoadsRegulations2()
+    8 CBSEngine.IGeoStructure get_Structure2()
+    8 CBSEngine.RobinCommand get_CommandEditModeDrag()
+    8 CBSEngine.RobinCommand get_CommandSelect()
+    8 CBSEngine.RobinCommand get_CommandSnapAxialIntersections()
+    8 CBSEngine.RobinCommand get_CommandSnapGraphicalObjects()
+    8 CBSEngine.RobinCommand get_CommandSnapObjectCenters()
+    8 CBSEngine.RobinCommand get_CommandSnapObjectEnds()
+    8 CBSEngine.RobinCommand get_CommandSnapObjectExtension()
+    8 CBSEngine.RobinCommand get_CommandSnapOrthogonalToPoint()
+    8 CBSEngine.RobinCommand get_CommandSnapParallelToObject()
+    8 CBSEngine.RobinCommand get_CommandSnapPerpendicularToObject()
+    8 CBSEngine.RobinDocPreferences get_DocPreferences()
+    8 CBSEngine.RobinEventManager get_Events()
+    8 CBSEngine.RobinOptions get_Options()
+    8 CBSEngine.RobinReports get_Reports()
+    8 CBSEngine.RobinTaskManager get_TaskManager()
+    8 CBSEngine.RobinView get_ActiveView()
+    8 System.Object get_Grids()
+    8 System.Object get_LoadsRegulations()
+    8 System.Object get_Structure()
+    8 System.String get_PathName()
+    8 System.String get_Title()
+    8 Void Close(Boolean)
+    8 Void ExportAllToRSA()
+    8 Void ExportSelToRSA()
+    8 Void ExportToRSA()
+    8 Void FileImport(System.String)
+    8 Void FileOpen(System.String)
+    8 Void GetAccessCode(Int32 ByRef, System.String ByRef)
+    8 Void SaveAs(System.String)
+    8 Void SetAccessCode(System.String)
+    8 Void UpdateViews()
+    8 Void ViewsZoomAll()
+    8 Void set_ActiveView(CBSEngine.RobinView)
+    8 Void set_Calculations(CBSEngine.GeoCalculations)
+    8 Void set_CommandEditModeDrag(CBSEngine.RobinCommand)
+    8 Void set_CommandSelect(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapAxialIntersections(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapGraphicalObjects(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapObjectCenters(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapObjectEnds(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapObjectExtension(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapOrthogonalToPoint(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapParallelToObject(CBSEngine.RobinCommand)
+    8 Void set_CommandSnapPerpendicularToObject(CBSEngine.RobinCommand)
+    8 Void set_DocPreferences(CBSEngine.RobinDocPreferences)
+    8 Void set_Events(CBSEngine.RobinEventManager)
+    8 Void set_Grids(System.Object)
+    8 Void set_IsDemo(Boolean)
+    8 Void set_LoadsRegulations(System.Object)
+    8 Void set_LoadsRegulations2(CBSEngine.IGeoLoadsRegulations)
+    8 Void set_Options(CBSEngine.RobinOptions)
+    8 Void set_PathName(System.String)
+    8 Void set_Reports(CBSEngine.RobinReports)
+    8 Void set_Structure(System.Object)
+    8 Void set_Structure2(CBSEngine.IGeoStructure)
+    8 Void set_TaskManager(CBSEngine.RobinTaskManager)
+    8 Void set_Title(System.String)
+
+class CBSEngine.DocumentsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.Document ActiveDocument
+    16 Int32 Count
+    16 System.Object _NewEnum
+    8 CBSEngine.Document Add(System.String, Boolean)
+    8 CBSEngine.Document Item(System.Object)
+    8 CBSEngine.Document get_ActiveDocument()
+    8 Int32 get_Count()
+    8 System.Object get__NewEnum()
+    8 Void set_ActiveDocument(CBSEngine.Document)
+    8 Void set_Count(Int32)
+    8 Void set__NewEnum(System.Object)
+
+class CBSEngine.GeoBeamCalculationModelClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsLeftCantilever
+    16 Boolean IsLeftRelease
+    16 Boolean IsRightCantilever
+    16 Boolean IsRightRelease
+    16 CBSEngine.GeoBeamSupports Supports
+    8 Boolean get_IsLeftCantilever()
+    8 Boolean get_IsLeftRelease()
+    8 Boolean get_IsRightCantilever()
+    8 Boolean get_IsRightRelease()
+    8 CBSEngine.GeoBeamSupports get_Supports()
+    8 Void set_IsLeftRelease(Boolean)
+    8 Void set_IsRightRelease(Boolean)
+
+class CBSEngine.GeoBeamDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+class CBSEngine.GeoBeamResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoBeamCalculationModel CalculationModel
+    16 CBSEngine.GeoLinearDiagram LinearDiagram
+    16 CBSEngine.GeoPointDiagram PointDiagram
+    8 CBSEngine.GeoBeamCalculationModel get_CalculationModel()
+    8 CBSEngine.GeoLinearDiagram get_LinearDiagram()
+    8 CBSEngine.GeoPointDiagram get_PointDiagram()
+
+class CBSEngine.GeoBeamSupportClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Width
+    8 Double get_Width()
+    8 Void set_Width(Double)
+
+class CBSEngine.GeoBeamSupportsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoBeamSupport Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GeoBeamSupport get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class CBSEngine.GeoCalculationsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoCalculationsOptions Options
+    2 CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler ProgressStep
+    8 Boolean Calculate()
+    8 Boolean Dimensioning()
+    8 CBSEngine.GeoCalculationsOptions get_Options()
+    8 Void add_ProgressStep(CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler)
+    8 Void remove_ProgressStep(CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler)
+
+class CBSEngine.GeoCalculationsOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean DefaultSupportConditions
+    16 Boolean GenerateCombinations
+    16 Boolean LifeLoadReductionEnabled
+    16 Boolean ShowProgress
+    16 CBSEngine.GeoLifeLoadRedOptions LifeLoadRedOptions
+    16 CBSEngine.GeoRCElementDesignOptions RCElementDesignOptions
+    16 CBSEngine.IGeoCalculationMethod Method
+    16 Double CalculationEpsilon
+    16 Double MeshSize
+    16 Double ReactionTolerance
+    16 Int32 UseLTD
+    8 Boolean get_DefaultSupportConditions()
+    8 Boolean get_GenerateCombinations()
+    8 Boolean get_LifeLoadReductionEnabled()
+    8 Boolean get_ShowProgress()
+    8 CBSEngine.GeoLifeLoadRedOptions get_LifeLoadRedOptions()
+    8 CBSEngine.GeoRCElementDesignOptions get_RCElementDesignOptions()
+    8 CBSEngine.IGeoCalculationMethod get_Method()
+    8 Double get_CalculationEpsilon()
+    8 Double get_MeshSize()
+    8 Double get_ReactionTolerance()
+    8 Int32 get_UseLTD()
+    8 Void set_CalculationEpsilon(Double)
+    8 Void set_DefaultSupportConditions(Boolean)
+    8 Void set_GenerateCombinations(Boolean)
+    8 Void set_LifeLoadReductionEnabled(Boolean)
+    8 Void set_MeshSize(Double)
+    8 Void set_Method(CBSEngine.IGeoCalculationMethod)
+    8 Void set_ReactionTolerance(Double)
+    8 Void set_ShowProgress(Boolean)
+    8 Void set_UseLTD(Int32)
+
+class CBSEngine.GeoColumnDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean BIsFixed
+    16 Boolean HIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_HIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_HIsFixed(Boolean)
+
+class CBSEngine.GeoColumnResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double Fz [Int32]
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_Fz(Int32)
+    8 Double get_Stress(Int32)
+
+class CBSEngine.GeoContFootDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+
+class CBSEngine.GeoContFootResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 CBSEngine.GeoReactions Reactions
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 CBSEngine.GeoReactions get_Reactions()
+    8 Double get_Stress(Int32)
+
+class CBSEngine.GeoDiagramPointClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Position
+    16 Double Value
+    8 Double get_Position()
+    8 Double get_Value()
+
+class CBSEngine.GeoDiagramPointsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoDiagramPoint Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GeoDiagramPoint get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class CBSEngine.GeoFigureResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double MaxMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    8 Double get_MaxMapValue(Int32, CBSEngine.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, CBSEngine.IGeoResultsMapType)
+
+class CBSEngine.GeoFootDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean AIsFixed
+    16 Boolean BIsFixed
+    16 Boolean ExIsFixed
+    16 Boolean EyIsFixed
+    8 Boolean get_AIsFixed()
+    8 Boolean get_BIsFixed()
+    8 Boolean get_ExIsFixed()
+    8 Boolean get_EyIsFixed()
+    8 Void set_AIsFixed(Boolean)
+    8 Void set_BIsFixed(Boolean)
+    8 Void set_ExIsFixed(Boolean)
+    8 Void set_EyIsFixed(Boolean)
+
+class CBSEngine.GeoFootPlateResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoReactions Reactions
+    8 CBSEngine.GeoReactions get_Reactions()
+
+class CBSEngine.GeoFootResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 CBSEngine.GeoReactions Reactions
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 CBSEngine.GeoReactions get_Reactions()
+    8 Double get_Stress(Int32)
+
+class CBSEngine.GeoLifeLoadRedASCEResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double CumulativeTributaryArea [Int32]
+    16 Double KLL [Int32]
+    16 Double TributaryArea [Int32]
+    8 Double get_CumulativeTributaryArea(Int32)
+    8 Double get_KLL(Int32)
+    8 Double get_TributaryArea(Int32)
+    8 Void ChangeKLL(CBSEngine.ILllrASCE7_05StrType, Int32, Double)
+
+class CBSEngine.GeoLifeLoadRedENResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double AlphaA [Int32]
+    16 Double AlphaN [Int32]
+    8 Double get_AlphaA(Int32)
+    8 Double get_AlphaN(Int32)
+
+class CBSEngine.GeoLifeLoadRedOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.ILllrASCE7_05StrType StructureTypeASCE
+    16 CBSEngine.ILllrEN1991StrCat StructureCatEN
+    8 CBSEngine.ILllrASCE7_05StrType get_StructureTypeASCE()
+    8 CBSEngine.ILllrEN1991StrCat get_StructureCatEN()
+    8 Void set_StructureCatEN(CBSEngine.ILllrEN1991StrCat)
+    8 Void set_StructureTypeASCE(CBSEngine.ILllrASCE7_05StrType)
+
+class CBSEngine.GeoLifeLoadRedResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoLifeLoadRedASCEResults ASCEResults
+    16 CBSEngine.GeoLifeLoadRedENResults ENResults
+    16 Double ReductionCoeficient [Int32]
+    8 CBSEngine.GeoLifeLoadRedASCEResults get_ASCEResults()
+    8 CBSEngine.GeoLifeLoadRedENResults get_ENResults()
+    8 Double get_ReductionCoeficient(Int32)
+    8 Void set_ReductionCoeficient(Int32, Double)
+
+class CBSEngine.GeoLinearDiagramClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoDiagramPoints Points
+    16 CBSEngine.IGeoLinearDiagramType Type
+    16 Int32 Case
+    8 CBSEngine.GeoDiagramPoints get_Points()
+    8 CBSEngine.IGeoLinearDiagramType get_Type()
+    8 Int32 get_Case()
+    8 Void set_Case(Int32)
+    8 Void set_Type(CBSEngine.IGeoLinearDiagramType)
+
+class CBSEngine.GeoPointDiagramClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoDiagramPoints Points
+    16 CBSEngine.IGeoPointDiagramType Type
+    16 Int32 Case
+    8 CBSEngine.GeoDiagramPoints get_Points()
+    8 CBSEngine.IGeoPointDiagramType get_Type()
+    8 Int32 get_Case()
+    8 Void set_Case(Int32)
+    8 Void set_Type(CBSEngine.IGeoPointDiagramType)
+
+class CBSEngine.GeoRCElementDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoRCGeneralParameters GeneralParameters
+    8 CBSEngine.GeoRCGeneralParameters get_GeneralParameters()
+
+class CBSEngine.GeoRCGeneralParametersClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoBeamDesignOptions Beams
+    16 CBSEngine.GeoColumnDesignOptions Columns
+    16 CBSEngine.GeoContFootDesignOptions ContFoots
+    16 CBSEngine.GeoFootDesignOptions Foots
+    16 CBSEngine.GeoSlabDesignOptions Slabs
+    16 CBSEngine.GeoWallDesignOptions Walls
+    8 CBSEngine.GeoBeamDesignOptions get_Beams()
+    8 CBSEngine.GeoColumnDesignOptions get_Columns()
+    8 CBSEngine.GeoContFootDesignOptions get_ContFoots()
+    8 CBSEngine.GeoFootDesignOptions get_Foots()
+    8 CBSEngine.GeoSlabDesignOptions get_Slabs()
+    8 CBSEngine.GeoWallDesignOptions get_Walls()
+
+class CBSEngine.GeoReactionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Fx [Int32]
+    16 Double Fy [Int32]
+    16 Double N [Int32]
+    8 Double get_Fx(Int32)
+    8 Double get_Fy(Int32)
+    8 Double get_N(Int32)
+
+class CBSEngine.GeoResultCombinationCaseClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Factor
+    16 Int32 CaseNumber
+    8 Double get_Factor()
+    8 Int32 get_CaseNumber()
+    8 Void set_CaseNumber(Int32)
+    8 Void set_Factor(Double)
+
+class CBSEngine.GeoResultCombinationCasesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoResultCombinationCase Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GeoResultCombinationCase Add(Int32, Double)
+    8 CBSEngine.GeoResultCombinationCase get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class CBSEngine.GeoResultLoadCaseClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsSimple
+    16 CBSEngine.IGeoLoadNature Nature
+    16 CBSEngine.IGeoPredefinedSubnature PredefinedType
+    16 System.String Name
+    8 Boolean get_IsSimple()
+    8 CBSEngine.IGeoLoadNature get_Nature()
+    8 CBSEngine.IGeoPredefinedSubnature get_PredefinedType()
+    8 System.String get_Name()
+
+class CBSEngine.GeoResultLoadCasesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoResultLoadCase Item [Int32]
+    16 CBSEngine.GeoResultLoadCombinations Combinations
+    16 Int32 Count
+    8 CBSEngine.GeoResultLoadCase InsertSelfWeightCase(Int32, CBSEngine.IGeoLoadNature, System.String)
+    8 CBSEngine.GeoResultLoadCase get_Item(Int32)
+    8 CBSEngine.GeoResultLoadCombinations get_Combinations()
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void ApplySelfWeightToCase(Int32)
+
+class CBSEngine.GeoResultLoadCombinationClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoResultCombinationCases Cases
+    16 CBSEngine.IGeoCombinationStateType StateType
+    16 System.String Name
+    8 CBSEngine.GeoResultCombinationCases get_Cases()
+    8 CBSEngine.IGeoCombinationStateType get_StateType()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_StateType(CBSEngine.IGeoCombinationStateType)
+
+class CBSEngine.GeoResultLoadCombinationsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Manual
+    16 CBSEngine.GeoResultLoadCombination Item [Int32]
+    16 Int32 Count
+    8 Boolean get_Manual()
+    8 CBSEngine.GeoResultLoadCombination Add(CBSEngine.IGeoCombinationStateType, System.String)
+    8 CBSEngine.GeoResultLoadCombination get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void set_Manual(Boolean)
+
+class CBSEngine.GeoSlabDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+class CBSEngine.GeoStructureResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Exist
+    16 CBSEngine.GeoResultLoadCases LoadCases
+    16 CBSEngine.IGeoCalculationMethod Method
+    16 Double MaxMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    16 Double MinMapValue [Int32, CBSEngine.IGeoResultsMapType]
+    8 Boolean get_Exist()
+    8 CBSEngine.GeoResultLoadCases get_LoadCases()
+    8 CBSEngine.IGeoCalculationMethod get_Method()
+    8 Double get_MaxMapValue(Int32, CBSEngine.IGeoResultsMapType)
+    8 Double get_MinMapValue(Int32, CBSEngine.IGeoResultsMapType)
+    8 Void set_Method(CBSEngine.IGeoCalculationMethod)
+
+class CBSEngine.GeoWallDesignOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean HIsFixed
+    8 Boolean get_HIsFixed()
+    8 Void set_HIsFixed(Boolean)
+
+class CBSEngine.GeoWallResultsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GeoLifeLoadRedResults LifeLoadRedResults
+    16 Double Fx [Int32]
+    16 Double Stress [Int32]
+    8 CBSEngine.GeoLifeLoadRedResults get_LifeLoadRedResults()
+    8 Double get_Fx(Int32)
+    8 Double get_Stress(Int32)
+
+class CBSEngine.GridAxisArcClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double DeltaAngle
+    16 Double Radius
+    16 Double StartAngle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 Double get_DeltaAngle()
+    8 Double get_Radius()
+    8 Double get_StartAngle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_DeltaAngle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_Radius(Double)
+    8 Void set_StartAngle(Double)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+class CBSEngine.GridAxisArcsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridAxisArc Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridAxisArc Add()
+    8 CBSEngine.GridAxisArc get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+
+class CBSEngine.GridAxisGroupClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridAxisArcs GridAxisArcs
+    16 CBSEngine.GridAxisLines GridAxisLines
+    16 System.String Name
+    8 CBSEngine.GridAxisArcs get_GridAxisArcs()
+    8 CBSEngine.GridAxisLines get_GridAxisLines()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+
+class CBSEngine.GridAxisGroupsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridAxisGroup Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridAxisGroup Add()
+    8 CBSEngine.GridAxisGroup get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAllArcAxis(Boolean)
+    8 Void ShowAllLineAxis(Boolean)
+
+class CBSEngine.GridAxisLineClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double x1
+    16 Double x2
+    16 Double y1
+    16 Double y2
+    16 System.String Name
+    8 Double get_x1()
+    8 Double get_x2()
+    8 Double get_y1()
+    8 Double get_y2()
+    8 System.String get_Name()
+    8 Void set_Name(System.String)
+    8 Void set_x1(Double)
+    8 Void set_x2(Double)
+    8 Void set_y1(Double)
+    8 Void set_y2(Double)
+
+class CBSEngine.GridAxisLinesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridAxisLine Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridAxisLine Add()
+    8 CBSEngine.GridAxisLine get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+class CBSEngine.GridCartClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridSteps XgridSteps
+    16 CBSEngine.GridSteps YgridSteps
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 CBSEngine.GridSteps get_XgridSteps()
+    8 CBSEngine.GridSteps get_YgridSteps()
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+class CBSEngine.GridCylClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridSteps AngleSteps
+    16 CBSEngine.GridSteps RadiusSteps
+    16 Double Angle
+    16 Double X
+    16 Double Y
+    16 System.String Name
+    8 CBSEngine.GridSteps get_AngleSteps()
+    8 CBSEngine.GridSteps get_RadiusSteps()
+    8 Double get_Angle()
+    8 Double get_X()
+    8 Double get_Y()
+    8 System.String get_Name()
+    8 Void set_Angle(Double)
+    8 Void set_Name(System.String)
+    8 Void set_X(Double)
+    8 Void set_Y(Double)
+
+class CBSEngine.GridStepClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Value
+    16 Int32 Count
+    8 Double get_Value()
+    8 Int32 get_Count()
+    8 Void set_Count(Int32)
+    8 Void set_Value(Double)
+
+class CBSEngine.GridStepsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridStep Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridStep Add()
+    8 CBSEngine.GridStep get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+
+class CBSEngine.GridSystemClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridAxisGroups GridAxisGroups
+    16 CBSEngine.GridsCart GridsCart
+    16 CBSEngine.GridsCyl GridsCyl
+    8 CBSEngine.GridAxisGroups get_GridAxisGroups()
+    8 CBSEngine.GridsCart get_GridsCart()
+    8 CBSEngine.GridsCyl get_GridsCyl()
+    8 Void ShowAll(Boolean)
+
+class CBSEngine.GridsCartClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridCart Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridCart Add()
+    8 CBSEngine.GridCart get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+class CBSEngine.GridsCylClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.GridCyl Item [Int32]
+    16 Int32 Count
+    8 CBSEngine.GridCyl Add()
+    8 CBSEngine.GridCyl get_Item(Int32)
+    8 Int32 get_Count()
+    8 System.Collections.IEnumerator GetEnumerator()
+    8 Void RemoveAll()
+    8 Void ShowAll(Boolean)
+
+class CBSEngine.NoteClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+class CBSEngine.NoteFactoryClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+class CBSEngine.RobinCommandClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Checked
+    16 Boolean Enabled
+    8 Boolean get_Checked()
+    8 Boolean get_Enabled()
+    8 Void Run()
+
+class CBSEngine.RobinDocPreferencesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Void GetColor3D(CBSEngine.IGeoObjectType, Boolean, UInt32 ByRef, UInt32 ByRef, UInt32 ByRef)
+    8 Void SetColor3D(CBSEngine.IGeoObjectType, Boolean, UInt32, UInt32, UInt32)
+
+class CBSEngine.RobinEventManagerClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean EventsLocked
+    2 CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler ObjectListChanged
+    2 CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler OnUpdateAll
+    2 CBSEngine._IRobinDocEvents_SelectionChangedEventHandler SelectionChanged
+    2 CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler SelectionModeEntered
+    2 CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler SingleObjectAdded
+    8 Boolean LockEvents(Boolean)
+    8 Boolean get_EventsLocked()
+    8 Void add_ObjectListChanged(CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void add_OnUpdateAll(CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void add_SelectionChanged(CBSEngine._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void add_SelectionModeEntered(CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void add_SingleObjectAdded(CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler)
+    8 Void remove_ObjectListChanged(CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler)
+    8 Void remove_OnUpdateAll(CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler)
+    8 Void remove_SelectionChanged(CBSEngine._IRobinDocEvents_SelectionChangedEventHandler)
+    8 Void remove_SelectionModeEntered(CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler)
+    8 Void remove_SingleObjectAdded(CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler)
+
+class CBSEngine.RobinOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean AddFootingsUnderColumns
+    16 Boolean AddFootingsUnderWalls
+    16 Boolean PlatePinned
+    8 Boolean get_AddFootingsUnderColumns()
+    8 Boolean get_AddFootingsUnderWalls()
+    8 Boolean get_PlatePinned()
+    8 Void set_AddFootingsUnderColumns(Boolean)
+    8 Void set_AddFootingsUnderWalls(Boolean)
+    8 Void set_PlatePinned(Boolean)
+
+class CBSEngine.RobinPreferencesClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.ILifeLoadRedCode LifeLoadRedCode
+    16 CBSEngine.RobinUnits Units
+    8 CBSEngine.ILifeLoadRedCode get_LifeLoadRedCode()
+    8 CBSEngine.RobinUnits get_Units()
+    8 Void set_LifeLoadRedCode(CBSEngine.ILifeLoadRedCode)
+
+class CBSEngine.RobinReportsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean EnableLog
+    16 CBSEngine.RobinVerification Verification
+    8 Boolean SaveToFile(CBSEngine.IRobinReportType, System.String)
+    8 Boolean get_EnableLog()
+    8 CBSEngine.RobinVerification get_Verification()
+    8 Void set_EnableLog(Boolean)
+
+class CBSEngine.RobinTaskManagerClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Boolean AddObjectTaskIsWorking(Boolean ByRef, CBSEngine.IGeoObjectType ByRef)
+    8 Void StartAddContFoot(Boolean)
+    8 Void StartAddFoot(Boolean)
+    8 Void StartAddFootTask()
+    8 Void StartAddLine(Boolean)
+    8 Void StartAddPoint()
+    8 Void StopAllTasks()
+
+class CBSEngine.RobinUnitsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Boolean ModifyUnit(CBSEngine.IRobinUnitType, System.String, Int16, System.String)
+
+class CBSEngine.RobinVerificationClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.RobinVerificationOptions Options
+    8 Boolean Run()
+    8 CBSEngine.RobinVerificationOptions get_Options()
+
+class CBSEngine.RobinVerificationOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean RangeMaximumAuto
+    16 Double RangeMaximum
+    16 Double RangeMinimum
+    8 Boolean get_RangeMaximumAuto()
+    8 Double get_RangeMaximum()
+    8 Double get_RangeMinimum()
+    8 Void set_RangeMaximum(Double)
+    8 Void set_RangeMaximumAuto(Boolean)
+    8 Void set_RangeMinimum(Double)
+
+class CBSEngine.RobinViewClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.IGeoViewMode Mode
+    16 CBSEngine.IGeoViewProjectionType Projection
+    16 CBSEngine.IGeoViewView3D View3D
+    16 CBSEngine.RobinCommand CommandDisplayGroups
+    16 CBSEngine.RobinCommand CommandDisplaySelectedElements
+    16 CBSEngine.RobinCommand CommandRotateZoomPan
+    16 CBSEngine.RobinCommand CommandZoomAll
+    16 CBSEngine.RobinCommand CommandZoomWindow
+    16 CBSEngine.RobinViewDisplay Display
+    16 Int16 StoreyNumber
+    2 CBSEngine._IRobinViewEvents_ObjectShinedEventHandler ObjectShined
+    8 Boolean MakeScreenShot(System.String)
+    8 Boolean VisibleObjectsCheck(Int32)
+    8 CBSEngine.IGeoViewMode get_Mode()
+    8 CBSEngine.IGeoViewProjectionType get_Projection()
+    8 CBSEngine.IGeoViewView3D get_View3D()
+    8 CBSEngine.RobinCommand get_CommandDisplayGroups()
+    8 CBSEngine.RobinCommand get_CommandDisplaySelectedElements()
+    8 CBSEngine.RobinCommand get_CommandRotateZoomPan()
+    8 CBSEngine.RobinCommand get_CommandZoomAll()
+    8 CBSEngine.RobinCommand get_CommandZoomWindow()
+    8 CBSEngine.RobinViewDisplay get_Display()
+    8 Int16 get_StoreyNumber()
+    8 Int32 VisibleObjectsGet()
+    8 Void SelectObject(Int32, Boolean)
+    8 Void SelectOneObject(Int32, Boolean)
+    8 Void VisibleObjectsSet(Int32, Boolean)
+    8 Void add_ObjectShined(CBSEngine._IRobinViewEvents_ObjectShinedEventHandler)
+    8 Void remove_ObjectShined(CBSEngine._IRobinViewEvents_ObjectShinedEventHandler)
+    8 Void set_Mode(CBSEngine.IGeoViewMode)
+    8 Void set_Projection(CBSEngine.IGeoViewProjectionType)
+    8 Void set_StoreyNumber(Int16)
+    8 Void set_View3D(CBSEngine.IGeoViewView3D)
+
+class CBSEngine.RobinViewDisplayClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 CBSEngine.RobinViewLoadsDisplay Loads
+    16 CBSEngine.RobinViewResultsDisplay Results
+    8 CBSEngine.RobinViewLoadsDisplay get_Loads()
+    8 CBSEngine.RobinViewResultsDisplay get_Results()
+    8 Void ShowObjectsAndShadows(CBSEngine.IGeoObjects, CBSEngine.IGeoObjects)
+    8 Void ShowObjectsCollection(CBSEngine.IGeoObjects, Boolean)
+
+class CBSEngine.RobinViewLoadsDisplayClass
+    base: System.__ComObject
+    1 Void .ctor()
+    8 Void ShowAllNatures()
+    8 Void ShowNature(CBSEngine.IGeoLoadNature, System.String)
+
+class CBSEngine.RobinViewResultsDisplayClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean Deformation
+    16 Boolean DisplayLLRedEnvelopes
+    16 Boolean DisplayLLRedValues
+    16 Boolean LPFoc
+    16 Boolean LPLin
+    16 Boolean LPMap
+    16 Boolean Legend
+    16 Boolean LoadMap
+    16 Boolean MassCenter
+    16 Boolean Resultant
+    16 Boolean RigidityCenter
+    16 Boolean SlabDir3dView
+    16 Boolean StoreyResult
+    16 Boolean StressMap
+    16 Boolean Values
+    16 CBSEngine.IGeoResultsMapType Map
+    16 Double Scale
+    16 Int32 CaseIndex
+    8 Boolean get_Deformation()
+    8 Boolean get_DisplayLLRedEnvelopes()
+    8 Boolean get_DisplayLLRedValues()
+    8 Boolean get_LPFoc()
+    8 Boolean get_LPLin()
+    8 Boolean get_LPMap()
+    8 Boolean get_Legend()
+    8 Boolean get_LoadMap()
+    8 Boolean get_MassCenter()
+    8 Boolean get_Resultant()
+    8 Boolean get_RigidityCenter()
+    8 Boolean get_SlabDir3dView()
+    8 Boolean get_StoreyResult()
+    8 Boolean get_StressMap()
+    8 Boolean get_Values()
+    8 CBSEngine.IGeoResultsMapType get_Map()
+    8 Double get_Scale()
+    8 Int32 get_CaseIndex()
+    8 Void Animate()
+    8 Void set_CaseIndex(Int32)
+    8 Void set_Deformation(Boolean)
+    8 Void set_DisplayLLRedEnvelopes(Boolean)
+    8 Void set_DisplayLLRedValues(Boolean)
+    8 Void set_LPFoc(Boolean)
+    8 Void set_LPLin(Boolean)
+    8 Void set_LPMap(Boolean)
+    8 Void set_Legend(Boolean)
+    8 Void set_LoadMap(Boolean)
+    8 Void set_Map(CBSEngine.IGeoResultsMapType)
+    8 Void set_MassCenter(Boolean)
+    8 Void set_Resultant(Boolean)
+    8 Void set_RigidityCenter(Boolean)
+    8 Void set_Scale(Double)
+    8 Void set_SlabDir3dView(Boolean)
+    8 Void set_StoreyResult(Boolean)
+    8 Void set_StressMap(Boolean)
+    8 Void set_Values(Boolean)
+
+class CBSEngine.ViewClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+class CBSEngine.ViewFactoryClass
+    base: System.__ComObject
+    1 Void .ctor()
+
+delegate CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke(CBSEngine.IGeoCalculationsProgressType, Int32, System.String, System.Object, Boolean ByRef)
+
+class CBSEngine._IGeoCalculationsEvents_SinkHelper
+    base: System.Object
+    4 CBSEngine._IGeoCalculationsEvents_ProgressStepEventHandler m_ProgressStepDelegate
+    4 Int32 m_dwCookie
+    8 Void ProgressStep(CBSEngine.IGeoCalculationsProgressType, Int32, System.String, System.Object, Boolean ByRef)
+
+delegate CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate CBSEngine._IRobinDocEvents_SelectionChangedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke()
+
+delegate CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke(Int32)
+
+class CBSEngine._IRobinDocEvents_SinkHelper
+    base: System.Object
+    4 CBSEngine._IRobinDocEvents_ObjectListChangedEventHandler m_ObjectListChangedDelegate
+    4 CBSEngine._IRobinDocEvents_OnUpdateAllEventHandler m_OnUpdateAllDelegate
+    4 CBSEngine._IRobinDocEvents_SelectionChangedEventHandler m_SelectionChangedDelegate
+    4 CBSEngine._IRobinDocEvents_SelectionModeEnteredEventHandler m_SelectionModeEnteredDelegate
+    4 CBSEngine._IRobinDocEvents_SingleObjectAddedEventHandler m_SingleObjectAddedDelegate
+    4 Int32 m_dwCookie
+    8 Void ObjectListChanged()
+    8 Void OnUpdateAll()
+    8 Void SelectionChanged()
+    8 Void SelectionModeEntered()
+    8 Void SingleObjectAdded(Int32)
+
+delegate CBSEngine._IRobinViewEvents_ObjectShinedEventHandler
+    base: System.MulticastDelegate
+    1 Void .ctor(System.Object, UIntPtr)
+    8 Void Invoke(Int32)
+
+class CBSEngine._IRobinViewEvents_SinkHelper
+    base: System.Object
+    4 CBSEngine._IRobinViewEvents_ObjectShinedEventHandler m_ObjectShinedDelegate
+    4 Int32 m_dwCookie
+    8 Void ObjectShined(Int32)
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

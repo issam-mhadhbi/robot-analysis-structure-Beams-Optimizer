@@ -1,0 +1,220 @@
+Assembly : interop.bcl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Runtime  : v4.0.30319
+Types    : 17
+
+=================== ENUMS ===================
+
+enum bcl.IRCColumnDimensionType
+    I_RC_COLUMN_DIM_HSP = 1
+    I_RC_COLUMN_DIM_HSD = 2
+    I_RC_COLUMN_DIM_EPD = 3
+    I_RC_COLUMN_DIM_A = 4
+    I_RC_COLUMN_DIM_B = 5
+    I_RC_COLUMN_DIM_C = 6
+    I_RC_COLUMN_DIM_H1 = 7
+    I_RC_COLUMN_DIM_L1 = 8
+    I_RC_COLUMN_DIM_H2 = 9
+    I_RC_COLUMN_DIM_L2 = 10
+    I_RC_COLUMN_DIM_N = 11
+    I_RC_COLUMN_DIM_COL_DE = 12
+    I_RC_COLUMN_DIM_HSP_X = 1
+    I_RC_COLUMN_DIM_HSP_Y = 13
+
+enum bcl.IRCColumnSectionType
+    I_RC_COLUMN_SEC_R = 1
+    I_RC_COLUMN_SEC_L = 2
+    I_RC_COLUMN_SEC_TC = 3
+    I_RC_COLUMN_SEC_Z = 4
+    I_RC_COLUMN_SEC_P = 5
+    I_RC_COLUMN_SEC_C36 = 6
+    I_RC_COLUMN_SEC_C18 = 7
+    I_RC_COLUMN_SEC_C90 = 8
+
+================= INTERFACES =================
+
+interface bcl.IRCColumn
+    16 Boolean IsActive
+    16 Boolean IsNew
+    16 Int16 StructureUserNoCount
+    16 Int32 StructureUserNo [Int16]
+    16 Int32 UniqueId
+    16 System.Object CalculationOptions
+    16 System.Object Concrete
+    16 System.Object ImportOptions
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    16 bcl.RCColumnGeometry Geometry
+    8 Boolean Calculate(Boolean)
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean CreateFromBars(System.String)
+    8 Boolean get_IsActive()
+    8 Boolean get_IsNew()
+    8 Int16 get_StructureUserNoCount()
+    8 Int32 Verify(Boolean)
+    8 Int32 get_StructureUserNo(Int16)
+    8 Int32 get_UniqueId()
+    8 System.Object get_CalculationOptions()
+    8 System.Object get_Concrete()
+    8 System.Object get_ImportOptions()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 Void set_StructureUserNo(Int16, Int32)
+    8 Void set_StructureUserNoCount(Int16)
+    8 bcl.RCColumnGeometry get_Geometry()
+
+interface bcl.IRCColumnCalcOptions
+    16 Double Cover
+    8 Double get_Cover()
+    8 Void set_Cover(Double)
+
+interface bcl.IRCColumnGeometry
+    16 Double ConcreteVolume
+    16 Double Dim [bcl.IRCColumnDimensionType]
+    16 Double ShutteringArea
+    16 bcl.IRCColumnSectionType Section
+    8 Double get_ConcreteVolume()
+    8 Double get_Dim(bcl.IRCColumnDimensionType)
+    8 Double get_ShutteringArea()
+    8 Void set_Dim(bcl.IRCColumnDimensionType, Double)
+    8 Void set_Section(bcl.IRCColumnSectionType)
+    8 bcl.IRCColumnSectionType get_Section()
+
+interface bcl.IRCColumnImportOptions
+    16 Boolean GroupByGeometry
+    16 Boolean GroupByLevel
+    16 Boolean ImportCombinations
+    16 Boolean RunCalcAuto
+    16 Boolean ShowDialog
+    8 Boolean get_GroupByGeometry()
+    8 Boolean get_GroupByLevel()
+    8 Boolean get_ImportCombinations()
+    8 Boolean get_RunCalcAuto()
+    8 Boolean get_ShowDialog()
+    8 Void set_GroupByGeometry(Boolean)
+    8 Void set_GroupByLevel(Boolean)
+    8 Void set_ImportCombinations(Boolean)
+    8 Void set_RunCalcAuto(Boolean)
+    8 Void set_ShowDialog(Boolean)
+
+interface bcl.IRCColumnPatternOptions
+    16 Boolean TiesToBeam
+    8 Boolean get_TiesToBeam()
+    8 Void set_TiesToBeam(Boolean)
+
+interface bcl.RCColumn
+
+interface bcl.RCColumnCalcOptions
+
+interface bcl.RCColumnGeometry
+
+interface bcl.RCColumnImportOptions
+
+interface bcl.RCColumnPatternOptions
+
+============ CLASSES / STRUCTS / DELEGATES ============
+
+class bcl.RCColumnCalcOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double Cover
+    8 Double get_Cover()
+    8 Void set_Cover(Double)
+
+class bcl.RCColumnClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean IsActive
+    16 Boolean IsNew
+    16 Int16 StructureUserNoCount
+    16 Int32 StructureUserNo [Int16]
+    16 Int32 UniqueId
+    16 System.Object CalculationOptions
+    16 System.Object Concrete
+    16 System.Object ImportOptions
+    16 System.Object PatternOptions
+    16 System.Object PlotterDrawing
+    16 System.Object Reinforcement
+    16 System.Object Steel
+    16 System.String Name
+    16 bcl.RCColumnGeometry Geometry
+    8 Boolean Calculate(Boolean)
+    8 Boolean CreateCalculationNoteRtf(System.String)
+    8 Boolean CreateFromBars(System.String)
+    8 Boolean get_IsActive()
+    8 Boolean get_IsNew()
+    8 Int16 get_StructureUserNoCount()
+    8 Int32 Verify(Boolean)
+    8 Int32 get_StructureUserNo(Int16)
+    8 Int32 get_UniqueId()
+    8 System.Object get_CalculationOptions()
+    8 System.Object get_Concrete()
+    8 System.Object get_ImportOptions()
+    8 System.Object get_PatternOptions()
+    8 System.Object get_PlotterDrawing()
+    8 System.Object get_Reinforcement()
+    8 System.Object get_Steel()
+    8 System.String get_Name()
+    8 Void Activate()
+    8 Void ExportDDC(System.String)
+    8 Void ImportDDC(System.String)
+    8 Void ImportFromStructure()
+    8 Void RunCalculations(Int32, System.String, Boolean)
+    8 Void Save()
+    8 Void set_StructureUserNo(Int16, Int32)
+    8 Void set_StructureUserNoCount(Int16)
+    8 bcl.RCColumnGeometry get_Geometry()
+
+class bcl.RCColumnGeometryClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Double ConcreteVolume
+    16 Double Dim [bcl.IRCColumnDimensionType]
+    16 Double ShutteringArea
+    16 bcl.IRCColumnSectionType Section
+    8 Double get_ConcreteVolume()
+    8 Double get_Dim(bcl.IRCColumnDimensionType)
+    8 Double get_ShutteringArea()
+    8 Void set_Dim(bcl.IRCColumnDimensionType, Double)
+    8 Void set_Section(bcl.IRCColumnSectionType)
+    8 bcl.IRCColumnSectionType get_Section()
+
+class bcl.RCColumnImportOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean GroupByGeometry
+    16 Boolean GroupByLevel
+    16 Boolean ImportCombinations
+    16 Boolean RunCalcAuto
+    16 Boolean ShowDialog
+    8 Boolean get_GroupByGeometry()
+    8 Boolean get_GroupByLevel()
+    8 Boolean get_ImportCombinations()
+    8 Boolean get_RunCalcAuto()
+    8 Boolean get_ShowDialog()
+    8 Void set_GroupByGeometry(Boolean)
+    8 Void set_GroupByLevel(Boolean)
+    8 Void set_ImportCombinations(Boolean)
+    8 Void set_RunCalcAuto(Boolean)
+    8 Void set_ShowDialog(Boolean)
+
+class bcl.RCColumnPatternOptionsClass
+    base: System.__ComObject
+    1 Void .ctor()
+    16 Boolean TiesToBeam
+    8 Boolean get_TiesToBeam()
+    8 Void set_TiesToBeam(Boolean)
+
+================ REFERENCED ASSEMBLIES ================
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
