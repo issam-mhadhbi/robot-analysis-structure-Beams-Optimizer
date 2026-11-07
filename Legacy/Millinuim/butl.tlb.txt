@@ -1,0 +1,183 @@
+[uuid(c35314d3-88fe-11d2-af84-0080c86bdf8d), version(1.0), helpstring("Robot Reinforced Concrete Common Objects")]
+library butl {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(176572b2-99d3-11d4-b227-0080c86bdf8d), helpstring("Provides access to ROBOT reinforcing element")]
+coclass RCReinforcingBar {
+    [default] interface IRCReinforcingBar;
+};
+
+[uuid(176572b1-99d3-11d4-b227-0080c86bdf8d), helpstring("IRCReinforcingBar Interface")]
+dispinterface IRCReinforcingBar : IDispatch {
+    [propget] VT_HRESULT Diameter([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Diameter([in] VT_R8 _);
+    [propget] VT_HRESULT Shape([out, retval] IRCReinforcingBarShape** pVal);
+    [propget] VT_HRESULT SteelType([out, retval] IRCSteelType* pVal);
+    [propput] VT_HRESULT SteelType([in] IRCSteelType _);
+    [propget] VT_HRESULT Weight([out, retval] VT_R8* pVal);
+};
+
+[uuid(e4714321-99f1-11d4-b227-0080c86bdf8d), helpstring("IRCReinforcingBarShape Interface")]
+dispinterface IRCReinforcingBarShape : IDispatch {
+    [propget] VT_HRESULT SegmentCount([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT StartPoint([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT LocalP1([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT LocalP2([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT LocalP3([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Segment([in] VT_I4 index, [out, retval] IRCReinforcingBarSegment** pVal);
+    [propget] VT_HRESULT Length([out, retval] VT_R8* pVal);
+};
+
+[uuid(cab31881-9dad-11d4-b22b-0080c86bdf8d), helpstring("IRCReinforcingBarSegment Interface")]
+dispinterface IRCReinforcingBarSegment : IDispatch {
+    [propget] VT_HRESULT Length([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Length([in] VT_R8 _);
+    [propget] VT_HRESULT Angle([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Angle([in] VT_R8 _);
+    [propget] VT_HRESULT Diameter([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Diameter([in] VT_R8 _);
+};
+
+[helpstring("Constans for ROBOT reinforced steel properties")]
+typedef enum IRCSteelType {
+    const VT_INT I_RC_STEEL_TYPE_LONG = 1;
+    const VT_INT I_RC_STEEL_TYPE_TRANS = 2;
+    const VT_INT I_RC_STEEL_TYPE_WIRE = 3;
+    const VT_INT I_RC_STEEL_TYPE_SPEC = 4;
+} IRCSteelType;
+
+[uuid(8c1e232e-b48d-4f0b-b7db-3d61650ac511), helpstring("Provides access to ROBOT reinforcing element")]
+coclass RCReinforcingNet {
+    [default] interface IRCReinforcingNet;
+};
+
+[uuid(edef7d29-cd48-4f0b-bba0-e9ab87ab1f75), helpstring("IRCReinforcingNet Interface")]
+dispinterface IRCReinforcingNet : IDispatch {
+    [propget] VT_HRESULT Area([out, retval] VT_R8* pVal);
+};
+
+[uuid(834ea542-5d40-11d4-b1f3-0080c86bdf8d), helpstring("ROBOT reinforced concrete element properties")]
+coclass RCReinforcement {
+    [default] interface IRCReinforcement;
+};
+
+[uuid(834ea543-5d40-11d4-b1f3-0080c86bdf8d), helpstring("IRCReinforcement Interface")]
+dispinterface IRCReinforcement : IDispatch {
+    [propget] VT_HRESULT BarCount([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT Bar([in] VT_I4 index, [out, retval] IRCReinforcingBar** pVal);
+    [propget] VT_HRESULT NetCount([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT Net([in] VT_I4 nIdx, [out, retval] IRCReinforcingNet** pVal);
+};
+
+[uuid(9a8f1cd1-9ea6-11d4-b22c-0080c86bdf8d), helpstring("ROBOT reinforced concrete element steel properties")]
+coclass RCSteel {
+    [default] interface IRCSteel;
+};
+
+[uuid(1c3ae891-9ea6-11d4-b22c-0080c86bdf8d), helpstring("IRCSteel Interface")]
+dispinterface IRCSteel : IDispatch {
+    [propget] VT_HRESULT CharacteristicStrength(IRCSteelType _type, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT CharacteristicStrength(IRCSteelType _type, [in] VT_R8 _);
+};
+
+[uuid(1c3ae894-9ea6-11d4-b22c-0080c86bdf8d), helpstring("ROBOT reinforced concrete element concrete properties")]
+coclass RCConcrete {
+    [default] interface IRCConcrete;
+};
+
+[uuid(1c3ae892-9ea6-11d4-b22c-0080c86bdf8d), helpstring("IRCConcrete Interface")]
+dispinterface IRCConcrete : IDispatch {
+    [propget] VT_HRESULT CharacteristicStrength([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT CharacteristicStrength([in] VT_R8 _);
+};
+
+[uuid(e4714322-99f1-11d4-b227-0080c86bdf8d), helpstring("Provides access to ROBOT reinforcing bar shape")]
+coclass RCReinforcingBarShape {
+    [default] interface IRCReinforcingBarShape;
+};
+
+[uuid(cab31882-9dad-11d4-b22b-0080c86bdf8d), helpstring("Provides access to ROBOT reinforcing bar segment")]
+coclass RCReinforcingBarSegment {
+    [default] interface IRCReinforcingBarSegment;
+};
+
+[uuid(c7218d51-e9d1-434e-95c6-0ab7ce0b32d6)]
+coclass RCSoilLayer {
+    [default] interface IRCSoilLayer;
+};
+
+[uuid(fea32bed-23f0-4333-911e-562236bd7e44), helpstring("IRCSoilLayer Interface")]
+dispinterface IRCSoilLayer : IDispatch {
+    [propget] VT_HRESULT RecordNumber([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT RecordNumber([in] VT_I2 _);
+    [propget] VT_HRESULT Name([in] VT_I2 nIdx, [out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT Name([in] VT_I2 nIdx, [in] VT_BSTR _);
+    [propget] VT_HRESULT TopOfLayer([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT TopOfLayer([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT WetDensity([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT WetDensity([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT FrictionAngle([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT FrictionAngle([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT Cohesion([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Cohesion([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT FrictionCoefficient([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT FrictionCoefficient([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT PoissonCoefficient([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT PoissonCoefficient([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT Young([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Young([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT InitialYoung([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT InitialYoung([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT SolidDensity([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT SolidDensity([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT Moisture([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Moisture([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT InitialConsolidometerModulus([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT InitialConsolidometerModulus([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT ConsolidometerModulus([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT ConsolidometerModulus([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT ConsolidationIndex([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT ConsolidationIndex([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT Type([in] VT_I2 nIdx, [out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT Type([in] VT_I2 nIdx, [in] VT_BSTR _);
+    [propget] VT_HRESULT Symbol([in] VT_I2 nIdx, [out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT Symbol([in] VT_I2 nIdx, [in] VT_BSTR _);
+    [propget] VT_HRESULT PileEndCapacity([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT PileEndCapacity([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT PileSurfCapacity([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT PileSurfCapacity([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT SoilState([in] VT_I2 nIdx, [out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT SoilState([in] VT_I2 nIdx, [in] VT_BSTR _);
+    [propget] VT_HRESULT ConsolidationType([in] VT_I2 nIdx, [out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT ConsolidationType([in] VT_I2 nIdx, [in] VT_BSTR _);
+    [propget] VT_HRESULT MoistureType([in] VT_I2 nIdx, [out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT MoistureType([in] VT_I2 nIdx, [in] VT_BSTR _);
+    [propget] VT_HRESULT IL_ID([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT IL_ID([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT GammaMin([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT GammaMin([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT GammaMax([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT GammaMax([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT GeoMethodType([in] VT_I2 nIdx, [out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT GeoMethodType([in] VT_I2 nIdx, [in] VT_BSTR _);
+    [propget] VT_HRESULT CohesiveSoil([in] VT_I2 nIdx, [out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT CohesiveSoil([in] VT_I2 nIdx, [in] VT_BOOL _);
+    [propget] VT_HRESULT FiltrationCoeff([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT FiltrationCoeff([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT SoilStrength([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT SoilStrength([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT Thickness([in] VT_I2 nIdx, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Thickness([in] VT_I2 nIdx, [in] VT_R8 _);
+    [propget] VT_HRESULT SoilType([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT SoilType([in] VT_I2 nIdx, [in] VT_I4 _);
+    [propget] VT_HRESULT SoilStateType([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT SoilStateType([in] VT_I2 nIdx, [in] VT_I4 _);
+    [propget] VT_HRESULT MoistureNType([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT MoistureNType([in] VT_I2 nIdx, [in] VT_I4 _);
+    [propget] VT_HRESULT ConsolidationNType([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT ConsolidationNType([in] VT_I2 nIdx, [in] VT_I4 _);
+    [propget] VT_HRESULT SoilColor([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT SoilColor([in] VT_I2 nIdx, [in] VT_I4 _);
+};
+
+}

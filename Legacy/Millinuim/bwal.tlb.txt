@@ -1,0 +1,23 @@
+[uuid(e8652504-94f0-11d2-af98-0080c86bdf8d), version(1.0), helpstring("Robot Reinforced Concrete Deep-beams")]
+library bwal {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(e8652512-94f0-11d2-af98-0080c86bdf8d), helpstring("Provides access to ROBOT reinforced concrete deep-beams (returned by ROBOT component manager)")]
+coclass RCWall {
+    [default] interface IRCWall;
+};
+
+[uuid(e8652511-94f0-11d2-af98-0080c86bdf8d), helpstring("IRCWall Interface")]
+dispinterface IRCWall : IDispatch {
+    VT_HRESULT RunCalculations([in] VT_I4 nMode, [in] VT_BSTR file, [in] VT_BOOL bMakeNote);
+    [propget] VT_HRESULT IsNew([out, retval] VT_BOOL* pVal);
+    VT_HRESULT ImportDDC([in] VT_BSTR file);
+    VT_HRESULT ExportDDC([in] VT_BSTR file);
+    [propget] VT_HRESULT Reinforcement([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Steel([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Concrete([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PlotterDrawing([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+};
+
+}

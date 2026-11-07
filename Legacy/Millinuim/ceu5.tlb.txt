@@ -1,0 +1,876 @@
+[uuid(8dd0b323-f193-11d2-999c-00201888053e), version(1.0), helpstring("Eu5 Code 1.0 Type Library")]
+library Eu5CodeLib {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(4fd6af55-f193-11d2-999c-00201888053e), helpstring("IRDimMembDef interface implementation for EU5 code")]
+coclass Eu5MembDef {
+    [default] interface IRDimMembDef;
+};
+
+[uuid(ec7b6c10-7f98-11d2-990b-00201888053e), helpstring("IRDimMembDef interface")]
+dispinterface IRDimMembDef : IRDimMembDefData {
+    [propget] VT_HRESULT GuidType([out, retval] IRDimMembDefGuidType* ret);
+    [propget] VT_HRESULT ClientID([out, retval] VT_BSTR* ret);
+    [propget] VT_HRESULT MatType([out, retval] IRDimMembDefMatType* ret);
+    [propget] VT_HRESULT Length([out, retval] VT_R8* ret);
+    [propput] VT_HRESULT Length([in] VT_R8 _);
+    VT_HRESULT IsBuckCoefConst([in] IRDimMembDefBucklingDataType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT IsClientBuckCoefServiceYZ([in] IRDimMembDefBucklingDataType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT AreAdjoinParamsYZ([in] IRDimMembDefBucklingDataType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT SetOption([in] IRDimMembDefOptionType Type, [in] VT_I4 isSet, [in] VT_DISPATCH in);
+    VT_HRESULT CheckOption([in] IRDimMembDefOptionType Type, [out] VT_I4* isSet, [in] VT_DISPATCH in);
+};
+
+[uuid(f93387d1-1c5d-11d5-8814-0050da7675e2), helpstring("IRDimMembDefData interface")]
+dispinterface IRDimMembDefData : IDispatch {
+    VT_HRESULT Store([in] IRDimStream* str);
+    VT_HRESULT Retrieve([in] IRDimStream* str);
+    [propget] VT_HRESULT Type([out, retval] IRDimMembDefType* ret);
+    [propput] VT_HRESULT Type([in] IRDimMembDefType _);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* ret);
+    [propput] VT_HRESULT Name([in] VT_BSTR _);
+    VT_HRESULT SetLengthYZUV([in] IRDimMembDefLengthDataType Type, [in] VT_R8 val);
+    VT_HRESULT LengthYZUV([in] IRDimMembDefLengthDataType Type, [out, retval] VT_R8* ret);
+    VT_HRESULT SetDisplacementXY([in] IRDimMembDefDispDataType Type, [in] VT_I4 val);
+    VT_HRESULT IsDisplacementXY([in] IRDimMembDefDispDataType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT SetDisplXYRelLimit([in] IRDimMembDefDispDataType Type, [in] VT_R8 val);
+    VT_HRESULT DisplXYRelLimit([in] IRDimMembDefDispDataType Type, [out, retval] VT_R8* ret);
+    VT_HRESULT SetDeflectionYZ([in] IRDimMembDefDeflDataType Type, [in] VT_I4 val);
+    VT_HRESULT IsDeflectionYZ([in] IRDimMembDefDeflDataType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT SetDeflYZRelLimit([in] IRDimMembDefDeflDataType Type, [in] VT_R8 val);
+    VT_HRESULT DeflYZRelLimit([in] IRDimMembDefDeflDataType Type, [out, retval] VT_R8* ret);
+    [propput] VT_HRESULT InitDeflType([in] IRDimMembDefInitDeflType _);
+    [propget] VT_HRESULT InitDeflType([out, retval] IRDimMembDefInitDeflType* ret);
+    VT_HRESULT SetUserInitDefl([in] IRDimMembDefUserInitDeflType Type, [in] VT_R8 val);
+    VT_HRESULT GetUserInitDefl([in] IRDimMembDefUserInitDeflType Type, [out, retval] VT_R8* ret);
+    VT_HRESULT IntPsClear([in] IRDimMembDefIntPsDataType Type);
+    VT_HRESULT IntPsCoordNum([in] IRDimMembDefIntPsDataType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT SetIntPsCoordValueType([in] IRDimMembDefIntPsDataType Type, [in] VT_I4 IsRelValue);
+    VT_HRESULT IntPsCoordValueType([in] IRDimMembDefIntPsDataType Type, [out, retval] VT_I4* IsRelValue);
+    VT_HRESULT SetIntPtValues([in] IRDimMembDefIntPsDataType Type, [in] VT_I4 no, [in] VT_R8 coord, [in] VT_R8 coeff);
+    VT_HRESULT IntPtValues([in] IRDimMembDefIntPsDataType Type, [in] VT_I4 no, [out] VT_R8* coord, [out] VT_R8* coeff);
+    [propget] VT_HRESULT RangeMoments([out, retval] VT_I4* ret);
+    VT_HRESULT RangeCoords([out] VT_R8* beg, [out] VT_R8* end);
+    [propget] VT_HRESULT CantileverMode([out, retval] VT_I4* ret);
+    [propput] VT_HRESULT CantileverMode([in] VT_I4 _);
+    [propget] VT_HRESULT PipeMode([out, retval] VT_I4* ret);
+    [propput] VT_HRESULT PipeMode([in] VT_I4 _);
+    VT_HRESULT SetStructureSwayYZ([in] IRDimMembDefBucklingDataType Type, [in] VT_I4 is_sway);
+    VT_HRESULT IsStructureSwayYZ([in] IRDimMembDefBucklingDataType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT StoreAdjoinParamsYZ([in] IRDimMembDefBucklingDataType Type, [in] VT_DISPATCH in);
+    VT_HRESULT RetrieveAdjoinParamsYZ([in] IRDimMembDefBucklingDataType Type, [in] VT_DISPATCH in);
+    [propget] VT_HRESULT CodeParams([out, retval] VT_DISPATCH* ret);
+    [propput] VT_HRESULT CodeParams([in] VT_DISPATCH _);
+};
+
+[uuid(75f51a01-a064-11d3-9a65-00105ac6705d), helpstring("IRDimStream interface")]
+dispinterface IRDimStream : IDispatch {
+    VT_HRESULT Clear();
+    VT_HRESULT Size([in] IRDimStreamType _type, [out, retval] VT_I4* ret);
+    VT_HRESULT SeekSet([in] IRDimStreamType _type, [in] VT_I4 pos);
+    VT_HRESULT WriteLong([in] VT_I4 val);
+    VT_HRESULT ReadLong([out, retval] VT_I4* ret);
+    VT_HRESULT WriteDouble([in] VT_R8 val);
+    VT_HRESULT ReadDouble([out, retval] VT_R8* ret);
+    VT_HRESULT WriteText([in] VT_BSTR val);
+    VT_HRESULT ReadText([out, retval] VT_BSTR* ret);
+    [propget] VT_HRESULT EoL([out, retval] VT_I4* ret);
+    [propget] VT_HRESULT EoD([out, retval] VT_I4* ret);
+    [propget] VT_HRESULT EoT([out, retval] VT_I4* ret);
+};
+
+typedef enum IRDimStreamType {
+    const VT_INT I_DST_LONG = 1;
+    const VT_INT I_DST_DOUBLE = 2;
+    const VT_INT I_DST_TEXT = 3;
+} IRDimStreamType;
+
+typedef enum IRDimMembDefType {
+    const VT_INT I_DMDT_USER = 1;
+    const VT_INT I_DMDT_MEMBER = 2;
+    const VT_INT I_DMDT_BEAM = 3;
+    const VT_INT I_DMDT_COLUMN = 4;
+} IRDimMembDefType;
+
+typedef enum IRDimMembDefLengthDataType {
+    const VT_INT I_DMDLDT_LENGTH_Y = 1;
+    const VT_INT I_DMDLDT_LENGTH_Z = 2;
+    const VT_INT I_DMDLDT_LENGTH_U = 3;
+    const VT_INT I_DMDLDT_LENGTH_V = 4;
+} IRDimMembDefLengthDataType;
+
+typedef enum IRDimMembDefDispDataType {
+    const VT_INT I_DMDDDT_DISP_X = 1;
+    const VT_INT I_DMDDDT_DISP_Y = 2;
+} IRDimMembDefDispDataType;
+
+typedef enum IRDimMembDefDeflDataType {
+    const VT_INT I_DMDDDT_DEFL_Y = 3;
+    const VT_INT I_DMDDDT_DEFL_Z = 4;
+} IRDimMembDefDeflDataType;
+
+typedef enum IRDimMembDefInitDeflType {
+    const VT_INT I_DMDIDT_LACK = 1;
+    const VT_INT I_DMDIDT_USER = 2;
+    const VT_INT I_DMDIDT_AUTO = 3;
+} IRDimMembDefInitDeflType;
+
+typedef enum IRDimMembDefUserInitDeflType {
+    const VT_INT I_DMDUIDT_Y = 1;
+    const VT_INT I_DMDUIDT_Z = 2;
+} IRDimMembDefUserInitDeflType;
+
+typedef enum IRDimMembDefIntPsDataType {
+    const VT_INT I_DMDIPDT_BUCKLING_Y = 1;
+    const VT_INT I_DMDIPDT_BUCKLING_Z = 2;
+    const VT_INT I_DMDIPDT_LBUCKLING_U = 3;
+    const VT_INT I_DMDIPDT_LBUCKLING_L = 4;
+} IRDimMembDefIntPsDataType;
+
+typedef enum IRDimMembDefBucklingDataType {
+    const VT_INT I_DMDBDT_BUCKLING_Y = 1;
+    const VT_INT I_DMDBDT_BUCKLING_Z = 2;
+    const VT_INT I_DMDBDT_BUCKLING_U = 3;
+    const VT_INT I_DMDBDT_BUCKLING_V = 4;
+} IRDimMembDefBucklingDataType;
+
+typedef enum IRDimMembDefGuidType {
+    const VT_INT I_DMDGT_LACK = 0;
+    const VT_INT I_DMDGT_CLSID = 1;
+    const VT_INT I_DMDGT_PROGID = 2;
+} IRDimMembDefGuidType;
+
+typedef enum IRDimMembDefMatType {
+    const VT_INT I_DMDMT_STEEL = 1;
+    const VT_INT I_DMDMT_TIMBER = 2;
+} IRDimMembDefMatType;
+
+typedef enum IRDimMembDefOptionType {
+    const VT_INT I_DMDOT_NOTHING = 1;
+} IRDimMembDefOptionType;
+
+[uuid(8dd0b324-f193-11d2-999c-00201888053e), helpstring("IRDimClient interface implementation for EU5 code")]
+coclass Eu5Code {
+    [default] interface IRDimClient;
+};
+
+[uuid(ec7b6c13-7f98-11d2-990b-00201888053e), helpstring("IRDimClient Interface")]
+dispinterface IRDimClient : IDispatch {
+    VT_HRESULT Connect([in] IRDimConnection* val);
+    VT_HRESULT GetRDimCodeService([out, retval] IRDimCodeService** ret);
+    VT_HRESULT GetCodeUnitName([in] IRDimUnitType Type, [out, retval] VT_BSTR* pVal);
+    VT_HRESULT GetCodeUnitCoef([in] IRDimUnitType Type, [out, retval] VT_R8* pVal);
+    VT_HRESULT GetCalcConfDefaultWndType([out, retval] IRDimClientCalcConfDefaultWndType* ret);
+};
+
+[uuid(aaa46cb3-2dd0-11d5-882b-0050da7675e2), helpstring("IRDimConnect Interface")]
+dispinterface IRDimConnection : IDispatch {
+    [propget] VT_HRESULT Language([out, retval] VT_I4* ret);
+    [propget] VT_HRESULT ResPath([out, retval] VT_BSTR* ret);
+    VT_HRESULT GetMembSrv([out, retval] IRDimMembSrv** ret);
+    VT_HRESULT GetUnits([out, retval] IRDimUnits** ret);
+    VT_HRESULT GetStream([out, retval] IRDimStream** ret);
+    VT_HRESULT GetAdjoinParams([out, retval] IRDimAdjoinParams** ret);
+    VT_HRESULT GetKernel([out, retval] VT_DISPATCH* ret);
+    VT_HRESULT SendMessage([in] IRDimConnectionMsg msg, [in] VT_DISPATCH dat);
+    VT_HRESULT GetGrpProfs([out, retval] IRDimGrpProfs** ret);
+    [propget] VT_HRESULT BinPath([out, retval] VT_BSTR* ret);
+    [propget] VT_HRESULT HelpPath([out, retval] VT_BSTR* ret);
+    [propget] VT_HRESULT CfgPath([out, retval] VT_BSTR* ret);
+};
+
+[uuid(ec7b6c14-7f98-11d2-990b-00201888053e), helpstring("IRDimMember Interface")]
+dispinterface IRDimMembSrv : IDispatch {
+    VT_HRESULT CheckLabelName([in] VT_BSTR _name, [out] VT_I4* is_defined, [out] VT_I4* can_be_saved);
+    VT_HRESULT Save([in] IRDimMembDef* val);
+    VT_HRESULT EditAdjoinParams([in] VT_DISPATCH in);
+};
+
+[uuid(f9431842-dd47-11d3-86b6-0050da7675e2), helpstring("IRDimUnit interface")]
+dispinterface IRDimUnits : IDispatch {
+    VT_HRESULT Refresh([in] VT_I4 AreRobotUnits);
+    [propget] VT_HRESULT AreRobotUnits([out, retval] VT_I4* pVal);
+    VT_HRESULT ReadToUserCoef([in] IRDimUnitType Type, [out, retval] VT_R8* pVal);
+    VT_HRESULT ReadUserName([in] IRDimUnitType Type, [out, retval] VT_BSTR* pVal);
+    VT_HRESULT Format([in] IRDimUnitType Type, [in] VT_R8 val, [out, retval] VT_BSTR* pVal);
+};
+
+typedef enum IRDimUnitType {
+    const VT_INT I_DUT_SECDIMEN = 1;
+    const VT_INT I_DUT_SECSUR = 2;
+    const VT_INT I_DUT_SECVOL = 3;
+    const VT_INT I_DUT_SECMI = 4;
+    const VT_INT I_DUT_LENGTH = 5;
+    const VT_INT I_DUT_FORCE = 6;
+    const VT_INT I_DUT_DISPL = 7;
+    const VT_INT I_DUT_MOMENT = 8;
+    const VT_INT I_DUT_STRESS = 9;
+    const VT_INT I_DUT_NONE = 10;
+} IRDimUnitType;
+
+[uuid(5c4dd378-0723-4c54-8d64-6322dc32ba96), helpstring("IRDimAdjoinParams interface")]
+dispinterface IRDimAdjoinParams : IDispatch {
+    VT_HRESULT Clear();
+    VT_HRESULT GetMemberUserNo([in] IRDimAdjoinMembNo no, [out, retval] VT_I4* ret);
+    VT_HRESULT SetMemberUserNo([in] IRDimAdjoinMembNo no, [in] VT_I4 usr_no);
+    VT_HRESULT SetMomLenByMembList([in] IRDimAdjoinMembNo no, [in] IRDimStream* in);
+    VT_HRESULT GetMomentOfInertia([in] IRDimAdjoinMembNo no, [out, retval] VT_R8* ret);
+    VT_HRESULT SetMomentOfInertia([in] IRDimAdjoinMembNo no, [in] VT_R8 val);
+    VT_HRESULT GetLength([in] IRDimAdjoinMembNo no, [out, retval] VT_R8* ret);
+    VT_HRESULT SetLength([in] IRDimAdjoinMembNo no, [in] VT_R8 val);
+    VT_HRESULT GetMemberPosition([in] IRDimAdjoinMembNo no, [out, retval] IRDimAdjoinMembPos* ret);
+    VT_HRESULT SetMemberPosition([in] IRDimAdjoinMembNo no, [in] IRDimAdjoinMembPos pos);
+    VT_HRESULT GetMemberSuppCond([in] IRDimAdjoinMembNo no, [out, retval] IRDimAdjoinMembSuppCond* ret);
+    VT_HRESULT SetMemberSuppCond([in] IRDimAdjoinMembNo no, [in] IRDimAdjoinMembSuppCond suppcond);
+    [propget] VT_HRESULT MainMembEqMInertia([out, retval] IRDimAdjoinParamsEqMInertia* ret);
+    [propput] VT_HRESULT MainMembEqMInertia([in] IRDimAdjoinParamsEqMInertia _);
+    [propget] VT_HRESULT MainMembEqMInertiaPercentVal([out, retval] VT_R8* ret);
+    [propput] VT_HRESULT MainMembEqMInertiaPercentVal([in] VT_R8 _);
+    [propget] VT_HRESULT AdjoinMembEqMInertia([out, retval] IRDimAdjoinParamsEqMInertia* ret);
+    [propput] VT_HRESULT AdjoinMembEqMInertia([in] IRDimAdjoinParamsEqMInertia _);
+    [propget] VT_HRESULT AdjoinMembEqMInertiaPercentVal([out, retval] VT_R8* ret);
+    [propput] VT_HRESULT AdjoinMembEqMInertiaPercentVal([in] VT_R8 _);
+    VT_HRESULT Edit([in] IRDimAdjoinParamsEditWndType Type, [in] VT_DISPATCH in);
+};
+
+typedef enum IRDimAdjoinMembNo {
+    const VT_INT I_DAMN_NO_1 = 1;
+    const VT_INT I_DAMN_NO_2 = 2;
+    const VT_INT I_DAMN_NO_3 = 3;
+    const VT_INT I_DAMN_NO_4 = 4;
+    const VT_INT I_DAMN_NO_5 = 5;
+    const VT_INT I_DAMN_NO_6 = 6;
+} IRDimAdjoinMembNo;
+
+typedef enum IRDimAdjoinMembPos {
+    const VT_INT I_DAMP_POSITION_NORMAL = 1;
+    const VT_INT I_DAMP_POSITION_90ROTATED = 2;
+} IRDimAdjoinMembPos;
+
+typedef enum IRDimAdjoinMembSuppCond {
+    const VT_INT I_DAMSC_SUPPCOND_PINNED = 1;
+    const VT_INT I_DAMSC_SUPPCOND_STIFFENED = 2;
+    const VT_INT I_DAMSC_SUPPCOND_MIXED = 3;
+} IRDimAdjoinMembSuppCond;
+
+typedef enum IRDimAdjoinParamsEqMInertia {
+    const VT_INT I_DAPEMI_MINIMUM = 1;
+    const VT_INT I_DAPEMI_AVERAGE = 2;
+    const VT_INT I_DAPEMI_MAXPERCENT = 3;
+} IRDimAdjoinParamsEqMInertia;
+
+typedef enum IRDimAdjoinParamsEditWndType {
+    const VT_INT I_DAPEWT_WNDTYPE_1MEMBER = 1;
+    const VT_INT I_DAPEWT_WNDTYPE_3MEMBER = 2;
+    const VT_INT I_DAPEWT_WNDTYPE_6MEMBER = 3;
+} IRDimAdjoinParamsEditWndType;
+
+typedef enum IRDimConnectionMsg {
+    const VT_INT I_DCM_DETAILED_ANALYZE_RTF_PRINT = 1;
+    const VT_INT I_DCM_SHOW_LOADCASES_DIALOG = 2;
+} IRDimConnectionMsg;
+
+[uuid(314028d2-2cfc-11d5-882a-0050da7675e2), helpstring("IRDimGrpProfs Interface")]
+dispinterface IRDimGrpProfs : IDispatch {
+    [propget] VT_HRESULT Count([out, retval] VT_I4* ret);
+    VT_HRESULT GetBase([in] VT_I4 index, [out, retval] VT_BSTR* base_name);
+    VT_HRESULT Clear();
+    VT_HRESULT ClearProfs([in] VT_BSTR base_name);
+    VT_HRESULT GetProfs([in] VT_BSTR base_name, [in] IRDimStream* in);
+    VT_HRESULT SetProfs([in] VT_BSTR base_name, [in] IRDimStream* in);
+    VT_HRESULT SetFamilies([in] VT_BSTR base_name, [in] IRDimStream* in);
+};
+
+[uuid(9aab28a1-f0b4-11d2-999b-00201888053e), helpstring("IRDimCodeService Interface")]
+dispinterface IRDimCodeService : IDispatch {
+    VT_HRESULT GetDefaultMembDef([in] IRDimMembDefType _type, [out, retval] IRDimMembDef** ret);
+    VT_HRESULT EditMembDef([in] VT_I4 inModalWindow, [in] VT_I4 parentHWND, [in] IRDimMembDef* val);
+    VT_HRESULT GetMembCalc([out, retval] IRDimMembCalc** ret);
+    VT_HRESULT ModalEditManualParams([in] VT_I4 parentHWND, [in] IRDimManCalcPar* val, [out, retval] IRDimManParRetValue* ret);
+    VT_HRESULT ModalEditCalcConfigParams([in] VT_I4 parentHWND, [in] IRDimCalcConf* val, [out, retval] VT_I4* ret);
+};
+
+[uuid(45cae2b1-a649-11d3-9a6f-00105ac6705d), helpstring("IRDimMembCalc Interface")]
+dispinterface IRDimMembCalc : IDispatch {
+    [propget] VT_HRESULT IsExtraMomentsSet1([out, retval] VT_I4* ret);
+    [propget] VT_HRESULT IsExtraMomentsSet2([out, retval] VT_I4* ret);
+    [propget] VT_HRESULT IsIntPointsMomentsSet1([out, retval] VT_I4* ret);
+    [propget] VT_HRESULT IsIntPointsMomentsSet2([out, retval] VT_I4* ret);
+    VT_HRESULT SetMembDef([in] IRDimMembDef* memb_def);
+    VT_HRESULT SetMatDef([in] IRDimMatDef* mat_def);
+    VT_HRESULT SetProfDef([in] IRDimProfDef* prof_def);
+    VT_HRESULT SetEffDef([in] IRDimEffDef* eff_data);
+    VT_HRESULT SetCalcState([in] IRDimCalcState* st);
+    VT_HRESULT CalculBuckling();
+    VT_HRESULT CalculMember([out, retval] IRDimMembCalcRetValue* ret);
+    VT_HRESULT GetRatio([out, retval] VT_R8* ret);
+    [propget] VT_HRESULT IsClientLimitStateService([out, retval] VT_I4* ret);
+    VT_HRESULT SetAutoInitDeflections([in] VT_R8 defl_y, [in] VT_R8 defl_z);
+    VT_HRESULT CalculDeflDisp([in] IRDimDeflDisp* dd, [out, retval] VT_I4* ret);
+    VT_HRESULT ReCalculDeflForProf([in] VT_R8 CoefY, [in] VT_R8 CoefZ, [out, retval] VT_I4* ret);
+    VT_HRESULT GetDeflDispMaxRatio([out, retval] VT_R8* ret);
+    VT_HRESULT GetResultsInterface([out, retval] IRDimMembRes** ret);
+    VT_HRESULT Finish([in] IRDimMembCalcFinishType fin);
+    [propget] VT_HRESULT MessagesNum([out, retval] VT_I4* ret);
+    VT_HRESULT GetMessage([in] VT_I4 message_no, [in] VT_I4 Language, [out, retval] VT_BSTR* ret);
+    VT_HRESULT GetMessageType([in] VT_I4 message_no, [out, retval] IRDimMembCalcMessageType* ret);
+};
+
+[uuid(e43eb701-a03c-11d3-9a65-00105ac6705d), helpstring("IRDimMatDef interface")]
+dispinterface IRDimMatDef : IDispatch {
+    [propget] VT_HRESULT Type([out, retval] IRDimMatDefType* ret);
+    [propput] VT_HRESULT Type([in] IRDimMatDefType _);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* ret);
+    [propget] VT_HRESULT SecondName([out, retval] VT_BSTR* ret);
+    VT_HRESULT SetNames([in] VT_BSTR _name, [in] VT_BSTR second_name);
+    VT_HRESULT WriteValue([in] IRDimMatDefValType _type, [in] VT_R8 val);
+    VT_HRESULT ReadValue([in] IRDimMatDefValType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT WriteLongExtraValue([in] IRDimMatDefLongExValType _type, [in] VT_I4 val);
+    VT_HRESULT ReadLongExtraValue([in] IRDimMatDefLongExValType _type, [out, retval] VT_I4* ret);
+    VT_HRESULT WriteDoubleExtraValue([in] IRDimMatDefDblExValType _type, [in] VT_R8 val);
+    VT_HRESULT ReadDoubleExtraValue([in] IRDimMatDefDblExValType _type, [out, retval] VT_R8* ret);
+};
+
+typedef enum IRDimMatDefType {
+    const VT_INT I_DMDT_NONE = 0;
+    const VT_INT I_DMDT_STEEL = 1;
+    const VT_INT I_DMDT_ALUMINIUM = 2;
+    const VT_INT I_DMDT_WOOD = 3;
+} IRDimMatDefType;
+
+typedef enum IRDimMatDefValType {
+    const VT_INT I_DMDVT_CS = 1;
+    const VT_INT I_DMDVT_E = 2;
+    const VT_INT I_DMDVT_G = 3;
+    const VT_INT I_DMDVT_RE = 4;
+    const VT_INT I_DMDVT_RE_AX_COMR = 5;
+    const VT_INT I_DMDVT_NU = 6;
+    const VT_INT I_DMDVT_FU = 7;
+    const VT_INT I_DMDVT_LX = 8;
+    const VT_INT I_DMDVT_RO = 9;
+    const VT_INT I_DMDVT_RT = 10;
+    const VT_INT I_DMDVT_E_5 = 11;
+    const VT_INT I_DMDVT_TRANS = 12;
+    const VT_INT I_DMDVT_PN_E_TRANS = 13;
+    const VT_INT I_DMDVT_PN_E_ADITIONAL = 14;
+    const VT_INT I_DMDVT_RE_BENDING = 15;
+    const VT_INT I_DMDVT_RE_AX_TENS = 16;
+    const VT_INT I_DMDVT_RE_TR_TENS = 17;
+    const VT_INT I_DMDVT_RE_TR_COMPR = 18;
+    const VT_INT I_DMDVT_RE_SHEAR = 19;
+    const VT_INT I_DMDVT_DAMPCOEF = 20;
+} IRDimMatDefValType;
+
+typedef enum IRDimMatDefLongExValType {
+    const VT_INT I_DMDLEVT_TIMB_TYPE = 1;
+    const VT_INT I_DMDLEVT_CATEGORY = 2;
+    const VT_INT I_DMDLEVT_NATURE = 3;
+} IRDimMatDefLongExValType;
+
+typedef enum IRDimMatDefDblExValType {
+    const VT_INT I_DMDDEVT_RETRAIT = 4;
+    const VT_INT I_DMDDEVT_HUMIDITY = 5;
+} IRDimMatDefDblExValType;
+
+[uuid(e43eb704-a03c-11d3-9a65-00105ac6705d), helpstring("IRDimProfDef interface")]
+dispinterface IRDimProfDef : IDispatch {
+    [propget] VT_HRESULT Type([out, retval] IRDimProfDefType* ret);
+    [propput] VT_HRESULT Type([in] IRDimProfDefType _);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* ret);
+    [propput] VT_HRESULT Name([in] VT_BSTR _);
+    [propget] VT_HRESULT IsVar([out, retval] VT_I4* ret);
+    VT_HRESULT Clear();
+    VT_HRESULT WriteValue([in] IRDimProfDefItemType item, [in] IRDimProfDefValType _type, [in] VT_R8 val);
+    VT_HRESULT ReadValue([in] IRDimProfDefItemType item, [in] IRDimProfDefValType _type, [out, retval] VT_R8* ret);
+};
+
+typedef enum IRDimProfDefType {
+    const VT_INT I_DPDT_NONE = 0;
+    const VT_INT I_DPDT_CAE = 1;
+    const VT_INT I_DPDT_CAEP = 2;
+    const VT_INT I_DPDT_CAI = 3;
+    const VT_INT I_DPDT_CAIP = 4;
+    const VT_INT I_DPDT_DCEC = 5;
+    const VT_INT I_DPDT_DCED = 6;
+    const VT_INT I_DPDT_DCEP = 7;
+    const VT_INT I_DPDT_DCIG = 8;
+    const VT_INT I_DPDT_DCIP = 9;
+    const VT_INT I_DPDT_HEA = 10;
+    const VT_INT I_DPDT_HEAA = 11;
+    const VT_INT I_DPDT_HEB = 12;
+    const VT_INT I_DPDT_HEC = 13;
+    const VT_INT I_DPDT_HEM = 14;
+    const VT_INT I_DPDT_HER = 15;
+    const VT_INT I_DPDT_HHEA = 16;
+    const VT_INT I_DPDT_HHEB = 17;
+    const VT_INT I_DPDT_HHEM = 18;
+    const VT_INT I_DPDT_IIPE = 19;
+    const VT_INT I_DPDT_IPE = 20;
+    const VT_INT I_DPDT_IPEA = 21;
+    const VT_INT I_DPDT_IPEO = 22;
+    const VT_INT I_DPDT_IPER = 23;
+    const VT_INT I_DPDT_IPEV = 24;
+    const VT_INT I_DPDT_IPN = 25;
+    const VT_INT I_DPDT_MHEA = 26;
+    const VT_INT I_DPDT_MHEB = 27;
+    const VT_INT I_DPDT_MHEM = 28;
+    const VT_INT I_DPDT_MIPE = 29;
+    const VT_INT I_DPDT_PRS = 30;
+    const VT_INT I_DPDT_TCAR = 31;
+    const VT_INT I_DPDT_TEAE = 32;
+    const VT_INT I_DPDT_TEAI = 33;
+    const VT_INT I_DPDT_THEX = 34;
+    const VT_INT I_DPDT_TREC = 35;
+    const VT_INT I_DPDT_TRON = 36;
+    const VT_INT I_DPDT_UAP = 37;
+    const VT_INT I_DPDT_UPN = 38;
+    const VT_INT I_DPDT_UUAP = 39;
+    const VT_INT I_DPDT_UUPN = 40;
+    const VT_INT I_DPDT_OSIE = 41;
+    const VT_INT I_DPDT_CAISSON = 42;
+    const VT_INT I_DPDT_RECT = 43;
+    const VT_INT I_DPDT_DRECT = 44;
+    const VT_INT I_DPDT_TUBE = 45;
+    const VT_INT I_DPDT_ISYM = 46;
+    const VT_INT I_DPDT_INSYM = 47;
+    const VT_INT I_DPDT_TUSER = 48;
+    const VT_INT I_DPDT_CUSER = 49;
+    const VT_INT I_DPDT_FRTG = 50;
+    const VT_INT I_DPDT_CROSS = 51;
+    const VT_INT I_DPDT_UPAF = 52;
+    const VT_INT I_DPDT_RECS = 53;
+    const VT_INT I_DPDT_CIRC = 54;
+    const VT_INT I_DPDT_X = 55;
+    const VT_INT I_DPDT_WCIRC = 56;
+    const VT_INT I_DPDT_CCL = 57;
+    const VT_INT I_DPDT_URND = 58;
+    const VT_INT I_DPDT_TRND = 59;
+    const VT_INT I_DPDT_UCIRC = 60;
+    const VT_INT I_DPDT_UBOX2 = 61;
+} IRDimProfDefType;
+
+typedef enum IRDimProfDefItemType {
+    const VT_INT I_DPDIT_STANDARD = 1;
+    const VT_INT I_DPDIT_VAR_IN_POINT = 2;
+    const VT_INT I_DPDIT_VAR_MIDDLE = 3;
+    const VT_INT I_DPDIT_VAR_BEGEND = 4;
+    const VT_INT I_DPDIT_VAR_MIN = 4;
+    const VT_INT I_DPDIT_VAR_MAX = 5;
+} IRDimProfDefItemType;
+
+typedef enum IRDimProfDefValType {
+    const VT_INT I_DPDVT_H = 1;
+    const VT_INT I_DPDVT_HW = 2;
+    const VT_INT I_DPDVT_HD = 3;
+    const VT_INT I_DPDVT_B = 4;
+    const VT_INT I_DPDVT_B2 = 5;
+    const VT_INT I_DPDVT_BF = 6;
+    const VT_INT I_DPDVT_BF2 = 7;
+    const VT_INT I_DPDVT_BD = 8;
+    const VT_INT I_DPDVT_EA = 9;
+    const VT_INT I_DPDVT_ES = 10;
+    const VT_INT I_DPDVT_EA2 = 11;
+    const VT_INT I_DPDVT_ES2 = 12;
+    const VT_INT I_DPDVT_DIS = 13;
+    const VT_INT I_DPDVT_R = 14;
+    const VT_INT I_DPDVT_R2 = 15;
+    const VT_INT I_DPDVT_VZ = 16;
+    const VT_INT I_DPDVT_VPZ = 17;
+    const VT_INT I_DPDVT_VY = 18;
+    const VT_INT I_DPDVT_VPY = 19;
+    const VT_INT I_DPDVT_I = 20;
+    const VT_INT I_DPDVT_IY = 21;
+    const VT_INT I_DPDVT_IZ = 22;
+    const VT_INT I_DPDVT_S = 23;
+    const VT_INT I_DPDVT_SY = 24;
+    const VT_INT I_DPDVT_SZ = 25;
+    const VT_INT I_DPDVT_MSY = 26;
+    const VT_INT I_DPDVT_MSZ = 27;
+    const VT_INT I_DPDVT_MASSE = 28;
+    const VT_INT I_DPDVT_H_BEGIN = 29;
+    const VT_INT I_DPDVT_H_END = 30;
+} IRDimProfDefValType;
+
+[uuid(dfcdc8b5-a030-11d3-9a65-00105ac6705d), helpstring("IRDimEffDef interface")]
+dispinterface IRDimEffDef : IDispatch {
+    [propget] VT_HRESULT N([out, retval] VT_R8* ret);
+    [propget] VT_HRESULT QY([out, retval] VT_R8* ret);
+    [propget] VT_HRESULT QZ([out, retval] VT_R8* ret);
+    [propget] VT_HRESULT MX([out, retval] VT_R8* ret);
+    [propget] VT_HRESULT MY([out, retval] VT_R8* ret);
+    [propget] VT_HRESULT MZ([out, retval] VT_R8* ret);
+    VT_HRESULT Clear();
+    VT_HRESULT Set_x_0_1([in] VT_R8 val);
+    VT_HRESULT Get_x_0_1([out, retval] VT_R8* val);
+    VT_HRESULT WriteParam([in] IRDimEffDefParamType _type, [in] VT_I4 val);
+    VT_HRESULT ReadParam([in] IRDimEffDefParamType _type, [out, retval] VT_I4* ret);
+    VT_HRESULT WriteForces([in] VT_R8 N, [in] VT_R8 QY, [in] VT_R8 QZ, [in] VT_R8 MX, [in] VT_R8 MY, [in] VT_R8 MZ);
+    VT_HRESULT WriteValuesSet1([in] IRDimEffDefDirType _type, [in] VT_R8 M1, [in] VT_R8 M2, [in] VT_R8 M12);
+    VT_HRESULT Read_M1([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_M2([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_M12([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT WriteValuesSet2([in] IRDimEffDefDirType _type, [in] VT_R8 MP_MAX, [in] VT_R8 MN_MAX, [in] VT_R8 M_MID, [in] VT_R8 M_1P4L, [in] VT_R8 M_3P4L);
+    VT_HRESULT Read_MP_MAX([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_MN_MAX([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_M_MID([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_M_1P4L([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_M_3P4L([in] IRDimEffDefDirType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT WriteIntPsRangeCoeff([in] IRDimEffDefIntPsType _type, [in] VT_R8 x_beg, [in] VT_R8 x_end, [in] VT_R8 coeff);
+    VT_HRESULT ReadIntPsRangeCoeff([in] IRDimEffDefIntPsType _type, [out] VT_R8* x_beg, [out] VT_R8* x_end, [out] VT_R8* coeff);
+    VT_HRESULT WriteIntPsEffSet1([in] IRDimEffDefIntPsType _type, [in] VT_R8 M1, [in] VT_R8 M2, [in] VT_R8 M12);
+    VT_HRESULT Read_IntPsEff_M1([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_IntPsEff_M2([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_IntPsEff_M12([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT WriteIntPsEffSet2([in] IRDimEffDefIntPsType _type, [in] VT_R8 MP_MAX, [in] VT_R8 MN_MAX, [in] VT_R8 M_MID, [in] VT_R8 M_1P4L, [in] VT_R8 M_3P4L);
+    VT_HRESULT Read_IntPsEff_MP_MAX([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_IntPsEff_MN_MAX([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_IntPsEff_M_MID([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_IntPsEff_M_1P4L([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT Read_IntPsEff_M_3P4L([in] IRDimEffDefIntPsType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT WriteExtraValue([in] IRDimEffDefDirType _dirType, [in] IRDimEffDefExtValType _valType, [in] VT_R8 val);
+    VT_HRESULT ReadExtraValue([in] IRDimEffDefDirType _dirType, [in] IRDimEffDefExtValType _valType, [out] VT_R8* ret);
+    VT_HRESULT WriteIntPsExtExtraValue([in] IRDimEffDefIntPsType _type, [in] IRDimEffDefExtValType _valType, [in] VT_R8 val);
+    VT_HRESULT ReadIntPsExtExtraValue([in] IRDimEffDefIntPsType _type, [in] IRDimEffDefExtValType _valType, [out] VT_R8* ret);
+};
+
+typedef enum IRDimEffDefParamType {
+    const VT_INT I_DEDPT_ACC = 1;
+    const VT_INT I_DEDPT_ELEM_NO = 2;
+    const VT_INT I_DEDPT_MEMB_NO = 3;
+    const VT_INT I_DEDPT_CASE_NO = 4;
+    const VT_INT I_DEDPT_COMP_NO = 5;
+    const VT_INT I_DEDPT_POINTS_NUM = 6;
+    const VT_INT I_DEDPT_POINT_NO = 7;
+    const VT_INT I_DEDPT_LOADCLASS = 8;
+    const VT_INT I_DEDPT_MEMB_USER_NO = 9;
+    const VT_INT I_DEDPT_CASE_USER_NO = 10;
+} IRDimEffDefParamType;
+
+typedef enum IRDimEffDefDirType {
+    const VT_INT I_DEDDT_Y = 1;
+    const VT_INT I_DEDDT_Z = 2;
+} IRDimEffDefDirType;
+
+typedef enum IRDimEffDefIntPsType {
+    const VT_INT I_DEDIPT_BUCKLING_Y = 1;
+    const VT_INT I_DEDIPT_BUCKLING_Z = 2;
+    const VT_INT I_DEDIPT_LBUCKLING_U = 3;
+    const VT_INT I_DEDIPT_LBUCKLING_L = 4;
+    const VT_INT I_DEDIPT_BUCKLING_Y_IP_Z = 5;
+    const VT_INT I_DEDIPT_BUCKLING_Z_IP_Y = 6;
+} IRDimEffDefIntPsType;
+
+typedef enum IRDimEffDefExtValType {
+    const VT_INT I_DEDEVT_M_1P3L = 0;
+    const VT_INT I_DEDEVT_RNG_M1 = 1;
+    const VT_INT I_DEDEVT_RNG_M2 = 2;
+    const VT_INT I_DEDEVT_RNG_M12 = 3;
+    const VT_INT I_DEDEVT_RNG_MP_MAX = 4;
+    const VT_INT I_DEDEVT_RNG_MN_MAX = 5;
+    const VT_INT I_DEDEVT_RNG_M_MID = 6;
+    const VT_INT I_DEDEVT_RNG_M_1P4L = 7;
+    const VT_INT I_DEDEVT_RNG_M_1P3L = 8;
+    const VT_INT I_DEDEVT_RNG_M_3P4L = 9;
+    const VT_INT I_DEDEVT_N1 = 10;
+    const VT_INT I_DEDEVT_N2 = 11;
+    const VT_INT I_DEDEVT_N_MID = 12;
+} IRDimEffDefExtValType;
+
+[uuid(561cf201-b42b-11d9-869e-0050da7675e2), helpstring("IRDimCalcState interface")]
+dispinterface IRDimCalcState : IDispatch {
+    VT_HRESULT SetFlag([in] IRDimCalcStateFlagType _type, [in] VT_I4 val);
+    VT_HRESULT IsFlagSet([in] IRDimCalcStateFlagType _type, [out, retval] VT_I4* ret);
+    [propput] VT_HRESULT CalcType([in] IRDimCalcStateCalcType _);
+    [propget] VT_HRESULT CalcType([out, retval] IRDimCalcStateCalcType* ret);
+    VT_HRESULT SetParamValue([in] IRDimCalcStateValueType _type, [in] VT_R8 val);
+    VT_HRESULT GetParamValue([in] IRDimCalcStateValueType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT WriteClientData([in] IRDimStream* val);
+    VT_HRESULT ReadClientData([in] IRDimStream* ret);
+};
+
+typedef enum IRDimCalcStateFlagType {
+    const VT_INT I_DCSFT_CHECKSLEND = 1;
+    const VT_INT I_DCSFT_POINTMIDDLE = 2;
+    const VT_INT I_DCSFT_FIRE = 3;
+} IRDimCalcStateFlagType;
+
+typedef enum IRDimCalcStateCalcType {
+    const VT_INT I_DCSPV_MANUAL_VERIF = 1;
+    const VT_INT I_DCSPV_MEMBERS_VERIF = 2;
+    const VT_INT I_DCSPV_GROUP_VERIF = 3;
+    const VT_INT I_DCSPV_DIMENSIONING = 4;
+    const VT_INT I_DCSPV_OPTIMIZATION = 5;
+} IRDimCalcStateCalcType;
+
+typedef enum IRDimCalcStateValueType {
+    const VT_INT I_DCSVT_MAXSLEND = 1;
+    const VT_INT I_DCSVT_EFFRATIO = 2;
+} IRDimCalcStateValueType;
+
+typedef enum IRDimMembCalcRetValue {
+    const VT_INT I_DMCRV_INCORRECTDATA = -2;
+    const VT_INT I_DMCRV_INSTABILITY = -3;
+    const VT_INT I_DMCRV_INCORRECT = 0;
+    const VT_INT I_DMCRV_CORRECT = 1;
+} IRDimMembCalcRetValue;
+
+[uuid(01c241d4-03bc-11d4-86d6-0050da7675e2), helpstring("IRDimDeflDisp Interface")]
+dispinterface IRDimDeflDisp : IDispatch {
+    VT_HRESULT Init([in] IRDimDeflDispInitType Type, [in] VT_I4 val);
+    [propget] VT_HRESULT MemberNo([out, retval] VT_I4* ret);
+    [propget] VT_HRESULT CaseNo([out, retval] VT_I4* ret);
+    VT_HRESULT CaseUserNo([in] VT_I4 case_no, [out, retval] VT_I4* ret);
+    VT_HRESULT CaseType([in] VT_I4 case_no, [out, retval] IRDimDeflDispCaseType* ret);
+    VT_HRESULT CaseName([in] VT_I4 case_no, [in] VT_I4 comp_index, [in] VT_I4 with_def, [out, retval] VT_BSTR* ret);
+    VT_HRESULT CaseNature([in] VT_I4 case_no, [out, retval] IRDimDeflDispSimpleCaseNature* ret);
+    VT_HRESULT CaseClass([in] VT_I4 case_no, [out, retval] VT_I4* ret);
+    VT_HRESULT CodeCombCompNum([in] VT_I4 case_no, [out, retval] VT_I4* ret);
+    VT_HRESULT CombCompNum([in] VT_I4 case_no, [in] VT_I4 comp_index, [out, retval] VT_I4* ret);
+    [propput] VT_HRESULT PointsNum([in] VT_I4 _);
+    [propput] VT_HRESULT CurPointNo([in] VT_I4 _);
+    [propput] VT_HRESULT CurCaseNo([in] VT_I4 _);
+    [propput] VT_HRESULT CurCompIndex([in] VT_I4 _);
+    [propput] VT_HRESULT CantileverMode([in] VT_I4 _);
+    VT_HRESULT Value([in] IRDimDeflDispType Type, [out, retval] VT_R8* ret);
+    VT_HRESULT CombCompParam([in] VT_I4 index, [out] VT_I4* case_no, [out] VT_R8* cv);
+};
+
+typedef enum IRDimDeflDispInitType {
+    const VT_INT I_DDDIT_MEMBER_NO = 1;
+    const VT_INT I_DDDIT_CASE_NO = 2;
+} IRDimDeflDispInitType;
+
+typedef enum IRDimDeflDispCaseType {
+    const VT_INT I_DDDCT_NONE = 0;
+    const VT_INT I_DDDCT_SIMPLE = 1;
+    const VT_INT I_DDDCT_COMBINATION = 2;
+    const VT_INT I_DDDCT_CODECOMBINATION = 3;
+} IRDimDeflDispCaseType;
+
+typedef enum IRDimDeflDispSimpleCaseNature {
+    const VT_INT I_DDDSCN_PERM = 0;
+    const VT_INT I_DDDSCN_EXPL = 1;
+    const VT_INT I_DDDSCN_TEMP = 2;
+    const VT_INT I_DDDSCN_WIND = 3;
+    const VT_INT I_DDDSCN_SNOW = 4;
+    const VT_INT I_DDDSCN_ACCI = 5;
+    const VT_INT I_DDDSCN_SEIS = 6;
+    const VT_INT I_DDDSCN_NON = 7;
+} IRDimDeflDispSimpleCaseNature;
+
+typedef enum IRDimDeflDispType {
+    const VT_INT I_DDDT_DEFL_Y = 0;
+    const VT_INT I_DDDT_DEFL_Z = 1;
+    const VT_INT I_DDDT_DEFL_MAX_Y = 2;
+    const VT_INT I_DDDT_DEFL_MAX_Z = 3;
+    const VT_INT I_DDDT_DISP_X = 4;
+    const VT_INT I_DDDT_DISP_Y = 5;
+} IRDimDeflDispType;
+
+[uuid(979dccc2-b45b-11d9-869f-0050da7675e2), helpstring("IRDimMembRes interface")]
+dispinterface IRDimMembRes : IDispatch {
+    [propput] VT_HRESULT Language([in] VT_I4 _);
+    [propput] VT_HRESULT Units([in] IRDimUnits* _);
+    VT_HRESULT RefreshUnits([in] VT_I4 AreRobotUnits);
+    [propget] VT_HRESULT CodeResults([out, retval] VT_DISPATCH* ret);
+    VT_HRESULT ResOfCalc([in] IRDimMembResCalcType Type, [out, retval] IRDimMembCalcRetValue* ret);
+    VT_HRESULT GetUltimateValue([in] IRDimMembResUltimateValueType Type, [out, retval] VT_R8* ret);
+    [propget] VT_HRESULT IsClientLimitStateService([out, retval] VT_I4* ret);
+    VT_HRESULT IsServiceActive([in] IRDimMembResServiceType Type, [out, retval] VT_I4* ret);
+    VT_HRESULT GetServiceRatio([in] IRDimMembResServiceType Type, [out, retval] VT_R8* ret);
+    VT_HRESULT GetServiceCaseName([in] IRDimMembResServiceType Type, [out, retval] VT_BSTR* ret);
+    [propget] VT_HRESULT RtfFileName([out, retval] VT_BSTR* ret);
+    VT_HRESULT Retrieve([in] IRDimStream* str);
+    VT_HRESULT SetMembDef([in] IRDimMembDef* memb_def);
+    VT_HRESULT SetMatDef([in] IRDimMatDef* mat_def);
+    VT_HRESULT SetProfDef([in] IRDimProfDef* prof_def);
+    VT_HRESULT SetEffDef([in] IRDimEffDef* eff_def);
+    VT_HRESULT GetMembDefAccess([out, retval] IRDimMembDef** ret);
+    VT_HRESULT GetMatDefAccess([out, retval] IRDimMatDef** ret);
+    VT_HRESULT GetProfDefAccess([out, retval] IRDimProfDef** ret);
+    VT_HRESULT GetEffDefAccess([out, retval] IRDimEffDef** ret);
+    VT_HRESULT CreateResWnd([in] IRDimMembResWndType Type, [in] VT_I4 parent_hwnd, [out, retval] VT_I4* ret);
+    VT_HRESULT GetDefMaxLineNo([in] IRDimMembResTableDefType Type, [out] VT_I4* ret, [out] VT_I4* was_proc);
+    VT_HRESULT IsDefLineActive([in] IRDimMembResTableDefType Type, [in] VT_I4 line_no, [out] VT_I4* ret, [out] VT_I4* was_proc);
+    VT_HRESULT GetDefLineComponent([in] IRDimMembResTableDefType Type, [in] VT_I4 line_no, [in] IRDimMembResTableComp cmpnt_no, [out] VT_I4* defline_no, [out] VT_BSTR* ret, [out] VT_I4* defline_no_proc);
+    VT_HRESULT GetMaxLineNo([out, retval] VT_I4* ret);
+    VT_HRESULT IsLineActive([in] VT_I4 line_no, [out, retval] VT_I4* ret);
+    VT_HRESULT GetLineType([in] VT_I4 line_no, [out, retval] IRDimMembResTableLineType* ret);
+    VT_HRESULT GetLineComponent([in] VT_I4 line_no, [in] IRDimMembResTableComp cmpnt_no, [out, retval] VT_BSTR* ret);
+    VT_HRESULT BlockCount([in] VT_BSTR _name, [out] VT_I4* ret, [out] VT_I4* was_proc);
+    VT_HRESULT IsStatement([in] VT_BSTR _name, [out] VT_I4* ret, [out] VT_I4* was_proc);
+    VT_HRESULT ReplaceMark([in] VT_BSTR mark, [out] VT_BSTR* mark_out, [out] VT_I4* was_proc);
+    VT_HRESULT RecognizedPQ([in] VT_BSTR _name, [out] VT_BSTR* vstr, [out] VT_BSTR* ustr, [out] VT_I4* was_proc);
+    [propput] VT_HRESULT CurrentBlock([in] VT_I4 _);
+};
+
+typedef enum IRDimMembResCalcType {
+    const VT_INT I_DMRCT_ULTIMATE = 0;
+    const VT_INT I_DMRCT_SERVICE = 1;
+    const VT_INT I_DMRCT_DETAILED = 2;
+} IRDimMembResCalcType;
+
+typedef enum IRDimMembResUltimateValueType {
+    const VT_INT I_DMRVT_SLEND_Y = 0;
+    const VT_INT I_DMRVT_SLEND_Z = 1;
+    const VT_INT I_DMRVT_RATIO = 2;
+    const VT_INT I_DMRVT_EFFRATIO = 3;
+} IRDimMembResUltimateValueType;
+
+typedef enum IRDimMembResServiceType {
+    const VT_INT I_DMRST_DEFL_Y = 0;
+    const VT_INT I_DMRST_DEFL_Z = 1;
+    const VT_INT I_DMRST_DISP_X = 2;
+    const VT_INT I_DMRST_DISP_Y = 3;
+} IRDimMembResServiceType;
+
+typedef enum IRDimMembResWndType {
+    const VT_INT I_DMRWT_ULTIMATE_WND = 0;
+    const VT_INT I_DMRWT_SERVICE_WND = 1;
+    const VT_INT I_DMRWT_DETAILED_WND = 2;
+} IRDimMembResWndType;
+
+typedef enum IRDimMembResTableDefType {
+    const VT_INT I_DMRTDT_DEFSECT_PROFILE = 1;
+    const VT_INT I_DMRTDT_DEFSECT_MATERIAL = 2;
+} IRDimMembResTableDefType;
+
+typedef enum IRDimMembResTableComp {
+    const VT_INT I_DMRTC_NAME = 1;
+    const VT_INT I_DMRTC_VALUE = 2;
+    const VT_INT I_DMRTC_UNIT = 3;
+    const VT_INT I_DMRTC_DESCRIPTION = 4;
+    const VT_INT I_DMRTC_PARAGRAPH = 5;
+} IRDimMembResTableComp;
+
+typedef enum IRDimMembResTableLineType {
+    const VT_INT I_DMRTLT_PRINTCAPTION = 0;
+    const VT_INT I_DMRTLT_CAPTION = 1;
+    const VT_INT I_DMRTLT_SUBCAPTION = 2;
+    const VT_INT I_DMRTLT_1PARAM = 3;
+    const VT_INT I_DMRTLT_4HEADER = 4;
+    const VT_INT I_DMRTLT_5HEADER = 5;
+    const VT_INT I_DMRTLT_4PARAM = 6;
+    const VT_INT I_DMRTLT_5PARAM = 7;
+} IRDimMembResTableLineType;
+
+typedef enum IRDimMembCalcFinishType {
+    const VT_INT I_DMCFT_ULTIMATE = 1;
+    const VT_INT I_DMCFT_SERVICE = 2;
+    const VT_INT I_DMCFT_FINISH_ALL = 3;
+} IRDimMembCalcFinishType;
+
+typedef enum IRDimMembCalcMessageType {
+    const VT_INT I_DMCMT_MESSAGE = 1;
+    const VT_INT I_DMCMT_ERROR = 2;
+} IRDimMembCalcMessageType;
+
+[uuid(12ba3a11-4088-11d4-8717-0050da7675e2), helpstring("IRDimManCalcPar Interface")]
+dispinterface IRDimManCalcPar : IDispatch {
+    [propput] VT_HRESULT ManMembNo([in] VT_I4 _);
+    [propget] VT_HRESULT ManMembNo([out, retval] VT_I4* memb_no);
+    VT_HRESULT SetManMembDef([in] IRDimMembDef* memb_def);
+    VT_HRESULT GetManMembDefAccess([out, retval] IRDimMembDef** memb_def);
+    VT_HRESULT SetManEffDef([in] IRDimSimEffDef* eff_data);
+    VT_HRESULT GetManEffDefAccess([out, retval] IRDimSimEffDef** eff_data);
+    VT_HRESULT SetCalcConf([in] IRDimCalcConf* conf_data);
+    VT_HRESULT GetCalcConfAccess([out, retval] IRDimCalcConf** conf_data);
+    VT_HRESULT GetMembNum([out, retval] VT_I4* ret);
+    VT_HRESULT GetMembNo([in] VT_I4 index, [out, retval] VT_I4* memb_no);
+    VT_HRESULT GetMembUserNo([in] VT_I4 memb_no, [out, retval] VT_I4* user_no);
+    VT_HRESULT GetMembName([in] VT_I4 memb_no, [out, retval] VT_BSTR* Name);
+    VT_HRESULT GetMembDef([in] VT_I4 memb_no, [out, retval] IRDimMembDef** memb_def);
+};
+
+[uuid(baf61611-41d5-11d4-8719-0050da7675e2), helpstring("IRDimEffDef interface")]
+dispinterface IRDimSimEffDef : IDispatch {
+    VT_HRESULT Clear();
+    VT_HRESULT WriteForces([in] VT_R8 N, [in] VT_R8 QY, [in] VT_R8 QZ, [in] VT_R8 MX, [in] VT_R8 MY, [in] VT_R8 MZ);
+    VT_HRESULT ReadForces([out] VT_R8* N, [out] VT_R8* QY, [out] VT_R8* QZ, [out] VT_R8* MX, [out] VT_R8* MY, [out] VT_R8* MZ);
+    VT_HRESULT WriteValuesSet1([in] IRDimEffDefDirType _type, [in] VT_R8 M1, [in] VT_R8 M2, [in] VT_R8 M12);
+    VT_HRESULT ReadValuesSet1([in] IRDimEffDefDirType _type, [out] VT_R8* M1, [out] VT_R8* M2, [out] VT_R8* M12);
+    VT_HRESULT WriteValuesSet2([in] IRDimEffDefDirType _type, [in] VT_R8 MP_MAX, [in] VT_R8 MN_MAX, [in] VT_R8 M_MID, [in] VT_R8 M_1P4L, [in] VT_R8 M_3P4L);
+    VT_HRESULT ReadValuesSet2([in] IRDimEffDefDirType _type, [out] VT_R8* MP_MAX, [out] VT_R8* MN_MAX, [out] VT_R8* M_MID, [out] VT_R8* M_1P4L, [out] VT_R8* M_3P4L);
+    VT_HRESULT WriteExtraValue([in] IRDimEffDefDirType _dirType, [in] IRDimEffDefExtValType _valType, [in] VT_R8 val);
+    VT_HRESULT ReadExtraValue([in] IRDimEffDefDirType _dirType, [in] IRDimEffDefExtValType _valType, [out] VT_R8* ret);
+};
+
+[uuid(2058fc71-4690-11d4-8720-0050da7675e2), helpstring("IRDimCalcConf interface")]
+dispinterface IRDimCalcConf : IDispatch {
+    VT_HRESULT SetFlag([in] IRDimCalcConfFlagType _type, [in] VT_I4 val);
+    VT_HRESULT IsFlagSet([in] IRDimCalcConfFlagType _type, [out, retval] VT_I4* ret);
+    [propput] VT_HRESULT NPointsNum([in] VT_I4 _);
+    [propget] VT_HRESULT NPointsNum([out, retval] VT_I4* ret);
+    VT_HRESULT SetParamValue([in] IRDimCalcConfValueType _type, [in] VT_R8 val);
+    VT_HRESULT GetParamValue([in] IRDimCalcConfValueType _type, [out, retval] VT_R8* ret);
+    VT_HRESULT ClearUserCharPoints();
+    VT_HRESULT GetUserCharPointsNum([out, retval] VT_I4* ret);
+    VT_HRESULT WriteUserCharPoint([in] VT_R8 val);
+    VT_HRESULT ReadUserCharPoint([in] VT_I4 no, [out, retval] VT_R8* ret);
+    VT_HRESULT SetAutoDeflectionsLoadCase([in] VT_I4 case_no, [in] VT_I4 comp_index);
+    VT_HRESULT GetAutoDeflectionsLoadCase([out] VT_I4* case_no, [out] VT_I4* comp_index);
+    VT_HRESULT WriteClientData([in] IRDimStream* val);
+    VT_HRESULT ReadClientData([in] IRDimStream* ret);
+    VT_HRESULT ModalEditBasicParams();
+    [propget] VT_HRESULT CasesNum([out, retval] VT_I4* ret);
+    VT_HRESULT GetCaseNo([in] VT_I4 index, [out, retval] VT_I4* case_no);
+    VT_HRESULT GetCaseCompNum([in] VT_I4 case_no, [out, retval] VT_I4* ret);
+    VT_HRESULT GetCaseName([in] VT_I4 case_no, [in] VT_I4 comp_index, [out, retval] VT_BSTR* ret);
+};
+
+typedef enum IRDimCalcConfFlagType {
+    const VT_INT I_DCCFT_CHECKSLEND = 1;
+    const VT_INT I_DCCFT_FIRE = 2;
+    const VT_INT I_DCCFT_INACTIVECOMP = 3;
+    const VT_INT I_DCCFT_CHARPOINTS = 4;
+    const VT_INT I_DCCFT_N_AND_CHAR_POINTS = 5;
+    const VT_INT I_DCCFT_MAX_FX_POINT = 6;
+    const VT_INT I_DCCFT_MAX_FY_POINT = 7;
+    const VT_INT I_DCCFT_MAX_FZ_POINT = 8;
+    const VT_INT I_DCCFT_MAX_MY_POINT = 9;
+    const VT_INT I_DCCFT_MAX_MZ_POINT = 10;
+    const VT_INT I_DCCFT_USERPOINTS = 11;
+    const VT_INT I_DCCFT_USERPOINTS_ABS = 12;
+    const VT_INT I_DCCFT_ROBOTUNITS = 13;
+    const VT_INT I_DCCFT_INITIAL_DEFLECTIONS = 14;
+    const VT_INT I_DCCFT_INTERNALFORCE_FX = 15;
+    const VT_INT I_DCCFT_INTERNALFORCE_FY = 16;
+    const VT_INT I_DCCFT_INTERNALFORCE_FZ = 17;
+    const VT_INT I_DCCFT_INTERNALFORCE_MX = 18;
+    const VT_INT I_DCCFT_INTERNALFORCE_MY = 19;
+    const VT_INT I_DCCFT_INTERNALFORCE_MZ = 20;
+    const VT_INT I_DCCFT_STRESSINCREASE = 21;
+} IRDimCalcConfFlagType;
+
+typedef enum IRDimCalcConfValueType {
+    const VT_INT I_DCCPV_MAXSLEND = 1;
+    const VT_INT I_DCCPV_EFFRATIO = 2;
+} IRDimCalcConfValueType;
+
+typedef enum IRDimManParRetValue {
+    const VT_INT I_DMPRV_OK = 1;
+    const VT_INT I_DMPRV_CANCEL = 2;
+    const VT_INT I_DMPRV_CALCULATION = 3;
+} IRDimManParRetValue;
+
+typedef enum IRDimClientCalcConfDefaultWndType {
+    const VT_INT I_DCCCDWT_BASIC_TYPE = 1;
+    const VT_INT I_DCCCDWT_WITH_DURATION_OPT_TYPE = 2;
+} IRDimClientCalcConfDefaultWndType;
+
+[uuid(8dd0b322-f193-11d2-999c-00201888053e), helpstring("IRDimCodeService interface implementation for EU5 code")]
+coclass Eu5CodeService {
+    [default] interface IRDimCodeService;
+};
+
+[uuid(599fef75-b423-11d9-869e-0050da7675e2), helpstring("IRDimMembCalc interface implementation for EU5 code")]
+coclass Eu5MembCalc {
+    [default] interface IRDimMembCalc;
+};
+
+[uuid(d21d5ec1-d296-11d3-86a1-0050da7675e2), helpstring("IRDimMembRes interface implementation for EU5 code")]
+coclass Eu5MembRes {
+    [default] interface IRDimMembRes;
+};
+
+}

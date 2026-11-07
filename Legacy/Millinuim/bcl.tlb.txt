@@ -1,0 +1,116 @@
+[uuid(cee36f93-885d-11d2-af83-0080c86bdf8d), version(1.0), helpstring("Robot Reinforced Concrete Columns")]
+library bcl {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(cee36fa1-885d-11d2-af83-0080c86bdf8d), helpstring("Provides access to ROBOT reinforced concrete columns (returned by ROBOT component manager)")]
+coclass RCColumn {
+    [default] interface IRCColumn;
+};
+
+[uuid(cee36fa0-885d-11d2-af83-0080c86bdf8d), helpstring("IRCColumn Interface")]
+dispinterface IRCColumn : IDispatch {
+    VT_HRESULT RunCalculations([in] VT_I4 nMode, [in] VT_BSTR strOutputFile, [in] VT_BOOL bMakeNote);
+    [propget] VT_HRESULT IsNew([out, retval] VT_BOOL* pVal);
+    VT_HRESULT ImportDDC([in] VT_BSTR file);
+    VT_HRESULT ExportDDC([in] VT_BSTR file);
+    [propget] VT_HRESULT Reinforcement([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Steel([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Concrete([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PlotterDrawing([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Geometry([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT ImportOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT StructureUserNoCount([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT StructureUserNoCount([in] VT_I2 _);
+    [propget] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [in] VT_I4 _);
+    VT_HRESULT ImportFromStructure();
+    [propget] VT_HRESULT CalculationOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PatternOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+};
+
+[uuid(e7c6f6a1-21b6-4230-81e9-d35218e6db29), helpstring("Provides access to ROBOT reinforced concrete columns geometry")]
+coclass RCColumnGeometry {
+    [default] interface IRCColumnGeometry;
+};
+
+[uuid(faa103a1-ffe3-4a0e-a68a-24290de1915b), helpstring("IRCColumnGeometry Interface")]
+dispinterface IRCColumnGeometry : IDispatch {
+    [propget] VT_HRESULT Dim([in] IRCColumnDimensionType t, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Dim([in] IRCColumnDimensionType t, [in] VT_R8 _);
+    [propget] VT_HRESULT Section([out, retval] IRCColumnSectionType* pVal);
+    [propput] VT_HRESULT Section([in] IRCColumnSectionType _);
+    [propget] VT_HRESULT ShutteringArea([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT ConcreteVolume([out, retval] VT_R8* pVal);
+};
+
+[helpstring("Constans for ROBOT reinforced concrete column geometry")]
+typedef enum IRCColumnDimensionType {
+    const VT_INT I_RC_COLUMN_DIM_HSP = 1;
+    const VT_INT I_RC_COLUMN_DIM_HSD = 2;
+    const VT_INT I_RC_COLUMN_DIM_EPD = 3;
+    const VT_INT I_RC_COLUMN_DIM_A = 4;
+    const VT_INT I_RC_COLUMN_DIM_B = 5;
+    const VT_INT I_RC_COLUMN_DIM_C = 6;
+    const VT_INT I_RC_COLUMN_DIM_H1 = 7;
+    const VT_INT I_RC_COLUMN_DIM_L1 = 8;
+    const VT_INT I_RC_COLUMN_DIM_H2 = 9;
+    const VT_INT I_RC_COLUMN_DIM_L2 = 10;
+    const VT_INT I_RC_COLUMN_DIM_N = 11;
+    const VT_INT I_RC_COLUMN_DIM_COL_DE = 12;
+} IRCColumnDimensionType;
+
+[helpstring("Constans for ROBOT reinforced concrete section type")]
+typedef enum IRCColumnSectionType {
+    const VT_INT I_RC_COLUMN_SEC_R = 1;
+    const VT_INT I_RC_COLUMN_SEC_L = 2;
+    const VT_INT I_RC_COLUMN_SEC_TC = 3;
+    const VT_INT I_RC_COLUMN_SEC_Z = 4;
+    const VT_INT I_RC_COLUMN_SEC_P = 5;
+    const VT_INT I_RC_COLUMN_SEC_C36 = 6;
+    const VT_INT I_RC_COLUMN_SEC_C18 = 7;
+    const VT_INT I_RC_COLUMN_SEC_C90 = 8;
+} IRCColumnSectionType;
+
+[uuid(efe21de4-d3d9-4d2b-a92f-b235098eddc6), helpstring("Provides access to import's options of column")]
+coclass RCColumnImportOptions {
+    [default] interface IRCColumnImportOptions;
+};
+
+[uuid(f6c24772-01f4-43c9-ba04-1a8312858587), helpstring("IRCColumnImportOptions Interface")]
+dispinterface IRCColumnImportOptions : IDispatch {
+    [propget] VT_HRESULT ImportCombinations([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT ImportCombinations([in] VT_BOOL _);
+    [propget] VT_HRESULT GroupByGeometry([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT GroupByGeometry([in] VT_BOOL _);
+    [propget] VT_HRESULT GroupByLevel([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT GroupByLevel([in] VT_BOOL _);
+    [propget] VT_HRESULT RunCalcAuto([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT RunCalcAuto([in] VT_BOOL _);
+    [propget] VT_HRESULT ShowDialog([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT ShowDialog([in] VT_BOOL _);
+};
+
+[uuid(b814e997-7531-4460-941b-98918c24f41c), helpstring("Provides access to calculation options of column")]
+coclass RCColumnCalcOptions {
+    [default] interface IRCColumnCalcOptions;
+};
+
+[uuid(1f9a23a6-565e-4a9c-9496-4699085676d2), helpstring("IRCColumnCalcOptions Interface")]
+dispinterface IRCColumnCalcOptions : IDispatch {
+    [propget] VT_HRESULT Cover([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Cover([in] VT_R8 _);
+};
+
+[uuid(e966c45b-5b7c-499c-afb8-b7991cef679d), helpstring("Provides access to pattern options of column")]
+coclass RCColumnPatternOptions {
+    [default] interface IRCColumnPatternOptions;
+};
+
+[uuid(e37bfe80-09d3-43d3-944a-e083b42096f7), helpstring("IRCColumnPatternOptions Interface")]
+dispinterface IRCColumnPatternOptions : IDispatch {
+    [propget] VT_HRESULT TiesToBeam([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT TiesToBeam([in] VT_BOOL _);
+};
+
+}

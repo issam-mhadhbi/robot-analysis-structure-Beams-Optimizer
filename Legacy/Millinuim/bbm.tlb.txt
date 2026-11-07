@@ -1,0 +1,199 @@
+[uuid(cee36f84-885d-11d2-af83-0080c86bdf8d), version(1.0), helpstring("Robot Reinforced Concrete Beams And Continuous Footings")]
+library bbm {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(cee36f92-885d-11d2-af83-0080c86bdf8d), helpstring("Provides access to ROBOT reinforced concrete beams (returned by ROBOT component manager)")]
+coclass RCBeam {
+    [default] interface IRCBeam;
+};
+
+[uuid(cee36f91-885d-11d2-af83-0080c86bdf8d), helpstring("IRCBeam Interface")]
+dispinterface IRCBeam : IDispatch {
+    VT_HRESULT RunCalculations([in] VT_I4 nMode, [in] VT_BSTR strOutputFile, [in] VT_BOOL bMakeNote);
+    [propget] VT_HRESULT IsNew([out, retval] VT_BOOL* pVal);
+    VT_HRESULT ImportDDC([in] VT_BSTR file);
+    VT_HRESULT ExportDDC([in] VT_BSTR file);
+    [propget] VT_HRESULT Reinforcement([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Steel([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Concrete([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PlotterDrawing([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Geometry([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT ImportOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT StructureUserNoCount([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT StructureUserNoCount([in] VT_I2 _);
+    [propget] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [in] VT_I4 _);
+    VT_HRESULT ImportFromStructure();
+    [propget] VT_HRESULT CalculationOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PatternOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+};
+
+[uuid(c3325bd5-7f9c-4122-9b52-cc612583ec74), helpstring("Provides access to ROBOT reinforced concrete footings (returned by ROBOT component manager)")]
+coclass RCContinuousFooting {
+    [default] interface IRCContinuousFooting;
+};
+
+[uuid(fab85e56-505b-43fb-a22c-ae1a6a2f04ce), helpstring("IRCContinuousFooting Interface")]
+dispinterface IRCContinuousFooting : IDispatch {
+    VT_HRESULT RunCalculations([in] VT_I4 nMode, [in] VT_BSTR strOutputFile, [in] VT_BOOL bMakeNote);
+    [propget] VT_HRESULT IsNew([out, retval] VT_BOOL* pVal);
+    VT_HRESULT ImportDDC([in] VT_BSTR file);
+    VT_HRESULT ExportDDC([in] VT_BSTR file);
+    [propget] VT_HRESULT Reinforcement([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Steel([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Concrete([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PlotterDrawing([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Geometry([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT StructureUserNoCount([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT StructureUserNoCount([in] VT_I2 _);
+    [propget] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [in] VT_I4 _);
+    VT_HRESULT ImportFromStructure();
+    [propget] VT_HRESULT ImportOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PatternOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT CalculationOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+};
+
+[uuid(514f80b9-fcb9-4ce6-93bf-20cbc06472a7), helpstring("Provides access to ROBOT reinforced concrete beam geometry")]
+coclass RCBeamGeometry {
+    [default] interface IRCBeamGeometry;
+};
+
+[uuid(9f71f2f4-3fe2-4b93-a759-13f2dc290408), helpstring("IRCBeamGeometry Interface")]
+dispinterface IRCBeamGeometry : IDispatch {
+    [propget] VT_HRESULT ConcreteVolume([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT ShutteringArea([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT SpanNumber([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT SpanNumber([in] VT_I2 _);
+    [propget] VT_HRESULT Span([in] VT_I2 nSpanNo, [out, retval] IRCBeamSpan** pVal);
+};
+
+[uuid(06d69516-f40f-4ef0-97d5-538faba9c974), helpstring("IRCBeamSpan Interface")]
+dispinterface IRCBeamSpan : IDispatch {
+    [propget] VT_HRESULT SegmentNumber([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT SegmentNumber([in] VT_I2 _);
+    [propget] VT_HRESULT Segment([in] VT_I2 nSegmentNumber, [out, retval] IRCBeamSegment** pVal);
+};
+
+[uuid(1d02bf72-982c-4db3-896e-2b0bca380f29), helpstring("IRCBeamSegment Interface")]
+dispinterface IRCBeamSegment : IDispatch {
+    [propget] VT_HRESULT SectionType([out, retval] IRCBeamSectionType* pVal);
+    [propput] VT_HRESULT SectionType([in] IRCBeamSectionType _);
+    [propget] VT_HRESULT Dim([in] IRCBeamSectionDim nType, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Dim([in] IRCBeamSectionDim nType, [in] VT_R8 _);
+};
+
+[helpstring("Constans for ROBOT reinforced concrete beam section type")]
+typedef enum IRCBeamSectionType {
+    const VT_INT I_RC_BEAM_NG_NP = 1;
+    const VT_INT I_RC_BEAM_NG_LP = 2;
+    const VT_INT I_RC_BEAM_NG_RP = 3;
+    const VT_INT I_RC_BEAM_NG_BP = 4;
+    const VT_INT I_RC_BEAM_LG_NP = 5;
+    const VT_INT I_RC_BEAM_LG_LP = 6;
+    const VT_INT I_RC_BEAM_LG_RP = 7;
+    const VT_INT I_RC_BEAM_LG_BP = 8;
+    const VT_INT I_RC_BEAM_RG_NP = 9;
+    const VT_INT I_RC_BEAM_RG_LP = 10;
+    const VT_INT I_RC_BEAM_RG_RP = 11;
+    const VT_INT I_RC_BEAM_RG_BP = 12;
+} IRCBeamSectionType;
+
+[helpstring("Constans for ROBOT RC beam section dimension")]
+typedef enum IRCBeamSectionDim {
+    const VT_INT I_RC_BEAM_L = 1;
+    const VT_INT I_RC_BEAM_H1 = 2;
+    const VT_INT I_RC_BEAM_H2 = 3;
+    const VT_INT I_RC_BEAM_OffY1 = 4;
+    const VT_INT I_RC_BEAM_OffY2 = 5;
+    const VT_INT I_RC_BEAM_OffZ1 = 6;
+    const VT_INT I_RC_BEAM_OffZ2 = 7;
+    const VT_INT I_RC_BEAM_B = 8;
+    const VT_INT I_RC_BEAM_EL1 = 9;
+    const VT_INT I_RC_BEAM_EL2 = 10;
+    const VT_INT I_RC_BEAM_PL = 11;
+    const VT_INT I_RC_BEAM_RL = 12;
+    const VT_INT I_RC_BEAM_HG1 = 13;
+    const VT_INT I_RC_BEAM_BG1 = 14;
+    const VT_INT I_RC_BEAM_HG2 = 15;
+    const VT_INT I_RC_BEAM_BG2 = 16;
+    const VT_INT I_RC_BEAM_ER1 = 17;
+    const VT_INT I_RC_BEAM_ER2 = 18;
+    const VT_INT I_RC_BEAM_PR = 19;
+    const VT_INT I_RC_BEAM_RR = 20;
+    const VT_INT I_RC_BEAM_HG3 = 21;
+    const VT_INT I_RC_BEAM_BG3 = 22;
+    const VT_INT I_RC_BEAM_HG4 = 23;
+    const VT_INT I_RC_BEAM_BG4 = 24;
+    const VT_INT I_RC_BEAM_PL_CALC = 25;
+    const VT_INT I_RC_BEAM_PR_CALC = 26;
+    const VT_INT I_RC_BEAM_CL = 27;
+    const VT_INT I_RC_BEAM_CR = 28;
+} IRCBeamSectionDim;
+
+[uuid(ea983e6e-08e0-473d-83e0-62ca825f7be2), helpstring("Provides access to import's options of beam")]
+coclass RCBeamImportOptions {
+    [default] interface IRCBeamImportOptions;
+};
+
+[uuid(94278313-9a75-4995-87dc-1ef1ef0d0b40), helpstring("IRCBeamImportOptions Interface")]
+dispinterface IRCBeamImportOptions : IDispatch {
+    [propget] VT_HRESULT ImportCombinations([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT ImportCombinations([in] VT_BOOL _);
+    [propget] VT_HRESULT ShowDialog([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT ShowDialog([in] VT_BOOL _);
+    [propget] VT_HRESULT LiveLongCoeff([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT LiveLongCoeff([in] VT_R8 _);
+    [propget] VT_HRESULT RunCalcAuto([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT RunCalcAuto([in] VT_BOOL _);
+    [propget] VT_HRESULT GroupByLevel([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT GroupByLevel([in] VT_BOOL _);
+    [propget] VT_HRESULT GroupByGeometry([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT GroupByGeometry([in] VT_BOOL _);
+};
+
+[uuid(870628ba-cc83-494b-9469-8fc6f1931864), helpstring("Provides access to import's options of beam")]
+coclass RCBeamSpan {
+    [default] interface IRCBeamSpan;
+};
+
+[uuid(d1f66e4d-da34-4aeb-aa0b-e76d429f8a87), helpstring("Provides access to beam's segment")]
+coclass RCBeamSegment {
+    [default] interface IRCBeamSegment;
+};
+
+[uuid(a7473117-3810-4276-bc00-3dd9dc297706), helpstring("Provides access to beam's calculation options")]
+coclass RCBeamCalcOptions {
+    [default] interface IRCBeamCalcOptions;
+};
+
+[uuid(5a5f4eb5-4399-4547-81bb-8f987f468e43), helpstring("IRCBeamCalcOptions Interface")]
+dispinterface IRCBeamCalcOptions : IDispatch {
+    [propget] VT_HRESULT CoverBottom([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT CoverBottom([in] VT_R8 _);
+    [propget] VT_HRESULT CoverBottomFixed([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT CoverBottomFixed([in] VT_BOOL _);
+    [propget] VT_HRESULT CoverTop([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT CoverTop([in] VT_R8 _);
+    [propget] VT_HRESULT CoverTopFixed([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT CoverTopFixed([in] VT_BOOL _);
+    [propget] VT_HRESULT CoverSide([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT CoverSide([in] VT_R8 _);
+    [propget] VT_HRESULT CoverSideFixed([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT CoverSideFixed([in] VT_BOOL _);
+};
+
+[uuid(50a13c47-4474-4384-b0ee-79cbdd3dcd0a), helpstring("Provides access to beam's pattern options")]
+coclass RCBeamPatternOptions {
+    [default] interface IRCBeamPatternOptions;
+};
+
+[uuid(b54d164a-2750-4d8e-80d4-50ab1f026e84), helpstring("IRCBeamPatternOptions Interface")]
+dispinterface IRCBeamPatternOptions : IDispatch {
+    [propget] VT_HRESULT SpanBySpan([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT SpanBySpan([in] VT_BOOL _);
+};
+
+}

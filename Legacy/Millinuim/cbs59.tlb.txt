@@ -1,0 +1,35 @@
+[uuid(9a39e6e8-6d45-46bb-95f1-cfb9050bb447), version(1.0), helpstring("Norm Code 1.0 Type Library")]
+library NormCodeLib {
+    importlib("robotom.tlb", f3a37bd0-aa2d-11d2-9844-0080c86be4df);
+
+[uuid(1f66d81e-114b-4838-bda3-dd27af199cec), helpstring("IRDimMembDef interface implementation for Norm code")]
+coclass NormMembDef {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(080d60fb-a6d2-4c49-a436-f71d73a45412), helpstring("IRDimMembParams interface implementation for Norm code")]
+coclass NormMembParamsBS59 {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(a8c7d4ff-9285-4e54-9951-e4695efd6f43), helpstring("IRDimClient interface implementation for Norm code")]
+coclass NormCode {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(8983a32a-afde-4a0e-aa3d-fdd6b4ee30bc), helpstring("IRDimCodeService interface implementation for Norm code")]
+coclass NormCodeService {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(46a71559-eefe-490a-a2a4-7fc492a766dd), helpstring("IRDimMembCalc interface implementation for Norm code")]
+coclass NormMembCalc {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(9ff722a9-be2e-40e8-a9d9-09309056a9d6), helpstring("IRDimMembRes interface implementation for Norm code")]
+coclass NormMembRes {
+    [default] interface robotom.tlb.<external>;
+};
+
+}

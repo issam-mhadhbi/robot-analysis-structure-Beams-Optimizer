@@ -1,0 +1,30 @@
+[uuid(1708b79f-1afd-4037-85b6-6243f8e2fff6), version(1.0), helpstring("PN-B-03150 Code 1.0 Type Library")]
+library NormCodeLib {
+    importlib("robotom.tlb", f3a37bd0-aa2d-11d2-9844-0080c86be4df);
+
+[uuid(6611d2bb-3a13-4ee0-80d3-4337e1484cbc), helpstring("IRDimMembDef interface implementation for PN-B-03150 code")]
+coclass NormMembDef {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(9beeddce-c27a-404b-8a02-9d82a34b9972), helpstring("IRDimClient interface implementation for PN-B-03150 code")]
+coclass NormCode {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(d7bd3aba-99df-4086-9999-3bd25e0c73dc), helpstring("IRDimCodeService interface implementation for PN-B-03150 code")]
+coclass NormCodeService {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(03550841-8c24-4e5b-b8fd-3442617f49b8), helpstring("IRDimMembCalc interface implementation for PN-B-03150 code")]
+coclass NormMembCalc {
+    [default] interface robotom.tlb.<external>;
+};
+
+[uuid(679bb287-f7b2-47a9-93e9-4c977a5bce3e), helpstring("IRDimMembRes interface implementation for PN-B-03150 code")]
+coclass NormMembRes {
+    [default] interface robotom.tlb.<external>;
+};
+
+}

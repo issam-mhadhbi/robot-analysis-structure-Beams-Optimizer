@@ -1,0 +1,27 @@
+[uuid(1517eff1-9ec2-11d4-b22c-0080c86bdf8d), version(1.0), helpstring("Robot Reinforcing Plotter Drawings")]
+library bplo {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(b9144ab3-9f6d-11d4-b22d-0080c86bdf8d), helpstring("Provides access to ROBOT reinforcing element drawing bar table")]
+coclass RCDrawingBarGroup {
+    [default] interface IRCDrawingBarGroup;
+};
+
+[uuid(02408de1-a4ce-11d4-b232-0080c86bdf8d), helpstring("IRCDrawingBarGroup Interface")]
+dispinterface IRCDrawingBarGroup : IDispatch {
+    [propget] VT_HRESULT BarCount([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT Bar([in] VT_I4 nBarIndex, [out, retval] VT_DISPATCH* pVal);
+};
+
+[uuid(02408de2-a4ce-11d4-b232-0080c86bdf8d), helpstring("Provides access to ROBOT reinforced concrete elements drawings")]
+coclass RCDrawing {
+    [default] interface IRCDrawing;
+};
+
+[uuid(b9144ab1-9f6d-11d4-b22d-0080c86bdf8d), helpstring("IRCDrawing Interface")]
+dispinterface IRCDrawing : IDispatch {
+    [propget] VT_HRESULT GroupCount([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT Group([in] VT_I4 nIndex, [out, retval] IRCDrawingBarGroup** pVal);
+};
+
+}

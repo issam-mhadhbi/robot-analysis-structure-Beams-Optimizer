@@ -1,0 +1,401 @@
+[uuid(f458be56-8535-11d2-af81-0080c86bdf8d), version(1.0), helpstring("Robot Reinforced Concrete Footings")]
+library bsf {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+typedef IRConcrFootingDimType tagIRConcrFootingDimType;
+
+typedef enum IRConcrFootingDimType {
+    const VT_INT I_CFDT_FOOT_DIM_A = 1;
+    const VT_INT I_CFDT_FOOT_DIM_B = 2;
+    const VT_INT I_CFDT_FOOT_DIM_H1 = 3;
+    const VT_INT I_CFDT_FOOT_DIM_H2 = 4;
+    const VT_INT I_CFDT_FOOT_DIM_H3 = 5;
+    const VT_INT I_CFDT_FOOT_DIM_H4 = 6;
+    const VT_INT I_CFDT_FOOT_DIM_EX = 7;
+    const VT_INT I_CFDT_FOOT_DIM_EY = 8;
+    const VT_INT I_CFDT_FOOT_DIM_AP = 9;
+    const VT_INT I_CFDT_FOOT_DIM_BP = 10;
+    const VT_INT I_CFDT_FOOT_DIM_L = 11;
+    const VT_INT I_CFDT_FOOT_DIM_COL_A = 12;
+    const VT_INT I_CFDT_FOOT_DIM_COL_B = 13;
+} IRConcrFootingDimType;
+
+typedef IRConcrFootingShapeType tagIRConcrFootingShapeType;
+
+typedef enum IRConcrFootingShapeType {
+    const VT_INT I_CFST_FOOT_SHAPE_RECT = 1;
+    const VT_INT I_CFST_FOOT_SHAPE_TRAPEZOIDAL = 2;
+} IRConcrFootingShapeType;
+
+typedef IRConcrFootingType tagIRConcrFootingType;
+
+typedef enum IRConcrFootingType {
+    const VT_INT I_CFT_FOOT_TYPE_FOOTING = 1;
+    const VT_INT I_CFT_FOOT_TYPE_WALL = 2;
+} IRConcrFootingType;
+
+[uuid(3f2f3392-bd83-41f3-9b26-e499cab48715)]
+coclass RConcrFootingResults {
+    [default] interface IRConcrFootingResults;
+};
+
+[uuid(f0b13704-0e3c-4e48-9744-56d66e9cb1e4)]
+dispinterface IRConcrFootingResults : IDispatch {
+    [propget] VT_HRESULT Ax([out, retval] VT_R8* ret);
+    [propput] VT_HRESULT Ax([in] VT_R8 _);
+    [propget] VT_HRESULT Ay([out, retval] VT_R8* ret);
+    [propput] VT_HRESULT Ay([in] VT_R8 _);
+};
+
+[uuid(438ca1e5-096e-4f85-a5e8-bb7367edb765)]
+coclass RConcrFootingLoads {
+    [default] interface IRConcrFootingLoads;
+};
+
+[uuid(968d3064-3a73-4196-96ce-ee22ee316691)]
+dispinterface IRConcrFootingLoads : IDispatch {
+};
+
+[uuid(caee9722-ea5b-42b7-bc9e-b6682529a59a)]
+coclass RConcrFootingGround {
+    [default] interface IRConcrFootingGround;
+};
+
+[uuid(7c346240-5bdc-4df6-b90e-4ea310e49311)]
+dispinterface IRConcrFootingGround : IDispatch {
+    [propget] VT_HRESULT SoilLevel([out, retval] VT_R8* ret);
+    [propput] VT_HRESULT SoilLevel([in] VT_R8 _);
+    [propget] VT_HRESULT ColumnPierLevel([out, retval] VT_R8* ret);
+    [propput] VT_HRESULT ColumnPierLevel([in] VT_R8 _);
+};
+
+[uuid(9064fbe1-2749-4293-9030-394a4093ae41)]
+coclass RConcrFootingGeometry {
+    [default] interface IRConcrFootingGeometry;
+};
+
+[uuid(fe16239e-cbf0-4f1f-9a5f-57f210043a6d)]
+dispinterface IRConcrFootingGeometry : IDispatch {
+    [propget] VT_HRESULT Shape([out, retval] IRConcrFootingShapeType* ret);
+    [propput] VT_HRESULT Shape([in] IRConcrFootingShapeType _);
+    [propget] VT_HRESULT Type([out, retval] IRConcrFootingType* ret);
+    [propput] VT_HRESULT Type([in] IRConcrFootingType _);
+    VT_HRESULT GetDim([in] IRConcrFootingDimType _dimType, [out, retval] VT_R8* ret);
+    VT_HRESULT SetDim([in] IRConcrFootingDimType _dimType, [in] VT_R8 _val);
+};
+
+[uuid(ec05f35d-b5cd-411b-af87-33c07c053b6d)]
+coclass RConcrFooting {
+    [default] interface IRConcrFooting;
+};
+
+[uuid(15ad9a74-ef28-41ab-9d11-2fe487fb5ea1)]
+dispinterface IRConcrFooting : IDispatch {
+    [propget] VT_HRESULT Geometry([out, retval] IRConcrFootingGeometry** ret);
+    [propget] VT_HRESULT Ground([out, retval] IRConcrFootingGround** ret);
+    [propget] VT_HRESULT Loads([out, retval] IRConcrFootingLoads** ret);
+    [propget] VT_HRESULT Results([out, retval] IRConcrFootingResults** ret);
+    VT_HRESULT Calculate();
+};
+
+[uuid(c4462325-8fd0-467b-9e20-d700f9328ebc), helpstring("Provides access to ROBOT reinforced concrete retaining wall (returned by ROBOT component manager)")]
+coclass RCRetainingWall {
+    [default] interface IRCRetainingWall;
+    interface _IRCRWallRnfUtil;
+};
+
+[uuid(5bff5b83-0edd-401d-9118-9c20ea8fc3b4), helpstring("IRCRetainingWall Interface")]
+dispinterface IRCRetainingWall : IDispatch {
+    [propget] VT_HRESULT Geometry([out, retval] IRCRetainingWallGeometry** pVal);
+    [propget] VT_HRESULT Reinforcement([out, retval] VT_DISPATCH* pVal);
+    VT_HRESULT DisplayDrawing();
+    [propget] VT_HRESULT Steel([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Concrete([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+};
+
+[uuid(cbb1cdcc-85d1-4f49-baf9-c6e924b2bb77), helpstring("IRCRetainingWallGeometry Interface")]
+dispinterface IRCRetainingWallGeometry : IDispatch {
+    [propget] VT_HRESULT Dim(IRCRetainingWallDimensionType _type, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Dim(IRCRetainingWallDimensionType _type, [in] VT_R8 _);
+    [propget] VT_HRESULT Key([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT Key([in] VT_BOOL _);
+    [propget] VT_HRESULT FootType([out, retval] IRCRetainingWallFootType* pVal);
+    [propput] VT_HRESULT FootType([in] IRCRetainingWallFootType _);
+    [propget] VT_HRESULT WallType([out, retval] IRCRetainingWallType* pVal);
+    [propput] VT_HRESULT WallType([in] IRCRetainingWallType _);
+    [propget] VT_HRESULT Alpha([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Alpha([in] VT_R8 _);
+    [propget] VT_HRESULT Beta([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Beta([in] VT_R8 _);
+    [propget] VT_HRESULT ShelfNumber([out, retval] VT_INT* pVal);
+    [propput] VT_HRESULT ShelfNumber([in] VT_INT _);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+    [propput] VT_HRESULT Name([in] VT_BSTR _);
+    [propget] VT_HRESULT IsAlpha([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT IsAlpha([in] VT_BOOL _);
+    [propget] VT_HRESULT IsBeta([out, retval] VT_BOOL* pVal);
+    [propput] VT_HRESULT IsBeta([in] VT_BOOL _);
+    [propget] VT_HRESULT Level0([out, retval] IRCRetainingWallZeroLevel* pVal);
+    [propput] VT_HRESULT Level0([in] IRCRetainingWallZeroLevel _);
+};
+
+[helpstring("Constans for ROBOT retaining wall geometry")]
+typedef enum IRCRetainingWallDimensionType {
+    const VT_INT I_RC_RWALL_DIM_H = 1;
+    const VT_INT I_RC_RWALL_DIM_B = 2;
+    const VT_INT I_RC_RWALL_DIM_GW1 = 3;
+    const VT_INT I_RC_RWALL_DIM_GW2 = 4;
+    const VT_INT I_RC_RWALL_DIM_BW = 5;
+    const VT_INT I_RC_RWALL_DIM_GF1 = 6;
+    const VT_INT I_RC_RWALL_DIM_GF2 = 7;
+    const VT_INT I_RC_RWALL_DIM_GF3 = 8;
+    const VT_INT I_RC_RWALL_DIM_GF4 = 9;
+    const VT_INT I_RC_RWALL_DIM_HK = 10;
+    const VT_INT I_RC_RWALL_DIM_BK = 11;
+    const VT_INT I_RC_RWALL_DIM_GK = 12;
+    const VT_INT I_RC_RWALL_DIM_HS1 = 13;
+    const VT_INT I_RC_RWALL_DIM_BS1 = 14;
+    const VT_INT I_RC_RWALL_DIM_GS1 = 15;
+    const VT_INT I_RC_RWALL_DIM_HS2 = 16;
+    const VT_INT I_RC_RWALL_DIM_BS2 = 17;
+    const VT_INT I_RC_RWALL_DIM_GS2 = 18;
+    const VT_INT I_RC_RWALL_DIM_HS3 = 19;
+    const VT_INT I_RC_RWALL_DIM_BS3 = 20;
+    const VT_INT I_RC_RWALL_DIM_GS3 = 21;
+} IRCRetainingWallDimensionType;
+
+[helpstring("Constans for ROBOT retaining wall geometry")]
+typedef enum IRCRetainingWallFootType {
+    const VT_INT I_RC_RWALL_WALL_FOOT_RECT = 1;
+    const VT_INT I_RC_RWALL_WALL_FOOT_TRAP = 2;
+} IRCRetainingWallFootType;
+
+[helpstring("Constans for ROBOT retaining wall geometry")]
+typedef enum IRCRetainingWallType {
+    const VT_INT I_RC_RWALL_WALL_TYPE_PP = 1;
+    const VT_INT I_RC_RWALL_WALL_TYPE_PL = 2;
+    const VT_INT I_RC_RWALL_WALL_TYPE_LP = 3;
+    const VT_INT I_RC_RWALL_WALL_TYPE_LL = 4;
+} IRCRetainingWallType;
+
+[helpstring("Constans for ROBOT retaining wall zero-level")]
+typedef enum IRCRetainingWallZeroLevel {
+    const VT_INT I_RC_RWALL_WALL_LEVEL0_LEFT = 1;
+    const VT_INT I_RC_RWALL_WALL_LEVEL0_RIGHT = 2;
+} IRCRetainingWallZeroLevel;
+
+[uuid(a9257df5-5fe7-467b-86b1-0d0358bf15dc)]
+dispinterface _IRCRWallRnfUtil : IDispatch {
+    VT_HRESULT InitFromStream([in] IStream* pSource);
+    [propget] VT_HRESULT ShapeLibraryFileName([out, retval] VT_BSTR* pVal);
+    VT_HRESULT OpenShapeLibrary([in] VT_BSTR fileName);
+    [propget] VT_HRESULT Cover1([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Cover1([in] VT_R8 _);
+    [propget] VT_HRESULT Cover2([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Cover2([in] VT_R8 _);
+    [propget] VT_HRESULT SegmentNumber([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT SegmentNumber([in] VT_I2 _);
+    [propget] VT_HRESULT SegmentLength([in] VT_I2 segment, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT SegmentLength([in] VT_I2 segment, [in] VT_R8 _);
+    [propget] VT_HRESULT SoilLevelOrigin([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT SoilLevelOrigin([in] VT_R8 _);
+    [propget] VT_HRESULT SoilLevelInFront([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT SoilLevelInFront([in] VT_R8 _);
+    [propget] VT_HRESULT SoilLevelBehind([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT SoilLevelBehind([in] VT_R8 _);
+};
+
+[uuid(0000000c-0000-0000-c000-000000000046)]
+interface IStream : ISequentialStream {
+    VT_HRESULT RemoteSeek([in] _LARGE_INTEGER dlibMove, [in] VT_UI4 dwOrigin, [out] _ULARGE_INTEGER* plibNewPosition);
+    VT_HRESULT SetSize([in] _ULARGE_INTEGER libNewSize);
+    VT_HRESULT RemoteCopyTo([in] IStream* pstm, [in] _ULARGE_INTEGER cb, [out] _ULARGE_INTEGER* pcbRead, [out] _ULARGE_INTEGER* pcbWritten);
+    VT_HRESULT Commit([in] VT_UI4 grfCommitFlags);
+    VT_HRESULT Revert();
+    VT_HRESULT LockRegion([in] _ULARGE_INTEGER libOffset, [in] _ULARGE_INTEGER cb, [in] VT_UI4 dwLockType);
+    VT_HRESULT UnlockRegion([in] _ULARGE_INTEGER libOffset, [in] _ULARGE_INTEGER cb, [in] VT_UI4 dwLockType);
+    VT_HRESULT Stat([out] tagSTATSTG* pstatstg, [in] VT_UI4 grfStatFlag);
+    VT_HRESULT Clone([out] IStream** ppstm);
+};
+
+[uuid(0c733a30-2a1c-11ce-ade5-00aa0044773d)]
+interface ISequentialStream : IUnknown {
+    VT_HRESULT RemoteRead([out] VT_UI1* pv, [in] VT_UI4 cb, [out] VT_UI4* pcbRead);
+    VT_HRESULT RemoteWrite([in] VT_UI1* pv, [in] VT_UI4 cb, [out] VT_UI4* pcbWritten);
+};
+
+typedef struct _LARGE_INTEGER {
+    VT_I8 QuadPart;
+} _LARGE_INTEGER;
+
+typedef struct _ULARGE_INTEGER {
+    VT_UI8 QuadPart;
+} _ULARGE_INTEGER;
+
+typedef struct tagSTATSTG {
+    VT_LPWSTR pwcsName;
+    VT_UI4 Type;
+    _ULARGE_INTEGER cbSize;
+    _FILETIME mtime;
+    _FILETIME ctime;
+    _FILETIME atime;
+    VT_UI4 grfMode;
+    VT_UI4 grfLocksSupported;
+    stdole2.tlb.<external> clsid;
+    VT_UI4 grfStateBits;
+    VT_UI4 reserved;
+} tagSTATSTG;
+
+typedef struct _FILETIME {
+    VT_UI4 dwLowDateTime;
+    VT_UI4 dwHighDateTime;
+} _FILETIME;
+
+[uuid(f458be65-8535-11d2-af81-0080c86bdf8d), helpstring("Provides access to ROBOT reinforced concrete footings (returned by ROBOT component manager)")]
+coclass RCFoot {
+    [default] interface IRCFoot;
+    interface IRConcrFooting;
+};
+
+[uuid(f458be64-8535-11d2-af81-0080c86bdf8d), helpstring("IRCFoot Interface")]
+dispinterface IRCFoot : IDispatch {
+    VT_HRESULT RunCalculations([in] VT_I4 nMode, [in] VT_BSTR file, [in] VT_BOOL bMakeNote);
+    [propget] VT_HRESULT IsNew([out, retval] VT_BOOL* pVal);
+    VT_HRESULT ImportDDC([in] VT_BSTR file);
+    VT_HRESULT ExportDDC([in] VT_BSTR file);
+    VT_HRESULT DisplayDrawing();
+    [propget] VT_HRESULT Results([out, retval] IRCFootResults** pVal);
+    [propget] VT_HRESULT CalculationOptions([out, retval] IRCFootCalculationOptions** pVal);
+    [propget] VT_HRESULT Reinforcement([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Geometry([out, retval] IRCFootGeometry** pVal);
+    [propget] VT_HRESULT Pattern([out, retval] IRCFootPattern** pVal);
+    [propget] VT_HRESULT Ground([out, retval] IRCFootGround** pVal);
+    VT_HRESULT Save();
+    VT_HRESULT CreateReinforcement();
+    [propget] VT_HRESULT Steel([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Concrete([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PlotterDrawing([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT StructureUserNoCount([out, retval] VT_I2* pVal);
+    [propput] VT_HRESULT StructureUserNoCount([in] VT_I2 _);
+    [propget] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT StructureUserNo([in] VT_I2 nIdx, [in] VT_I4 _);
+    VT_HRESULT ImportFromStructure([in] VT_BOOL bImportCombinations, [in] VT_R8 rLongLiveCoeff);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+};
+
+[uuid(834ea541-5d40-11d4-b1f3-0080c86bdf8d), helpstring("IRCFootResults Interface")]
+dispinterface IRCFootResults : IDispatch {
+    [propget] VT_HRESULT Val(IRCFootResultType _type, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Val(IRCFootResultType _type, [in] VT_R8 _);
+};
+
+[helpstring("Constans for ROBOT reinforced concrete footings results")]
+typedef enum IRCFootResultType {
+    const VT_INT I_RC_FOOT_RES_AX = 1;
+    const VT_INT I_RC_FOOT_RES_AY = 2;
+} IRCFootResultType;
+
+[uuid(d116ee32-5f0a-11d4-b1f8-0080c86bdf8d), helpstring("IRCFootCalculationOptions Interface")]
+dispinterface IRCFootCalculationOptions : IDispatch {
+    [propget] VT_HRESULT Cover([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Cover([in] VT_R8 _);
+};
+
+[uuid(795d4cf0-5724-11d4-b1eb-0080c86bdf8d), helpstring("IRCFootGeometry Interface")]
+dispinterface IRCFootGeometry : IDispatch {
+    [propget] VT_HRESULT Dim(IRCFootDimensionType _type, [out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Dim(IRCFootDimensionType _type, [in] VT_R8 _);
+    [propget] VT_HRESULT Shape([out, retval] IRCFootShape* pVal);
+    [propput] VT_HRESULT Shape([in] IRCFootShape _);
+    [propget] VT_HRESULT FoundationType([out, retval] IRCFootFoundationType* pVal);
+    [propput] VT_HRESULT FoundationType([in] IRCFootFoundationType _);
+    [propget] VT_HRESULT ShutteringArea([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT ConcreteVolume([out, retval] VT_R8* pVal);
+};
+
+[helpstring("Constans for ROBOT reinforced concrete footings geometry")]
+typedef enum IRCFootDimensionType {
+    const VT_INT I_RC_FOOT_DIM_A = 1;
+    const VT_INT I_RC_FOOT_DIM_B = 2;
+    const VT_INT I_RC_FOOT_DIM_H1 = 3;
+    const VT_INT I_RC_FOOT_DIM_H2 = 4;
+    const VT_INT I_RC_FOOT_DIM_H3 = 5;
+    const VT_INT I_RC_FOOT_DIM_H4 = 6;
+    const VT_INT I_RC_FOOT_DIM_EX = 7;
+    const VT_INT I_RC_FOOT_DIM_EY = 8;
+    const VT_INT I_RC_FOOT_DIM_AP = 9;
+    const VT_INT I_RC_FOOT_DIM_BP = 10;
+    const VT_INT I_RC_FOOT_DIM_L = 11;
+    const VT_INT I_RC_FOOT_DIM_COL_A = 12;
+    const VT_INT I_RC_FOOT_DIM_COL_B = 13;
+} IRCFootDimensionType;
+
+[helpstring("Constans for ROBOT reinforced concrete footings geometry")]
+typedef enum IRCFootShape {
+    const VT_INT I_RC_FOOT_SHAPE_RECT = 1;
+    const VT_INT I_RC_FOOT_SHAPE_TRAP = 2;
+} IRCFootShape;
+
+[helpstring("Constans for ROBOT reinforced concrete footings geometry")]
+typedef enum IRCFootFoundationType {
+    const VT_INT I_RC_FOOT_TYPE_FOOT = 1;
+    const VT_INT I_RC_FOOT_TYPE_WALL = 2;
+} IRCFootFoundationType;
+
+[uuid(67b0c075-7759-11d4-b1fc-0080c86bdf8d), helpstring("IRCFootPattern Interface")]
+dispinterface IRCFootPattern : IDispatch {
+    [propget] VT_HRESULT Diameter1([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Diameter1([in] VT_R8 _);
+    [propget] VT_HRESULT Diameter2([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Diameter2([in] VT_R8 _);
+    [propget] VT_HRESULT Spacing1Min([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Spacing1Min([in] VT_R8 _);
+    [propget] VT_HRESULT Spacing2Min([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Spacing2Min([in] VT_R8 _);
+    [propget] VT_HRESULT Spacing1Max([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Spacing1Max([in] VT_R8 _);
+    [propget] VT_HRESULT Spacing2Max([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Spacing2Max([in] VT_R8 _);
+};
+
+[uuid(148c1272-7cf3-11d4-b202-0080c86bdf8d), helpstring("IRCFootGround Interface")]
+dispinterface IRCFootGround : IDispatch {
+    [propget] VT_HRESULT SoilLevel([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT SoilLevel([in] VT_R8 _);
+    [propget] VT_HRESULT ColumnPierLevel([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT ColumnPierLevel([in] VT_R8 _);
+    [propget] VT_HRESULT Layers([out, retval] VT_DISPATCH* pVal);
+};
+
+[uuid(d116ee31-5f0a-11d4-b1f8-0080c86bdf8d), helpstring("ROBOT reinforced concrete footings properties")]
+coclass RCFootCalculationOptions {
+    [default] interface IRCFootCalculationOptions;
+};
+
+[uuid(834ea540-5d40-11d4-b1f3-0080c86bdf8d), helpstring("ROBOT reinforced concrete footings properties")]
+coclass RCFootResults {
+    [default] interface IRCFootResults;
+};
+
+[uuid(829e0511-0329-419b-89d7-4b64fab78c25), helpstring("ROBOT reinforced concrete footings properties")]
+coclass RCRetainingWallGeometry {
+    [default] interface IRCRetainingWallGeometry;
+};
+
+[uuid(795d4cf1-5724-11d4-b1eb-0080c86bdf8d), helpstring("ROBOT reinforced concrete footings properties")]
+coclass RCFootGeometry {
+    [default] interface IRCFootGeometry;
+};
+
+[uuid(67b0c073-7759-11d4-b1fc-0080c86bdf8d), helpstring("ROBOT reinforced concrete footings properties")]
+coclass RCFootPattern {
+    [default] interface IRCFootPattern;
+};
+
+[uuid(148c1271-7cf3-11d4-b202-0080c86bdf8d), helpstring("ROBOT reinforced concrete footings properties")]
+coclass RCFootGround {
+    [default] interface IRCFootGround;
+};
+
+}

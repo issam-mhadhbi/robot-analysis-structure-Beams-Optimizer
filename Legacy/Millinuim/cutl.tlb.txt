@@ -1,0 +1,109 @@
+[uuid(228cb1aa-ac8c-4db3-ac57-98bac4847c3e), version(1.0), helpstring("RoboBAT CUTL ActiveX Control Library, version 1.0")]
+library CUTLLib {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[helpstring("Unit Constans")]
+typedef enum ISoilDBUnitType {
+    const VT_INT UT_NO_DEFINE = 0;
+    const VT_INT UT_TEXT = 1;
+    const VT_INT UT_INT = 2;
+    const VT_INT UT_DOUBLE = 3;
+    const VT_INT UT_NONE = 4;
+    const VT_INT UT_LENGTH = 5;
+    const VT_INT UT_SECDIMEN = 6;
+    const VT_INT UT_SECPROPER = 7;
+    const VT_INT UT_STEELCONNECT = 8;
+    const VT_INT UT_REINFDIAMETER = 9;
+    const VT_INT UT_REINFSURFACE = 10;
+    const VT_INT UT_FORCE = 11;
+    const VT_INT UT_MOMENT = 12;
+    const VT_INT UT_STRESS = 13;
+    const VT_INT UT_DISPLACEMENT = 14;
+    const VT_INT UT_ROTATION = 15;
+    const VT_INT UT_WEIGHT = 16;
+    const VT_INT UT_MASS = 17;
+    const VT_INT UT_TEMP = 18;
+    const VT_INT UT_REINFDENSITY = 19;
+    const VT_INT UT_GEOTECHDIMEN = 20;
+    const VT_INT UT_SPECIFICGRAVITY = 21;
+    const VT_INT UT_SOILCOHESION = 22;
+    const VT_INT UT_SCRATCHWIDTH = 23;
+    const VT_INT UT_DENSITY = 24;
+    const VT_INT UT_SOILSTRESS = 25;
+    const VT_INT UT_FORCELINEAR = 26;
+    const VT_INT UT_FORCEAREA = 27;
+    const VT_INT UT_INERTIA = 28;
+    const VT_INT UT_SURFACE = 29;
+    const VT_INT UT_NOSINGLE = 100;
+    const VT_INT UT_MASS_ROT = 101;
+    const VT_INT UT_MOMLEN = 102;
+    const VT_INT UT_MASS2WEIGHT = 103;
+    const VT_INT UT_MOMENTRAD = 104;
+    const VT_INT UT_MOMENTROT = 105;
+    const VT_INT UT_SUR = 106;
+    const VT_INT UT_VOL = 107;
+    const VT_INT UT_SECSUR = 108;
+    const VT_INT UT_SECVOL = 109;
+    const VT_INT UT_SECMI = 110;
+    const VT_INT UT_MATRO = 111;
+} ISoilDBUnitType;
+
+[uuid(ce585268-0102-44eb-b9b2-d173a7e8be94), helpstring("Dispatch interface for SoilDBGrid Control")]
+dispinterface _DSoilDBGrid {
+    VT_I2 InitUnits();
+    VT_VOID Redraw();
+    VT_I2 RecordNumber();
+    VT_R8 TopOfLayer(VT_I2 nIdx);
+    VT_R8 WetDensity(VT_I2 nIdx);
+    VT_R8 FrictionAngle(VT_I2 nIdx);
+    VT_R8 Cohesion(VT_I2 nIdx);
+    VT_R8 FrictionCoefficient(VT_I2 nIdx);
+    VT_R8 PoissonCoefficient(VT_I2 nIdx);
+    VT_R8 Young(VT_I2 nIdx);
+    VT_R8 InitialYoung(VT_I2 nIdx);
+    VT_R8 SolidDensity(VT_I2 nIdx);
+    VT_R8 Moisture(VT_I2 nIdx);
+    VT_R8 InitialConsolidometerModulus(VT_I2 nIdx);
+    VT_BSTR Type(VT_I2 nIdx);
+    VT_BSTR Symbol(VT_I2 nIdx);
+    VT_R8 PileEndCapacity(VT_I2 nIdx);
+    VT_R8 PileSurfCapacity(VT_I2 nIdx);
+    VT_BSTR SoilState(VT_I2 nIdx);
+    VT_BSTR ConsolidationType(VT_I2 nIdx);
+    VT_BSTR MoistureType(VT_I2 nIdx);
+    VT_R8 IL_ID(VT_I2 nIdx);
+    VT_R8 GammaMin(VT_I2 nIdx);
+    VT_R8 GammaMax(VT_I2 nIdx);
+    VT_BSTR GeoMethodType(VT_I2 nIdx);
+    VT_BOOL CohesiveSoil(VT_I2 nIdx);
+    VT_R8 FiltrationCoeff(VT_I2 nIdx);
+    VT_R8 SoilStrength(VT_I2 nIdx);
+    VT_R8 Thickness(VT_I2 nIdx);
+    VT_I4 SoilType(VT_I2 nIdx);
+    VT_I4 SoilStateType(VT_I2 nIdx);
+    VT_I4 MoistureNType(VT_I2 nIdx);
+    VT_I4 ConsolidationNType(VT_I2 nIdx);
+    VT_BSTR SoilName(VT_I2 nIdx);
+    VT_R8 ConsolidationIndex(VT_I2 nIdx);
+    VT_R8 ConsolidometerModulus(VT_I2 nIdx);
+    VT_I4 SoilColor(VT_I2 nIdx);
+    VT_BOOL LoadProfile(VT_BSTR szFileName);
+    VT_BOOL SaveProfile(VT_BSTR szFileName);
+    VT_BOOL SoilDBEditor();
+    VT_I2 ModifyUnit(ISoilDBUnitType nType, VT_I2 nDigits, VT_BSTR szUnit1, VT_BSTR szUnit2, VT_BSTR szUnit3, VT_I2 bExpotential);
+    VT_R8 Kz(VT_R8 b, VT_R8 b2l);
+    VT_VOID AboutBox();
+};
+
+[uuid(452e77ce-290b-4be6-81b4-4dc9e564d086), helpstring("Event interface for SoilDBGrid Control")]
+dispinterface _DSoilDBGridEvents {
+    VT_VOID ValueChanged();
+};
+
+[uuid(280ee06f-a97e-4740-8137-2ca938316193), helpstring("RoboBAT SoilDBGrid Control")]
+coclass SoilDBGrid {
+    [default] interface _DSoilDBGrid;
+    [default, source] interface _DSoilDBGridEvents;
+};
+
+}

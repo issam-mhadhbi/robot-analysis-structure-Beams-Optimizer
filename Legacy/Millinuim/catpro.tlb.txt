@@ -1,0 +1,30 @@
+[uuid(645f8cc4-4016-11d2-85ab-fe93851b2a26), version(1.0), helpstring("catpro 1.0 Type Library")]
+library CATPROLib {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(645f8cd2-4016-11d2-85ab-fe93851b2a26), helpstring("CoApplication Class")]
+coclass CoApplication {
+    [default] interface IApplication;
+    [default, source] interface ISelectionSink;
+};
+
+[uuid(645f8cd1-4016-11d2-85ab-fe93851b2a26), helpstring("IApplication Interface")]
+dispinterface IApplication : IDispatch {
+    VT_HRESULT OpenDatabase([in] VT_BSTR name);
+    VT_HRESULT DeclareSearchedDatabase([in] VT_INT index, [in] VT_BSTR name);
+    VT_HRESULT SearchProfile([in] VT_BSTR family, [in] VT_R8 dim1, [in] VT_R8 dim2, [in] VT_R8 dim3, [out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT Visible([out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT Visible([in] VT_I4 _);
+    VT_HRESULT GetHwnd([out, retval] VT_I4* pHWND);
+    VT_HRESULT OpenDeclaredDatabase([in] VT_INT nIndex, [out, retval] VT_I4* pVal);
+    VT_HRESULT MoveToProfile([in] VT_BSTR family, [in] VT_R8 dim1, [in] VT_R8 dim2, [in] VT_R8 dim3, [out, retval] VT_I4* pVal);
+};
+
+[uuid(ee045f50-4cd0-11d2-85b5-fd2855f25b26), helpstring("ISelectionSink Interface")]
+dispinterface ISelectionSink : IDispatch {
+    VT_HRESULT OnChangeDatabase([in] VT_BSTR name);
+    VT_HRESULT OnChangeProfile([in] VT_BSTR family, [in] VT_R8 dim1, [in] VT_R8 dim2, [in] VT_R8 dim3);
+    VT_HRESULT OnCloseApplication();
+};
+
+}

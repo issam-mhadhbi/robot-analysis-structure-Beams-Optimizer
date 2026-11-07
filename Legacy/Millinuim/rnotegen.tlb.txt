@@ -1,0 +1,64 @@
+[uuid(d5de37c0-58d5-11d4-b846-0050da76755e), version(1.0), helpstring("RoboLT Note Generator (Type Library)")]
+library RNoteGen {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(fc1c4b81-5956-11d4-b847-0050da76755e), helpstring("RoboLT Note Generator")]
+coclass NoteGenerator {
+    [default] interface INoteGenerator;
+};
+
+[uuid(fc1c4b80-5956-11d4-b847-0050da76755e)]
+dispinterface INoteGenerator : IDispatch {
+    VT_HRESULT Reset();
+    VT_HRESULT SelectStdNote([in] eStandardNoteId note_id, [in] VT_I2 extra_param);
+    VT_HRESULT AddStdElement([in] eStandardNoteElementId elem_id);
+    VT_HRESULT RemoveStdElement([in] eStandardNoteElementId elem_id);
+    VT_HRESULT AddNoteToReport(VT_DISPATCH rob_app);
+    VT_HRESULT RemoveAllStdElements();
+    VT_HRESULT AddUserElement([in] VT_BSTR fname_or_path, [in, optional] VT_BOOL from_new_page = 0, [out, retval] VT_I4* elem_idx);
+    VT_HRESULT RemoveUserElement([in] VT_I4 elem_idx);
+    VT_HRESULT RemoveAllUserElements();
+    VT_HRESULT SelectUserNote();
+    VT_HRESULT SetLanguage([in] VT_I2 lang_id);
+    VT_HRESULT DefineStdVariables([in] VT_DISPATCH rob_app, [in] eStandardNoteId note_id, [in] VT_I2 extra_param);
+};
+
+typedef __MIDL___MIDL_itf_tnefbois_0000_0002 eStandardNoteId;
+
+typedef enum __MIDL___MIDL_itf_tnefbois_0000_0002 {
+    const VT_INT sni_NefBois = 0;
+    const VT_INT sni_FrameBois = 1;
+    const VT_INT sni_PoutreBois = 2;
+    const VT_INT sni_PanneBois = 3;
+    const VT_INT sni_LisseBois = 4;
+    const VT_INT sni_PoteletBois = 5;
+    const VT_INT sni_NefKerto = 6;
+    const VT_INT sni_FrameKerto = 7;
+    const VT_INT sni_PoutreKerto = 8;
+    const VT_INT sni_PanneKerto = 9;
+    const VT_INT sni_LisseKerto = 10;
+    const VT_INT sni_PoteletKerto = 11;
+    const VT_INT sni_BanaKerto = 12;
+    const VT_INT sni_NefSteel = 13;
+    const VT_INT sni_TreilSteel = 14;
+    const VT_INT sni_LisseSteel = 15;
+    const VT_INT sni_PoteletSteel = 16;
+    const VT_INT sni_ContreSteel = 17;
+    const VT_INT sni_PanneSteel = 18;
+    const VT_INT sni_PoutreSteel = 19;
+    const VT_INT sni_ChevronBois = 20;
+} __MIDL___MIDL_itf_tnefbois_0000_0002;
+
+typedef __MIDL___MIDL_itf_tnefbois_0000_0001 eStandardNoteElementId;
+
+typedef enum __MIDL___MIDL_itf_tnefbois_0000_0001 {
+    const VT_INT snei_Regulations = 0;
+    const VT_INT snei_Materials = 1;
+    const VT_INT snei_Displacements = 2;
+    const VT_INT snei_GraphicsView = 3;
+    const VT_INT snei_Characteristics = 4;
+    const VT_INT snei_Results = 5;
+    const VT_INT snei_RDimResults = 6;
+} __MIDL___MIDL_itf_tnefbois_0000_0001;
+
+}

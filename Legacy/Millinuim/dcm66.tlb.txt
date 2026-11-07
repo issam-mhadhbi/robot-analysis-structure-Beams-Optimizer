@@ -1,0 +1,172 @@
+[uuid(1076d5e3-1b02-11d5-b064-00104b7dbed4), version(1.0), helpstring("RDimCodeCM66 Type Library")]
+library RDimCodeResCM66Lib {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+typedef enum IRDimBuckDiagramCM66 {
+    const VT_INT I_DBD_CM66_USER_DEFINED = -1;
+    const VT_INT I_DBD_CM66_PINNED_PINNED_1_0 = 0;
+    const VT_INT I_DBD_CM66_STIFF_STIFF_0_5 = 1;
+    const VT_INT I_DBD_CM66_PINNED_STIFF_0_7 = 2;
+    const VT_INT I_DBD_CM66_CANTILEVER_2_0 = 3;
+    const VT_INT I_DBD_CM66_PINNED_ADJBAR_1 = 4;
+    const VT_INT I_DBD_CM66_STIFF_ADJBAR_1 = 5;
+    const VT_INT I_DBD_CM66_PINNED_ADJBAR_3 = 6;
+    const VT_INT I_DBD_CM66_STIFF_ADJBAR_3 = 7;
+    const VT_INT I_DBD_CM66_INTERN_ADJBAR_6 = 8;
+    const VT_INT I_DBD_CM66_TRUSS_CHORD_0_9 = 9;
+    const VT_INT I_DBD_CM66_TRUSS_DIAGONAL_0_8 = 10;
+    const VT_INT I_DBD_CM66_NO = 11;
+    const VT_INT I_DBD_CM66_AUTO = 12;
+    const VT_INT I_DBD_CM66_INTERNAL_BRACINGS = 13;
+} IRDimBuckDiagramCM66;
+
+typedef enum IRDimLaterBuckTypeCM66 {
+    const VT_INT I_DLBT_CM66_SYMMETR_LOADED = 0;
+    const VT_INT I_DLBT_CM66_MOMENTS_AT_ENDS = 1;
+    const VT_INT I_DLBT_CM66_CANTILEVER = 2;
+    const VT_INT I_DLBT_CM66_NO = 3;
+} IRDimLaterBuckTypeCM66;
+
+typedef enum IRDimLoadLevelCM66 {
+    const VT_INT I_DLL_CM66_UPP_EDGE_LOADED = 0;
+    const VT_INT I_DLL_CM66_UPP_SECT_PAR_LOADED = 1;
+    const VT_INT I_DLL_CM66_CENTER_LOADED = 2;
+    const VT_INT I_DLL_CM66_LOW_SEC_PART_LOADED = 3;
+    const VT_INT I_DLL_CM66_LOW_EDGE_LOADED = 4;
+} IRDimLoadLevelCM66;
+
+typedef enum IRDimLatBuckCoefDiagramCM66 {
+    const VT_INT I_DLBCD_CM66_CANTILEVER_2_0 = 0;
+    const VT_INT I_DLBCD_CM66_PINNED_PINNED_1_0 = 1;
+    const VT_INT I_DLBCD_CM66_STIFF_STIFF_0_5 = 2;
+    const VT_INT I_DLBCD_CM66_USER_DEFINED = 3;
+    const VT_INT I_DLBCD_CM66_NO = 4;
+    const VT_INT I_DLBCD_CM66_INTERNAL_BRACINGS = 5;
+} IRDimLatBuckCoefDiagramCM66;
+
+typedef enum IRDimLoadTypeCM66 {
+    const VT_INT I_DLT_CM66_UNIFORM_LOAD = 0;
+    const VT_INT I_DLT_CM66_END_MOMENTS_LOAD = 1;
+    const VT_INT I_DLT_CM66_MID_SPAN_FORCE_LOAD = 2;
+    const VT_INT I_DLT_CM66_NO_MID_SPAN_FORCE_LOAD = 3;
+    const VT_INT I_DLT_CM66_USR_DEF_MOM_MC = 4;
+} IRDimLoadTypeCM66;
+
+[uuid(34c1f17a-9d20-4775-b57a-b154a033c1fa), helpstring("IRDimMembParamsCM66 interface")]
+dispinterface IRDimMembParamsCM66 : IDispatch {
+    [propget] VT_HRESULT BucklingDiagramY([out, retval] IRDimBuckDiagramCM66* pVal);
+    [propput] VT_HRESULT BucklingDiagramY([in] IRDimBuckDiagramCM66 _);
+    [propget] VT_HRESULT BucklingDiagramZ([out, retval] IRDimBuckDiagramCM66* pVal);
+    [propput] VT_HRESULT BucklingDiagramZ([in] IRDimBuckDiagramCM66 _);
+    [propget] VT_HRESULT BuckLenghtCoeffY([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT BuckLenghtCoeffY([in] VT_R8 _);
+    [propget] VT_HRESULT BuckLenghtCoeffZ([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT BuckLenghtCoeffZ([in] VT_R8 _);
+    [propget] VT_HRESULT LoadTypeMomMcY([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT LoadTypeMomMcY([in] VT_R8 _);
+    [propget] VT_HRESULT LoadTypeMomMcZ([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT LoadTypeMomMcZ([in] VT_R8 _);
+    [propget] VT_HRESULT LoadTypeDistY([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT LoadTypeDistY([in] VT_R8 _);
+    [propget] VT_HRESULT LoadTypeDistZ([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT LoadTypeDistZ([in] VT_R8 _);
+    [propget] VT_HRESULT LatBuckType([out, retval] IRDimLaterBuckTypeCM66* pVal);
+    [propput] VT_HRESULT LatBuckType([in] IRDimLaterBuckTypeCM66 _);
+    [propget] VT_HRESULT LoadLevel([out, retval] IRDimLoadLevelCM66* pVal);
+    [propput] VT_HRESULT LoadLevel([in] IRDimLoadLevelCM66 _);
+    [propget] VT_HRESULT LoadLevelValue([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT LoadLevelValue([in] VT_R8 _);
+    [propget] VT_HRESULT LatBuckCoef_LowFlan([out, retval] IRDimLatBuckCoefDiagramCM66* pVal);
+    [propput] VT_HRESULT LatBuckCoef_LowFlan([in] IRDimLatBuckCoefDiagramCM66 _);
+    [propget] VT_HRESULT LatBuckCoef_UppFlan([out, retval] IRDimLatBuckCoefDiagramCM66* pVal);
+    [propput] VT_HRESULT LatBuckCoef_UppFlan([in] IRDimLatBuckCoefDiagramCM66 _);
+    [propget] VT_HRESULT UserDefLatBuckCoef_LowFlan([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT UserDefLatBuckCoef_LowFlan([in] VT_R8 _);
+    [propget] VT_HRESULT UserDefLatBuckCoef_UppFlan([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT UserDefLatBuckCoef_UppFlan([in] VT_R8 _);
+    [propget] VT_HRESULT LoadTypeY([out, retval] IRDimLoadTypeCM66* pVal);
+    [propput] VT_HRESULT LoadTypeY([in] IRDimLoadTypeCM66 _);
+    [propget] VT_HRESULT LoadTypeZ([out, retval] IRDimLoadTypeCM66* pVal);
+    [propput] VT_HRESULT LoadTypeZ([in] IRDimLoadTypeCM66 _);
+    [propget] VT_HRESULT TensAreaNetGros([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT TensAreaNetGros([in] VT_R8 _);
+    [propget] VT_HRESULT TubeControl([out, retval] VT_I4* pVal);
+    [propput] VT_HRESULT TubeControl([in] VT_I4 _);
+};
+
+[uuid(4ca26b03-1ac8-11d5-b063-00104b7dbed4), helpstring("IRDimCodeResCM66 interface")]
+dispinterface IRDimCodeResCM66 : IDispatch {
+    [propget] VT_HRESULT IsBuckY([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT IsBuckZ([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT StrsShearY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsShearZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsMax([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsMom([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTens([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsComp([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsUprEdgeMY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsRgtEdgeMZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsLowEdgeMY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsLftEdgeMZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeUprMY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeRgtMZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeLowMY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeLftMZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTmp1([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTmp2([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsFinP1([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsFinP2([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsFinP3([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsFinP4([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeFinP1([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeFinP2([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeFinP3([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeFinP4([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsP1([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsP2([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsP3([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsP4([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeP1([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeP2([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeP3([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT StrsTubeP4([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckSlendY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckSlendZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckStrsKY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckStrsKZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckMiY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckMiZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckCoefKY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckCoefKZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckCoefK1YZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckCoefK1Y([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckCoefK1Z([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckImpCoefKFY([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT BuckImpCoefKFZ([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckC([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckD([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckBeta([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckB([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckStrsSigD([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckLambda0([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckCoefKD([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckCoefKDorg([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckCprim([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckLengthLD([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT LTBuckLowUp([out, retval] VT_I4* pVal);
+    [propget] VT_HRESULT LTBuckLengthLDprim([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT EffRatio([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT AllowStressRE([out, retval] VT_R8* pVal);
+};
+
+[uuid(d582eab8-29bd-11d5-8825-0050da7675e2), helpstring("RDimMembParamsCM66 Class")]
+coclass RDimMembParamsCM66 {
+    [default] interface IRDimMembParamsCM66;
+};
+
+[uuid(d318d0b4-1b02-11d5-b064-00104b7dbed4), helpstring("RDimCodeResCM66 Class")]
+coclass RDimCodeResCM66 {
+    [default] interface IRDimCodeResCM66;
+};
+
+}

@@ -1,0 +1,74 @@
+[uuid(9d5a3013-3046-11d3-b0a4-0080c86bdf8d), version(1.0), helpstring("Robot Reinforced Concrete Slabs")]
+library bsla {
+    importlib("stdole2.tlb", 00020430-0000-0000-c000-000000000046);
+
+[uuid(9d5a3020-3046-11d3-b0a4-0080c86bdf8d), helpstring("Provides access to ROBOT reinforced concrete slabs (returned by ROBOT component manager)")]
+coclass RCSlab {
+    [default] interface IRCSlab;
+};
+
+[uuid(9d5a301f-3046-11d3-b0a4-0080c86bdf8d), helpstring("IRCSlab Interface")]
+dispinterface IRCSlab : IDispatch {
+    [propget] VT_HRESULT Reinforcement([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Steel([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Concrete([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PlotterDrawing([out, retval] VT_DISPATCH* pVal);
+    VT_HRESULT RunCalculations([in] VT_I4 nMode, [in] VT_BSTR strOutputFile, [in] VT_BOOL bMakeNote);
+    [propget] VT_HRESULT Geometry([out, retval] VT_DISPATCH* pVal);
+    VT_HRESULT ImportFromStructure();
+    [propget] VT_HRESULT CalculationOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT PatternOptions([out, retval] VT_DISPATCH* pVal);
+    [propget] VT_HRESULT Name([out, retval] VT_BSTR* pVal);
+};
+
+[uuid(fbae7ffe-532b-4844-bfd2-a8b656ee6cf2), helpstring("Provides access to ROBOT reinforced concrete slabs geometry")]
+coclass RCSlabGeometry {
+    [default] interface IRCSlabGeometry;
+};
+
+[uuid(5e77f9d9-6b51-41fe-a9e9-53b18d803797), helpstring("IRCSlabGeometry Interface")]
+dispinterface IRCSlabGeometry : IDispatch {
+    [propget] VT_HRESULT ShutteringArea([out, retval] VT_R8* pVal);
+    [propget] VT_HRESULT ConcreteVolume([out, retval] VT_R8* pVal);
+};
+
+[uuid(40daacfd-831e-424a-9305-1566ed0bfdca), helpstring("Provides access to ROBOT reinforced concrete slab's calculation options")]
+coclass RCSlabCalculationOptions {
+    [default] interface IRCSlabCalculationOptions;
+};
+
+[uuid(ff3ad743-86ba-479f-bc1d-9d4a7e6278a7), helpstring("IRCSlabCalculationOptions Interface")]
+dispinterface IRCSlabCalculationOptions : IDispatch {
+    [propget] VT_HRESULT Cover([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT Cover([in] VT_R8 _);
+    [propget] VT_HRESULT CoverLateral([out, retval] VT_R8* pVal);
+    [propput] VT_HRESULT CoverLateral([in] VT_R8 _);
+};
+
+[uuid(44e3d54b-c943-4e7c-8773-f27d955fa346), helpstring("Provides access to ROBOT reinforced concrete slab's pattern options")]
+coclass RCSlabPatternOptions {
+    [default] interface IRCSlabPatternOptions;
+};
+
+[uuid(8fc4dff4-4ba5-4d30-b32e-937989981fa7), helpstring("IRCSlabPatternOptions Interface")]
+dispinterface IRCSlabPatternOptions : IDispatch {
+    [propget] VT_HRESULT ReinforcementType([out, retval] IRCSlabRnfType* pVal);
+    [propput] VT_HRESULT ReinforcementType([in] IRCSlabRnfType _);
+    [propget] VT_HRESULT ReinforcementSegment([out, retval] IRCSlabRnfSegment* pVal);
+    [propput] VT_HRESULT ReinforcementSegment([in] IRCSlabRnfSegment _);
+};
+
+[helpstring("Constans for ROBOT RC slab's reinforcement type")]
+typedef enum IRCSlabRnfType {
+    const VT_INT I_RC_SLAB_BAR_ONLY = 1;
+    const VT_INT I_RC_SLAB_NET_ONLY = 2;
+    const VT_INT I_RC_SLAB_BAR_NET = 3;
+} IRCSlabRnfType;
+
+[helpstring("Constans for ROBOT RC slab's reinforcement segment")]
+typedef enum IRCSlabRnfSegment {
+    const VT_INT I_RC_SLAB_SINGLE = 1;
+    const VT_INT I_RC_SLAB_ENTIRE = 2;
+} IRCSlabRnfSegment;
+
+}
